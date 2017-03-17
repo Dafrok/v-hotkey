@@ -1,0 +1,24 @@
+{
+  "name": "v-hotkey",
+  "version": "0.0.0",
+  "description": "Vue 2.x directive - binding hotkeys for components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dafrok/v-hotkey.git"
+  },
+  "keywords": [
+    "vue",
+    "hotkey",
+    "directive"
+  ],
+  "author": "Dafrok <o.o@mug.dog>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dafrok/v-hotkey/issues"
+  },
+  "homepage": "https://github.com/Dafrok/v-hotkey#readme"
+}
