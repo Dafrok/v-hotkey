@@ -1,27 +1,20 @@
-const getKeyCode = alias => {} 
+const getKeyCode = alias => {}
 
 const getKeyMap = keymap => Object.keys(keymap).map(input => {
   const result = {}
   input.split('+').forEach(keyName => {
-    const key = keyName === '.' ? [keyName] : keyName.split('.')
-    switch (key[0]) {
+    switch (keyName) {
       case 'ctrl':
-        result.ctrl = key[1] ? key[1] : true
-        break
       case 'alt':
-        result.alt = key[1] ? key[1] : true
-        break
       case 'shift':
-        result.shift = key[1] ? key[1] : true
-        break
       case 'meta':
-        result.meta = key[1] ? key[1] : true
+        result[keyName] = true
         break
       default:
-        result.key = getKeyCode(key[0])
+        result.keyCode = getKeyCode(keyName)
     }
   })
-
+  result.callback = keymap[input]
   return result
 })
 
@@ -30,9 +23,14 @@ export default {
     Vue.directive('hotkey', {
       bind (el, binding, vnode, oldVnode) {
         binding.keymap = getKeyMap(binding.value)
-        binding.keyHandler = () => {
+        binding.keyHandler = e => {
           for (const hotkey of binding.keymap) {
-            
+            hotkey.keyCode === e.keyCode
+              && !!hotkey.ctrl === e.ctrlKey
+              && !!hotkey.alt === e.altKey
+              && !!hotkey.shift === e.shiftKey
+              && !!hotkey.meta === e.metaKey
+              && hotkey.callback(e)
           }
         }
 
