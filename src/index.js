@@ -1,4 +1,4 @@
-import keyCode from 'keycode'
+import keyCode from './keycode'
 
 const getKeyMap = keymap => Object.keys(keymap).map(input => {
   const result = {}
@@ -33,7 +33,6 @@ export default {
               && hotkey.callback(e)
           }
         }
-
         document.addEventListener('keydown', binding.keyHandler)
       },
       unbind (el, binding, vnode, oldVnode) {
