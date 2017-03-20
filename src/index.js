@@ -1,9 +1,9 @@
-const getKeyCode = alias => {}
+import keyCode from 'keycode'
 
 const getKeyMap = keymap => Object.keys(keymap).map(input => {
   const result = {}
   input.split('+').forEach(keyName => {
-    switch (keyName) {
+    switch (keyName.toLowerCase()) {
       case 'ctrl':
       case 'alt':
       case 'shift':
@@ -11,7 +11,7 @@ const getKeyMap = keymap => Object.keys(keymap).map(input => {
         result[keyName] = true
         break
       default:
-        result.keyCode = getKeyCode(keyName)
+        result.keyCode = keyCode(keyName)
     }
   })
   result.callback = keymap[input]

@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Dafrok/v-hotkey/issues"
   },
-  "homepage": "https://github.com/Dafrok/v-hotkey#readme"
+  "homepage": "https://github.com/Dafrok/v-hotkey#readme",
+  "dependencies": {
+    "keycode": "^2.1.8"
+  }
 }
