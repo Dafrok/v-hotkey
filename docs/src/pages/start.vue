@@ -6,7 +6,8 @@
     p
       |Press 
       b "enter"
-      |  to get start.
+      |  to 
+      router-link(to="/step/1") get start.
 </template>
 
 <script>

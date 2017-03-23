@@ -22,9 +22,9 @@ export default {
   install (Vue) {
     Vue.directive('hotkey', {
       bind (el, binding, vnode, oldVnode) {
-        binding.keymap = getKeyMap(binding.value)
-        binding.keyHandler = e => {
-          for (const hotkey of binding.keymap) {
+        el._keymap = getKeyMap(binding.value)
+        el._keyHandler = e => {
+          for (const hotkey of el._keymap) {
             hotkey.keyCode === e.keyCode
               && !!hotkey.ctrl === e.ctrlKey
               && !!hotkey.alt === e.altKey
@@ -33,10 +33,10 @@ export default {
               && hotkey.callback(e)
           }
         }
-        document.addEventListener('keydown', binding.keyHandler)
+        document.addEventListener('keydown', el._keyHandler)
       },
       unbind (el, binding, vnode, oldVnode) {
-        document.removeEventListener('keydown', binding.keyHandler)
+        document.removeEventListener('keydown', el._keyHandler)
       }
     })
   }

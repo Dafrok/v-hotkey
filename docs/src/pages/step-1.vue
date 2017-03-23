@@ -3,4 +3,5 @@
   h1 GET START
   p Press `←` to previous page.
   p Press `→` to next page.
+  p Press `esc` to return home.
 </template>
