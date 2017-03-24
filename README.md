@@ -4,7 +4,7 @@ Vue 2.x directive - binding hotkeys for components.
 
 ## Play with me
 
-[dafrok.github.io/v-hotkey](dafrok.github.io/v-hotkey)
+[https://dafrok.github.io/v-hotkey](https://dafrok.github.io/v-hotkey)
 
 ## Install
 
