@@ -8,6 +8,9 @@ section
 </script>
 
 <style lang="stylus">
+html, body
+  margin 0
+
 .slide-enter-active, .slide-leave-active
   position absolute
   transition all .5s

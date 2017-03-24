@@ -5,17 +5,13 @@ import Step4 from './pages/step-4.vue'
 import Step5 from './pages/step-5.vue'
 import Start from './pages/start.vue'
 import Step from './pages/step.vue'
-import End from './pages/end.vue'
+import Doc from './pages/doc.vue'
 
 export default [
   {
     path: '/',
     alias: '/start',
     component: Start
-  },
-  {
-    path: '/end',
-    component: End
   },
   {
     path: '/step',
