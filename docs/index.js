@@ -10039,16 +10039,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     star() {
       const $star = this.$refs.star;
       $star.click();
-    },
-    doc() {
-      this.$router.push('/doc');
     }
   },
   computed: {
     keymap() {
       return {
-        enter: this.star,
-        space: this.doc
+        enter: this.star
       };
     }
   }

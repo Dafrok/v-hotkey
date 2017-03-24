@@ -11,16 +11,12 @@ export default {
     star () {
       const $star = this.$refs.star
       $star.click()
-    },
-    doc () {
-      this.$router.push('/doc')
     }
   },
   computed: {
     keymap () {
       return {
-        enter: this.star,
-        space: this.doc
+        enter: this.star
       }
     }
   }
