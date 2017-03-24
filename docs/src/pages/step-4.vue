@@ -10,13 +10,22 @@
     p Component B
     p(v-if="!flag", v-hotkey="keymapB") Press `enter` to say bye.
     p.message(ref="bye") BYE!
+  p(:class="{next: true, show: show}") Press `→` to play next case.
 </template>
 
 <script>
 export default {
   data () {
     return {
-      flag: true
+      flag: true,
+      show: false
+    }
+  },
+  watch: {
+    flag (val, oldVal) {
+      if (val) {
+        this.show = true
+      }
     }
   },
   methods: {
@@ -60,6 +69,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.next
+  transition all 1s
+  opacity 0
+  transform translateY(100%)
+.show
+  opacity 1
+  transform translateY(0)
+
 .message
   opacity 0
   transform scale(0)

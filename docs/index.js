@@ -9931,12 +9931,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
   data() {
     return {
-      flag: true
+      flag: true,
+      show: false
     };
+  },
+  watch: {
+    flag(val, oldVal) {
+      if (val) {
+        this.show = true;
+      }
+    }
   },
   methods: {
     hello() {
@@ -10225,7 +10234,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.message[data-v-6161fe60] {\n  opacity: 0;\n  transform: scale(0);\n}\n.message.active[data-v-6161fe60] {\n  animation: active-private 1s;\n}\n.show[data-v-6161fe60] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.component-a[data-v-6161fe60],\n.component-b[data-v-6161fe60] {\n  transition: all 0.3s;\n  vertical-align: middle;\n  border: 1px solid #c0c0c0;\n  box-sizing: border-box;\n  background: #eee;\n  color: #ccc;\n  margin: 10px;\n  height: 140px;\n}\n.component-a.active[data-v-6161fe60],\n.component-b.active[data-v-6161fe60] {\n  background: #fff;\n  color: #000;\n}\n@-moz-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-webkit-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-o-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n", ""]);
+exports.push([module.i, "\n.next[data-v-6161fe60] {\n  transition: all 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-6161fe60] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.message[data-v-6161fe60] {\n  opacity: 0;\n  transform: scale(0);\n}\n.message.active[data-v-6161fe60] {\n  animation: active-private 1s;\n}\n.show[data-v-6161fe60] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.component-a[data-v-6161fe60],\n.component-b[data-v-6161fe60] {\n  transition: all 0.3s;\n  vertical-align: middle;\n  border: 1px solid #c0c0c0;\n  box-sizing: border-box;\n  background: #eee;\n  color: #ccc;\n  margin: 10px;\n  height: 140px;\n}\n.component-a.active[data-v-6161fe60],\n.component-b.active[data-v-6161fe60] {\n  background: #fff;\n  color: #000;\n}\n@-moz-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-webkit-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-o-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -10789,7 +10798,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Press `enter` to say bye.")]) : _vm._e(), _c('p', {
     ref: "bye",
     staticClass: "message"
-  }, [_vm._v("BYE!")])])])
+  }, [_vm._v("BYE!")])]), _c('p', {
+    class: {
+      next: true, show: _vm.show
+    }
+  }, [_vm._v("Press `→` to play next case.")])])
 },staticRenderFns: []}
 if (false) {
   module.hot.accept()
