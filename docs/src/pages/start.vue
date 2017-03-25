@@ -1,18 +1,10 @@
 <template lang="pug">
-.fixed
-  .container(v-hotkey="keymap")
-    h1 V Hotkey
-    p Vue 2.x directive - binding hotkeys for components.
-    p
-      |Press 
-      b "enter"
-      |  to 
-      router-link(to="/step/1") get start.
-    p
-      |Press 
-      b "space"
-      |  to 
-      a(ref="doc", href="https://github.com/Dafrok/v-hotkey/blob/master/README.md", target="_blank") see the documentation.
+div(v-hotkey="keymap")
+  h1.title V Hotkey
+  h2.subtitle Vue 2.x directive - binding hotkeys for components.
+  section.hero-section
+    p Press <kbd>enter</kbd> to <router-link to="/step/1">get start</router-link>.
+    p Press <kbd>space</kbd> to see the <a ref="doc" href="https://github.com/Dafrok/v-hotkey/blob/master/README.md" target="_blank">documentation</a>.    
 </template>
 
 <script>

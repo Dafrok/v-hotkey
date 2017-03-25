@@ -5,6 +5,8 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import routes from './routes'
 
+import 'bulma/css/bulma.css'
+
 Vue.use(VueHotkey)
 Vue.use(VueRouter)
 

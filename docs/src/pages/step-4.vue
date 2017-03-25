@@ -1,16 +1,24 @@
 <template lang="pug">
-.container(v-hotkey="keymap")
-  h1 Private Hotkeys of Components
-  p Press `tab` to switch two Components
-  div.component-a(:class="{active: flag}")
-    p Component A
-    p(v-if="flag", v-hotkey="keymapA") Press `enter` to say hello.
-    p.message(ref="hello") HELLO!
-  div.component-b(:class="{active: !flag}")
-    p Component B
-    p(v-if="!flag", v-hotkey="keymapB") Press `enter` to say bye.
-    p.message(ref="bye") BYE!
-  p(:class="{next: true, show: show}") Press `→` to play next case.
+section(v-hotkey="keymap")
+  h1.title Private Hotkeys of Components
+  section.hero-section
+    p Press <kbd>tab</kbd> to switch between two components.
+  section.hero-section
+    .columns
+      .column.is-2
+      .column.is-4
+        .box.content.component-a(:class="{active: flag}")
+          h1 Component A
+          p(v-if="flag", v-hotkey="keymapA") Press <kbd>enter</kbd> to say hello.
+          .msg(ref="hello") HELLO!
+      .column.is-4
+        .box.content.component-b(:class="{active: !flag}")
+          h1 Component B
+          p(v-if="!flag", v-hotkey="keymapB") Press <kbd>enter</kbd> to say bye.
+          .msg(ref="bye") BYE!
+      .column.is-2
+  section.hero-section
+    p(:class="{next: true, show: show}") Press <kbd>→</kbd> to play next case.
 </template>
 
 <script>
@@ -77,7 +85,9 @@ export default {
   opacity 1
   transform translateY(0)
 
-.message
+.msg
+  display inline-block
+  margin 10px
   opacity 0
   transform scale(0)
   &.active
@@ -100,14 +110,10 @@ export default {
 
 .component-a, .component-b
   transition all .3s
-  vertical-align middle
-  border 1px solid silver
-  box-sizing border-box
-  background #eee
-  color #ccc
-  margin 10px
-  height 140px
+  height 180px
+  *
+    color #ccc
   &.active
-    background white
-    color black
+    *
+      color black
 </style>

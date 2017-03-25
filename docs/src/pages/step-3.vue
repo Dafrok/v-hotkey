@@ -1,12 +1,13 @@
 <template lang="pug">
-.container(v-hotkey="keymap")
-  h1 Key Combination
-  p Press `ctrl + enter` to say 
-    b(ref="hello") hello.
-  p Press `alt + enter` to say 
-    b(ref="bye") bye.
-  p Press `ctrl + alt + enter` to leave
-  p(:class="{next: true, show: show}") Press `→` to play next case.
+section(v-hotkey="keymap")
+  h1.title Key Combination
+  section.hero-section
+    p Press <kbd>ctrl</kbd> + <kbd>enter</kbd> to say 
+      b(ref="hello") hello.
+    p Press <kbd>alt</kbd> + <kbd>enter</kbd> to say 
+      b(ref="bye") bye.
+    p Press <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>enter</kbd> to leave.
+    p(:class="{next: true, show: show}") Press <kbd>→</kbd> to play next case.
 </template>
 
 <script>

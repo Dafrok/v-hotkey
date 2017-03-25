@@ -48,5 +48,8 @@
   },
   "peerDependencies": {
     "vue": "^2.0.0"
+  },
+  "dependencies": {
+    "bulma": "^0.4.0"
   }
 }

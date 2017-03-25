@@ -1,7 +1,9 @@
 <template lang="pug">
-section
-  transition(name="slide")
-    router-view
+section.hero.is-primary.is-fullheight
+  .hero-body
+    .container.has-text-centered
+      transition(name="slide", mode="out-in")
+        router-view
 </template>
 
 <script>
@@ -12,21 +14,23 @@ html, body
   margin 0
 
 .slide-enter-active, .slide-leave-active
-  position absolute
-  transition all .5s
+  transition all .3s
 .slide-enter, .slide-leave-active
-  position absolute
   transform translateX(-50%)
   opacity 0
 
-.fixed
-  position fixed
-  top 0
-  bottom 0
-  left 0
-  right 0
-  display flex
-  justify-content center
-  align-items center
-  text-align center
+kbd
+  display inline-block
+  padding 3px 5px
+  font 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace
+  line-height 10px
+  color #444d56
+  vertical-align middle
+  background-color #fcfcfc
+  border solid 1px #c6cbd1
+  border-bottom-color #959da5
+  border-radius 3px
+  box-shadow inset 0 -1px 0 #959da5
+.hero-section
+  margin-top 1.5rem
 </style>

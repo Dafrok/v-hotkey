@@ -1,6 +1,6 @@
 <template lang="pug">
-article.fixed(v-hotkey="keymap")
-  transition(name="slide")
+section(v-hotkey="keymap")
+  transition(name="slide", mode="out-in")
     router-view
 </template>
 <script>

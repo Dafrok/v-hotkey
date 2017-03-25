@@ -1,9 +1,10 @@
 <template lang="pug">
-.container(v-hotkey="keymap")
-  h1(ref="hello") Hello world.
-  p Press `enter` to say hello.
-  transition(name="slide")
-    p(:class="{next: true, show: show}") Press `→` to play next case.
+section(v-hotkey="keymap")
+  h1.title(ref="hello") Hello world.
+  section.hero-section
+    p Press <kbd>enter</kbd> to say hello.
+    transition(name="slide")
+      p(:class="{next: true, show: show}") Press <kbd>→</kbd> to play next case.
 </template>
 
 <script>
