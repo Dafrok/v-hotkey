@@ -48,3 +48,12 @@ export default {
 }
 </script>
 ```
+
+## Key Combination
+
+Use one or more of following keys to fire your hotkeys.
+
+- ctrl
+- alt
+- shift
+- meta (windows / command)
