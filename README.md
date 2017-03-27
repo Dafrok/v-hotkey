@@ -41,6 +41,7 @@ export default {
   computed {
     keymap () {
       return {
+        // 'esc+ctrl' is OK.
         'ctrl+esc': this.toggle
       }
     }
