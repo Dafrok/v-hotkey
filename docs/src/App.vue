@@ -1,5 +1,5 @@
 <template lang="pug">
-section.hero.is-primary.is-fullheight
+section.hero.is-fullheight
   .hero-body
     .container.has-text-centered
       transition(name="slide", mode="out-in")
