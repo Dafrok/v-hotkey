@@ -1,6 +1,6 @@
 # v-hotkey
 
-Vue 2.x directive - binding hotkeys for components.
+Vue 2.x directive for binding hotkeys to components.
 
 ## Play with me
 
