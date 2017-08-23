@@ -13,6 +13,15 @@ section.hero.is-fullheight
 html, body
   margin 0
 
+.hero
+  background-image url(./img/bg.jpg)
+  background-size cover
+  background-attachment fixed
+.box
+  opacity 0.5
+  &.active
+    opacity 1
+    background-color rgba(255, 255, 255, 0.5)!important
 .slide-enter-active, .slide-leave-active
   transition all .3s
 .slide-enter, .slide-leave-active
