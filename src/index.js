@@ -25,12 +25,12 @@ export default {
         el._keymap = getKeyMap(binding.value)
         el._keyHandler = e => {
           for (const hotkey of el._keymap) {
-            hotkey.keyCode === e.keyCode
-              && !!hotkey.ctrl === e.ctrlKey
-              && !!hotkey.alt === e.altKey
-              && !!hotkey.shift === e.shiftKey
-              && !!hotkey.meta === e.metaKey
-              && hotkey.callback(e)
+            hotkey.keyCode === e.keyCode &&
+              !!hotkey.ctrl === e.ctrlKey &&
+              !!hotkey.alt === e.altKey &&
+              !!hotkey.shift === e.shiftKey &&
+              !!hotkey.meta === e.metaKey &&
+              hotkey.callback(e)
           }
         }
         document.addEventListener('keydown', el._keyHandler)
