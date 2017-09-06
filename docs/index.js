@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 47);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -518,6 +518,10 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
@@ -532,103 +536,188 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_step_1_vue__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_step_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__pages_step_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_step_2_vue__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_step_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__pages_step_2_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_step_3_vue__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_step_3_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pages_step_3_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_step_4_vue__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_step_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__pages_step_4_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_step_5_vue__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_step_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__pages_step_5_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_start_vue__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_start_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__pages_start_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_step_vue__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_step_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__pages_step_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_doc_vue__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_doc_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__pages_doc_vue__);
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(28), __webpack_require__(29), __webpack_require__(30), __webpack_require__(31), __webpack_require__(32), __webpack_require__(27), __webpack_require__(33), __webpack_require__(26)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports, require('./pages/step-1.vue'), require('./pages/step-2.vue'), require('./pages/step-3.vue'), require('./pages/step-4.vue'), require('./pages/step-5.vue'), require('./pages/start.vue'), require('./pages/step.vue'), require('./pages/doc.vue'));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports, global.step1, global.step2, global.step3, global.step4, global.step5, global.start, global.step, global.doc);
+    global.routes = mod.exports;
+  }
+})(this, function (module, exports, _step, _step3, _step5, _step7, _step9, _start, _step11, _doc) {
+  'use strict';
 
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
 
+  var _step2 = _interopRequireDefault(_step);
 
+  var _step4 = _interopRequireDefault(_step3);
 
+  var _step6 = _interopRequireDefault(_step5);
 
+  var _step8 = _interopRequireDefault(_step7);
 
+  var _step10 = _interopRequireDefault(_step9);
 
+  var _start2 = _interopRequireDefault(_start);
 
+  var _step12 = _interopRequireDefault(_step11);
 
-/* harmony default export */ __webpack_exports__["a"] = [{
-  path: '/',
-  alias: '/start',
-  component: __WEBPACK_IMPORTED_MODULE_5__pages_start_vue___default.a
-}, {
-  path: '/step',
-  component: __WEBPACK_IMPORTED_MODULE_6__pages_step_vue___default.a,
-  children: [{
-    path: '1',
-    component: __WEBPACK_IMPORTED_MODULE_0__pages_step_1_vue___default.a
+  var _doc2 = _interopRequireDefault(_doc);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  exports.default = [{
+    path: '/',
+    alias: '/start',
+    component: _start2.default
   }, {
-    path: '2',
-    component: __WEBPACK_IMPORTED_MODULE_1__pages_step_2_vue___default.a
-  }, {
-    path: '3',
-    component: __WEBPACK_IMPORTED_MODULE_2__pages_step_3_vue___default.a
-  }, {
-    path: '4',
-    component: __WEBPACK_IMPORTED_MODULE_3__pages_step_4_vue___default.a
-  }, {
-    path: '5',
-    component: __WEBPACK_IMPORTED_MODULE_4__pages_step_5_vue___default.a
-  }]
-}];
+    path: '/step',
+    component: _step12.default,
+    children: [{
+      path: '1',
+      component: _step2.default
+    }, {
+      path: '2',
+      component: _step4.default
+    }, {
+      path: '3',
+      component: _step6.default
+    }, {
+      path: '4',
+      component: _step8.default
+    }, {
+      path: '5',
+      component: _step10.default
+    }]
+  }];
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__keycode__ = __webpack_require__(17);
-
-
-const getKeyMap = keymap => Object.keys(keymap).map(input => {
-  const result = {};
-  input.split('+').forEach(keyName => {
-    switch (keyName.toLowerCase()) {
-      case 'ctrl':
-      case 'alt':
-      case 'shift':
-      case 'meta':
-        result[keyName] = true;
-        break;
-      default:
-        result.keyCode = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__keycode__["a" /* default */])(keyName);
-    }
-  });
-  result.callback = keymap[input];
-  return result;
-});
-
-/* harmony default export */ __webpack_exports__["a"] = {
-  install(Vue) {
-    Vue.directive('hotkey', {
-      bind(el, binding, vnode, oldVnode) {
-        el._keymap = getKeyMap(binding.value);
-        el._keyHandler = e => {
-          for (const hotkey of el._keymap) {
-            hotkey.keyCode === e.keyCode && !!hotkey.ctrl === e.ctrlKey && !!hotkey.alt === e.altKey && !!hotkey.shift === e.shiftKey && !!hotkey.meta === e.metaKey && hotkey.callback(e);
-          }
-        };
-        document.addEventListener('keydown', el._keyHandler);
-      },
-      unbind(el, binding, vnode, oldVnode) {
-        document.removeEventListener('keydown', el._keyHandler);
-      }
-    });
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(18)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports, require('./keycode'));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports, global.keycode);
+    global.index = mod.exports;
   }
-};
+})(this, function (module, exports, _keycode) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _keycode2 = _interopRequireDefault(_keycode);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var getKeyMap = function getKeyMap(keymap) {
+    return Object.keys(keymap).map(function (input) {
+      var result = {};
+      input.split('+').forEach(function (keyName) {
+        switch (keyName.toLowerCase()) {
+          case 'ctrl':
+          case 'alt':
+          case 'shift':
+          case 'meta':
+            result[keyName] = true;
+            break;
+          default:
+            result.keyCode = (0, _keycode2.default)(keyName);
+        }
+      });
+      result.callback = keymap[input];
+      return result;
+    });
+  };
+
+  exports.default = {
+    install: function install(Vue) {
+      Vue.directive('hotkey', {
+        bind: function bind(el, binding, vnode, oldVnode) {
+          el._keymap = getKeyMap(binding.value);
+
+          el._keymapHasKeyUp = el._keymap.some(function (hotkey) {
+            return hotkey.callback.keyup;
+          });
+
+          el._keyHandler = function (e) {
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+              for (var _iterator = el._keymap[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var hotkey = _step.value;
+
+                var callback = hotkey.keyCode === e.keyCode && !!hotkey.ctrl === e.ctrlKey && !!hotkey.alt === e.altKey && !!hotkey.shift === e.shiftKey && !!hotkey.meta === e.metaKey && (e.type === "keydown" ? hotkey.callback.keydown || hotkey.callback : hotkey.callback.keyup);
+                if (callback) {
+                  callback(e);
+                }
+              }
+            } catch (err) {
+              _didIteratorError = true;
+              _iteratorError = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                  _iterator.return();
+                }
+              } finally {
+                if (_didIteratorError) {
+                  throw _iteratorError;
+                }
+              }
+            }
+          };
+          document.addEventListener('keydown', el._keyHandler);
+          if (el._keymapHasKeyUp) {
+            document.addEventListener('keyup', el._keyHandler);
+          }
+        },
+        unbind: function unbind(el, binding, vnode, oldVnode) {
+          document.removeEventListener('keydown', el._keyHandler);
+          if (el._keymapHasKeyUp) {
+            document.removeEventListener('keyup', el._keyHandler);
+          }
+        }
+      });
+    }
+  };
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 5 */
@@ -637,10 +726,10 @@ const getKeyMap = keymap => Object.keys(keymap).map(input => {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(18);
+var content = __webpack_require__(19);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(24)(content, {});
+var update = __webpack_require__(25)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -664,13 +753,13 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
 /* styles */
-__webpack_require__(42)
+__webpack_require__(46)
 
 /* script */
-__vue_exports__ = __webpack_require__(9)
+__vue_exports__ = __webpack_require__(10)
 
 /* template */
-var __vue_template__ = __webpack_require__(36)
+var __vue_template__ = __webpack_require__(42)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -682,20 +771,20 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/App.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/App.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-54522082", __vue_options__)
+    hotAPI.createRecord("data-v-7dd95fbe", __vue_options__)
   } else {
-    hotAPI.reload("data-v-54522082", __vue_options__)
+    hotAPI.reload("data-v-7dd95fbe", __vue_options__)
   }
 })()}
 if (__vue_options__.functional) {console.error("[vue-loader] App.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -708,8 +797,9 @@ module.exports = __vue_exports__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process) {/**
-  * vue-router v2.2.1
+  * vue-router v2.7.0
   * (c) 2017 Evan You
   * @license MIT
   */
@@ -722,9 +812,13 @@ function assert (condition, message) {
 }
 
 function warn (condition, message) {
-  if (!condition) {
+  if (process.env.NODE_ENV !== 'production' && !condition) {
     typeof console !== 'undefined' && console.warn(("[vue-router] " + message));
   }
+}
+
+function isError (err) {
+  return Object.prototype.toString.call(err).indexOf('Error') > -1
 }
 
 var View = {
@@ -736,7 +830,7 @@ var View = {
       default: 'default'
     }
   },
-  render: function render (h, ref) {
+  render: function render (_, ref) {
     var props = ref.props;
     var children = ref.children;
     var parent = ref.parent;
@@ -744,6 +838,9 @@ var View = {
 
     data.routerView = true;
 
+    // directly use parent context's createElement() function
+    // so that components rendered by router-view can resolve named slots
+    var h = parent.$createElement;
     var name = props.name;
     var route = parent.$route;
     var cache = parent._routerViewCache || (parent._routerViewCache = {});
@@ -752,7 +849,7 @@ var View = {
     // has been toggled inactive but kept-alive.
     var depth = 0;
     var inactive = false;
-    while (parent) {
+    while (parent && parent._routerRoot !== parent) {
       if (parent.$vnode && parent.$vnode.data.routerView) {
         depth++;
       }
@@ -777,18 +874,23 @@ var View = {
 
     var component = cache[name] = matched.components[name];
 
-    // inject instance registration hooks
-    var hooks = data.hook || (data.hook = {});
-    hooks.init = function (vnode) {
-      matched.instances[name] = vnode.child;
-    };
-    hooks.prepatch = function (oldVnode, vnode) {
-      matched.instances[name] = vnode.child;
-    };
-    hooks.destroy = function (vnode) {
-      if (matched.instances[name] === vnode.child) {
-        matched.instances[name] = undefined;
+    // attach instance registration hook
+    // this will be called in the instance's injected lifecycle hooks
+    data.registerRouteInstance = function (vm, val) {
+      // val could be undefined for unregistration
+      var current = matched.instances[name];
+      if (
+        (val && current !== vm) ||
+        (!val && current === vm)
+      ) {
+        matched.instances[name] = val;
       }
+    }
+
+    // also regiseter instance in prepatch hook
+    // in case the same component instance is reused across different routes
+    ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
+      matched.instances[name] = vnode.componentInstance;
     };
 
     // resolve props
@@ -809,7 +911,13 @@ function resolveProps (route, config) {
     case 'boolean':
       return config ? route.params : undefined
     default:
-      warn(false, ("props in \"" + (route.path) + "\" is a " + (typeof config) + ", expecting an object, function or boolean."));
+      if (process.env.NODE_ENV !== 'production') {
+        warn(
+          false,
+          "props in \"" + (route.path) + "\" is a " + (typeof config) + ", " +
+          "expecting an object, function or boolean."
+        );
+      }
   }
 }
 
@@ -819,7 +927,7 @@ var encodeReserveRE = /[!'()*]/g;
 var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
 var commaRE = /%2C/g;
 
-// fixed encodeURIComponent which is more comformant to RFC3986:
+// fixed encodeURIComponent which is more conformant to RFC3986:
 // - escapes [!'()*]
 // - preserve commas
 var encode = function (str) { return encodeURIComponent(str)
@@ -830,25 +938,24 @@ var decode = decodeURIComponent;
 
 function resolveQuery (
   query,
-  extraQuery
+  extraQuery,
+  _parseQuery
 ) {
   if ( extraQuery === void 0 ) extraQuery = {};
 
-  if (query) {
-    var parsedQuery;
-    try {
-      parsedQuery = parseQuery(query);
-    } catch (e) {
-      process.env.NODE_ENV !== 'production' && warn(false, e.message);
-      parsedQuery = {};
-    }
-    for (var key in extraQuery) {
-      parsedQuery[key] = extraQuery[key];
-    }
-    return parsedQuery
-  } else {
-    return extraQuery
+  var parse = _parseQuery || parseQuery;
+  var parsedQuery;
+  try {
+    parsedQuery = parse(query || '');
+  } catch (e) {
+    process.env.NODE_ENV !== 'production' && warn(false, e.message);
+    parsedQuery = {};
   }
+  for (var key in extraQuery) {
+    var val = extraQuery[key];
+    parsedQuery[key] = Array.isArray(val) ? val.slice() : val;
+  }
+  return parsedQuery
 }
 
 function parseQuery (query) {
@@ -893,7 +1000,7 @@ function stringifyQuery (obj) {
 
     if (Array.isArray(val)) {
       var result = [];
-      val.slice().forEach(function (val2) {
+      val.forEach(function (val2) {
         if (val2 === undefined) {
           return
         }
@@ -913,13 +1020,16 @@ function stringifyQuery (obj) {
 
 /*  */
 
+
 var trailingSlashRE = /\/?$/;
 
 function createRoute (
   record,
   location,
-  redirectedFrom
+  redirectedFrom,
+  router
 ) {
+  var stringifyQuery$$1 = router && router.options.stringifyQuery;
   var route = {
     name: location.name || (record && record.name),
     meta: (record && record.meta) || {},
@@ -927,11 +1037,11 @@ function createRoute (
     hash: location.hash || '',
     query: location.query || {},
     params: location.params || {},
-    fullPath: getFullPath(location),
+    fullPath: getFullPath(location, stringifyQuery$$1),
     matched: record ? formatMatch(record) : []
   };
   if (redirectedFrom) {
-    route.redirectedFrom = getFullPath(redirectedFrom);
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
   }
   return Object.freeze(route)
 }
@@ -950,12 +1060,16 @@ function formatMatch (record) {
   return res
 }
 
-function getFullPath (ref) {
+function getFullPath (
+  ref,
+  _stringifyQuery
+) {
   var path = ref.path;
   var query = ref.query; if ( query === void 0 ) query = {};
   var hash = ref.hash; if ( hash === void 0 ) hash = '';
 
-  return (path || '/') + stringifyQuery(query) + hash
+  var stringify = _stringifyQuery || stringifyQuery;
+  return (path || '/') + stringify(query) + hash
 }
 
 function isSameRoute (a, b) {
@@ -990,7 +1104,15 @@ function isObjectEqual (a, b) {
   if (aKeys.length !== bKeys.length) {
     return false
   }
-  return aKeys.every(function (key) { return String(a[key]) === String(b[key]); })
+  return aKeys.every(function (key) {
+    var aVal = a[key];
+    var bVal = b[key];
+    // check nested equality
+    if (typeof aVal === 'object' && typeof bVal === 'object') {
+      return isObjectEqual(aVal, bVal)
+    }
+    return String(aVal) === String(bVal)
+  })
 }
 
 function isIncludedRoute (current, target) {
@@ -1033,6 +1155,7 @@ var Link = {
     append: Boolean,
     replace: Boolean,
     activeClass: String,
+    exactActiveClass: String,
     event: {
       type: eventTypes,
       default: 'click'
@@ -1047,11 +1170,30 @@ var Link = {
     var location = ref.location;
     var route = ref.route;
     var href = ref.href;
+
     var classes = {};
-    var activeClass = this.activeClass || router.options.linkActiveClass || 'router-link-active';
-    var compareTarget = location.path ? createRoute(null, location) : route;
+    var globalActiveClass = router.options.linkActiveClass;
+    var globalExactActiveClass = router.options.linkExactActiveClass;
+    // Support global empty active class
+    var activeClassFallback = globalActiveClass == null
+            ? 'router-link-active'
+            : globalActiveClass;
+    var exactActiveClassFallback = globalExactActiveClass == null
+            ? 'router-link-exact-active'
+            : globalExactActiveClass;
+    var activeClass = this.activeClass == null
+            ? activeClassFallback
+            : this.activeClass;
+    var exactActiveClass = this.exactActiveClass == null
+            ? exactActiveClassFallback
+            : this.exactActiveClass;
+    var compareTarget = location.path
+      ? createRoute(null, location, null, router)
+      : route;
+
+    classes[exactActiveClass] = isSameRoute(current, compareTarget);
     classes[activeClass] = this.exact
-      ? isSameRoute(current, compareTarget)
+      ? classes[exactActiveClass]
       : isIncludedRoute(current, compareTarget);
 
     var handler = function (e) {
@@ -1101,14 +1243,14 @@ var Link = {
 
 function guardEvent (e) {
   // don't redirect with control keys
-  if (e.metaKey || e.ctrlKey || e.shiftKey) { return }
+  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) { return }
   // don't redirect when preventDefault called
   if (e.defaultPrevented) { return }
   // don't redirect on right click
   if (e.button !== undefined && e.button !== 0) { return }
   // don't redirect if `target="_blank"`
-  if (e.target && e.target.getAttribute) {
-    var target = e.target.getAttribute('target');
+  if (e.currentTarget && e.currentTarget.getAttribute) {
+    var target = e.currentTarget.getAttribute('target');
     if (/\b_blank\b/i.test(target)) { return }
   }
   // this may be a Weex event which doesn't have this method
@@ -1141,22 +1283,38 @@ function install (Vue) {
 
   _Vue = Vue;
 
-  Object.defineProperty(Vue.prototype, '$router', {
-    get: function get () { return this.$root._router }
-  });
+  var isDef = function (v) { return v !== undefined; };
 
-  Object.defineProperty(Vue.prototype, '$route', {
-    get: function get () { return this.$root._route }
-  });
+  var registerInstance = function (vm, callVal) {
+    var i = vm.$options._parentVnode;
+    if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
+      i(vm, callVal);
+    }
+  };
 
   Vue.mixin({
     beforeCreate: function beforeCreate () {
-      if (this.$options.router) {
+      if (isDef(this.$options.router)) {
+        this._routerRoot = this;
         this._router = this.$options.router;
         this._router.init(this);
         Vue.util.defineReactive(this, '_route', this._router.history.current);
+      } else {
+        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this;
       }
+      registerInstance(this, this);
+    },
+    destroyed: function destroyed () {
+      registerInstance(this);
     }
+  });
+
+  Object.defineProperty(Vue.prototype, '$router', {
+    get: function get () { return this._routerRoot._router }
+  });
+
+  Object.defineProperty(Vue.prototype, '$route', {
+    get: function get () { return this._routerRoot._route }
   });
 
   Vue.component('router-view', View);
@@ -1164,7 +1322,7 @@ function install (Vue) {
 
   var strats = Vue.config.optionMergeStrategies;
   // use the same hook merging strategy for route hooks
-  strats.beforeRouteEnter = strats.beforeRouteLeave = strats.created;
+  strats.beforeRouteEnter = strats.beforeRouteLeave = strats.beforeRouteUpdate = strats.created;
 }
 
 /*  */
@@ -1178,11 +1336,12 @@ function resolvePath (
   base,
   append
 ) {
-  if (relative.charAt(0) === '/') {
+  var firstChar = relative.charAt(0);
+  if (firstChar === '/') {
     return relative
   }
 
-  if (relative.charAt(0) === '?' || relative.charAt(0) === '#') {
+  if (firstChar === '?' || firstChar === '#') {
     return base + relative
   }
 
@@ -1199,11 +1358,9 @@ function resolvePath (
   var segments = relative.replace(/^\//, '').split('/');
   for (var i = 0; i < segments.length; i++) {
     var segment = segments[i];
-    if (segment === '.') {
-      continue
-    } else if (segment === '..') {
+    if (segment === '..') {
       stack.pop();
-    } else {
+    } else if (segment !== '.') {
       stack.push(segment);
     }
   }
@@ -1243,132 +1400,9 @@ function cleanPath (path) {
   return path.replace(/\/\//g, '/')
 }
 
-/*  */
-
-function createRouteMap (
-  routes,
-  oldPathMap,
-  oldNameMap
-) {
-  var pathMap = oldPathMap || Object.create(null);
-  var nameMap = oldNameMap || Object.create(null);
-
-  routes.forEach(function (route) {
-    addRouteRecord(pathMap, nameMap, route);
-  });
-
-  return {
-    pathMap: pathMap,
-    nameMap: nameMap
-  }
-}
-
-function addRouteRecord (
-  pathMap,
-  nameMap,
-  route,
-  parent,
-  matchAs
-) {
-  var path = route.path;
-  var name = route.name;
-  if (process.env.NODE_ENV !== 'production') {
-    assert(path != null, "\"path\" is required in a route configuration.");
-    assert(
-      typeof route.component !== 'string',
-      "route config \"component\" for path: " + (String(path || name)) + " cannot be a " +
-      "string id. Use an actual component instead."
-    );
-  }
-
-  var record = {
-    path: normalizePath(path, parent),
-    components: route.components || { default: route.component },
-    instances: {},
-    name: name,
-    parent: parent,
-    matchAs: matchAs,
-    redirect: route.redirect,
-    beforeEnter: route.beforeEnter,
-    meta: route.meta || {},
-    props: route.props == null
-      ? {}
-      : route.components
-        ? route.props
-        : { default: route.props }
-  };
-
-  if (route.children) {
-    // Warn if route is named and has a default child route.
-    // If users navigate to this route by name, the default child will
-    // not be rendered (GH Issue #629)
-    if (process.env.NODE_ENV !== 'production') {
-      if (route.name && route.children.some(function (child) { return /^\/?$/.test(child.path); })) {
-        warn(
-          false,
-          "Named Route '" + (route.name) + "' has a default child route. " +
-          "When navigating to this named route (:to=\"{name: '" + (route.name) + "'\"), " +
-          "the default child route will not be rendered. Remove the name from " +
-          "this route and use the name of the default child route for named " +
-          "links instead."
-        );
-      }
-    }
-    route.children.forEach(function (child) {
-      var childMatchAs = matchAs
-        ? cleanPath((matchAs + "/" + (child.path)))
-        : undefined;
-      addRouteRecord(pathMap, nameMap, child, record, childMatchAs);
-    });
-  }
-
-  if (route.alias !== undefined) {
-    if (Array.isArray(route.alias)) {
-      route.alias.forEach(function (alias) {
-        var aliasRoute = {
-          path: alias,
-          children: route.children
-        };
-        addRouteRecord(pathMap, nameMap, aliasRoute, parent, record.path);
-      });
-    } else {
-      var aliasRoute = {
-        path: route.alias,
-        children: route.children
-      };
-      addRouteRecord(pathMap, nameMap, aliasRoute, parent, record.path);
-    }
-  }
-
-  if (!pathMap[record.path]) {
-    pathMap[record.path] = record;
-  }
-
-  if (name) {
-    if (!nameMap[name]) {
-      nameMap[name] = record;
-    } else if (process.env.NODE_ENV !== 'production' && !matchAs) {
-      warn(
-        false,
-        "Duplicate named routes definition: " +
-        "{ name: \"" + name + "\", path: \"" + (record.path) + "\" }"
-      );
-    }
-  }
-}
-
-function normalizePath (path, parent) {
-  path = path.replace(/\/$/, '');
-  if (path[0] === '/') { return path }
-  if (parent == null) { return path }
-  return cleanPath(((parent.path) + "/" + path))
-}
-
 var index$1 = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
-
-var isarray = index$1;
 
 /**
  * Expose `pathToRegexp`.
@@ -1550,7 +1584,7 @@ function tokensToFunction (tokens) {
         }
       }
 
-      if (isarray(value)) {
+      if (index$1(value)) {
         if (!token.repeat) {
           throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
         }
@@ -1701,7 +1735,7 @@ function stringToRegexp (path, keys, options) {
  * @return {!RegExp}
  */
 function tokensToRegExp (tokens, keys, options) {
-  if (!isarray(keys)) {
+  if (!index$1(keys)) {
     options = /** @type {!Object} */ (keys || options);
     keys = [];
   }
@@ -1777,7 +1811,7 @@ function tokensToRegExp (tokens, keys, options) {
  * @return {!RegExp}
  */
 function pathToRegexp (path, keys, options) {
-  if (!isarray(keys)) {
+  if (!index$1(keys)) {
     options = /** @type {!Object} */ (keys || options);
     keys = [];
   }
@@ -1788,7 +1822,7 @@ function pathToRegexp (path, keys, options) {
     return regexpToRegexp(path, /** @type {!Array} */ (keys))
   }
 
-  if (isarray(path)) {
+  if (index$1(path)) {
     return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
   }
 
@@ -1801,24 +1835,6 @@ index.tokensToFunction = tokensToFunction_1;
 index.tokensToRegExp = tokensToRegExp_1;
 
 /*  */
-
-var regexpCache = Object.create(null);
-
-function getRouteRegex (path) {
-  var hit = regexpCache[path];
-  var keys, regexp;
-
-  if (hit) {
-    keys = hit.keys;
-    regexp = hit.regexp;
-  } else {
-    keys = [];
-    regexp = index(path, keys);
-    regexpCache[path] = { keys: keys, regexp: regexp };
-  }
-
-  return { keys: keys, regexp: regexp }
-}
 
 var regexpCompileCache = Object.create(null);
 
@@ -1842,10 +1858,171 @@ function fillParams (
 
 /*  */
 
+function createRouteMap (
+  routes,
+  oldPathList,
+  oldPathMap,
+  oldNameMap
+) {
+  // the path list is used to control path matching priority
+  var pathList = oldPathList || [];
+  var pathMap = oldPathMap || Object.create(null);
+  var nameMap = oldNameMap || Object.create(null);
+
+  routes.forEach(function (route) {
+    addRouteRecord(pathList, pathMap, nameMap, route);
+  });
+
+  // ensure wildcard routes are always at the end
+  for (var i = 0, l = pathList.length; i < l; i++) {
+    if (pathList[i] === '*') {
+      pathList.push(pathList.splice(i, 1)[0]);
+      l--;
+      i--;
+    }
+  }
+
+  return {
+    pathList: pathList,
+    pathMap: pathMap,
+    nameMap: nameMap
+  }
+}
+
+function addRouteRecord (
+  pathList,
+  pathMap,
+  nameMap,
+  route,
+  parent,
+  matchAs
+) {
+  var path = route.path;
+  var name = route.name;
+  if (process.env.NODE_ENV !== 'production') {
+    assert(path != null, "\"path\" is required in a route configuration.");
+    assert(
+      typeof route.component !== 'string',
+      "route config \"component\" for path: " + (String(path || name)) + " cannot be a " +
+      "string id. Use an actual component instead."
+    );
+  }
+
+  var normalizedPath = normalizePath(path, parent);
+  var pathToRegexpOptions = route.pathToRegexpOptions || {};
+
+  if (typeof route.caseSensitive === 'boolean') {
+    pathToRegexpOptions.sensitive = route.caseSensitive;
+  }
+
+  var record = {
+    path: normalizedPath,
+    regex: compileRouteRegex(normalizedPath, pathToRegexpOptions),
+    components: route.components || { default: route.component },
+    instances: {},
+    name: name,
+    parent: parent,
+    matchAs: matchAs,
+    redirect: route.redirect,
+    beforeEnter: route.beforeEnter,
+    meta: route.meta || {},
+    props: route.props == null
+      ? {}
+      : route.components
+        ? route.props
+        : { default: route.props }
+  };
+
+  if (route.children) {
+    // Warn if route is named, does not redirect and has a default child route.
+    // If users navigate to this route by name, the default child will
+    // not be rendered (GH Issue #629)
+    if (process.env.NODE_ENV !== 'production') {
+      if (route.name && !route.redirect && route.children.some(function (child) { return /^\/?$/.test(child.path); })) {
+        warn(
+          false,
+          "Named Route '" + (route.name) + "' has a default child route. " +
+          "When navigating to this named route (:to=\"{name: '" + (route.name) + "'\"), " +
+          "the default child route will not be rendered. Remove the name from " +
+          "this route and use the name of the default child route for named " +
+          "links instead."
+        );
+      }
+    }
+    route.children.forEach(function (child) {
+      var childMatchAs = matchAs
+        ? cleanPath((matchAs + "/" + (child.path)))
+        : undefined;
+      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs);
+    });
+  }
+
+  if (route.alias !== undefined) {
+    var aliases = Array.isArray(route.alias)
+      ? route.alias
+      : [route.alias];
+
+    aliases.forEach(function (alias) {
+      var aliasRoute = {
+        path: alias,
+        children: route.children
+      };
+      addRouteRecord(
+        pathList,
+        pathMap,
+        nameMap,
+        aliasRoute,
+        parent,
+        record.path || '/' // matchAs
+      );
+    });
+  }
+
+  if (!pathMap[record.path]) {
+    pathList.push(record.path);
+    pathMap[record.path] = record;
+  }
+
+  if (name) {
+    if (!nameMap[name]) {
+      nameMap[name] = record;
+    } else if (process.env.NODE_ENV !== 'production' && !matchAs) {
+      warn(
+        false,
+        "Duplicate named routes definition: " +
+        "{ name: \"" + name + "\", path: \"" + (record.path) + "\" }"
+      );
+    }
+  }
+}
+
+function compileRouteRegex (path, pathToRegexpOptions) {
+  var regex = index(path, [], pathToRegexpOptions);
+  if (process.env.NODE_ENV !== 'production') {
+    var keys = {};
+    regex.keys.forEach(function (key) {
+      warn(!keys[key.name], ("Duplicate param keys in route with path: \"" + path + "\""));
+      keys[key.name] = true;
+    });
+  }
+  return regex
+}
+
+function normalizePath (path, parent) {
+  path = path.replace(/\/$/, '');
+  if (path[0] === '/') { return path }
+  if (parent == null) { return path }
+  return cleanPath(((parent.path) + "/" + path))
+}
+
+/*  */
+
+
 function normalizeLocation (
   raw,
   current,
-  append
+  append,
+  router
 ) {
   var next = typeof raw === 'string' ? { path: raw } : raw;
   // named target
@@ -1861,7 +2038,7 @@ function normalizeLocation (
     if (current.name) {
       next.name = current.name;
       next.params = params;
-    } else if (current.matched) {
+    } else if (current.matched.length) {
       var rawPath = current.matched[current.matched.length - 1].path;
       next.path = fillParams(rawPath, params, ("path " + (current.path)));
     } else if (process.env.NODE_ENV !== 'production') {
@@ -1874,8 +2051,14 @@ function normalizeLocation (
   var basePath = (current && current.path) || '/';
   var path = parsedPath.path
     ? resolvePath(parsedPath.path, basePath, append || next.append)
-    : (current && current.path) || '/';
-  var query = resolveQuery(parsedPath.query, next.query);
+    : basePath;
+
+  var query = resolveQuery(
+    parsedPath.query,
+    next.query,
+    router && router.options.parseQuery
+  );
+
   var hash = next.hash || parsedPath.hash;
   if (hash && hash.charAt(0) !== '#') {
     hash = "#" + hash;
@@ -1898,13 +2081,18 @@ function assign (a, b) {
 
 /*  */
 
-function createMatcher (routes) {
+
+function createMatcher (
+  routes,
+  router
+) {
   var ref = createRouteMap(routes);
+  var pathList = ref.pathList;
   var pathMap = ref.pathMap;
   var nameMap = ref.nameMap;
 
   function addRoutes (routes) {
-    createRouteMap(routes, pathMap, nameMap);
+    createRouteMap(routes, pathList, pathMap, nameMap);
   }
 
   function match (
@@ -1912,7 +2100,7 @@ function createMatcher (routes) {
     currentRoute,
     redirectedFrom
   ) {
-    var location = normalizeLocation(raw, currentRoute);
+    var location = normalizeLocation(raw, currentRoute, false, router);
     var name = location.name;
 
     if (name) {
@@ -1920,7 +2108,8 @@ function createMatcher (routes) {
       if (process.env.NODE_ENV !== 'production') {
         warn(record, ("Route with name '" + name + "' does not exist"));
       }
-      var paramNames = getRouteRegex(record.path).keys
+      if (!record) { return _createRoute(null, location) }
+      var paramNames = record.regex.keys
         .filter(function (key) { return !key.optional; })
         .map(function (key) { return key.name; });
 
@@ -1942,9 +2131,11 @@ function createMatcher (routes) {
       }
     } else if (location.path) {
       location.params = {};
-      for (var path in pathMap) {
-        if (matchRoute(path, location.params, location.path)) {
-          return _createRoute(pathMap[path], location, redirectedFrom)
+      for (var i = 0; i < pathList.length; i++) {
+        var path = pathList[i];
+        var record$1 = pathMap[path];
+        if (matchRoute(record$1.regex, location.path, location.params)) {
+          return _createRoute(record$1, location, redirectedFrom)
         }
       }
     }
@@ -1958,7 +2149,7 @@ function createMatcher (routes) {
   ) {
     var originalRedirect = record.redirect;
     var redirect = typeof originalRedirect === 'function'
-        ? originalRedirect(createRoute(record, location))
+        ? originalRedirect(createRoute(record, location, null, router))
         : originalRedirect;
 
     if (typeof redirect === 'string') {
@@ -1966,9 +2157,11 @@ function createMatcher (routes) {
     }
 
     if (!redirect || typeof redirect !== 'object') {
-      process.env.NODE_ENV !== 'production' && warn(
-        false, ("invalid redirect option: " + (JSON.stringify(redirect)))
-      );
+      if (process.env.NODE_ENV !== 'production') {
+        warn(
+          false, ("invalid redirect option: " + (JSON.stringify(redirect)))
+        );
+      }
       return _createRoute(null, location)
     }
 
@@ -2008,7 +2201,9 @@ function createMatcher (routes) {
         hash: hash
       }, undefined, location)
     } else {
-      warn(false, ("invalid redirect option: " + (JSON.stringify(redirect))));
+      if (process.env.NODE_ENV !== 'production') {
+        warn(false, ("invalid redirect option: " + (JSON.stringify(redirect))));
+      }
       return _createRoute(null, location)
     }
   }
@@ -2043,7 +2238,7 @@ function createMatcher (routes) {
     if (record && record.matchAs) {
       return alias(record, location, record.matchAs)
     }
-    return createRoute(record, location, redirectedFrom)
+    return createRoute(record, location, redirectedFrom, router)
   }
 
   return {
@@ -2053,14 +2248,11 @@ function createMatcher (routes) {
 }
 
 function matchRoute (
+  regex,
   path,
-  params,
-  pathname
+  params
 ) {
-  var ref = getRouteRegex(path);
-  var regexp = ref.regexp;
-  var keys = ref.keys;
-  var m = pathname.match(regexp);
+  var m = path.match(regex);
 
   if (!m) {
     return false
@@ -2069,9 +2261,11 @@ function matchRoute (
   }
 
   for (var i = 1, len = m.length; i < len; ++i) {
-    var key = keys[i - 1];
+    var key = regex.keys[i - 1];
     var val = typeof m[i] === 'string' ? decodeURIComponent(m[i]) : m[i];
-    if (key) { params[key.name] = val; }
+    if (key) {
+      params[key.name] = val;
+    }
   }
 
   return true
@@ -2125,7 +2319,9 @@ function handleScroll (
     if (isObject && typeof shouldScroll.selector === 'string') {
       var el = document.querySelector(shouldScroll.selector);
       if (el) {
-        position = getElementPosition(el);
+        var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
+        offset = normalizeOffset(offset);
+        position = getElementPosition(el, offset);
       } else if (isValidPosition(shouldScroll)) {
         position = normalizePosition(shouldScroll);
       }
@@ -2156,13 +2352,13 @@ function getScrollPosition () {
   }
 }
 
-function getElementPosition (el) {
+function getElementPosition (el, offset) {
   var docEl = document.documentElement;
   var docRect = docEl.getBoundingClientRect();
   var elRect = el.getBoundingClientRect();
   return {
-    x: elRect.left - docRect.left,
-    y: elRect.top - docRect.top
+    x: elRect.left - docRect.left - offset.x,
+    y: elRect.top - docRect.top - offset.y
   }
 }
 
@@ -2174,6 +2370,13 @@ function normalizePosition (obj) {
   return {
     x: isNumber(obj.x) ? obj.x : window.pageXOffset,
     y: isNumber(obj.y) ? obj.y : window.pageYOffset
+  }
+}
+
+function normalizeOffset (obj) {
+  return {
+    x: isNumber(obj.x) ? obj.x : 0,
+    y: isNumber(obj.y) ? obj.y : 0
   }
 }
 
@@ -2259,6 +2462,106 @@ function runQueue (queue, fn, cb) {
 
 /*  */
 
+function resolveAsyncComponents (matched) {
+  return function (to, from, next) {
+    var hasAsync = false;
+    var pending = 0;
+    var error = null;
+
+    flatMapComponents(matched, function (def, _, match, key) {
+      // if it's a function and doesn't have cid attached,
+      // assume it's an async component resolve function.
+      // we are not using Vue's default async resolving mechanism because
+      // we want to halt the navigation until the incoming component has been
+      // resolved.
+      if (typeof def === 'function' && def.cid === undefined) {
+        hasAsync = true;
+        pending++;
+
+        var resolve = once(function (resolvedDef) {
+          if (resolvedDef.__esModule && resolvedDef.default) {
+            resolvedDef = resolvedDef.default;
+          }
+          // save resolved on async factory in case it's used elsewhere
+          def.resolved = typeof resolvedDef === 'function'
+            ? resolvedDef
+            : _Vue.extend(resolvedDef);
+          match.components[key] = resolvedDef;
+          pending--;
+          if (pending <= 0) {
+            next();
+          }
+        });
+
+        var reject = once(function (reason) {
+          var msg = "Failed to resolve async component " + key + ": " + reason;
+          process.env.NODE_ENV !== 'production' && warn(false, msg);
+          if (!error) {
+            error = isError(reason)
+              ? reason
+              : new Error(msg);
+            next(error);
+          }
+        });
+
+        var res;
+        try {
+          res = def(resolve, reject);
+        } catch (e) {
+          reject(e);
+        }
+        if (res) {
+          if (typeof res.then === 'function') {
+            res.then(resolve, reject);
+          } else {
+            // new syntax in Vue 2.3
+            var comp = res.component;
+            if (comp && typeof comp.then === 'function') {
+              comp.then(resolve, reject);
+            }
+          }
+        }
+      }
+    });
+
+    if (!hasAsync) { next(); }
+  }
+}
+
+function flatMapComponents (
+  matched,
+  fn
+) {
+  return flatten(matched.map(function (m) {
+    return Object.keys(m.components).map(function (key) { return fn(
+      m.components[key],
+      m.instances[key],
+      m, key
+    ); })
+  }))
+}
+
+function flatten (arr) {
+  return Array.prototype.concat.apply([], arr)
+}
+
+// in Webpack 2, require.ensure now also returns a Promise
+// so the resolve/reject functions may get called an extra time
+// if the user uses an arrow function shorthand that happens to
+// return that Promise.
+function once (fn) {
+  var called = false;
+  return function () {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    if (called) { return }
+    called = true;
+    return fn.apply(this, args)
+  }
+}
+
+/*  */
 
 var History = function History (router, base) {
   this.router = router;
@@ -2268,18 +2571,27 @@ var History = function History (router, base) {
   this.pending = null;
   this.ready = false;
   this.readyCbs = [];
+  this.readyErrorCbs = [];
+  this.errorCbs = [];
 };
 
 History.prototype.listen = function listen (cb) {
   this.cb = cb;
 };
 
-History.prototype.onReady = function onReady (cb) {
+History.prototype.onReady = function onReady (cb, errorCb) {
   if (this.ready) {
     cb();
   } else {
     this.readyCbs.push(cb);
+    if (errorCb) {
+      this.readyErrorCbs.push(errorCb);
+    }
   }
+};
+
+History.prototype.onError = function onError (errorCb) {
+  this.errorCbs.push(errorCb);
 };
 
 History.prototype.transitionTo = function transitionTo (location, onComplete, onAbort) {
@@ -2294,18 +2606,34 @@ History.prototype.transitionTo = function transitionTo (location, onComplete, on
     // fire ready cbs once
     if (!this$1.ready) {
       this$1.ready = true;
-      this$1.readyCbs.forEach(function (cb) {
-        cb(route);
-      });
+      this$1.readyCbs.forEach(function (cb) { cb(route); });
     }
-  }, onAbort);
+  }, function (err) {
+    if (onAbort) {
+      onAbort(err);
+    }
+    if (err && !this$1.ready) {
+      this$1.ready = true;
+      this$1.readyErrorCbs.forEach(function (cb) { cb(err); });
+    }
+  });
 };
 
 History.prototype.confirmTransition = function confirmTransition (route, onComplete, onAbort) {
     var this$1 = this;
 
   var current = this.current;
-  var abort = function () { onAbort && onAbort(); };
+  var abort = function (err) {
+    if (isError(err)) {
+      if (this$1.errorCbs.length) {
+        this$1.errorCbs.forEach(function (cb) { cb(err); });
+      } else {
+        warn(false, 'uncaught error during route navigation:');
+        console.error(err);
+      }
+    }
+    onAbort && onAbort(err);
+  };
   if (
     isSameRoute(route, current) &&
     // in the case the route map has been dynamically appended to
@@ -2338,29 +2666,44 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
     if (this$1.pending !== route) {
       return abort()
     }
-    hook(route, current, function (to) {
-      if (to === false) {
-        // next(false) -> abort navigation, ensure current URL
-        this$1.ensureURL(true);
-        abort();
-      } else if (typeof to === 'string' || typeof to === 'object') {
-        // next('/') or next({ path: '/' }) -> redirect
-        (typeof to === 'object' && to.replace) ? this$1.replace(to) : this$1.push(to);
-        abort();
-      } else {
-        // confirm transition and pass on the value
-        next(to);
-      }
-    });
+    try {
+      hook(route, current, function (to) {
+        if (to === false || isError(to)) {
+          // next(false) -> abort navigation, ensure current URL
+          this$1.ensureURL(true);
+          abort(to);
+        } else if (
+          typeof to === 'string' ||
+          (typeof to === 'object' && (
+            typeof to.path === 'string' ||
+            typeof to.name === 'string'
+          ))
+        ) {
+          // next('/') or next({ path: '/' }) -> redirect
+          abort();
+          if (typeof to === 'object' && to.replace) {
+            this$1.replace(to);
+          } else {
+            this$1.push(to);
+          }
+        } else {
+          // confirm transition and pass on the value
+          next(to);
+        }
+      });
+    } catch (e) {
+      abort(e);
+    }
   };
 
   runQueue(queue, iterator, function () {
     var postEnterCbs = [];
     var isValid = function () { return this$1.current === route; };
-    var enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
     // wait until async components are resolved before
     // extracting in-component enter guards
-    runQueue(enterGuards, iterator, function () {
+    var enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
+    var queue = enterGuards.concat(this$1.router.resolveHooks);
+    runQueue(queue, iterator, function () {
       if (this$1.pending !== route) {
         return abort()
       }
@@ -2368,7 +2711,7 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
       onComplete(route);
       if (this$1.router.app) {
         this$1.router.app.$nextTick(function () {
-          postEnterCbs.forEach(function (cb) { return cb(); });
+          postEnterCbs.forEach(function (cb) { cb(); });
         });
       }
     });
@@ -2390,6 +2733,8 @@ function normalizeBase (base) {
       // respect <base> tag
       var baseEl = document.querySelector('base');
       base = (baseEl && baseEl.getAttribute('href')) || '/';
+      // strip full URL origin
+      base = base.replace(/^https?:\/\/[^\/]+/, '');
     } else {
       base = '/';
     }
@@ -2457,8 +2802,10 @@ function extractUpdateHooks (updated) {
 }
 
 function bindGuard (guard, instance) {
-  return function boundRouteGuard () {
-    return guard.apply(instance, arguments)
+  if (instance) {
+    return function boundRouteGuard () {
+      return guard.apply(instance, arguments)
+    }
   }
 }
 
@@ -2511,64 +2858,6 @@ function poll (
   }
 }
 
-function resolveAsyncComponents (matched) {
-  return flatMapComponents(matched, function (def, _, match, key) {
-    // if it's a function and doesn't have Vue options attached,
-    // assume it's an async component resolve function.
-    // we are not using Vue's default async resolving mechanism because
-    // we want to halt the navigation until the incoming component has been
-    // resolved.
-    if (typeof def === 'function' && !def.options) {
-      return function (to, from, next) {
-        var resolve = once(function (resolvedDef) {
-          match.components[key] = resolvedDef;
-          next();
-        });
-
-        var reject = once(function (reason) {
-          warn(false, ("Failed to resolve async component " + key + ": " + reason));
-          next(false);
-        });
-
-        var res = def(resolve, reject);
-        if (res && typeof res.then === 'function') {
-          res.then(resolve, reject);
-        }
-      }
-    }
-  })
-}
-
-function flatMapComponents (
-  matched,
-  fn
-) {
-  return flatten(matched.map(function (m) {
-    return Object.keys(m.components).map(function (key) { return fn(
-      m.components[key],
-      m.instances[key],
-      m, key
-    ); })
-  }))
-}
-
-function flatten (arr) {
-  return Array.prototype.concat.apply([], arr)
-}
-
-// in Webpack 2, require.ensure now also returns a Promise
-// so the resolve/reject functions may get called an extra time
-// if the user uses an arrow function shorthand that happens to
-// return that Promise.
-function once (fn) {
-  var called = false;
-  return function () {
-    if (called) { return }
-    called = true;
-    return fn.apply(this, arguments)
-  }
-}
-
 /*  */
 
 
@@ -2585,9 +2874,10 @@ var HTML5History = (function (History$$1) {
     }
 
     window.addEventListener('popstate', function (e) {
+      var current = this$1.current;
       this$1.transitionTo(getLocation(this$1.base), function (route) {
         if (expectScroll) {
-          handleScroll(router, route, this$1.current, true);
+          handleScroll(router, route, current, true);
         }
       });
     });
@@ -2604,9 +2894,11 @@ var HTML5History = (function (History$$1) {
   HTML5History.prototype.push = function push (location, onComplete, onAbort) {
     var this$1 = this;
 
+    var ref = this;
+    var fromRoute = ref.current;
     this.transitionTo(location, function (route) {
       pushState(cleanPath(this$1.base + route.fullPath));
-      handleScroll(this$1.router, route, this$1.current, false);
+      handleScroll(this$1.router, route, fromRoute, false);
       onComplete && onComplete(route);
     }, onAbort);
   };
@@ -2614,9 +2906,11 @@ var HTML5History = (function (History$$1) {
   HTML5History.prototype.replace = function replace (location, onComplete, onAbort) {
     var this$1 = this;
 
+    var ref = this;
+    var fromRoute = ref.current;
     this.transitionTo(location, function (route) {
       replaceState(cleanPath(this$1.base + route.fullPath));
-      handleScroll(this$1.router, route, this$1.current, false);
+      handleScroll(this$1.router, route, fromRoute, false);
       onComplete && onComplete(route);
     }, onAbort);
   };
@@ -2739,10 +3033,10 @@ function pushHash (path) {
 }
 
 function replaceHash (path) {
-  var i = window.location.href.indexOf('#');
-  window.location.replace(
-    window.location.href.slice(0, i >= 0 ? i : 0) + '#' + path
-  );
+  var href = window.location.href;
+  var i = href.indexOf('#');
+  var base = i >= 0 ? href.slice(0, i) : href;
+  window.location.replace((base + "#" + path));
 }
 
 /*  */
@@ -2813,11 +3107,12 @@ var VueRouter = function VueRouter (options) {
   this.apps = [];
   this.options = options;
   this.beforeHooks = [];
+  this.resolveHooks = [];
   this.afterHooks = [];
-  this.matcher = createMatcher(options.routes || []);
+  this.matcher = createMatcher(options.routes || [], this);
 
   var mode = options.mode || 'hash';
-  this.fallback = mode === 'history' && !supportsPushState;
+  this.fallback = mode === 'history' && !supportsPushState && options.fallback !== false;
   if (this.fallback) {
     mode = 'hash';
   }
@@ -2898,15 +3193,23 @@ VueRouter.prototype.init = function init (app /* Vue component instance */) {
 };
 
 VueRouter.prototype.beforeEach = function beforeEach (fn) {
-  this.beforeHooks.push(fn);
+  return registerHook(this.beforeHooks, fn)
+};
+
+VueRouter.prototype.beforeResolve = function beforeResolve (fn) {
+  return registerHook(this.resolveHooks, fn)
 };
 
 VueRouter.prototype.afterEach = function afterEach (fn) {
-  this.afterHooks.push(fn);
+  return registerHook(this.afterHooks, fn)
 };
 
-VueRouter.prototype.onReady = function onReady (cb) {
-  this.history.onReady(cb);
+VueRouter.prototype.onReady = function onReady (cb, errorCb) {
+  this.history.onReady(cb, errorCb);
+};
+
+VueRouter.prototype.onError = function onError (errorCb) {
+  this.history.onError(errorCb);
 };
 
 VueRouter.prototype.push = function push (location, onComplete, onAbort) {
@@ -2931,7 +3234,9 @@ VueRouter.prototype.forward = function forward () {
 
 VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
   var route = to
-    ? this.resolve(to).route
+    ? to.matched
+      ? to
+      : this.resolve(to).route
     : this.currentRoute;
   if (!route) {
     return []
@@ -2948,7 +3253,12 @@ VueRouter.prototype.resolve = function resolve (
   current,
   append
 ) {
-  var location = normalizeLocation(to, current || this.history.current, append);
+  var location = normalizeLocation(
+    to,
+    current || this.history.current,
+    append,
+    this
+  );
   var route = this.match(location, current);
   var fullPath = route.redirectedFrom || route.fullPath;
   var base = this.history.base;
@@ -2972,19 +3282,27 @@ VueRouter.prototype.addRoutes = function addRoutes (routes) {
 
 Object.defineProperties( VueRouter.prototype, prototypeAccessors );
 
+function registerHook (list, fn) {
+  list.push(fn);
+  return function () {
+    var i = list.indexOf(fn);
+    if (i > -1) { list.splice(i, 1); }
+  }
+}
+
 function createHref (base, fullPath, mode) {
   var path = mode === 'hash' ? '#' + fullPath : fullPath;
   return base ? cleanPath(base + '/' + path) : path
 }
 
 VueRouter.install = install;
-VueRouter.version = '2.2.1';
+VueRouter.version = '2.7.0';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
 }
 
-/* harmony default export */ __webpack_exports__["a"] = VueRouter;
+/* harmony default export */ __webpack_exports__["default"] = (VueRouter);
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
@@ -2993,17 +3311,78 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process, global) {/*!
- * Vue.js v2.2.4
+ * Vue.js v2.4.2
  * (c) 2014-2017 Evan You
  * Released under the MIT License.
  */
 /*  */
 
+// these helpers produces better vm code in JS engines due to their
+// explicitness and function inlining
+function isUndef (v) {
+  return v === undefined || v === null
+}
+
+function isDef (v) {
+  return v !== undefined && v !== null
+}
+
+function isTrue (v) {
+  return v === true
+}
+
+function isFalse (v) {
+  return v === false
+}
+
+/**
+ * Check if value is primitive
+ */
+function isPrimitive (value) {
+  return (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean'
+  )
+}
+
+/**
+ * Quick object check - this is primarily used to tell
+ * Objects from primitive values when we know the value
+ * is a JSON-compliant type.
+ */
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+var _toString = Object.prototype.toString;
+
+/**
+ * Strict object type check. Only returns true
+ * for plain JavaScript objects.
+ */
+function isPlainObject (obj) {
+  return _toString.call(obj) === '[object Object]'
+}
+
+function isRegExp (v) {
+  return _toString.call(v) === '[object RegExp]'
+}
+
+/**
+ * Check if val is a valid array index.
+ */
+function isValidArrayIndex (val) {
+  var n = parseFloat(val);
+  return n >= 0 && Math.floor(n) === n && isFinite(val)
+}
+
 /**
  * Convert a value to a string that is actually rendered.
  */
-function _toString (val) {
+function toString (val) {
   return val == null
     ? ''
     : typeof val === 'object'
@@ -3044,6 +3423,11 @@ function makeMap (
 var isBuiltInTag = makeMap('slot,component', true);
 
 /**
+ * Check if a attribute is a reserved attribute.
+ */
+var isReservedAttribute = makeMap('key,ref,slot,is');
+
+/**
  * Remove an item from an array
  */
 function remove (arr, item) {
@@ -3061,13 +3445,6 @@ function remove (arr, item) {
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 function hasOwn (obj, key) {
   return hasOwnProperty.call(obj, key)
-}
-
-/**
- * Check if value is primitive
- */
-function isPrimitive (value) {
-  return typeof value === 'string' || typeof value === 'number'
 }
 
 /**
@@ -3148,25 +3525,6 @@ function extend (to, _from) {
 }
 
 /**
- * Quick object check - this is primarily used to tell
- * Objects from primitive values when we know the value
- * is a JSON-compliant type.
- */
-function isObject (obj) {
-  return obj !== null && typeof obj === 'object'
-}
-
-/**
- * Strict object type check. Only returns true
- * for plain JavaScript objects.
- */
-var toString = Object.prototype.toString;
-var OBJECT_STRING = '[object Object]';
-function isPlainObject (obj) {
-  return toString.call(obj) === OBJECT_STRING
-}
-
-/**
  * Merge an Array of Objects into a single Object.
  */
 function toObject (arr) {
@@ -3181,13 +3539,15 @@ function toObject (arr) {
 
 /**
  * Perform no operation.
+ * Stubbing args to make Flow happy without leaving useless transpiled code
+ * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/)
  */
-function noop () {}
+function noop (a, b, c) {}
 
 /**
  * Always return false.
  */
-var no = function () { return false; };
+var no = function (a, b, c) { return false; };
 
 /**
  * Return same value
@@ -3204,14 +3564,30 @@ var identity = function (_) { return _; };
  * if they are plain objects, do they have the same shape?
  */
 function looseEqual (a, b) {
+  if (a === b) { return true }
   var isObjectA = isObject(a);
   var isObjectB = isObject(b);
   if (isObjectA && isObjectB) {
     try {
-      return JSON.stringify(a) === JSON.stringify(b)
+      var isArrayA = Array.isArray(a);
+      var isArrayB = Array.isArray(b);
+      if (isArrayA && isArrayB) {
+        return a.length === b.length && a.every(function (e, i) {
+          return looseEqual(e, b[i])
+        })
+      } else if (!isArrayA && !isArrayB) {
+        var keysA = Object.keys(a);
+        var keysB = Object.keys(b);
+        return keysA.length === keysB.length && keysA.every(function (key) {
+          return looseEqual(a[key], b[key])
+        })
+      } else {
+        /* istanbul ignore next */
+        return false
+      }
     } catch (e) {
-      // possible circular reference
-      return a === b
+      /* istanbul ignore next */
+      return false
     }
   } else if (!isObjectA && !isObjectB) {
     return String(a) === String(b)
@@ -3235,14 +3611,35 @@ function once (fn) {
   return function () {
     if (!called) {
       called = true;
-      fn();
+      fn.apply(this, arguments);
     }
   }
 }
 
+var SSR_ATTR = 'data-server-rendered';
+
+var ASSET_TYPES = [
+  'component',
+  'directive',
+  'filter'
+];
+
+var LIFECYCLE_HOOKS = [
+  'beforeCreate',
+  'created',
+  'beforeMount',
+  'mounted',
+  'beforeUpdate',
+  'updated',
+  'beforeDestroy',
+  'destroyed',
+  'activated',
+  'deactivated'
+];
+
 /*  */
 
-var config = {
+var config = ({
   /**
    * Option merge strategies (used in core/util/options)
    */
@@ -3274,6 +3671,11 @@ var config = {
   errorHandler: null,
 
   /**
+   * Warn handler for watcher warns
+   */
+  warnHandler: null,
+
+  /**
    * Ignore certain custom elements
    */
   ignoredElements: [],
@@ -3288,6 +3690,12 @@ var config = {
    * component. This is platform-dependent and may be overwritten.
    */
   isReservedTag: no,
+
+  /**
+   * Check if an attribute is reserved so that it cannot be used as a component
+   * prop. This is platform-dependent and may be overwritten.
+   */
+  isReservedAttr: no,
 
   /**
    * Check if a tag is an unknown element.
@@ -3312,35 +3720,10 @@ var config = {
   mustUseProp: no,
 
   /**
-   * List of asset types that a component can own.
+   * Exposed for legacy reasons
    */
-  _assetTypes: [
-    'component',
-    'directive',
-    'filter'
-  ],
-
-  /**
-   * List of lifecycle hooks.
-   */
-  _lifecycleHooks: [
-    'beforeCreate',
-    'created',
-    'beforeMount',
-    'mounted',
-    'beforeUpdate',
-    'updated',
-    'beforeDestroy',
-    'destroyed',
-    'activated',
-    'deactivated'
-  ],
-
-  /**
-   * Max circular updates allowed in a scheduler flush cycle.
-   */
-  _maxUpdateCount: 100
-};
+  _lifecycleHooks: LIFECYCLE_HOOKS
+});
 
 /*  */
 
@@ -3385,6 +3768,119 @@ function parsePath (path) {
 }
 
 /*  */
+
+var warn = noop;
+var tip = noop;
+var formatComponentName = (null); // work around flow check
+
+if (process.env.NODE_ENV !== 'production') {
+  var hasConsole = typeof console !== 'undefined';
+  var classifyRE = /(?:^|[-_])(\w)/g;
+  var classify = function (str) { return str
+    .replace(classifyRE, function (c) { return c.toUpperCase(); })
+    .replace(/[-_]/g, ''); };
+
+  warn = function (msg, vm) {
+    var trace = vm ? generateComponentTrace(vm) : '';
+
+    if (config.warnHandler) {
+      config.warnHandler.call(null, msg, vm, trace);
+    } else if (hasConsole && (!config.silent)) {
+      console.error(("[Vue warn]: " + msg + trace));
+    }
+  };
+
+  tip = function (msg, vm) {
+    if (hasConsole && (!config.silent)) {
+      console.warn("[Vue tip]: " + msg + (
+        vm ? generateComponentTrace(vm) : ''
+      ));
+    }
+  };
+
+  formatComponentName = function (vm, includeFile) {
+    if (vm.$root === vm) {
+      return '<Root>'
+    }
+    var name = typeof vm === 'string'
+      ? vm
+      : typeof vm === 'function' && vm.options
+        ? vm.options.name
+        : vm._isVue
+          ? vm.$options.name || vm.$options._componentTag
+          : vm.name;
+
+    var file = vm._isVue && vm.$options.__file;
+    if (!name && file) {
+      var match = file.match(/([^/\\]+)\.vue$/);
+      name = match && match[1];
+    }
+
+    return (
+      (name ? ("<" + (classify(name)) + ">") : "<Anonymous>") +
+      (file && includeFile !== false ? (" at " + file) : '')
+    )
+  };
+
+  var repeat = function (str, n) {
+    var res = '';
+    while (n) {
+      if (n % 2 === 1) { res += str; }
+      if (n > 1) { str += str; }
+      n >>= 1;
+    }
+    return res
+  };
+
+  var generateComponentTrace = function (vm) {
+    if (vm._isVue && vm.$parent) {
+      var tree = [];
+      var currentRecursiveSequence = 0;
+      while (vm) {
+        if (tree.length > 0) {
+          var last = tree[tree.length - 1];
+          if (last.constructor === vm.constructor) {
+            currentRecursiveSequence++;
+            vm = vm.$parent;
+            continue
+          } else if (currentRecursiveSequence > 0) {
+            tree[tree.length - 1] = [last, currentRecursiveSequence];
+            currentRecursiveSequence = 0;
+          }
+        }
+        tree.push(vm);
+        vm = vm.$parent;
+      }
+      return '\n\nfound in\n\n' + tree
+        .map(function (vm, i) { return ("" + (i === 0 ? '---> ' : repeat(' ', 5 + i * 2)) + (Array.isArray(vm)
+            ? ((formatComponentName(vm[0])) + "... (" + (vm[1]) + " recursive calls)")
+            : formatComponentName(vm))); })
+        .join('\n')
+    } else {
+      return ("\n\n(found in " + (formatComponentName(vm)) + ")")
+    }
+  };
+}
+
+/*  */
+
+function handleError (err, vm, info) {
+  if (config.errorHandler) {
+    config.errorHandler.call(null, err, vm, info);
+  } else {
+    if (process.env.NODE_ENV !== 'production') {
+      warn(("Error in " + info + ": \"" + (err.toString()) + "\""), vm);
+    }
+    /* istanbul ignore else */
+    if (inBrowser && typeof console !== 'undefined') {
+      console.error(err);
+    } else {
+      throw err
+    }
+  }
+}
+
+/*  */
 /* globals MutationObserver */
 
 // can we use __proto__?
@@ -3399,6 +3895,23 @@ var isEdge = UA && UA.indexOf('edge/') > 0;
 var isAndroid = UA && UA.indexOf('android') > 0;
 var isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
 var isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
+
+// Firefix has a "watch" function on Object.prototype...
+var nativeWatch = ({}).watch;
+
+var supportsPassive = false;
+if (inBrowser) {
+  try {
+    var opts = {};
+    Object.defineProperty(opts, 'passive', ({
+      get: function get () {
+        /* istanbul ignore next */
+        supportsPassive = true;
+      }
+    })); // https://github.com/facebook/flow/issues/285
+    window.addEventListener('test-passive', null, opts);
+  } catch (e) {}
+}
 
 // this needs to be lazy-evaled because vue may be required before
 // vue-server-renderer can set VUE_ENV
@@ -3422,7 +3935,7 @@ var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
 
 /* istanbul ignore next */
 function isNative (Ctor) {
-  return /native code/.test(Ctor.toString())
+  return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
 }
 
 var hasSymbol =
@@ -3493,15 +4006,22 @@ var nextTick = (function () {
   return function queueNextTick (cb, ctx) {
     var _resolve;
     callbacks.push(function () {
-      if (cb) { cb.call(ctx); }
-      if (_resolve) { _resolve(ctx); }
+      if (cb) {
+        try {
+          cb.call(ctx);
+        } catch (e) {
+          handleError(e, ctx, 'nextTick');
+        }
+      } else if (_resolve) {
+        _resolve(ctx);
+      }
     });
     if (!pending) {
       pending = true;
       timerFunc();
     }
     if (!cb && typeof Promise !== 'undefined') {
-      return new Promise(function (resolve) {
+      return new Promise(function (resolve, reject) {
         _resolve = resolve;
       })
     }
@@ -3531,63 +4051,6 @@ if (typeof Set !== 'undefined' && isNative(Set)) {
 
     return Set;
   }());
-}
-
-var warn = noop;
-var tip = noop;
-var formatComponentName;
-
-if (process.env.NODE_ENV !== 'production') {
-  var hasConsole = typeof console !== 'undefined';
-  var classifyRE = /(?:^|[-_])(\w)/g;
-  var classify = function (str) { return str
-    .replace(classifyRE, function (c) { return c.toUpperCase(); })
-    .replace(/[-_]/g, ''); };
-
-  warn = function (msg, vm) {
-    if (hasConsole && (!config.silent)) {
-      console.error("[Vue warn]: " + msg + " " + (
-        vm ? formatLocation(formatComponentName(vm)) : ''
-      ));
-    }
-  };
-
-  tip = function (msg, vm) {
-    if (hasConsole && (!config.silent)) {
-      console.warn("[Vue tip]: " + msg + " " + (
-        vm ? formatLocation(formatComponentName(vm)) : ''
-      ));
-    }
-  };
-
-  formatComponentName = function (vm, includeFile) {
-    if (vm.$root === vm) {
-      return '<Root>'
-    }
-    var name = typeof vm === 'function' && vm.options
-      ? vm.options.name
-      : vm._isVue
-        ? vm.$options.name || vm.$options._componentTag
-        : vm.name;
-
-    var file = vm._isVue && vm.$options.__file;
-    if (!name && file) {
-      var match = file.match(/([^/\\]+)\.vue$/);
-      name = match && match[1];
-    }
-
-    return (
-      (name ? ("<" + (classify(name)) + ">") : "<Anonymous>") +
-      (file && includeFile !== false ? (" at " + file) : '')
-    )
-  };
-
-  var formatLocation = function (str) {
-    if (str === "<Anonymous>") {
-      str += " - use the \"name\" option for better debugging messages.";
-    }
-    return ("\n(found in " + str + ")")
-  };
 }
 
 /*  */
@@ -3660,22 +4123,14 @@ var arrayMethods = Object.create(arrayProto);[
   // cache original method
   var original = arrayProto[method];
   def(arrayMethods, method, function mutator () {
-    var arguments$1 = arguments;
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
 
-    // avoid leaking arguments:
-    // http://jsperf.com/closure-with-arguments
-    var i = arguments.length;
-    var args = new Array(i);
-    while (i--) {
-      args[i] = arguments$1[i];
-    }
     var result = original.apply(this, args);
     var ob = this.__ob__;
     var inserted;
     switch (method) {
       case 'push':
-        inserted = args;
-        break
       case 'unshift':
         inserted = args;
         break
@@ -3701,8 +4156,7 @@ var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
  * under a frozen data structure. Converting it would defeat the optimization.
  */
 var observerState = {
-  shouldConvert: true,
-  isSettingProps: false
+  shouldConvert: true
 };
 
 /**
@@ -3754,7 +4208,7 @@ Observer.prototype.observeArray = function observeArray (items) {
  * Augment an target Object or Array by intercepting
  * the prototype chain using __proto__
  */
-function protoAugment (target, src) {
+function protoAugment (target, src, keys) {
   /* eslint-disable no-proto */
   target.__proto__ = src;
   /* eslint-enable no-proto */
@@ -3806,7 +4260,8 @@ function defineReactive$$1 (
   obj,
   key,
   val,
-  customSetter
+  customSetter,
+  shallow
 ) {
   var dep = new Dep();
 
@@ -3819,7 +4274,7 @@ function defineReactive$$1 (
   var getter = property && property.get;
   var setter = property && property.set;
 
-  var childOb = observe(val);
+  var childOb = !shallow && observe(val);
   Object.defineProperty(obj, key, {
     enumerable: true,
     configurable: true,
@@ -3851,7 +4306,7 @@ function defineReactive$$1 (
       } else {
         val = newVal;
       }
-      childOb = observe(newVal);
+      childOb = !shallow && observe(newVal);
       dep.notify();
     }
   });
@@ -3863,7 +4318,7 @@ function defineReactive$$1 (
  * already exist.
  */
 function set (target, key, val) {
-  if (Array.isArray(target)) {
+  if (Array.isArray(target) && isValidArrayIndex(key)) {
     target.length = Math.max(target.length, key);
     target.splice(key, 1, val);
     return val
@@ -3872,7 +4327,7 @@ function set (target, key, val) {
     target[key] = val;
     return val
   }
-  var ob = target.__ob__;
+  var ob = (target).__ob__;
   if (target._isVue || (ob && ob.vmCount)) {
     process.env.NODE_ENV !== 'production' && warn(
       'Avoid adding reactive properties to a Vue instance or its root $data ' +
@@ -3893,11 +4348,11 @@ function set (target, key, val) {
  * Delete a property and trigger change if necessary.
  */
 function del (target, key) {
-  if (Array.isArray(target)) {
+  if (Array.isArray(target) && isValidArrayIndex(key)) {
     target.splice(key, 1);
     return
   }
-  var ob = target.__ob__;
+  var ob = (target).__ob__;
   if (target._isVue || (ob && ob.vmCount)) {
     process.env.NODE_ENV !== 'production' && warn(
       'Avoid deleting properties on a Vue instance or its root $data ' +
@@ -3976,7 +4431,7 @@ function mergeData (to, from) {
 /**
  * Data
  */
-strats.data = function (
+function mergeDataOrFn (
   parentVal,
   childVal,
   vm
@@ -3984,15 +4439,6 @@ strats.data = function (
   if (!vm) {
     // in a Vue.extend merge, both should be functions
     if (!childVal) {
-      return parentVal
-    }
-    if (typeof childVal !== 'function') {
-      process.env.NODE_ENV !== 'production' && warn(
-        'The "data" option should be a function ' +
-        'that returns a per-instance value in component ' +
-        'definitions.',
-        vm
-      );
       return parentVal
     }
     if (!parentVal) {
@@ -4005,8 +4451,8 @@ strats.data = function (
     // it has to be a function to pass previous merges.
     return function mergedDataFn () {
       return mergeData(
-        childVal.call(this),
-        parentVal.call(this)
+        typeof childVal === 'function' ? childVal.call(this) : childVal,
+        typeof parentVal === 'function' ? parentVal.call(this) : parentVal
       )
     }
   } else if (parentVal || childVal) {
@@ -4025,6 +4471,28 @@ strats.data = function (
       }
     }
   }
+}
+
+strats.data = function (
+  parentVal,
+  childVal,
+  vm
+) {
+  if (!vm) {
+    if (childVal && typeof childVal !== 'function') {
+      process.env.NODE_ENV !== 'production' && warn(
+        'The "data" option should be a function ' +
+        'that returns a per-instance value in component ' +
+        'definitions.',
+        vm
+      );
+
+      return parentVal
+    }
+    return mergeDataOrFn.call(this, parentVal, childVal)
+  }
+
+  return mergeDataOrFn(parentVal, childVal, vm)
 };
 
 /**
@@ -4043,7 +4511,7 @@ function mergeHook (
     : parentVal
 }
 
-config._lifecycleHooks.forEach(function (hook) {
+LIFECYCLE_HOOKS.forEach(function (hook) {
   strats[hook] = mergeHook;
 });
 
@@ -4061,7 +4529,7 @@ function mergeAssets (parentVal, childVal) {
     : res
 }
 
-config._assetTypes.forEach(function (type) {
+ASSET_TYPES.forEach(function (type) {
   strats[type + 's'] = mergeAssets;
 });
 
@@ -4072,6 +4540,9 @@ config._assetTypes.forEach(function (type) {
  * another, so we merge them as arrays.
  */
 strats.watch = function (parentVal, childVal) {
+  // work around Firefox's Object.prototype.watch...
+  if (parentVal === nativeWatch) { parentVal = undefined; }
+  if (childVal === nativeWatch) { childVal = undefined; }
   /* istanbul ignore if */
   if (!childVal) { return Object.create(parentVal || null) }
   if (!parentVal) { return childVal }
@@ -4085,7 +4556,7 @@ strats.watch = function (parentVal, childVal) {
     }
     ret[key] = parent
       ? parent.concat(child)
-      : [child];
+      : Array.isArray(child) ? child : [child];
   }
   return ret
 };
@@ -4095,14 +4566,15 @@ strats.watch = function (parentVal, childVal) {
  */
 strats.props =
 strats.methods =
+strats.inject =
 strats.computed = function (parentVal, childVal) {
-  if (!childVal) { return Object.create(parentVal || null) }
   if (!parentVal) { return childVal }
   var ret = Object.create(null);
   extend(ret, parentVal);
-  extend(ret, childVal);
+  if (childVal) { extend(ret, childVal); }
   return ret
 };
+strats.provide = mergeDataOrFn;
 
 /**
  * Default strategy.
@@ -4161,6 +4633,19 @@ function normalizeProps (options) {
 }
 
 /**
+ * Normalize all injections into Object-based format
+ */
+function normalizeInject (options) {
+  var inject = options.inject;
+  if (Array.isArray(inject)) {
+    var normalized = options.inject = {};
+    for (var i = 0; i < inject.length; i++) {
+      normalized[inject[i]] = inject[i];
+    }
+  }
+}
+
+/**
  * Normalize raw function directives into object format.
  */
 function normalizeDirectives (options) {
@@ -4187,21 +4672,21 @@ function mergeOptions (
   if (process.env.NODE_ENV !== 'production') {
     checkComponents(child);
   }
+
+  if (typeof child === 'function') {
+    child = child.options;
+  }
+
   normalizeProps(child);
+  normalizeInject(child);
   normalizeDirectives(child);
   var extendsFrom = child.extends;
   if (extendsFrom) {
-    parent = typeof extendsFrom === 'function'
-      ? mergeOptions(parent, extendsFrom.options, vm)
-      : mergeOptions(parent, extendsFrom, vm);
+    parent = mergeOptions(parent, extendsFrom, vm);
   }
   if (child.mixins) {
     for (var i = 0, l = child.mixins.length; i < l; i++) {
-      var mixin = child.mixins[i];
-      if (mixin.prototype instanceof Vue$2) {
-        mixin = mixin.options;
-      }
-      parent = mergeOptions(parent, mixin, vm);
+      parent = mergeOptions(parent, child.mixins[i], vm);
     }
   }
   var options = {};
@@ -4311,7 +4796,8 @@ function getPropDefaultValue (vm, prop, key) {
   // return previous default value to avoid unnecessary watcher trigger
   if (vm && vm.$options.propsData &&
     vm.$options.propsData[key] === undefined &&
-    vm._props[key] !== undefined) {
+    vm._props[key] !== undefined
+  ) {
     return vm._props[key]
   }
   // call factory function for non-Function types
@@ -4374,20 +4860,13 @@ function assertProp (
   }
 }
 
-/**
- * Assert the type of a value
- */
+var simpleCheckRE = /^(String|Number|Boolean|Function|Symbol)$/;
+
 function assertType (value, type) {
   var valid;
   var expectedType = getType(type);
-  if (expectedType === 'String') {
-    valid = typeof value === (expectedType = 'string');
-  } else if (expectedType === 'Number') {
-    valid = typeof value === (expectedType = 'number');
-  } else if (expectedType === 'Boolean') {
-    valid = typeof value === (expectedType = 'boolean');
-  } else if (expectedType === 'Function') {
-    valid = typeof value === (expectedType = 'function');
+  if (simpleCheckRE.test(expectedType)) {
+    valid = typeof value === expectedType.toLowerCase();
   } else if (expectedType === 'Object') {
     valid = isPlainObject(value);
   } else if (expectedType === 'Array') {
@@ -4408,7 +4887,7 @@ function assertType (value, type) {
  */
 function getType (fn) {
   var match = fn && fn.toString().match(/^\s*function (\w+)/);
-  return match && match[1]
+  return match ? match[1] : ''
 }
 
 function isType (type, fn) {
@@ -4424,21 +4903,7 @@ function isType (type, fn) {
   return false
 }
 
-function handleError (err, vm, info) {
-  if (config.errorHandler) {
-    config.errorHandler.call(null, err, vm, info);
-  } else {
-    if (process.env.NODE_ENV !== 'production') {
-      warn(("Error in " + info + ":"), vm);
-    }
-    /* istanbul ignore else */
-    if (inBrowser && typeof console !== 'undefined') {
-      console.error(err);
-    } else {
-      throw err
-    }
-  }
-}
+/*  */
 
 /* not type checking this file because flow doesn't play well with Proxy */
 
@@ -4546,7 +5011,8 @@ var VNode = function VNode (
   text,
   elm,
   context,
-  componentOptions
+  componentOptions,
+  asyncFactory
 ) {
   this.tag = tag;
   this.data = data;
@@ -4566,6 +5032,9 @@ var VNode = function VNode (
   this.isComment = false;
   this.isCloned = false;
   this.isOnce = false;
+  this.asyncFactory = asyncFactory;
+  this.asyncMeta = undefined;
+  this.isAsyncPlaceholder = false;
 };
 
 var prototypeAccessors = { child: {} };
@@ -4578,9 +5047,11 @@ prototypeAccessors.child.get = function () {
 
 Object.defineProperties( VNode.prototype, prototypeAccessors );
 
-var createEmptyVNode = function () {
+var createEmptyVNode = function (text) {
+  if ( text === void 0 ) text = '';
+
   var node = new VNode();
-  node.text = '';
+  node.text = text;
   node.isComment = true;
   return node
 };
@@ -4601,11 +5072,13 @@ function cloneVNode (vnode) {
     vnode.text,
     vnode.elm,
     vnode.context,
-    vnode.componentOptions
+    vnode.componentOptions,
+    vnode.asyncFactory
   );
   cloned.ns = vnode.ns;
   cloned.isStatic = vnode.isStatic;
   cloned.key = vnode.key;
+  cloned.isComment = vnode.isComment;
   cloned.isCloned = true;
   return cloned
 }
@@ -4622,6 +5095,8 @@ function cloneVNodes (vnodes) {
 /*  */
 
 var normalizeEvent = cached(function (name) {
+  var passive = name.charAt(0) === '&';
+  name = passive ? name.slice(1) : name;
   var once$$1 = name.charAt(0) === '~'; // Prefixed last, checked first
   name = once$$1 ? name.slice(1) : name;
   var capture = name.charAt(0) === '!';
@@ -4629,7 +5104,8 @@ var normalizeEvent = cached(function (name) {
   return {
     name: name,
     once: once$$1,
-    capture: capture
+    capture: capture,
+    passive: passive
   }
 });
 
@@ -4639,8 +5115,9 @@ function createFnInvoker (fns) {
 
     var fns = invoker.fns;
     if (Array.isArray(fns)) {
-      for (var i = 0; i < fns.length; i++) {
-        fns[i].apply(null, arguments$1);
+      var cloned = fns.slice();
+      for (var i = 0; i < cloned.length; i++) {
+        cloned[i].apply(null, arguments$1);
       }
     } else {
       // return handler return value for single handlers
@@ -4663,23 +5140,23 @@ function updateListeners (
     cur = on[name];
     old = oldOn[name];
     event = normalizeEvent(name);
-    if (!cur) {
+    if (isUndef(cur)) {
       process.env.NODE_ENV !== 'production' && warn(
         "Invalid handler for event \"" + (event.name) + "\": got " + String(cur),
         vm
       );
-    } else if (!old) {
-      if (!cur.fns) {
+    } else if (isUndef(old)) {
+      if (isUndef(cur.fns)) {
         cur = on[name] = createFnInvoker(cur);
       }
-      add(event.name, cur, event.once, event.capture);
+      add(event.name, cur, event.once, event.capture, event.passive);
     } else if (cur !== old) {
       old.fns = cur;
       on[name] = old;
     }
   }
   for (name in oldOn) {
-    if (!on[name]) {
+    if (isUndef(on[name])) {
       event = normalizeEvent(name);
       remove$$1(event.name, oldOn[name], event.capture);
     }
@@ -4699,12 +5176,12 @@ function mergeVNodeHook (def, hookKey, hook) {
     remove(invoker.fns, wrappedHook);
   }
 
-  if (!oldHook) {
+  if (isUndef(oldHook)) {
     // no existing hook
     invoker = createFnInvoker([wrappedHook]);
   } else {
     /* istanbul ignore if */
-    if (oldHook.fns && oldHook.merged) {
+    if (isDef(oldHook.fns) && isTrue(oldHook.merged)) {
       // already a merged invoker
       invoker = oldHook;
       invoker.fns.push(wrappedHook);
@@ -4716,6 +5193,74 @@ function mergeVNodeHook (def, hookKey, hook) {
 
   invoker.merged = true;
   def[hookKey] = invoker;
+}
+
+/*  */
+
+function extractPropsFromVNodeData (
+  data,
+  Ctor,
+  tag
+) {
+  // we are only extracting raw values here.
+  // validation and default values are handled in the child
+  // component itself.
+  var propOptions = Ctor.options.props;
+  if (isUndef(propOptions)) {
+    return
+  }
+  var res = {};
+  var attrs = data.attrs;
+  var props = data.props;
+  if (isDef(attrs) || isDef(props)) {
+    for (var key in propOptions) {
+      var altKey = hyphenate(key);
+      if (process.env.NODE_ENV !== 'production') {
+        var keyInLowerCase = key.toLowerCase();
+        if (
+          key !== keyInLowerCase &&
+          attrs && hasOwn(attrs, keyInLowerCase)
+        ) {
+          tip(
+            "Prop \"" + keyInLowerCase + "\" is passed to component " +
+            (formatComponentName(tag || Ctor)) + ", but the declared prop name is" +
+            " \"" + key + "\". " +
+            "Note that HTML attributes are case-insensitive and camelCased " +
+            "props need to use their kebab-case equivalents when using in-DOM " +
+            "templates. You should probably use \"" + altKey + "\" instead of \"" + key + "\"."
+          );
+        }
+      }
+      checkProp(res, props, key, altKey, true) ||
+      checkProp(res, attrs, key, altKey, false);
+    }
+  }
+  return res
+}
+
+function checkProp (
+  res,
+  hash,
+  key,
+  altKey,
+  preserve
+) {
+  if (isDef(hash)) {
+    if (hasOwn(hash, key)) {
+      res[key] = hash[key];
+      if (!preserve) {
+        delete hash[key];
+      }
+      return true
+    } else if (hasOwn(hash, altKey)) {
+      res[key] = hash[altKey];
+      if (!preserve) {
+        delete hash[altKey];
+      }
+      return true
+    }
+  }
+  return false
 }
 
 /*  */
@@ -4753,29 +5298,40 @@ function normalizeChildren (children) {
       : undefined
 }
 
+function isTextNode (node) {
+  return isDef(node) && isDef(node.text) && isFalse(node.isComment)
+}
+
 function normalizeArrayChildren (children, nestedIndex) {
   var res = [];
   var i, c, last;
   for (i = 0; i < children.length; i++) {
     c = children[i];
-    if (c == null || typeof c === 'boolean') { continue }
+    if (isUndef(c) || typeof c === 'boolean') { continue }
     last = res[res.length - 1];
     //  nested
     if (Array.isArray(c)) {
       res.push.apply(res, normalizeArrayChildren(c, ((nestedIndex || '') + "_" + i)));
     } else if (isPrimitive(c)) {
-      if (last && last.text) {
-        last.text += String(c);
+      if (isTextNode(last)) {
+        // merge adjacent text nodes
+        // this is necessary for SSR hydration because text nodes are
+        // essentially merged when rendered to HTML strings
+        (last).text += String(c);
       } else if (c !== '') {
         // convert primitive to vnode
         res.push(createTextVNode(c));
       }
     } else {
-      if (c.text && last && last.text) {
+      if (isTextNode(c) && isTextNode(last)) {
+        // merge adjacent text nodes
         res[res.length - 1] = createTextVNode(last.text + c.text);
       } else {
         // default key for nested array children (likely generated by v-for)
-        if (c.tag && c.key == null && nestedIndex != null) {
+        if (isTrue(children._isVList) &&
+          isDef(c.tag) &&
+          isUndef(c.key) &&
+          isDef(nestedIndex)) {
           c.key = "__vlist" + nestedIndex + "_" + i + "__";
         }
         res.push(c);
@@ -4787,9 +5343,144 @@ function normalizeArrayChildren (children, nestedIndex) {
 
 /*  */
 
-function getFirstComponentChild (children) {
-  return children && children.filter(function (c) { return c && c.componentOptions; })[0]
+function ensureCtor (comp, base) {
+  if (comp.__esModule && comp.default) {
+    comp = comp.default;
+  }
+  return isObject(comp)
+    ? base.extend(comp)
+    : comp
 }
+
+function createAsyncPlaceholder (
+  factory,
+  data,
+  context,
+  children,
+  tag
+) {
+  var node = createEmptyVNode();
+  node.asyncFactory = factory;
+  node.asyncMeta = { data: data, context: context, children: children, tag: tag };
+  return node
+}
+
+function resolveAsyncComponent (
+  factory,
+  baseCtor,
+  context
+) {
+  if (isTrue(factory.error) && isDef(factory.errorComp)) {
+    return factory.errorComp
+  }
+
+  if (isDef(factory.resolved)) {
+    return factory.resolved
+  }
+
+  if (isTrue(factory.loading) && isDef(factory.loadingComp)) {
+    return factory.loadingComp
+  }
+
+  if (isDef(factory.contexts)) {
+    // already pending
+    factory.contexts.push(context);
+  } else {
+    var contexts = factory.contexts = [context];
+    var sync = true;
+
+    var forceRender = function () {
+      for (var i = 0, l = contexts.length; i < l; i++) {
+        contexts[i].$forceUpdate();
+      }
+    };
+
+    var resolve = once(function (res) {
+      // cache resolved
+      factory.resolved = ensureCtor(res, baseCtor);
+      // invoke callbacks only if this is not a synchronous resolve
+      // (async resolves are shimmed as synchronous during SSR)
+      if (!sync) {
+        forceRender();
+      }
+    });
+
+    var reject = once(function (reason) {
+      process.env.NODE_ENV !== 'production' && warn(
+        "Failed to resolve async component: " + (String(factory)) +
+        (reason ? ("\nReason: " + reason) : '')
+      );
+      if (isDef(factory.errorComp)) {
+        factory.error = true;
+        forceRender();
+      }
+    });
+
+    var res = factory(resolve, reject);
+
+    if (isObject(res)) {
+      if (typeof res.then === 'function') {
+        // () => Promise
+        if (isUndef(factory.resolved)) {
+          res.then(resolve, reject);
+        }
+      } else if (isDef(res.component) && typeof res.component.then === 'function') {
+        res.component.then(resolve, reject);
+
+        if (isDef(res.error)) {
+          factory.errorComp = ensureCtor(res.error, baseCtor);
+        }
+
+        if (isDef(res.loading)) {
+          factory.loadingComp = ensureCtor(res.loading, baseCtor);
+          if (res.delay === 0) {
+            factory.loading = true;
+          } else {
+            setTimeout(function () {
+              if (isUndef(factory.resolved) && isUndef(factory.error)) {
+                factory.loading = true;
+                forceRender();
+              }
+            }, res.delay || 200);
+          }
+        }
+
+        if (isDef(res.timeout)) {
+          setTimeout(function () {
+            if (isUndef(factory.resolved)) {
+              reject(
+                process.env.NODE_ENV !== 'production'
+                  ? ("timeout (" + (res.timeout) + "ms)")
+                  : null
+              );
+            }
+          }, res.timeout);
+        }
+      }
+    }
+
+    sync = false;
+    // return in case resolved synchronously
+    return factory.loading
+      ? factory.loadingComp
+      : factory.resolved
+  }
+}
+
+/*  */
+
+function getFirstComponentChild (children) {
+  if (Array.isArray(children)) {
+    for (var i = 0; i < children.length; i++) {
+      var c = children[i];
+      if (isDef(c) && isDef(c.componentOptions)) {
+        return c
+      }
+    }
+  }
+}
+
+/*  */
 
 /*  */
 
@@ -4898,12 +5589,28 @@ function eventsMixin (Vue) {
 
   Vue.prototype.$emit = function (event) {
     var vm = this;
+    if (process.env.NODE_ENV !== 'production') {
+      var lowerCaseEvent = event.toLowerCase();
+      if (lowerCaseEvent !== event && vm._events[lowerCaseEvent]) {
+        tip(
+          "Event \"" + lowerCaseEvent + "\" is emitted in component " +
+          (formatComponentName(vm)) + " but the handler is registered for \"" + event + "\". " +
+          "Note that HTML attributes are case-insensitive and you cannot use " +
+          "v-on to listen to camelCase events when using in-DOM templates. " +
+          "You should probably use \"" + (hyphenate(event)) + "\" instead of \"" + event + "\"."
+        );
+      }
+    }
     var cbs = vm._events[event];
     if (cbs) {
       cbs = cbs.length > 1 ? toArray(cbs) : cbs;
       var args = toArray(arguments, 1);
       for (var i = 0, l = cbs.length; i < l; i++) {
-        cbs[i].apply(vm, args);
+        try {
+          cbs[i].apply(vm, args);
+        } catch (e) {
+          handleError(e, vm, ("event handler for \"" + event + "\""));
+        }
       }
     }
     return vm
@@ -4924,13 +5631,14 @@ function resolveSlots (
     return slots
   }
   var defaultSlot = [];
-  var name, child;
   for (var i = 0, l = children.length; i < l; i++) {
-    child = children[i];
+    var child = children[i];
     // named slots should only be respected if the vnode was rendered in the
     // same context.
     if ((child.context === context || child.functionalContext === context) &&
-        child.data && (name = child.data.slot)) {
+      child.data && child.data.slot != null
+    ) {
+      var name = child.data.slot;
       var slot = (slots[name] || (slots[name] = []));
       if (child.tag === 'template') {
         slot.push.apply(slot, child.children);
@@ -4953,11 +5661,16 @@ function isWhitespace (node) {
 }
 
 function resolveScopedSlots (
-  fns
+  fns, // see flow/vnode
+  res
 ) {
-  var res = {};
+  res = res || {};
   for (var i = 0; i < fns.length; i++) {
-    res[fns[i][0]] = fns[i][1];
+    if (Array.isArray(fns[i])) {
+      resolveScopedSlots(fns[i], res);
+    } else {
+      res[fns[i].key] = fns[i].fn;
+    }
   }
   return res
 }
@@ -4965,6 +5678,7 @@ function resolveScopedSlots (
 /*  */
 
 var activeInstance = null;
+var isUpdatingChildComponent = false;
 
 function initLifecycle (vm) {
   var options = vm.$options;
@@ -5012,6 +5726,9 @@ function lifecycleMixin (Vue) {
         vm.$options._parentElm,
         vm.$options._refElm
       );
+      // no need for the ref nodes after initial patch
+      // this prevents keeping a detached DOM tree in memory (#5851)
+      vm.$options._parentElm = vm.$options._refElm = null;
     } else {
       // updates
       vm.$el = vm.__patch__(prevVnode, vnode);
@@ -5066,6 +5783,9 @@ function lifecycleMixin (Vue) {
     }
     // call the last hook...
     vm._isDestroyed = true;
+    // invoke destroy hooks on current rendered tree
+    vm.__patch__(vm._vnode, null);
+    // fire destroyed hook
     callHook(vm, 'destroyed');
     // turn off all instance listeners.
     vm.$off();
@@ -5073,8 +5793,6 @@ function lifecycleMixin (Vue) {
     if (vm.$el) {
       vm.$el.__vue__ = null;
     }
-    // invoke destroy hooks on current rendered tree
-    vm.__patch__(vm._vnode, null);
   };
 }
 
@@ -5150,6 +5868,10 @@ function updateChildComponent (
   parentVnode,
   renderChildren
 ) {
+  if (process.env.NODE_ENV !== 'production') {
+    isUpdatingChildComponent = true;
+  }
+
   // determine whether component has slot children
   // we need to do this before overwriting $options._renderChildren
   var hasChildren = !!(
@@ -5161,17 +5883,21 @@ function updateChildComponent (
 
   vm.$options._parentVnode = parentVnode;
   vm.$vnode = parentVnode; // update vm's placeholder node without re-render
+
   if (vm._vnode) { // update child tree's parent
     vm._vnode.parent = parentVnode;
   }
   vm.$options._renderChildren = renderChildren;
 
+  // update $attrs and $listensers hash
+  // these are also reactive so they may trigger child update if the child
+  // used them during render
+  vm.$attrs = parentVnode.data && parentVnode.data.attrs;
+  vm.$listeners = listeners;
+
   // update props
   if (propsData && vm.$options.props) {
     observerState.shouldConvert = false;
-    if (process.env.NODE_ENV !== 'production') {
-      observerState.isSettingProps = true;
-    }
     var props = vm._props;
     var propKeys = vm.$options._propKeys || [];
     for (var i = 0; i < propKeys.length; i++) {
@@ -5179,12 +5905,10 @@ function updateChildComponent (
       props[key] = validateProp(key, vm.$options.props, propsData, vm);
     }
     observerState.shouldConvert = true;
-    if (process.env.NODE_ENV !== 'production') {
-      observerState.isSettingProps = false;
-    }
     // keep a copy of raw propsData
     vm.$options.propsData = propsData;
   }
+
   // update listeners
   if (listeners) {
     var oldListeners = vm.$options._parentListeners;
@@ -5195,6 +5919,10 @@ function updateChildComponent (
   if (hasChildren) {
     vm.$slots = resolveSlots(renderChildren, parentVnode.context);
     vm.$forceUpdate();
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    isUpdatingChildComponent = false;
   }
 }
 
@@ -5214,7 +5942,7 @@ function activateChildComponent (vm, direct) {
   } else if (vm._directInactive) {
     return
   }
-  if (vm._inactive || vm._inactive == null) {
+  if (vm._inactive || vm._inactive === null) {
     vm._inactive = false;
     for (var i = 0; i < vm.$children.length; i++) {
       activateChildComponent(vm.$children[i]);
@@ -5258,7 +5986,10 @@ function callHook (vm, hook) {
 /*  */
 
 
+var MAX_UPDATE_COUNT = 100;
+
 var queue = [];
+var activatedChildren = [];
 var has = {};
 var circular = {};
 var waiting = false;
@@ -5269,7 +6000,7 @@ var index = 0;
  * Reset the scheduler's state.
  */
 function resetSchedulerState () {
-  queue.length = 0;
+  index = queue.length = activatedChildren.length = 0;
   has = {};
   if (process.env.NODE_ENV !== 'production') {
     circular = {};
@@ -5282,7 +6013,7 @@ function resetSchedulerState () {
  */
 function flushSchedulerQueue () {
   flushing = true;
-  var watcher, id, vm;
+  var watcher, id;
 
   // Sort queue before flush.
   // This ensures that:
@@ -5304,7 +6035,7 @@ function flushSchedulerQueue () {
     // in dev build, check and stop circular updates.
     if (process.env.NODE_ENV !== 'production' && has[id] != null) {
       circular[id] = (circular[id] || 0) + 1;
-      if (circular[id] > config._maxUpdateCount) {
+      if (circular[id] > MAX_UPDATE_COUNT) {
         warn(
           'You may have an infinite update loop ' + (
             watcher.user
@@ -5318,23 +6049,50 @@ function flushSchedulerQueue () {
     }
   }
 
-  // call updated hooks
-  index = queue.length;
-  while (index--) {
-    watcher = queue[index];
-    vm = watcher.vm;
-    if (vm._watcher === watcher && vm._isMounted) {
-      callHook(vm, 'updated');
-    }
-  }
+  // keep copies of post queues before resetting state
+  var activatedQueue = activatedChildren.slice();
+  var updatedQueue = queue.slice();
+
+  resetSchedulerState();
+
+  // call component updated and activated hooks
+  callActivatedHooks(activatedQueue);
+  callUpdatedHooks(updatedQueue);
 
   // devtool hook
   /* istanbul ignore if */
   if (devtools && config.devtools) {
     devtools.emit('flush');
   }
+}
 
-  resetSchedulerState();
+function callUpdatedHooks (queue) {
+  var i = queue.length;
+  while (i--) {
+    var watcher = queue[i];
+    var vm = watcher.vm;
+    if (vm._watcher === watcher && vm._isMounted) {
+      callHook(vm, 'updated');
+    }
+  }
+}
+
+/**
+ * Queue a kept-alive component that was activated during patch.
+ * The queue will be processed after the entire tree has been patched.
+ */
+function queueActivatedComponent (vm) {
+  // setting _inactive to false here so that a render function can
+  // rely on checking whether it's in an inactive tree (e.g. router-view)
+  vm._inactive = false;
+  activatedChildren.push(vm);
+}
+
+function callActivatedHooks (queue) {
+  for (var i = 0; i < queue.length; i++) {
+    queue[i]._inactive = true;
+    activateChildComponent(queue[i], true /* true */);
+  }
 }
 
 /**
@@ -5352,10 +6110,10 @@ function queueWatcher (watcher) {
       // if already flushing, splice the watcher based on its id
       // if already past its id, it will be run next immediately.
       var i = queue.length - 1;
-      while (i >= 0 && queue[i].id > watcher.id) {
+      while (i > index && queue[i].id > watcher.id) {
         i--;
       }
-      queue.splice(Math.max(i, index) + 1, 0, watcher);
+      queue.splice(i + 1, 0, watcher);
     }
     // queue the flush
     if (!waiting) {
@@ -5429,22 +6187,23 @@ Watcher.prototype.get = function get () {
   pushTarget(this);
   var value;
   var vm = this.vm;
-  if (this.user) {
-    try {
-      value = this.getter.call(vm, vm);
-    } catch (e) {
-      handleError(e, vm, ("getter for watcher \"" + (this.expression) + "\""));
-    }
-  } else {
+  try {
     value = this.getter.call(vm, vm);
+  } catch (e) {
+    if (this.user) {
+      handleError(e, vm, ("getter for watcher \"" + (this.expression) + "\""));
+    } else {
+      throw e
+    }
+  } finally {
+    // "touch" every property so they are all tracked as
+    // dependencies for deep watching
+    if (this.deep) {
+      traverse(value);
+    }
+    popTarget();
+    this.cleanupDeps();
   }
-  // "touch" every property so they are all tracked as
-  // dependencies for deep watching
-  if (this.deep) {
-    traverse(value);
-  }
-  popTarget();
-  this.cleanupDeps();
   return value
 };
 
@@ -5637,10 +6396,20 @@ function initState (vm) {
     observe(vm._data = {}, true /* asRootData */);
   }
   if (opts.computed) { initComputed(vm, opts.computed); }
-  if (opts.watch) { initWatch(vm, opts.watch); }
+  if (opts.watch && opts.watch !== nativeWatch) {
+    initWatch(vm, opts.watch);
+  }
 }
 
-var isReservedProp = { key: 1, ref: 1, slot: 1 };
+function checkOptionType (vm, name) {
+  var option = vm.$options[name];
+  if (!isPlainObject(option)) {
+    warn(
+      ("component option \"" + name + "\" should be an object."),
+      vm
+    );
+  }
+}
 
 function initProps (vm, propsOptions) {
   var propsData = vm.$options.propsData || {};
@@ -5656,14 +6425,14 @@ function initProps (vm, propsOptions) {
     var value = validateProp(key, propsOptions, propsData, vm);
     /* istanbul ignore else */
     if (process.env.NODE_ENV !== 'production') {
-      if (isReservedProp[key]) {
+      if (isReservedAttribute(key) || config.isReservedAttr(key)) {
         warn(
           ("\"" + key + "\" is a reserved attribute and cannot be used as component prop."),
           vm
         );
       }
       defineReactive$$1(props, key, value, function () {
-        if (vm.$parent && !observerState.isSettingProps) {
+        if (vm.$parent && !isUpdatingChildComponent) {
           warn(
             "Avoid mutating a prop directly since the value will be " +
             "overwritten whenever the parent component re-renders. " +
@@ -5691,7 +6460,7 @@ function initProps (vm, propsOptions) {
 function initData (vm) {
   var data = vm.$options.data;
   data = vm._data = typeof data === 'function'
-    ? data.call(vm)
+    ? getData(data, vm)
     : data || {};
   if (!isPlainObject(data)) {
     data = {};
@@ -5704,38 +6473,70 @@ function initData (vm) {
   // proxy data on instance
   var keys = Object.keys(data);
   var props = vm.$options.props;
+  var methods = vm.$options.methods;
   var i = keys.length;
   while (i--) {
-    if (props && hasOwn(props, keys[i])) {
+    var key = keys[i];
+    if (process.env.NODE_ENV !== 'production') {
+      if (methods && hasOwn(methods, key)) {
+        warn(
+          ("method \"" + key + "\" has already been defined as a data property."),
+          vm
+        );
+      }
+    }
+    if (props && hasOwn(props, key)) {
       process.env.NODE_ENV !== 'production' && warn(
-        "The data property \"" + (keys[i]) + "\" is already declared as a prop. " +
+        "The data property \"" + key + "\" is already declared as a prop. " +
         "Use prop default value instead.",
         vm
       );
-    } else if (!isReserved(keys[i])) {
-      proxy(vm, "_data", keys[i]);
+    } else if (!isReserved(key)) {
+      proxy(vm, "_data", key);
     }
   }
   // observe data
   observe(data, true /* asRootData */);
 }
 
+function getData (data, vm) {
+  try {
+    return data.call(vm)
+  } catch (e) {
+    handleError(e, vm, "data()");
+    return {}
+  }
+}
+
 var computedWatcherOptions = { lazy: true };
 
 function initComputed (vm, computed) {
+  process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'computed');
   var watchers = vm._computedWatchers = Object.create(null);
 
   for (var key in computed) {
     var userDef = computed[key];
     var getter = typeof userDef === 'function' ? userDef : userDef.get;
+    if (process.env.NODE_ENV !== 'production' && getter == null) {
+      warn(
+        ("Getter is missing for computed property \"" + key + "\"."),
+        vm
+      );
+    }
     // create internal watcher for the computed property.
-    watchers[key] = new Watcher(vm, getter, noop, computedWatcherOptions);
+    watchers[key] = new Watcher(vm, getter || noop, noop, computedWatcherOptions);
 
     // component-defined computed properties are already defined on the
     // component prototype. We only need to define computed properties defined
     // at instantiation here.
     if (!(key in vm)) {
       defineComputed(vm, key, userDef);
+    } else if (process.env.NODE_ENV !== 'production') {
+      if (key in vm.$data) {
+        warn(("The computed property \"" + key + "\" is already defined in data."), vm);
+      } else if (vm.$options.props && key in vm.$options.props) {
+        warn(("The computed property \"" + key + "\" is already defined as a prop."), vm);
+      }
     }
   }
 }
@@ -5753,6 +6554,15 @@ function defineComputed (target, key, userDef) {
     sharedPropertyDefinition.set = userDef.set
       ? userDef.set
       : noop;
+  }
+  if (process.env.NODE_ENV !== 'production' &&
+      sharedPropertyDefinition.set === noop) {
+    sharedPropertyDefinition.set = function () {
+      warn(
+        ("Computed property \"" + key + "\" was assigned to but it has no setter."),
+        this
+      );
+    };
   }
   Object.defineProperty(target, key, sharedPropertyDefinition);
 }
@@ -5773,6 +6583,7 @@ function createComputedGetter (key) {
 }
 
 function initMethods (vm, methods) {
+  process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'methods');
   var props = vm.$options.props;
   for (var key in methods) {
     vm[key] = methods[key] == null ? noop : bind(methods[key], vm);
@@ -5795,6 +6606,7 @@ function initMethods (vm, methods) {
 }
 
 function initWatch (vm, watch) {
+  process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'watch');
   for (var key in watch) {
     var handler = watch[key];
     if (Array.isArray(handler)) {
@@ -5807,8 +6619,12 @@ function initWatch (vm, watch) {
   }
 }
 
-function createWatcher (vm, key, handler) {
-  var options;
+function createWatcher (
+  vm,
+  keyOrFn,
+  handler,
+  options
+) {
   if (isPlainObject(handler)) {
     options = handler;
     handler = handler.handler;
@@ -5816,7 +6632,7 @@ function createWatcher (vm, key, handler) {
   if (typeof handler === 'string') {
     handler = vm[handler];
   }
-  vm.$watch(key, handler, options);
+  return vm.$watch(keyOrFn, handler, options)
 }
 
 function stateMixin (Vue) {
@@ -5851,6 +6667,9 @@ function stateMixin (Vue) {
     options
   ) {
     var vm = this;
+    if (isPlainObject(cb)) {
+      return createWatcher(vm, expOrFn, cb, options)
+    }
     options = options || {};
     options.user = true;
     var watcher = new Watcher(vm, expOrFn, cb, options);
@@ -5861,6 +6680,115 @@ function stateMixin (Vue) {
       watcher.teardown();
     }
   };
+}
+
+/*  */
+
+function initProvide (vm) {
+  var provide = vm.$options.provide;
+  if (provide) {
+    vm._provided = typeof provide === 'function'
+      ? provide.call(vm)
+      : provide;
+  }
+}
+
+function initInjections (vm) {
+  var result = resolveInject(vm.$options.inject, vm);
+  if (result) {
+    observerState.shouldConvert = false;
+    Object.keys(result).forEach(function (key) {
+      /* istanbul ignore else */
+      if (process.env.NODE_ENV !== 'production') {
+        defineReactive$$1(vm, key, result[key], function () {
+          warn(
+            "Avoid mutating an injected value directly since the changes will be " +
+            "overwritten whenever the provided component re-renders. " +
+            "injection being mutated: \"" + key + "\"",
+            vm
+          );
+        });
+      } else {
+        defineReactive$$1(vm, key, result[key]);
+      }
+    });
+    observerState.shouldConvert = true;
+  }
+}
+
+function resolveInject (inject, vm) {
+  if (inject) {
+    // inject is :any because flow is not smart enough to figure out cached
+    var result = Object.create(null);
+    var keys = hasSymbol
+        ? Reflect.ownKeys(inject)
+        : Object.keys(inject);
+
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      var provideKey = inject[key];
+      var source = vm;
+      while (source) {
+        if (source._provided && provideKey in source._provided) {
+          result[key] = source._provided[provideKey];
+          break
+        }
+        source = source.$parent;
+      }
+      if (process.env.NODE_ENV !== 'production' && !source) {
+        warn(("Injection \"" + key + "\" not found"), vm);
+      }
+    }
+    return result
+  }
+}
+
+/*  */
+
+function createFunctionalComponent (
+  Ctor,
+  propsData,
+  data,
+  context,
+  children
+) {
+  var props = {};
+  var propOptions = Ctor.options.props;
+  if (isDef(propOptions)) {
+    for (var key in propOptions) {
+      props[key] = validateProp(key, propOptions, propsData || {});
+    }
+  } else {
+    if (isDef(data.attrs)) { mergeProps(props, data.attrs); }
+    if (isDef(data.props)) { mergeProps(props, data.props); }
+  }
+  // ensure the createElement function in functional components
+  // gets a unique context - this is necessary for correct named slot check
+  var _context = Object.create(context);
+  var h = function (a, b, c, d) { return createElement(_context, a, b, c, d, true); };
+  var vnode = Ctor.options.render.call(null, h, {
+    data: data,
+    props: props,
+    children: children,
+    parent: context,
+    listeners: data.on || {},
+    injections: resolveInject(Ctor.options.inject, context),
+    slots: function () { return resolveSlots(children, context); }
+  });
+  if (vnode instanceof VNode) {
+    vnode.functionalContext = context;
+    vnode.functionalOptions = Ctor.options;
+    if (data.slot) {
+      (vnode.data || (vnode.data = {})).slot = data.slot;
+    }
+  }
+  return vnode
+}
+
+function mergeProps (to, from) {
+  for (var key in from) {
+    to[camelize(key)] = from[key];
+  }
 }
 
 /*  */
@@ -5901,21 +6829,33 @@ var componentVNodeHooks = {
   },
 
   insert: function insert (vnode) {
-    if (!vnode.componentInstance._isMounted) {
-      vnode.componentInstance._isMounted = true;
-      callHook(vnode.componentInstance, 'mounted');
+    var context = vnode.context;
+    var componentInstance = vnode.componentInstance;
+    if (!componentInstance._isMounted) {
+      componentInstance._isMounted = true;
+      callHook(componentInstance, 'mounted');
     }
     if (vnode.data.keepAlive) {
-      activateChildComponent(vnode.componentInstance, true /* direct */);
+      if (context._isMounted) {
+        // vue-router#1212
+        // During updates, a kept-alive component's child components may
+        // change, so directly walking the tree here may call activated hooks
+        // on incorrect children. Instead we push them into a queue which will
+        // be processed after the whole patch process ended.
+        queueActivatedComponent(componentInstance);
+      } else {
+        activateChildComponent(componentInstance, true /* direct */);
+      }
     }
   },
 
   destroy: function destroy (vnode) {
-    if (!vnode.componentInstance._isDestroyed) {
+    var componentInstance = vnode.componentInstance;
+    if (!componentInstance._isDestroyed) {
       if (!vnode.data.keepAlive) {
-        vnode.componentInstance.$destroy();
+        componentInstance.$destroy();
       } else {
-        deactivateChildComponent(vnode.componentInstance, true /* direct */);
+        deactivateChildComponent(componentInstance, true /* direct */);
       }
     }
   }
@@ -5930,15 +6870,19 @@ function createComponent (
   children,
   tag
 ) {
-  if (!Ctor) {
+  if (isUndef(Ctor)) {
     return
   }
 
   var baseCtor = context.$options._base;
+
+  // plain options object: turn it into a constructor
   if (isObject(Ctor)) {
     Ctor = baseCtor.extend(Ctor);
   }
 
+  // if at this stage it's not a constructor or an async component factory,
+  // reject.
   if (typeof Ctor !== 'function') {
     if (process.env.NODE_ENV !== 'production') {
       warn(("Invalid Component definition: " + (String(Ctor))), context);
@@ -5947,39 +6891,40 @@ function createComponent (
   }
 
   // async component
-  if (!Ctor.cid) {
-    if (Ctor.resolved) {
-      Ctor = Ctor.resolved;
-    } else {
-      Ctor = resolveAsyncComponent(Ctor, baseCtor, function () {
-        // it's ok to queue this on every render because
-        // $forceUpdate is buffered by the scheduler.
-        context.$forceUpdate();
-      });
-      if (!Ctor) {
-        // return nothing if this is indeed an async component
-        // wait for the callback to trigger parent update.
-        return
-      }
+  var asyncFactory;
+  if (isUndef(Ctor.cid)) {
+    asyncFactory = Ctor;
+    Ctor = resolveAsyncComponent(asyncFactory, baseCtor, context);
+    if (Ctor === undefined) {
+      // return a placeholder node for async component, which is rendered
+      // as a comment node but preserves all the raw information for the node.
+      // the information will be used for async server-rendering and hydration.
+      return createAsyncPlaceholder(
+        asyncFactory,
+        data,
+        context,
+        children,
+        tag
+      )
     }
   }
+
+  data = data || {};
 
   // resolve constructor options in case global mixins are applied after
   // component constructor creation
   resolveConstructorOptions(Ctor);
 
-  data = data || {};
-
   // transform component v-model data into props & events
-  if (data.model) {
+  if (isDef(data.model)) {
     transformModel(Ctor.options, data);
   }
 
   // extract props
-  var propsData = extractProps(data, Ctor);
+  var propsData = extractPropsFromVNodeData(data, Ctor, tag);
 
   // functional component
-  if (Ctor.options.functional) {
+  if (isTrue(Ctor.options.functional)) {
     return createFunctionalComponent(Ctor, propsData, data, context, children)
   }
 
@@ -5987,12 +6932,19 @@ function createComponent (
   // child component listeners instead of DOM listeners
   var listeners = data.on;
   // replace with listeners with .native modifier
+  // so it gets processed during parent component patch.
   data.on = data.nativeOn;
 
-  if (Ctor.options.abstract) {
+  if (isTrue(Ctor.options.abstract)) {
     // abstract components do not keep anything
-    // other than props & listeners
+    // other than props & listeners & slot
+
+    // work around flow
+    var slot = data.slot;
     data = {};
+    if (slot) {
+      data.slot = slot;
+    }
   }
 
   // merge component management hooks onto the placeholder node
@@ -6003,42 +6955,9 @@ function createComponent (
   var vnode = new VNode(
     ("vue-component-" + (Ctor.cid) + (name ? ("-" + name) : '')),
     data, undefined, undefined, undefined, context,
-    { Ctor: Ctor, propsData: propsData, listeners: listeners, tag: tag, children: children }
+    { Ctor: Ctor, propsData: propsData, listeners: listeners, tag: tag, children: children },
+    asyncFactory
   );
-  return vnode
-}
-
-function createFunctionalComponent (
-  Ctor,
-  propsData,
-  data,
-  context,
-  children
-) {
-  var props = {};
-  var propOptions = Ctor.options.props;
-  if (propOptions) {
-    for (var key in propOptions) {
-      props[key] = validateProp(key, propOptions, propsData);
-    }
-  }
-  // ensure the createElement function in functional components
-  // gets a unique context - this is necessary for correct named slot check
-  var _context = Object.create(context);
-  var h = function (a, b, c, d) { return createElement(_context, a, b, c, d, true); };
-  var vnode = Ctor.options.render.call(null, h, {
-    props: props,
-    data: data,
-    parent: context,
-    children: children,
-    slots: function () { return resolveSlots(children, context); }
-  });
-  if (vnode instanceof VNode) {
-    vnode.functionalContext = context;
-    if (data.slot) {
-      (vnode.data || (vnode.data = {})).slot = data.slot;
-    }
-  }
   return vnode
 }
 
@@ -6062,122 +6981,11 @@ function createComponentInstanceForVnode (
   };
   // check inline-template render functions
   var inlineTemplate = vnode.data.inlineTemplate;
-  if (inlineTemplate) {
+  if (isDef(inlineTemplate)) {
     options.render = inlineTemplate.render;
     options.staticRenderFns = inlineTemplate.staticRenderFns;
   }
   return new vnodeComponentOptions.Ctor(options)
-}
-
-function resolveAsyncComponent (
-  factory,
-  baseCtor,
-  cb
-) {
-  if (factory.requested) {
-    // pool callbacks
-    factory.pendingCallbacks.push(cb);
-  } else {
-    factory.requested = true;
-    var cbs = factory.pendingCallbacks = [cb];
-    var sync = true;
-
-    var resolve = function (res) {
-      if (isObject(res)) {
-        res = baseCtor.extend(res);
-      }
-      // cache resolved
-      factory.resolved = res;
-      // invoke callbacks only if this is not a synchronous resolve
-      // (async resolves are shimmed as synchronous during SSR)
-      if (!sync) {
-        for (var i = 0, l = cbs.length; i < l; i++) {
-          cbs[i](res);
-        }
-      }
-    };
-
-    var reject = function (reason) {
-      process.env.NODE_ENV !== 'production' && warn(
-        "Failed to resolve async component: " + (String(factory)) +
-        (reason ? ("\nReason: " + reason) : '')
-      );
-    };
-
-    var res = factory(resolve, reject);
-
-    // handle promise
-    if (res && typeof res.then === 'function' && !factory.resolved) {
-      res.then(resolve, reject);
-    }
-
-    sync = false;
-    // return in case resolved synchronously
-    return factory.resolved
-  }
-}
-
-function extractProps (data, Ctor) {
-  // we are only extracting raw values here.
-  // validation and default values are handled in the child
-  // component itself.
-  var propOptions = Ctor.options.props;
-  if (!propOptions) {
-    return
-  }
-  var res = {};
-  var attrs = data.attrs;
-  var props = data.props;
-  var domProps = data.domProps;
-  if (attrs || props || domProps) {
-    for (var key in propOptions) {
-      var altKey = hyphenate(key);
-      if (process.env.NODE_ENV !== 'production') {
-        var keyInLowerCase = key.toLowerCase();
-        if (
-          key !== keyInLowerCase &&
-          attrs && attrs.hasOwnProperty(keyInLowerCase)
-        ) {
-          warn(
-            "Prop \"" + keyInLowerCase + "\" is not declared in component " +
-            (formatComponentName(Ctor)) + ". Note that HTML attributes are " +
-            "case-insensitive and camelCased props need to use their kebab-case " +
-            "equivalents when using in-DOM templates. You should probably use " +
-            "\"" + altKey + "\" instead of \"" + key + "\"."
-          );
-        }
-      }
-      checkProp(res, props, key, altKey, true) ||
-      checkProp(res, attrs, key, altKey) ||
-      checkProp(res, domProps, key, altKey);
-    }
-  }
-  return res
-}
-
-function checkProp (
-  res,
-  hash,
-  key,
-  altKey,
-  preserve
-) {
-  if (hash) {
-    if (hasOwn(hash, key)) {
-      res[key] = hash[key];
-      if (!preserve) {
-        delete hash[key];
-      }
-      return true
-    } else if (hasOwn(hash, altKey)) {
-      res[key] = hash[altKey];
-      if (!preserve) {
-        delete hash[altKey];
-      }
-      return true
-    }
-  }
-  return false
 }
 
 function mergeHooks (data) {
@@ -6205,7 +7013,7 @@ function transformModel (options, data) {
   var prop = (options.model && options.model.prop) || 'value';
   var event = (options.model && options.model.event) || 'input';(data.props || (data.props = {}))[prop] = data.model.value;
   var on = data.on || (data.on = {});
-  if (on[event]) {
+  if (isDef(on[event])) {
     on[event] = [data.model.callback].concat(on[event]);
   } else {
     on[event] = data.model.callback;
@@ -6232,7 +7040,9 @@ function createElement (
     children = data;
     data = undefined;
   }
-  if (alwaysNormalize) { normalizationType = ALWAYS_NORMALIZE; }
+  if (isTrue(alwaysNormalize)) {
+    normalizationType = ALWAYS_NORMALIZE;
+  }
   return _createElement(context, tag, data, children, normalizationType)
 }
 
@@ -6243,7 +7053,7 @@ function _createElement (
   children,
   normalizationType
 ) {
-  if (data && data.__ob__) {
+  if (isDef(data) && isDef((data).__ob__)) {
     process.env.NODE_ENV !== 'production' && warn(
       "Avoid using observed data object as vnode data: " + (JSON.stringify(data)) + "\n" +
       'Always create fresh vnode data objects in each render!',
@@ -6251,13 +7061,28 @@ function _createElement (
     );
     return createEmptyVNode()
   }
+  // object syntax in v-bind
+  if (isDef(data) && isDef(data.is)) {
+    tag = data.is;
+  }
   if (!tag) {
     // in case of component :is set to falsy value
     return createEmptyVNode()
   }
+  // warn against non-primitive key
+  if (process.env.NODE_ENV !== 'production' &&
+    isDef(data) && isDef(data.key) && !isPrimitive(data.key)
+  ) {
+    warn(
+      'Avoid using non-primitive value as key, ' +
+      'use string/number value instead.',
+      context
+    );
+  }
   // support single function children as default scoped slot
   if (Array.isArray(children) &&
-      typeof children[0] === 'function') {
+    typeof children[0] === 'function'
+  ) {
     data = data || {};
     data.scopedSlots = { default: children[0] };
     children.length = 0;
@@ -6277,7 +7102,7 @@ function _createElement (
         config.parsePlatformTagName(tag), data, children,
         undefined, undefined, context
       );
-    } else if ((Ctor = resolveAsset(context.$options, 'components', tag))) {
+    } else if (isDef(Ctor = resolveAsset(context.$options, 'components', tag))) {
       // component
       vnode = createComponent(Ctor, data, context, children, tag);
     } else {
@@ -6293,7 +7118,7 @@ function _createElement (
     // direct component options / constructor
     vnode = createComponent(tag, data, context, children);
   }
-  if (vnode) {
+  if (isDef(vnode)) {
     if (ns) { applyNS(vnode, ns); }
     return vnode
   } else {
@@ -6307,10 +7132,10 @@ function applyNS (vnode, ns) {
     // use default namespace inside foreignObject
     return
   }
-  if (vnode.children) {
+  if (isDef(vnode.children)) {
     for (var i = 0, l = vnode.children.length; i < l; i++) {
       var child = vnode.children[i];
-      if (child.tag && !child.ns) {
+      if (isDef(child.tag) && isUndef(child.ns)) {
         applyNS(child, ns);
       }
     }
@@ -6345,6 +7170,9 @@ function renderList (
       ret[i] = render(val[key], key, i);
     }
   }
+  if (isDef(ret)) {
+    (ret)._isVList = true;
+  }
   return ret
 }
 
@@ -6363,7 +7191,7 @@ function renderSlot (
   if (scopedSlotFn) { // scoped slot
     props = props || {};
     if (bindObject) {
-      extend(props, bindObject);
+      props = extend(extend({}, bindObject), props);
     }
     return scopedSlotFn(props) || fallback
   } else {
@@ -6417,7 +7245,8 @@ function bindObjectProps (
   data,
   tag,
   value,
-  asProp
+  asProp,
+  isSync
 ) {
   if (value) {
     if (!isObject(value)) {
@@ -6430,8 +7259,12 @@ function bindObjectProps (
         value = toObject(value);
       }
       var hash;
-      for (var key in value) {
-        if (key === 'class' || key === 'style') {
+      var loop = function ( key ) {
+        if (
+          key === 'class' ||
+          key === 'style' ||
+          isReservedAttribute(key)
+        ) {
           hash = data;
         } else {
           var type = data.attrs && data.attrs.type;
@@ -6441,8 +7274,17 @@ function bindObjectProps (
         }
         if (!(key in hash)) {
           hash[key] = value[key];
+
+          if (isSync) {
+            var on = data.on || (data.on = {});
+            on[("update:" + key)] = function ($event) {
+              value[key] = $event;
+            };
+          }
         }
-      }
+      };
+
+      for (var key in value) loop( key );
     }
   }
   return data
@@ -6509,11 +7351,31 @@ function markStaticNode (node, key, isOnce) {
 
 /*  */
 
+function bindObjectListeners (data, value) {
+  if (value) {
+    if (!isPlainObject(value)) {
+      process.env.NODE_ENV !== 'production' && warn(
+        'v-on without argument expects an Object value',
+        this
+      );
+    } else {
+      var on = data.on = data.on ? extend({}, data.on) : {};
+      for (var key in value) {
+        var existing = on[key];
+        var ours = value[key];
+        on[key] = existing ? [].concat(ours, existing) : ours;
+      }
+    }
+  }
+  return data
+}
+
+/*  */
+
 function initRender (vm) {
-  vm.$vnode = null; // the placeholder node in parent tree
   vm._vnode = null; // the root of the child tree
   vm._staticTrees = null;
-  var parentVnode = vm.$options._parentVnode;
+  var parentVnode = vm.$vnode = vm.$options._parentVnode; // the placeholder node in parent tree
   var renderContext = parentVnode && parentVnode.context;
   vm.$slots = resolveSlots(vm.$options._renderChildren, renderContext);
   vm.$scopedSlots = emptyObject;
@@ -6525,6 +7387,22 @@ function initRender (vm) {
   // normalization is always applied for the public version, used in
   // user-written render functions.
   vm.$createElement = function (a, b, c, d) { return createElement(vm, a, b, c, d, true); };
+
+  // $attrs & $listeners are exposed for easier HOC creation.
+  // they need to be reactive so that HOCs using them are always updated
+  var parentData = parentVnode && parentVnode.data;
+  /* istanbul ignore else */
+  if (process.env.NODE_ENV !== 'production') {
+    defineReactive$$1(vm, '$attrs', parentData && parentData.attrs, function () {
+      !isUpdatingChildComponent && warn("$attrs is readonly.", vm);
+    }, true);
+    defineReactive$$1(vm, '$listeners', vm.$options._parentListeners, function () {
+      !isUpdatingChildComponent && warn("$listeners is readonly.", vm);
+    }, true);
+  } else {
+    defineReactive$$1(vm, '$attrs', parentData && parentData.attrs, null, true);
+    defineReactive$$1(vm, '$listeners', vm.$options._parentListeners, null, true);
+  }
 }
 
 function renderMixin (Vue) {
@@ -6592,7 +7470,7 @@ function renderMixin (Vue) {
   // code size.
   Vue.prototype._o = markOnce;
   Vue.prototype._n = toNumber;
-  Vue.prototype._s = _toString;
+  Vue.prototype._s = toString;
   Vue.prototype._l = renderList;
   Vue.prototype._t = renderSlot;
   Vue.prototype._q = looseEqual;
@@ -6604,44 +7482,7 @@ function renderMixin (Vue) {
   Vue.prototype._v = createTextVNode;
   Vue.prototype._e = createEmptyVNode;
   Vue.prototype._u = resolveScopedSlots;
-}
-
-/*  */
-
-function initProvide (vm) {
-  var provide = vm.$options.provide;
-  if (provide) {
-    vm._provided = typeof provide === 'function'
-      ? provide.call(vm)
-      : provide;
-  }
-}
-
-function initInjections (vm) {
-  var inject = vm.$options.inject;
-  if (inject) {
-    // inject is :any because flow is not smart enough to figure out cached
-    // isArray here
-    var isArray = Array.isArray(inject);
-    var keys = isArray
-      ? inject
-      : hasSymbol
-        ? Reflect.ownKeys(inject)
-        : Object.keys(inject);
-
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-      var provideKey = isArray ? key : inject[key];
-      var source = vm;
-      while (source) {
-        if (source._provided && provideKey in source._provided) {
-          vm[key] = source._provided[provideKey];
-          break
-        }
-        source = source.$parent;
-      }
-    }
-  }
+  Vue.prototype._g = bindObjectListeners;
 }
 
 /*  */
@@ -6650,14 +7491,18 @@ var uid = 0;
 
 function initMixin (Vue) {
   Vue.prototype._init = function (options) {
-    /* istanbul ignore if */
-    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-      mark('vue-perf-init');
-    }
-
     var vm = this;
     // a uid
     vm._uid = uid++;
+
+    var startTag, endTag;
+    /* istanbul ignore if */
+    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+      startTag = "vue-perf-init:" + (vm._uid);
+      endTag = "vue-perf-end:" + (vm._uid);
+      mark(startTag);
+    }
+
     // a flag to avoid this being observed
     vm._isVue = true;
     // merge options
@@ -6693,8 +7538,8 @@ function initMixin (Vue) {
     /* istanbul ignore if */
     if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
       vm._name = formatComponentName(vm, false);
-      mark('vue-perf-init-end');
-      measure(((vm._name) + " init"), 'vue-perf-init', 'vue-perf-init-end');
+      mark(endTag);
+      measure(((vm._name) + " init"), startTag, endTag);
     }
 
     if (vm.$options.el) {
@@ -6747,24 +7592,27 @@ function resolveConstructorOptions (Ctor) {
 function resolveModifiedOptions (Ctor) {
   var modified;
   var latest = Ctor.options;
+  var extended = Ctor.extendOptions;
   var sealed = Ctor.sealedOptions;
   for (var key in latest) {
     if (latest[key] !== sealed[key]) {
       if (!modified) { modified = {}; }
-      modified[key] = dedupe(latest[key], sealed[key]);
+      modified[key] = dedupe(latest[key], extended[key], sealed[key]);
     }
   }
   return modified
 }
 
-function dedupe (latest, sealed) {
+function dedupe (latest, extended, sealed) {
   // compare latest and sealed to ensure lifecycle hooks won't be duplicated
   // between merges
   if (Array.isArray(latest)) {
     var res = [];
     sealed = Array.isArray(sealed) ? sealed : [sealed];
+    extended = Array.isArray(extended) ? extended : [extended];
     for (var i = 0; i < latest.length; i++) {
-      if (sealed.indexOf(latest[i]) < 0) {
+      // push original options and not sealed options to exclude duplicated options
+      if (extended.indexOf(latest[i]) >= 0 || sealed.indexOf(latest[i]) < 0) {
         res.push(latest[i]);
       }
     }
@@ -6774,28 +7622,30 @@ function dedupe (latest, sealed) {
   }
 }
 
-function Vue$2 (options) {
+function Vue$3 (options) {
   if (process.env.NODE_ENV !== 'production' &&
-    !(this instanceof Vue$2)) {
+    !(this instanceof Vue$3)
+  ) {
     warn('Vue is a constructor and should be called with the `new` keyword');
   }
   this._init(options);
 }
 
-initMixin(Vue$2);
-stateMixin(Vue$2);
-eventsMixin(Vue$2);
-lifecycleMixin(Vue$2);
-renderMixin(Vue$2);
+initMixin(Vue$3);
+stateMixin(Vue$3);
+eventsMixin(Vue$3);
+lifecycleMixin(Vue$3);
+renderMixin(Vue$3);
 
 /*  */
 
 function initUse (Vue) {
   Vue.use = function (plugin) {
-    /* istanbul ignore if */
-    if (plugin.installed) {
-      return
+    var installedPlugins = (this._installedPlugins || (this._installedPlugins = []));
+    if (installedPlugins.indexOf(plugin) > -1) {
+      return this
     }
+
     // additional parameters
     var args = toArray(arguments, 1);
     args.unshift(this);
@@ -6804,7 +7654,7 @@ function initUse (Vue) {
     } else if (typeof plugin === 'function') {
       plugin.apply(null, args);
     }
-    plugin.installed = true;
+    installedPlugins.push(plugin);
     return this
   };
 }
@@ -6814,6 +7664,7 @@ function initUse (Vue) {
 function initMixin$1 (Vue) {
   Vue.mixin = function (mixin) {
     this.options = mergeOptions(this.options, mixin);
+    return this
   };
 }
 
@@ -6880,7 +7731,7 @@ function initExtend (Vue) {
 
     // create asset registers, so extended classes
     // can have their private assets too.
-    config._assetTypes.forEach(function (type) {
+    ASSET_TYPES.forEach(function (type) {
       Sub[type] = Super[type];
     });
     // enable recursive self-lookup
@@ -6921,7 +7772,7 @@ function initAssetRegisters (Vue) {
   /**
    * Create asset registration methods.
    */
-  config._assetTypes.forEach(function (type) {
+  ASSET_TYPES.forEach(function (type) {
     Vue[type] = function (
       id,
       definition
@@ -6954,29 +7805,33 @@ function initAssetRegisters (Vue) {
 
 /*  */
 
-var patternTypes = [String, RegExp];
+var patternTypes = [String, RegExp, Array];
 
 function getComponentName (opts) {
   return opts && (opts.Ctor.options.name || opts.tag)
 }
 
 function matches (pattern, name) {
-  if (typeof pattern === 'string') {
+  if (Array.isArray(pattern)) {
+    return pattern.indexOf(name) > -1
+  } else if (typeof pattern === 'string') {
     return pattern.split(',').indexOf(name) > -1
-  } else if (pattern instanceof RegExp) {
+  } else if (isRegExp(pattern)) {
     return pattern.test(name)
   }
   /* istanbul ignore next */
   return false
 }
 
-function pruneCache (cache, filter) {
+function pruneCache (cache, current, filter) {
   for (var key in cache) {
     var cachedNode = cache[key];
     if (cachedNode) {
       var name = getComponentName(cachedNode.componentOptions);
       if (name && !filter(name)) {
-        pruneCacheEntry(cachedNode);
+        if (cachedNode !== current) {
+          pruneCacheEntry(cachedNode);
+        }
         cache[key] = null;
       }
     }
@@ -6985,9 +7840,6 @@ function pruneCache (cache, filter) {
 
 function pruneCacheEntry (vnode) {
   if (vnode) {
-    if (!vnode.componentInstance._inactive) {
-      callHook(vnode.componentInstance, 'deactivated');
-    }
     vnode.componentInstance.$destroy();
   }
 }
@@ -7015,10 +7867,10 @@ var KeepAlive = {
 
   watch: {
     include: function include (val) {
-      pruneCache(this.cache, function (name) { return matches(val, name); });
+      pruneCache(this.cache, this._vnode, function (name) { return matches(val, name); });
     },
     exclude: function exclude (val) {
-      pruneCache(this.cache, function (name) { return !matches(val, name); });
+      pruneCache(this.cache, this._vnode, function (name) { return !matches(val, name); });
     }
   },
 
@@ -7084,7 +7936,7 @@ function initGlobalAPI (Vue) {
   Vue.nextTick = nextTick;
 
   Vue.options = Object.create(null);
-  config._assetTypes.forEach(function (type) {
+  ASSET_TYPES.forEach(function (type) {
     Vue.options[type + 's'] = Object.create(null);
   });
 
@@ -7100,15 +7952,26 @@ function initGlobalAPI (Vue) {
   initAssetRegisters(Vue);
 }
 
-initGlobalAPI(Vue$2);
+initGlobalAPI(Vue$3);
 
-Object.defineProperty(Vue$2.prototype, '$isServer', {
+Object.defineProperty(Vue$3.prototype, '$isServer', {
   get: isServerRendering
 });
 
-Vue$2.version = '2.2.4';
+Object.defineProperty(Vue$3.prototype, '$ssrContext', {
+  get: function get () {
+    /* istanbul ignore next */
+    return this.$vnode && this.$vnode.ssrContext
+  }
+});
+
+Vue$3.version = '2.4.2';
 
 /*  */
+
+// these are reserved for web because they are directly compiled away
+// during template compilation
+var isReservedAttr = makeMap('style,class');
 
 // attributes that should be using props for binding
 var acceptValue = makeMap('input,textarea,option,select');
@@ -7152,33 +8015,34 @@ function genClassForVnode (vnode) {
   var data = vnode.data;
   var parentNode = vnode;
   var childNode = vnode;
-  while (childNode.componentInstance) {
+  while (isDef(childNode.componentInstance)) {
     childNode = childNode.componentInstance._vnode;
     if (childNode.data) {
       data = mergeClassData(childNode.data, data);
     }
   }
-  while ((parentNode = parentNode.parent)) {
+  while (isDef(parentNode = parentNode.parent)) {
     if (parentNode.data) {
       data = mergeClassData(data, parentNode.data);
     }
   }
-  return genClassFromData(data)
+  return renderClass(data.staticClass, data.class)
 }
 
 function mergeClassData (child, parent) {
   return {
     staticClass: concat(child.staticClass, parent.staticClass),
-    class: child.class
+    class: isDef(child.class)
       ? [child.class, parent.class]
       : parent.class
   }
 }
 
-function genClassFromData (data) {
-  var dynamicClass = data.class;
-  var staticClass = data.staticClass;
-  if (staticClass || dynamicClass) {
+function renderClass (
+  staticClass,
+  dynamicClass
+) {
+  if (isDef(staticClass) || isDef(dynamicClass)) {
     return concat(staticClass, stringifyClass(dynamicClass))
   }
   /* istanbul ignore next */
@@ -7190,31 +8054,39 @@ function concat (a, b) {
 }
 
 function stringifyClass (value) {
-  var res = '';
-  if (!value) {
-    return res
+  if (Array.isArray(value)) {
+    return stringifyArray(value)
+  }
+  if (isObject(value)) {
+    return stringifyObject(value)
   }
   if (typeof value === 'string') {
     return value
   }
-  if (Array.isArray(value)) {
-    var stringified;
-    for (var i = 0, l = value.length; i < l; i++) {
-      if (value[i]) {
-        if ((stringified = stringifyClass(value[i]))) {
-          res += stringified + ' ';
-        }
-      }
-    }
-    return res.slice(0, -1)
-  }
-  if (isObject(value)) {
-    for (var key in value) {
-      if (value[key]) { res += key + ' '; }
-    }
-    return res.slice(0, -1)
-  }
   /* istanbul ignore next */
+  return ''
+}
+
+function stringifyArray (value) {
+  var res = '';
+  var stringified;
+  for (var i = 0, l = value.length; i < l; i++) {
+    if (isDef(stringified = stringifyClass(value[i])) && stringified !== '') {
+      if (res) { res += ' '; }
+      res += stringified;
+    }
+  }
+  return res
+}
+
+function stringifyObject (value) {
+  var res = '';
+  for (var key in value) {
+    if (value[key]) {
+      if (res) { res += ' '; }
+      res += key;
+    }
+  }
   return res
 }
 
@@ -7228,7 +8100,7 @@ var namespaceMap = {
 var isHTMLTag = makeMap(
   'html,body,base,head,link,meta,style,title,' +
   'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
-  'div,dd,dl,dt,figcaption,figure,hr,img,li,main,ol,p,pre,ul,' +
+  'div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,' +
   'a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,' +
   's,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,' +
   'embed,object,param,source,canvas,script,noscript,del,ins,' +
@@ -7236,7 +8108,7 @@ var isHTMLTag = makeMap(
   'button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,' +
   'output,progress,select,textarea,' +
   'details,dialog,menu,menuitem,summary,' +
-  'content,element,shadow,template'
+  'content,element,shadow,template,blockquote,iframe,tfoot'
 );
 
 // this map is intentionally selective, only covering SVG elements that may
@@ -7417,10 +8289,11 @@ function registerRef (vnode, isRemoval) {
     }
   } else {
     if (vnode.data.refInFor) {
-      if (Array.isArray(refs[key]) && refs[key].indexOf(ref) < 0) {
-        refs[key].push(ref);
-      } else {
+      if (!Array.isArray(refs[key])) {
         refs[key] = [ref];
+      } else if (refs[key].indexOf(ref) < 0) {
+        // $flow-disable-line
+        refs[key].push(ref);
       }
     } else {
       refs[key] = ref;
@@ -7446,21 +8319,31 @@ var emptyNode = new VNode('', {}, []);
 
 var hooks = ['create', 'activate', 'update', 'remove', 'destroy'];
 
-function isUndef (s) {
-  return s == null
-}
-
-function isDef (s) {
-  return s != null
-}
-
-function sameVnode (vnode1, vnode2) {
+function sameVnode (a, b) {
   return (
-    vnode1.key === vnode2.key &&
-    vnode1.tag === vnode2.tag &&
-    vnode1.isComment === vnode2.isComment &&
-    !vnode1.data === !vnode2.data
+    a.key === b.key && (
+      (
+        a.tag === b.tag &&
+        a.isComment === b.isComment &&
+        isDef(a.data) === isDef(b.data) &&
+        sameInputType(a, b)
+      ) || (
+        isTrue(a.isAsyncPlaceholder) &&
+        a.asyncFactory === b.asyncFactory &&
+        isUndef(b.asyncFactory.error)
+      )
+    )
   )
+}
+
+// Some browsers do not support dynamically changing type for <input>
+// so they need to be treated as different nodes
+function sameInputType (a, b) {
+  if (a.tag !== 'input') { return true }
+  var i;
+  var typeA = isDef(i = a.data) && isDef(i = i.attrs) && i.type;
+  var typeB = isDef(i = b.data) && isDef(i = i.attrs) && i.type;
+  return typeA === typeB
 }
 
 function createKeyToOldIdx (children, beginIdx, endIdx) {
@@ -7483,7 +8366,9 @@ function createPatchFunction (backend) {
   for (i = 0; i < hooks.length; ++i) {
     cbs[hooks[i]] = [];
     for (j = 0; j < modules.length; ++j) {
-      if (modules[j][hooks[i]] !== undefined) { cbs[hooks[i]].push(modules[j][hooks[i]]); }
+      if (isDef(modules[j][hooks[i]])) {
+        cbs[hooks[i]].push(modules[j][hooks[i]]);
+      }
     }
   }
 
@@ -7504,7 +8389,7 @@ function createPatchFunction (backend) {
   function removeNode (el) {
     var parent = nodeOps.parentNode(el);
     // element may have already been removed due to v-html / v-text
-    if (parent) {
+    if (isDef(parent)) {
       nodeOps.removeChild(parent, el);
     }
   }
@@ -7555,7 +8440,7 @@ function createPatchFunction (backend) {
       if (process.env.NODE_ENV !== 'production' && data && data.pre) {
         inPre--;
       }
-    } else if (vnode.isComment) {
+    } else if (isTrue(vnode.isComment)) {
       vnode.elm = nodeOps.createComment(vnode.text);
       insert(parentElm, vnode.elm, refElm);
     } else {
@@ -7577,7 +8462,7 @@ function createPatchFunction (backend) {
       // in that case we can just return the element and be done.
       if (isDef(vnode.componentInstance)) {
         initComponent(vnode, insertedVnodeQueue);
-        if (isReactivated) {
+        if (isTrue(isReactivated)) {
           reactivateComponent(vnode, insertedVnodeQueue, parentElm, refElm);
         }
         return true
@@ -7586,8 +8471,9 @@ function createPatchFunction (backend) {
   }
 
   function initComponent (vnode, insertedVnodeQueue) {
-    if (vnode.data.pendingInsert) {
+    if (isDef(vnode.data.pendingInsert)) {
       insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
+      vnode.data.pendingInsert = null;
     }
     vnode.elm = vnode.componentInstance.$el;
     if (isPatchable(vnode)) {
@@ -7624,10 +8510,12 @@ function createPatchFunction (backend) {
     insert(parentElm, vnode.elm, refElm);
   }
 
-  function insert (parent, elm, ref) {
-    if (parent) {
-      if (ref) {
-        nodeOps.insertBefore(parent, elm, ref);
+  function insert (parent, elm, ref$$1) {
+    if (isDef(parent)) {
+      if (isDef(ref$$1)) {
+        if (ref$$1.parentNode === parent) {
+          nodeOps.insertBefore(parent, elm, ref$$1);
+        }
       } else {
         nodeOps.appendChild(parent, elm);
       }
@@ -7657,8 +8545,8 @@ function createPatchFunction (backend) {
     }
     i = vnode.data.hook; // Reuse variable
     if (isDef(i)) {
-      if (i.create) { i.create(emptyNode, vnode); }
-      if (i.insert) { insertedVnodeQueue.push(vnode); }
+      if (isDef(i.create)) { i.create(emptyNode, vnode); }
+      if (isDef(i.insert)) { insertedVnodeQueue.push(vnode); }
     }
   }
 
@@ -7676,8 +8564,9 @@ function createPatchFunction (backend) {
     }
     // for slot content they should also get the scopeId from the host instance.
     if (isDef(i = activeInstance) &&
-        i !== vnode.context &&
-        isDef(i = i.$options._scopeId)) {
+      i !== vnode.context &&
+      isDef(i = i.$options._scopeId)
+    ) {
       nodeOps.setAttribute(vnode.elm, i, '');
     }
   }
@@ -7717,15 +8606,16 @@ function createPatchFunction (backend) {
   }
 
   function removeAndInvokeRemoveHook (vnode, rm) {
-    if (rm || isDef(vnode.data)) {
+    if (isDef(rm) || isDef(vnode.data)) {
+      var i;
       var listeners = cbs.remove.length + 1;
-      if (!rm) {
-        // directly removing
-        rm = createRmCb(vnode.elm, listeners);
-      } else {
+      if (isDef(rm)) {
         // we have a recursively passed down rm callback
         // increase the listeners count
         rm.listeners += listeners;
+      } else {
+        // directly removing
+        rm = createRmCb(vnode.elm, listeners);
       }
       // recursively invoke hooks on child component root node
       if (isDef(i = vnode.componentInstance) && isDef(i = i._vnode) && isDef(i.data)) {
@@ -7801,7 +8691,7 @@ function createPatchFunction (backend) {
           if (sameVnode(elmToMove, newStartVnode)) {
             patchVnode(elmToMove, newStartVnode, insertedVnodeQueue);
             oldCh[idxInOld] = undefined;
-            canMove && nodeOps.insertBefore(parentElm, newStartVnode.elm, oldStartVnode.elm);
+            canMove && nodeOps.insertBefore(parentElm, elmToMove.elm, oldStartVnode.elm);
             newStartVnode = newCh[++newStartIdx];
           } else {
             // same key but different element. treat as new element
@@ -7823,28 +8713,40 @@ function createPatchFunction (backend) {
     if (oldVnode === vnode) {
       return
     }
+
+    var elm = vnode.elm = oldVnode.elm;
+
+    if (isTrue(oldVnode.isAsyncPlaceholder)) {
+      if (isDef(vnode.asyncFactory.resolved)) {
+        hydrate(oldVnode.elm, vnode, insertedVnodeQueue);
+      } else {
+        vnode.isAsyncPlaceholder = true;
+      }
+      return
+    }
+
     // reuse element for static trees.
     // note we only do this if the vnode is cloned -
     // if the new node is not cloned it means the render functions have been
     // reset by the hot-reload-api and we need to do a proper re-render.
-    if (vnode.isStatic &&
-        oldVnode.isStatic &&
-        vnode.key === oldVnode.key &&
-        (vnode.isCloned || vnode.isOnce)) {
-      vnode.elm = oldVnode.elm;
+    if (isTrue(vnode.isStatic) &&
+      isTrue(oldVnode.isStatic) &&
+      vnode.key === oldVnode.key &&
+      (isTrue(vnode.isCloned) || isTrue(vnode.isOnce))
+    ) {
       vnode.componentInstance = oldVnode.componentInstance;
       return
     }
+
     var i;
     var data = vnode.data;
-    var hasData = isDef(data);
-    if (hasData && isDef(i = data.hook) && isDef(i = i.prepatch)) {
+    if (isDef(data) && isDef(i = data.hook) && isDef(i = i.prepatch)) {
       i(oldVnode, vnode);
     }
-    var elm = vnode.elm = oldVnode.elm;
+
     var oldCh = oldVnode.children;
     var ch = vnode.children;
-    if (hasData && isPatchable(vnode)) {
+    if (isDef(data) && isPatchable(vnode)) {
       for (i = 0; i < cbs.update.length; ++i) { cbs.update[i](oldVnode, vnode); }
       if (isDef(i = data.hook) && isDef(i = i.update)) { i(oldVnode, vnode); }
     }
@@ -7862,7 +8764,7 @@ function createPatchFunction (backend) {
     } else if (oldVnode.text !== vnode.text) {
       nodeOps.setTextContent(elm, vnode.text);
     }
-    if (hasData) {
+    if (isDef(data)) {
       if (isDef(i = data.hook) && isDef(i = i.postpatch)) { i(oldVnode, vnode); }
     }
   }
@@ -7870,7 +8772,7 @@ function createPatchFunction (backend) {
   function invokeInsertHook (vnode, queue, initial) {
     // delay insert hooks for component root nodes, invoke them after the
     // element is really inserted
-    if (initial && vnode.parent) {
+    if (isTrue(initial) && isDef(vnode.parent)) {
       vnode.parent.data.pendingInsert = queue;
     } else {
       for (var i = 0; i < queue.length; ++i) {
@@ -7886,6 +8788,11 @@ function createPatchFunction (backend) {
 
   // Note: this is a browser-only function so we can assume elms are DOM nodes.
   function hydrate (elm, vnode, insertedVnodeQueue) {
+    if (isTrue(vnode.isComment) && isDef(vnode.asyncFactory)) {
+      vnode.elm = elm;
+      vnode.isAsyncPlaceholder = true;
+      return true
+    }
     if (process.env.NODE_ENV !== 'production') {
       if (!assertNodeMatch(elm, vnode)) {
         return false
@@ -7922,8 +8829,9 @@ function createPatchFunction (backend) {
           // longer than the virtual children list.
           if (!childrenMatch || childNode) {
             if (process.env.NODE_ENV !== 'production' &&
-                typeof console !== 'undefined' &&
-                !bailed) {
+              typeof console !== 'undefined' &&
+              !bailed
+            ) {
               bailed = true;
               console.warn('Parent: ', elm);
               console.warn('Mismatching childNodes vs. VNodes: ', elm.childNodes, children);
@@ -7947,7 +8855,7 @@ function createPatchFunction (backend) {
   }
 
   function assertNodeMatch (node, vnode) {
-    if (vnode.tag) {
+    if (isDef(vnode.tag)) {
       return (
         vnode.tag.indexOf('vue-component') === 0 ||
         vnode.tag.toLowerCase() === (node.tagName && node.tagName.toLowerCase())
@@ -7958,15 +8866,15 @@ function createPatchFunction (backend) {
   }
 
   return function patch (oldVnode, vnode, hydrating, removeOnly, parentElm, refElm) {
-    if (!vnode) {
-      if (oldVnode) { invokeDestroyHook(oldVnode); }
+    if (isUndef(vnode)) {
+      if (isDef(oldVnode)) { invokeDestroyHook(oldVnode); }
       return
     }
 
     var isInitialPatch = false;
     var insertedVnodeQueue = [];
 
-    if (!oldVnode) {
+    if (isUndef(oldVnode)) {
       // empty mount (likely as component), create new root element
       isInitialPatch = true;
       createElm(vnode, insertedVnodeQueue, parentElm, refElm);
@@ -7980,11 +8888,11 @@ function createPatchFunction (backend) {
           // mounting to a real element
           // check if this is server-rendered content and if we can perform
           // a successful hydration.
-          if (oldVnode.nodeType === 1 && oldVnode.hasAttribute('server-rendered')) {
-            oldVnode.removeAttribute('server-rendered');
+          if (oldVnode.nodeType === 1 && oldVnode.hasAttribute(SSR_ATTR)) {
+            oldVnode.removeAttribute(SSR_ATTR);
             hydrating = true;
           }
-          if (hydrating) {
+          if (isTrue(hydrating)) {
             if (hydrate(oldVnode, vnode, insertedVnodeQueue)) {
               invokeInsertHook(vnode, insertedVnodeQueue, true);
               return oldVnode
@@ -8015,7 +8923,7 @@ function createPatchFunction (backend) {
           nodeOps.nextSibling(oldElm)
         );
 
-        if (vnode.parent) {
+        if (isDef(vnode.parent)) {
           // component root element replaced.
           // update parent placeholder node element, recursively
           var ancestor = vnode.parent;
@@ -8030,7 +8938,7 @@ function createPatchFunction (backend) {
           }
         }
 
-        if (parentElm$1 !== null) {
+        if (isDef(parentElm$1)) {
           removeVnodes(parentElm$1, [oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {
           invokeDestroyHook(oldVnode);
@@ -8148,7 +9056,11 @@ function getRawDirName (dir) {
 function callHook$1 (dir, hook, vnode, oldVnode, isDestroy) {
   var fn = dir.def && dir.def[hook];
   if (fn) {
-    fn(vnode.elm, dir, vnode, oldVnode, isDestroy);
+    try {
+      fn(vnode.elm, dir, vnode, oldVnode, isDestroy);
+    } catch (e) {
+      handleError(e, vnode.context, ("directive " + (dir.name) + " " + hook + " hook"));
+    }
   }
 }
 
@@ -8160,7 +9072,11 @@ var baseModules = [
 /*  */
 
 function updateAttrs (oldVnode, vnode) {
-  if (!oldVnode.data.attrs && !vnode.data.attrs) {
+  var opts = vnode.componentOptions;
+  if (isDef(opts) && opts.Ctor.options.inheritAttrs === false) {
+    return
+  }
+  if (isUndef(oldVnode.data.attrs) && isUndef(vnode.data.attrs)) {
     return
   }
   var key, cur, old;
@@ -8168,7 +9084,7 @@ function updateAttrs (oldVnode, vnode) {
   var oldAttrs = oldVnode.data.attrs || {};
   var attrs = vnode.data.attrs || {};
   // clone observed objects, as the user probably wants to mutate it
-  if (attrs.__ob__) {
+  if (isDef(attrs.__ob__)) {
     attrs = vnode.data.attrs = extend({}, attrs);
   }
 
@@ -8185,7 +9101,7 @@ function updateAttrs (oldVnode, vnode) {
     setAttr(elm, 'value', attrs.value);
   }
   for (key in oldAttrs) {
-    if (attrs[key] == null) {
+    if (isUndef(attrs[key])) {
       if (isXlink(key)) {
         elm.removeAttributeNS(xlinkNS, getXlinkProp(key));
       } else if (!isEnumeratedAttr(key)) {
@@ -8232,8 +9148,15 @@ function updateClass (oldVnode, vnode) {
   var el = vnode.elm;
   var data = vnode.data;
   var oldData = oldVnode.data;
-  if (!data.staticClass && !data.class &&
-      (!oldData || (!oldData.staticClass && !oldData.class))) {
+  if (
+    isUndef(data.staticClass) &&
+    isUndef(data.class) && (
+      isUndef(oldData) || (
+        isUndef(oldData.staticClass) &&
+        isUndef(oldData.class)
+      )
+    )
+  ) {
     return
   }
 
@@ -8241,7 +9164,7 @@ function updateClass (oldVnode, vnode) {
 
   // handle transition classes
   var transitionClass = el._transitionClasses;
-  if (transitionClass) {
+  if (isDef(transitionClass)) {
     cls = concat(cls, stringifyClass(transitionClass));
   }
 
@@ -8322,13 +9245,13 @@ var CHECKBOX_RADIO_TOKEN = '__c';
 function normalizeEvents (on) {
   var event;
   /* istanbul ignore if */
-  if (on[RANGE_TOKEN]) {
+  if (isDef(on[RANGE_TOKEN])) {
     // IE input[type=range] only supports `change` event
     event = isIE ? 'change' : 'input';
     on[event] = [].concat(on[RANGE_TOKEN], on[event] || []);
     delete on[RANGE_TOKEN];
   }
-  if (on[CHECKBOX_RADIO_TOKEN]) {
+  if (isDef(on[CHECKBOX_RADIO_TOKEN])) {
     // Chrome fires microtasks in between click/change, leads to #4521
     event = isChrome ? 'click' : 'change';
     on[event] = [].concat(on[CHECKBOX_RADIO_TOKEN], on[event] || []);
@@ -8341,10 +9264,11 @@ var target$1;
 function add$1 (
   event,
   handler,
-  once,
-  capture
+  once$$1,
+  capture,
+  passive
 ) {
-  if (once) {
+  if (once$$1) {
     var oldHandler = handler;
     var _target = target$1; // save current target element in closure
     handler = function (ev) {
@@ -8356,7 +9280,13 @@ function add$1 (
       }
     };
   }
-  target$1.addEventListener(event, handler, capture);
+  target$1.addEventListener(
+    event,
+    handler,
+    supportsPassive
+      ? { capture: capture, passive: passive }
+      : capture
+  );
 }
 
 function remove$2 (
@@ -8369,7 +9299,7 @@ function remove$2 (
 }
 
 function updateDOMListeners (oldVnode, vnode) {
-  if (!oldVnode.data.on && !vnode.data.on) {
+  if (isUndef(oldVnode.data.on) && isUndef(vnode.data.on)) {
     return
   }
   var on = vnode.data.on || {};
@@ -8387,7 +9317,7 @@ var events = {
 /*  */
 
 function updateDOMProps (oldVnode, vnode) {
-  if (!oldVnode.data.domProps && !vnode.data.domProps) {
+  if (isUndef(oldVnode.data.domProps) && isUndef(vnode.data.domProps)) {
     return
   }
   var key, cur;
@@ -8395,12 +9325,12 @@ function updateDOMProps (oldVnode, vnode) {
   var oldProps = oldVnode.data.domProps || {};
   var props = vnode.data.domProps || {};
   // clone observed objects, as the user probably wants to mutate it
-  if (props.__ob__) {
+  if (isDef(props.__ob__)) {
     props = vnode.data.domProps = extend({}, props);
   }
 
   for (key in oldProps) {
-    if (props[key] == null) {
+    if (isUndef(props[key])) {
       elm[key] = '';
     }
   }
@@ -8419,7 +9349,7 @@ function updateDOMProps (oldVnode, vnode) {
       // non-string values will be stringified
       elm._value = cur;
       // avoid resetting cursor position when value is the same
-      var strCur = cur == null ? '' : String(cur);
+      var strCur = isUndef(cur) ? '' : String(cur);
       if (shouldUpdateValue(elm, vnode, strCur)) {
         elm.value = strCur;
       }
@@ -8445,17 +9375,22 @@ function shouldUpdateValue (
 }
 
 function isDirty (elm, checkVal) {
-  // return true when textbox (.number and .trim) loses focus and its value is not equal to the updated value
-  return document.activeElement !== elm && elm.value !== checkVal
+  // return true when textbox (.number and .trim) loses focus and its value is
+  // not equal to the updated value
+  var notInFocus = true;
+  // #6157
+  // work around IE bug when accessing document.activeElement in an iframe
+  try { notInFocus = document.activeElement !== elm; } catch (e) {}
+  return notInFocus && elm.value !== checkVal
 }
 
 function isInputChanged (elm, newVal) {
   var value = elm.value;
   var modifiers = elm._vModifiers; // injected by v-model runtime
-  if ((modifiers && modifiers.number) || elm.type === 'number') {
+  if (isDef(modifiers) && modifiers.number) {
     return toNumber(value) !== toNumber(newVal)
   }
-  if (modifiers && modifiers.trim) {
+  if (isDef(modifiers) && modifiers.trim) {
     return value.trim() !== newVal.trim()
   }
   return value !== newVal
@@ -8544,24 +9479,34 @@ var setProp = function (el, name, val) {
   } else if (importantRE.test(val)) {
     el.style.setProperty(name, val.replace(importantRE, ''), 'important');
   } else {
-    el.style[normalize(name)] = val;
+    var normalizedName = normalize(name);
+    if (Array.isArray(val)) {
+      // Support values array created by autoprefixer, e.g.
+      // {display: ["-webkit-box", "-ms-flexbox", "flex"]}
+      // Set them one by one, and the browser will only set those it can recognize
+      for (var i = 0, len = val.length; i < len; i++) {
+        el.style[normalizedName] = val[i];
+      }
+    } else {
+      el.style[normalizedName] = val;
+    }
   }
 };
 
-var prefixes = ['Webkit', 'Moz', 'ms'];
+var vendorNames = ['Webkit', 'Moz', 'ms'];
 
-var testEl;
+var emptyStyle;
 var normalize = cached(function (prop) {
-  testEl = testEl || document.createElement('div');
+  emptyStyle = emptyStyle || document.createElement('div').style;
   prop = camelize(prop);
-  if (prop !== 'filter' && (prop in testEl.style)) {
+  if (prop !== 'filter' && (prop in emptyStyle)) {
     return prop
   }
-  var upper = prop.charAt(0).toUpperCase() + prop.slice(1);
-  for (var i = 0; i < prefixes.length; i++) {
-    var prefixed = prefixes[i] + upper;
-    if (prefixed in testEl.style) {
-      return prefixed
+  var capName = prop.charAt(0).toUpperCase() + prop.slice(1);
+  for (var i = 0; i < vendorNames.length; i++) {
+    var name = vendorNames[i] + capName;
+    if (name in emptyStyle) {
+      return name
     }
   }
 });
@@ -8570,27 +9515,33 @@ function updateStyle (oldVnode, vnode) {
   var data = vnode.data;
   var oldData = oldVnode.data;
 
-  if (!data.staticStyle && !data.style &&
-      !oldData.staticStyle && !oldData.style) {
+  if (isUndef(data.staticStyle) && isUndef(data.style) &&
+    isUndef(oldData.staticStyle) && isUndef(oldData.style)
+  ) {
     return
   }
 
   var cur, name;
   var el = vnode.elm;
-  var oldStaticStyle = oldVnode.data.staticStyle;
-  var oldStyleBinding = oldVnode.data.style || {};
+  var oldStaticStyle = oldData.staticStyle;
+  var oldStyleBinding = oldData.normalizedStyle || oldData.style || {};
 
   // if static style exists, stylebinding already merged into it when doing normalizeStyleData
   var oldStyle = oldStaticStyle || oldStyleBinding;
 
   var style = normalizeStyleBinding(vnode.data.style) || {};
 
-  vnode.data.style = style.__ob__ ? extend({}, style) : style;
+  // store normalized style under a different key for next diff
+  // make sure to clone it if it's reactive, since the user likley wants
+  // to mutate it.
+  vnode.data.normalizedStyle = isDef(style.__ob__)
+    ? extend({}, style)
+    : style;
 
   var newStyle = getStyle(vnode, true);
 
   for (name in oldStyle) {
-    if (newStyle[name] == null) {
+    if (isUndef(newStyle[name])) {
       setProp(el, name, '');
     }
   }
@@ -8652,13 +9603,21 @@ function removeClass (el, cls) {
     } else {
       el.classList.remove(cls);
     }
+    if (!el.classList.length) {
+      el.removeAttribute('class');
+    }
   } else {
     var cur = " " + (el.getAttribute('class') || '') + " ";
     var tar = ' ' + cls + ' ';
     while (cur.indexOf(tar) >= 0) {
       cur = cur.replace(tar, ' ');
     }
-    el.setAttribute('class', cur.trim());
+    cur = cur.trim();
+    if (cur) {
+      el.setAttribute('class', cur);
+    } else {
+      el.removeAttribute('class');
+    }
   }
 }
 
@@ -8704,12 +9663,14 @@ var animationEndEvent = 'animationend';
 if (hasTransition) {
   /* istanbul ignore if */
   if (window.ontransitionend === undefined &&
-    window.onwebkittransitionend !== undefined) {
+    window.onwebkittransitionend !== undefined
+  ) {
     transitionProp = 'WebkitTransition';
     transitionEndEvent = 'webkitTransitionEnd';
   }
   if (window.onanimationend === undefined &&
-    window.onwebkitanimationend !== undefined) {
+    window.onwebkitanimationend !== undefined
+  ) {
     animationProp = 'WebkitAnimation';
     animationEndEvent = 'webkitAnimationEnd';
   }
@@ -8727,8 +9688,11 @@ function nextFrame (fn) {
 }
 
 function addTransitionClass (el, cls) {
-  (el._transitionClasses || (el._transitionClasses = [])).push(cls);
-  addClass(el, cls);
+  var transitionClasses = el._transitionClasses || (el._transitionClasses = []);
+  if (transitionClasses.indexOf(cls) < 0) {
+    transitionClasses.push(cls);
+    addClass(el, cls);
+  }
 }
 
 function removeTransitionClass (el, cls) {
@@ -8841,18 +9805,18 @@ function enter (vnode, toggleDisplay) {
   var el = vnode.elm;
 
   // call leave callback now
-  if (el._leaveCb) {
+  if (isDef(el._leaveCb)) {
     el._leaveCb.cancelled = true;
     el._leaveCb();
   }
 
   var data = resolveTransition(vnode.data.transition);
-  if (!data) {
+  if (isUndef(data)) {
     return
   }
 
   /* istanbul ignore if */
-  if (el._enterCb || el.nodeType !== 1) {
+  if (isDef(el._enterCb) || el.nodeType !== 1) {
     return
   }
 
@@ -8949,8 +9913,9 @@ function enter (vnode, toggleDisplay) {
       var parent = el.parentNode;
       var pendingNode = parent && parent._pending && parent._pending[vnode.key];
       if (pendingNode &&
-          pendingNode.tag === vnode.tag &&
-          pendingNode.elm._leaveCb) {
+        pendingNode.tag === vnode.tag &&
+        pendingNode.elm._leaveCb
+      ) {
         pendingNode.elm._leaveCb();
       }
       enterHook && enterHook(el, cb);
@@ -8989,18 +9954,18 @@ function leave (vnode, rm) {
   var el = vnode.elm;
 
   // call enter callback now
-  if (el._enterCb) {
+  if (isDef(el._enterCb)) {
     el._enterCb.cancelled = true;
     el._enterCb();
   }
 
   var data = resolveTransition(vnode.data.transition);
-  if (!data) {
+  if (isUndef(data)) {
     return rm()
   }
 
   /* istanbul ignore if */
-  if (el._leaveCb || el.nodeType !== 1) {
+  if (isDef(el._leaveCb) || el.nodeType !== 1) {
     return
   }
 
@@ -9025,7 +9990,7 @@ function leave (vnode, rm) {
       : duration
   );
 
-  if (process.env.NODE_ENV !== 'production' && explicitLeaveDuration != null) {
+  if (process.env.NODE_ENV !== 'production' && isDef(explicitLeaveDuration)) {
     checkDuration(explicitLeaveDuration, 'leave', vnode);
   }
 
@@ -9062,7 +10027,7 @@ function leave (vnode, rm) {
     }
     // record leaving element
     if (!vnode.data.show) {
-      (el.parentNode._pending || (el.parentNode._pending = {}))[vnode.key] = vnode;
+      (el.parentNode._pending || (el.parentNode._pending = {}))[(vnode.key)] = vnode;
     }
     beforeLeave && beforeLeave(el);
     if (expectsCSS) {
@@ -9115,9 +10080,11 @@ function isValidDuration (val) {
  * - a plain function (.length)
  */
 function getHookArgumentsLength (fn) {
-  if (!fn) { return false }
+  if (isUndef(fn)) {
+    return false
+  }
   var invokerFns = fn.fns;
-  if (invokerFns) {
+  if (isDef(invokerFns)) {
     // invoker
     return getHookArgumentsLength(
       Array.isArray(invokerFns)
@@ -9130,7 +10097,7 @@ function getHookArgumentsLength (fn) {
 }
 
 function _enter (_, vnode) {
-  if (!vnode.data.show) {
+  if (vnode.data.show !== true) {
     enter(vnode);
   }
 }
@@ -9140,7 +10107,7 @@ var transition = inBrowser ? {
   activate: _enter,
   remove: function remove$$1 (vnode, rm) {
     /* istanbul ignore else */
-    if (!vnode.data.show) {
+    if (vnode.data.show !== true) {
       leave(vnode, rm);
     } else {
       rm();
@@ -9170,6 +10137,8 @@ var patch = createPatchFunction({ nodeOps: nodeOps, modules: modules });
  * properties to Elements.
  */
 
+var isTextInputType = makeMap('text,number,password,search,email,tel,url');
+
 /* istanbul ignore if */
 if (isIE9) {
   // http://www.matts411.com/post/internet-explorer-9-oninput/
@@ -9192,9 +10161,15 @@ var model$1 = {
       if (isIE || isEdge) {
         setTimeout(cb, 0);
       }
-    } else if (vnode.tag === 'textarea' || el.type === 'text') {
+      el._vOptions = [].map.call(el.options, getValue);
+    } else if (vnode.tag === 'textarea' || isTextInputType(el.type)) {
       el._vModifiers = binding.modifiers;
       if (!binding.modifiers.lazy) {
+        // Safari < 10.2 & UIWebView doesn't fire compositionend when
+        // switching focus before confirming composition choice
+        // this also fixes the issue where some browsers e.g. iOS Chrome
+        // fires "change" instead of "input" on autocomplete.
+        el.addEventListener('change', onCompositionEnd);
         if (!isAndroid) {
           el.addEventListener('compositionstart', onCompositionStart);
           el.addEventListener('compositionend', onCompositionEnd);
@@ -9213,10 +10188,9 @@ var model$1 = {
       // it's possible that the value is out-of-sync with the rendered options.
       // detect such cases and filter out values that no longer has a matching
       // option in the DOM.
-      var needReset = el.multiple
-        ? binding.value.some(function (v) { return hasNoMatchingOption(v, el.options); })
-        : binding.value !== binding.oldValue && hasNoMatchingOption(binding.value, el.options);
-      if (needReset) {
+      var prevOptions = el._vOptions;
+      var curOptions = el._vOptions = [].map.call(el.options, getValue);
+      if (curOptions.some(function (o, i) { return !looseEqual(o, prevOptions[i]); })) {
         trigger(el, 'change');
       }
     }
@@ -9256,15 +10230,6 @@ function setSelected (el, binding, vm) {
   }
 }
 
-function hasNoMatchingOption (value, options) {
-  for (var i = 0, l = options.length; i < l; i++) {
-    if (looseEqual(getValue(options[i]), value)) {
-      return false
-    }
-  }
-  return true
-}
-
 function getValue (option) {
   return '_value' in option
     ? option._value
@@ -9276,6 +10241,8 @@ function onCompositionStart (e) {
 }
 
 function onCompositionEnd (e) {
+  // prevent triggering an input event for no reason
+  if (!e.target.composing) { return }
   e.target.composing = false;
   trigger(e.target, 'input');
 }
@@ -9300,10 +10267,10 @@ var show = {
     var value = ref.value;
 
     vnode = locateNode(vnode);
-    var transition = vnode.data && vnode.data.transition;
+    var transition$$1 = vnode.data && vnode.data.transition;
     var originalDisplay = el.__vOriginalDisplay =
       el.style.display === 'none' ? '' : el.style.display;
-    if (value && transition && !isIE9) {
+    if (value && transition$$1) {
       vnode.data.show = true;
       enter(vnode, function () {
         el.style.display = originalDisplay;
@@ -9320,8 +10287,8 @@ var show = {
     /* istanbul ignore if */
     if (value === oldValue) { return }
     vnode = locateNode(vnode);
-    var transition = vnode.data && vnode.data.transition;
-    if (transition && !isIE9) {
+    var transition$$1 = vnode.data && vnode.data.transition;
+    if (transition$$1) {
       vnode.data.show = true;
       if (value) {
         enter(vnode, function () {
@@ -9406,9 +10373,11 @@ function extractTransitionData (comp) {
 }
 
 function placeholder (h, rawChild) {
-  return /\d-keep-alive$/.test(rawChild.tag)
-    ? h('keep-alive')
-    : null
+  if (/\d-keep-alive$/.test(rawChild.tag)) {
+    return h('keep-alive', {
+      props: rawChild.componentOptions.propsData
+    })
+  }
 }
 
 function hasParentTransition (vnode) {
@@ -9423,6 +10392,10 @@ function isSameChild (child, oldChild) {
   return oldChild.key === child.key && oldChild.tag === child.tag
 }
 
+function isAsyncPlaceholder (node) {
+  return node.isComment && node.asyncFactory
+}
+
 var Transition = {
   name: 'transition',
   props: transitionProps,
@@ -9431,13 +10404,13 @@ var Transition = {
   render: function render (h) {
     var this$1 = this;
 
-    var children = this.$slots.default;
+    var children = this.$options._renderChildren;
     if (!children) {
       return
     }
 
     // filter out text nodes (possible whitespaces)
-    children = children.filter(function (c) { return c.tag; });
+    children = children.filter(function (c) { return c.tag || isAsyncPlaceholder(c); });
     /* istanbul ignore if */
     if (!children.length) {
       return
@@ -9456,7 +10429,8 @@ var Transition = {
 
     // warn invalid mode
     if (process.env.NODE_ENV !== 'production' &&
-        mode && mode !== 'in-out' && mode !== 'out-in') {
+      mode && mode !== 'in-out' && mode !== 'out-in'
+    ) {
       warn(
         'invalid <transition> mode: ' + mode,
         this.$parent
@@ -9488,7 +10462,9 @@ var Transition = {
     // during entering.
     var id = "__transition-" + (this._uid) + "-";
     child.key = child.key == null
-      ? id + child.tag
+      ? child.isComment
+        ? id + 'comment'
+        : id + child.tag
       : isPrimitive(child.key)
         ? (String(child.key).indexOf(id) === 0 ? child.key : id + child.key)
         : child.key;
@@ -9503,7 +10479,12 @@ var Transition = {
       child.data.show = true;
     }
 
-    if (oldChild && oldChild.data && !isSameChild(child, oldChild)) {
+    if (
+      oldChild &&
+      oldChild.data &&
+      !isSameChild(child, oldChild) &&
+      !isAsyncPlaceholder(oldChild)
+    ) {
       // replace old child transition data with fresh one
       // important for dynamic transitions!
       var oldData = oldChild && (oldChild.data.transition = extend({}, data));
@@ -9517,6 +10498,9 @@ var Transition = {
         });
         return placeholder(h, rawChild)
       } else if (mode === 'in-out') {
+        if (isAsyncPlaceholder(child)) {
+          return oldRawChild
+        }
         var delayedLeave;
         var performLeave = function () { delayedLeave(); };
         mergeVNodeHook(data, 'afterEnter', performLeave);
@@ -9646,7 +10630,8 @@ var TransitionGroup = {
       if (!hasTransition) {
         return false
       }
-      if (this._hasMove != null) {
+      /* istanbul ignore if */
+      if (this._hasMove) {
         return this._hasMove
       }
       // Detect whether an element with the move class applied has
@@ -9704,20 +10689,21 @@ var platformComponents = {
 /*  */
 
 // install platform specific utils
-Vue$2.config.mustUseProp = mustUseProp;
-Vue$2.config.isReservedTag = isReservedTag;
-Vue$2.config.getTagNamespace = getTagNamespace;
-Vue$2.config.isUnknownElement = isUnknownElement;
+Vue$3.config.mustUseProp = mustUseProp;
+Vue$3.config.isReservedTag = isReservedTag;
+Vue$3.config.isReservedAttr = isReservedAttr;
+Vue$3.config.getTagNamespace = getTagNamespace;
+Vue$3.config.isUnknownElement = isUnknownElement;
 
 // install platform runtime directives & components
-extend(Vue$2.options.directives, platformDirectives);
-extend(Vue$2.options.components, platformComponents);
+extend(Vue$3.options.directives, platformDirectives);
+extend(Vue$3.options.components, platformComponents);
 
 // install platform patch function
-Vue$2.prototype.__patch__ = inBrowser ? patch : noop;
+Vue$3.prototype.__patch__ = inBrowser ? patch : noop;
 
 // public mount method
-Vue$2.prototype.$mount = function (
+Vue$3.prototype.$mount = function (
   el,
   hydrating
 ) {
@@ -9730,7 +10716,7 @@ Vue$2.prototype.$mount = function (
 setTimeout(function () {
   if (config.devtools) {
     if (devtools) {
-      devtools.emit('init', Vue$2);
+      devtools.emit('init', Vue$3);
     } else if (process.env.NODE_ENV !== 'production' && isChrome) {
       console[console.info ? 'info' : 'log'](
         'Download the Vue Devtools extension for a better development experience:\n' +
@@ -9739,8 +10725,9 @@ setTimeout(function () {
     }
   }
   if (process.env.NODE_ENV !== 'production' &&
-      config.productionTip !== false &&
-      inBrowser && typeof console !== 'undefined') {
+    config.productionTip !== false &&
+    inBrowser && typeof console !== 'undefined'
+  ) {
     console[console.info ? 'info' : 'log'](
       "You are running Vue in development mode.\n" +
       "Make sure to turn on production mode when deploying for production.\n" +
@@ -9749,505 +10736,668 @@ setTimeout(function () {
   }
 }, 0);
 
-/* harmony default export */ __webpack_exports__["a"] = Vue$2;
+/*  */
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(46)))
+/* harmony default export */ __webpack_exports__["default"] = (Vue$3);
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(47)))
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-//
-//
-//
-//
-//
-//
-//
-//
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(8), __webpack_require__(4), __webpack_require__(7), __webpack_require__(6), __webpack_require__(3), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(require('vue'), require('../../src/index.js'), require('vue-router'), require('./App.vue'), require('./routes'), require('bulma/css/bulma.css'));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(global.vue, global.index, global.vueRouter, global.App, global.routes, global.bulma);
+    global.main = mod.exports;
+  }
+})(this, function (_vue, _index, _vueRouter, _App, _routes) {
+  'use strict';
+
+  var _vue2 = _interopRequireDefault(_vue);
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _vueRouter2 = _interopRequireDefault(_vueRouter);
+
+  var _App2 = _interopRequireDefault(_App);
+
+  var _routes2 = _interopRequireDefault(_routes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  _vue2.default.use(_index2.default);
+  _vue2.default.use(_vueRouter2.default);
+
+  var router = new _vueRouter2.default({ routes: _routes2.default });
+
+  var rootNode = document.createElement('div');
+  document.body.appendChild(rootNode);
+
+  /* eslint-disable no-new */
+  new _vue2.default({
+    el: rootNode,
+    router: router,
+    render: function render(h) {
+      return h(_App2.default);
+    }
+  });
+});
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//
+//
+//
 //
 //
 //
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = {
-  methods: {
-    backHome() {
-      this.$router.push(`/`);
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        left: this.prevPage,
-        right: this.nextPage,
-        esc: this.backHome
-      };
-    }
+(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory();
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory();
+    global.App = mod.exports;
   }
-};
+})(this, function () {
+  "use strict";
+});
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  methods: {
-    start() {
-      this.$router.push('/step/1');
-    },
-    doc() {
-      this.$refs.doc.click();
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        enter: this.start,
-        space: this.doc
-      };
-    }
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports);
+    global.doc = mod.exports;
   }
-};
+})(this, function (module, exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    methods: {
+      backHome: function backHome() {
+        this.$router.push("/");
+      }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          left: this.prevPage,
+          right: this.nextPage,
+          esc: this.backHome
+        };
+      }
+    }
+  };
+  module.exports = exports["default"];
+});
 
 /***/ }),
 /* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  data() {
-    return {
-      show: false
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
     };
-  },
-  methods: {
-    hello() {
-      const $hello = this.$refs.hello;
-      $hello.classList.add('active');
-      this.show = true;
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        enter: this.hello
-      };
-    }
-  },
-  mounted() {
-    const $hello = this.$refs.hello;
-    $hello.addEventListener('animationend', e => {
-      $hello.classList.remove('active');
-    });
+    factory(mod, mod.exports);
+    global.start = mod.exports;
   }
-};
+})(this, function (module, exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    methods: {
+      start: function start() {
+        this.$router.push('/step/1');
+      },
+      doc: function doc() {
+        this.$refs.doc.click();
+      }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          enter: this.start,
+          space: this.doc
+        };
+      }
+    }
+  };
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  data() {
-    return {
-      show: false
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
     };
-  },
-  methods: {
-    hello() {
-      const $hello = this.$refs.hello;
-      $hello.classList.add('active');
-    },
-    bye() {
-      const $bye = this.$refs.bye;
-      $bye.classList.add('active');
-    },
-    leave() {
-      this.show = true;
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        'ctrl+enter': this.hello,
-        'alt+enter': this.bye,
-        'ctrl+alt+enter': this.leave
-      };
-    }
-  },
-  mounted() {
-    const $hello = this.$refs.hello;
-    const $bye = this.$refs.bye;
-    $hello.addEventListener('animationend', e => {
-      $hello.classList.remove('active');
-    });
-    $bye.addEventListener('animationend', e => {
-      $bye.classList.remove('active');
-    });
+    factory(mod, mod.exports);
+    global.step2 = mod.exports;
   }
-};
+})(this, function (module, exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    data: function data() {
+      return {
+        show: false
+      };
+    },
+
+    methods: {
+      hello: function hello() {
+        var $hello = this.$refs.hello;
+        $hello.classList.add('active');
+        this.show = true;
+      },
+      goodbye: function goodbye() {
+        var $hello = this.$refs.hello;
+        $hello.classList.remove('active');
+      }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          enter: {
+            keydown: this.hello,
+            keyup: this.goodbye
+          }
+        };
+      }
+    },
+    mounted: function mounted() {
+      var $hello = this.$refs.hello;
+      //$hello.addEventListener('animationend', e => {$hello.classList.remove('active')})
+    }
+  };
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  data() {
-    return {
-      flag: true,
-      show: false
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
     };
-  },
-  watch: {
-    flag(val, oldVal) {
-      if (val) {
+    factory(mod, mod.exports);
+    global.step3 = mod.exports;
+  }
+})(this, function (module, exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    data: function data() {
+      return {
+        show: false
+      };
+    },
+
+    methods: {
+      hello: function hello() {
+        var $hello = this.$refs.hello;
+        $hello.classList.add('active');
+      },
+      bye: function bye() {
+        var $bye = this.$refs.bye;
+        $bye.classList.add('active');
+      },
+      leave: function leave() {
         this.show = true;
       }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          'ctrl+enter': this.hello,
+          'alt+enter': this.bye,
+          'ctrl+alt+enter': this.leave
+        };
+      }
+    },
+    mounted: function mounted() {
+      var $hello = this.$refs.hello;
+      var $bye = this.$refs.bye;
+      $hello.addEventListener('animationend', function (e) {
+        $hello.classList.remove('active');
+      });
+      $bye.addEventListener('animationend', function (e) {
+        $bye.classList.remove('active');
+      });
     }
-  },
-  methods: {
-    hello() {
-      const $hello = this.$refs.hello;
-      $hello.classList.add('active');
-    },
-    bye() {
-      const $bye = this.$refs.bye;
-      $bye.classList.add('active');
-    },
-    switch(e) {
-      e.preventDefault();
-      this.flag = !this.flag;
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        'tab': this.switch
-      };
-    },
-    keymapA() {
-      return {
-        'enter': this.hello
-      };
-    },
-    keymapB() {
-      return {
-        'enter': this.bye
-      };
-    }
-  },
-  mounted() {
-    const $hello = this.$refs.hello;
-    const $bye = this.$refs.bye;
-    $hello.addEventListener('animationend', e => {
-      $hello.classList.remove('active');
-    });
-    $bye.addEventListener('animationend', e => {
-      $bye.classList.remove('active');
-    });
-  }
-};
+  };
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  methods: {
-    star() {
-      const $star = this.$refs.star;
-      $star.click();
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        enter: this.star
-      };
-    }
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports);
+    global.step4 = mod.exports;
   }
-};
+})(this, function (module, exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    data: function data() {
+      return {
+        flag: true,
+        show: false
+      };
+    },
+
+    watch: {
+      flag: function flag(val, oldVal) {
+        if (val) {
+          this.show = true;
+        }
+      }
+    },
+    methods: {
+      hello: function hello() {
+        var $hello = this.$refs.hello;
+        $hello.classList.add('active');
+      },
+      bye: function bye() {
+        var $bye = this.$refs.bye;
+        $bye.classList.add('active');
+      },
+      switch: function _switch(e) {
+        e.preventDefault();
+        this.flag = !this.flag;
+      }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          'tab': this.switch
+        };
+      },
+      keymapA: function keymapA() {
+        return {
+          'enter': this.hello
+        };
+      },
+      keymapB: function keymapB() {
+        return {
+          'enter': this.bye
+        };
+      }
+    },
+    mounted: function mounted() {
+      var $hello = this.$refs.hello;
+      var $bye = this.$refs.bye;
+      $hello.addEventListener('animationend', function (e) {
+        $hello.classList.remove('active');
+      });
+      $bye.addEventListener('animationend', function (e) {
+        $bye.classList.remove('active');
+      });
+    }
+  };
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  methods: {
-    nextPage() {
-      const currentPage = this.$route.path.split('/')[2] | 0;
-      const nextPage = currentPage >= 5 ? 5 : currentPage + 1;
-      this.$router.push(`/step/${nextPage}`);
-    },
-    prevPage() {
-      const currentPage = this.$route.path.split('/')[2] | 0;
-      const prevPage = currentPage <= 1 ? 1 : currentPage - 1;
-      this.$router.push(`/step/${prevPage}`);
-    },
-    backHome() {
-      this.$router.push(`/`);
-    }
-  },
-  computed: {
-    keymap() {
-      return {
-        left: this.prevPage,
-        right: this.nextPage,
-        esc: this.backHome
-      };
-    }
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports);
+    global.step5 = mod.exports;
   }
-};
+})(this, function (module, exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    methods: {
+      star: function star() {
+        var $star = this.$refs.star;
+        $star.click();
+      }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          enter: this.star
+        };
+      }
+    }
+  };
+  module.exports = exports["default"];
+});
 
 /***/ }),
 /* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = searchInput => {
-  // Keyboard Events
-  if (searchInput && 'object' === typeof searchInput) {
-    var hasKeyCode = searchInput.which || searchInput.keyCode || searchInput.charCode;
-    if (hasKeyCode) {
-      searchInput = hasKeyCode;
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports);
+    global.step = mod.exports;
+  }
+})(this, function (module, exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    methods: {
+      nextPage: function nextPage() {
+        var currentPage = this.$route.path.split('/')[2] | 0;
+        var nextPage = currentPage >= 5 ? 5 : currentPage + 1;
+        this.$router.push('/step/' + nextPage);
+      },
+      prevPage: function prevPage() {
+        var currentPage = this.$route.path.split('/')[2] | 0;
+        var prevPage = currentPage <= 1 ? 1 : currentPage - 1;
+        this.$router.push('/step/' + prevPage);
+      },
+      backHome: function backHome() {
+        this.$router.push('/');
+      }
+    },
+    computed: {
+      keymap: function keymap() {
+        return {
+          left: this.prevPage,
+          right: this.nextPage,
+          esc: this.backHome
+        };
+      }
     }
-  }
-
-  // Numbers
-  if ('number' === typeof searchInput) {
-    return names[searchInput];
-  }
-
-  // Everything else (cast to string)
-  var search = String(searchInput);
-
-  // check codes
-  var foundNamedKey = codes[search.toLowerCase()];
-  if (foundNamedKey) {
-    return foundNamedKey;
-  }
-
-  // check aliases
-  var foundNamedKey = aliases[search.toLowerCase()];
-  if (foundNamedKey) {
-    return foundNamedKey;
-  }
-
-  // weird character?
-  if (search.length === 1) {
-    return search.charCodeAt(0);
-  }
-
-  return undefined;
-};
-
-/**
- * Get by name
- *
- *   exports.code['enter'] // => 13
- */
-
-const codes = {
-  'backspace': 8,
-  'tab': 9,
-  'enter': 13,
-  'shift': 16,
-  'ctrl': 17,
-  'alt': 18,
-  'pause/break': 19,
-  'caps lock': 20,
-  'esc': 27,
-  'space': 32,
-  'page up': 33,
-  'page down': 34,
-  'end': 35,
-  'home': 36,
-  'left': 37,
-  'up': 38,
-  'right': 39,
-  'down': 40,
-  'insert': 45,
-  'delete': 46,
-  'command': 91,
-  'left command': 91,
-  'right command': 93,
-  'numpad *': 106,
-  'numpad +': 107,
-  'numpad -': 109,
-  'numpad .': 110,
-  'numpad /': 111,
-  'num lock': 144,
-  'scroll lock': 145,
-  'my computer': 182,
-  'my calculator': 183,
-  ';': 186,
-  '=': 187,
-  ',': 188,
-  '-': 189,
-  '.': 190,
-  '/': 191,
-  '`': 192,
-  '[': 219,
-  '\\': 220,
-  ']': 221,
-  "'": 222
-};
-/* unused harmony export codes */
-
-
-// Helper aliases
-
-const aliases = {
-  'windows': 91,
-  '⇧': 16,
-  '⌥': 18,
-  '⌃': 17,
-  '⌘': 91,
-  'ctl': 17,
-  'control': 17,
-  'option': 18,
-  'pause': 19,
-  'break': 19,
-  'caps': 20,
-  'return': 13,
-  'escape': 27,
-  'spc': 32,
-  'pgup': 33,
-  'pgdn': 34,
-  'ins': 45,
-  'del': 46,
-  'cmd': 91
-};
-/* unused harmony export aliases */
-
-
-/*!
- * Programatically add the following
- */
-
-// lower case chars
-for (i = 97; i < 123; i++) {
-  codes[String.fromCharCode(i)] = i - 32;
-}
-
-// numbers
-for (var i = 48; i < 58; i++) {
-  codes[i - 48] = i;
-}
-
-// function keys
-for (i = 1; i < 13; i++) {
-  codes['f' + i] = i + 111;
-}
-
-// numpad keys
-for (i = 0; i < 10; i++) {
-  codes['numpad ' + i] = i + 96;
-}
+  };
+  module.exports = exports['default'];
+});
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
-// imports
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports);
+    global.keycode = mod.exports;
+  }
+})(this, function (exports) {
+  'use strict';
 
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
 
-// module
-exports.push([module.i, "/*! bulma.io v0.4.0 | MIT License | github.com/jgthms/bulma */\n@-webkit-keyframes spinAround {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n            transform: rotate(359deg);\n  }\n}\n@keyframes spinAround {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n            transform: rotate(359deg);\n  }\n}\n\n/*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */\nhtml,\nbody,\np,\nol,\nul,\nli,\ndl,\ndt,\ndd,\nblockquote,\nfigure,\nfieldset,\nlegend,\ntextarea,\npre,\niframe,\nhr,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  padding: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: 100%;\n  font-weight: normal;\n}\n\nul {\n  list-style: none;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  margin: 0;\n}\n\nhtml {\n  box-sizing: border-box;\n}\n\n* {\n  box-sizing: inherit;\n}\n\n*:before, *:after {\n  box-sizing: inherit;\n}\n\nimg,\nembed,\nobject,\naudio,\nvideo {\n  height: auto;\n  max-width: 100%;\n}\n\niframe {\n  border: 0;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntd,\nth {\n  padding: 0;\n  text-align: left;\n}\n\nhtml {\n  background-color: white;\n  font-size: 16px;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  min-width: 300px;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  text-rendering: optimizeLegibility;\n}\n\narticle,\naside,\nfigure,\nfooter,\nheader,\nhgroup,\nsection {\n  display: block;\n}\n\nbody,\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n\ncode,\npre {\n  -moz-osx-font-smoothing: auto;\n  -webkit-font-smoothing: auto;\n  font-family: monospace;\n}\n\nbody {\n  color: #4a4a4a;\n  font-size: 1rem;\n  font-weight: 400;\n  line-height: 1.5;\n}\n\na {\n  color: #00d1b2;\n  cursor: pointer;\n  text-decoration: none;\n  -webkit-transition: none 86ms ease-out;\n  transition: none 86ms ease-out;\n}\n\na:hover {\n  color: #363636;\n}\n\ncode {\n  background-color: whitesmoke;\n  color: #ff3860;\n  font-size: 0.8em;\n  font-weight: normal;\n  padding: 0.25em 0.5em 0.25em;\n}\n\nhr {\n  background-color: #dbdbdb;\n  border: none;\n  display: block;\n  height: 1px;\n  margin: 1.5rem 0;\n}\n\nimg {\n  max-width: 100%;\n}\n\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  vertical-align: baseline;\n}\n\nsmall {\n  font-size: 0.8em;\n}\n\nspan {\n  font-style: inherit;\n  font-weight: inherit;\n}\n\nstrong {\n  color: #363636;\n  font-weight: 700;\n}\n\npre {\n  background-color: whitesmoke;\n  color: #4a4a4a;\n  font-size: 0.8em;\n  white-space: pre;\n  word-wrap: normal;\n}\n\npre code {\n  background: none;\n  color: inherit;\n  display: block;\n  font-size: 1em;\n  overflow-x: auto;\n  padding: 1.25rem 1.5rem;\n}\n\ntable {\n  width: 100%;\n}\n\ntable td,\ntable th {\n  text-align: left;\n  vertical-align: top;\n}\n\ntable th {\n  color: #363636;\n}\n\n.is-block {\n  display: block;\n}\n\n@media screen and (max-width: 768px) {\n  .is-block-mobile {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .is-block-tablet {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .is-block-tablet-only {\n    display: block !important;\n  }\n}\n\n@media screen and (max-width: 999px) {\n  .is-block-touch {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .is-block-desktop {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 1000px) and (max-width: 1191px) {\n  .is-block-desktop-only {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .is-block-widescreen {\n    display: block !important;\n  }\n}\n\n.is-flex {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n@media screen and (max-width: 768px) {\n  .is-flex-mobile {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .is-flex-tablet {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .is-flex-tablet-only {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (max-width: 999px) {\n  .is-flex-touch {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .is-flex-desktop {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 1000px) and (max-width: 1191px) {\n  .is-flex-desktop-only {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .is-flex-widescreen {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n.is-inline {\n  display: inline;\n}\n\n@media screen and (max-width: 768px) {\n  .is-inline-mobile {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .is-inline-tablet {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .is-inline-tablet-only {\n    display: inline !important;\n  }\n}\n\n@media screen and (max-width: 999px) {\n  .is-inline-touch {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .is-inline-desktop {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 1000px) and (max-width: 1191px) {\n  .is-inline-desktop-only {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .is-inline-widescreen {\n    display: inline !important;\n  }\n}\n\n.is-inline-block {\n  display: inline-block;\n}\n\n@media screen and (max-width: 768px) {\n  .is-inline-block-mobile {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .is-inline-block-tablet {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .is-inline-block-tablet-only {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (max-width: 999px) {\n  .is-inline-block-touch {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .is-inline-block-desktop {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 1000px) and (max-width: 1191px) {\n  .is-inline-block-desktop-only {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .is-inline-block-widescreen {\n    display: inline-block !important;\n  }\n}\n\n.is-inline-flex {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n}\n\n@media screen and (max-width: 768px) {\n  .is-inline-flex-mobile {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .is-inline-flex-tablet {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .is-inline-flex-tablet-only {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (max-width: 999px) {\n  .is-inline-flex-touch {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .is-inline-flex-desktop {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 1000px) and (max-width: 1191px) {\n  .is-inline-flex-desktop-only {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .is-inline-flex-widescreen {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n.is-clearfix:after {\n  clear: both;\n  content: \" \";\n  display: table;\n}\n\n.is-pulled-left {\n  float: left;\n}\n\n.is-pulled-right {\n  float: right;\n}\n\n.is-clipped {\n  overflow: hidden !important;\n}\n\n.is-overlay {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.has-text-centered {\n  text-align: center;\n}\n\n.has-text-left {\n  text-align: left;\n}\n\n.has-text-right {\n  text-align: right;\n}\n\n.is-hidden {\n  display: none !important;\n}\n\n@media screen and (max-width: 768px) {\n  .is-hidden-mobile {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .is-hidden-tablet {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .is-hidden-tablet-only {\n    display: none !important;\n  }\n}\n\n@media screen and (max-width: 999px) {\n  .is-hidden-touch {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .is-hidden-desktop {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 1000px) and (max-width: 1191px) {\n  .is-hidden-desktop-only {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .is-hidden-widescreen {\n    display: none !important;\n  }\n}\n\n.is-disabled {\n  pointer-events: none;\n}\n\n.is-marginless {\n  margin: 0 !important;\n}\n\n.is-paddingless {\n  padding: 0 !important;\n}\n\n.is-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n\n.box {\n  background-color: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n  display: block;\n  padding: 1.25rem;\n}\n\n.box:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\na.box:hover, a.box:focus {\n  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px #00d1b2;\n}\n\na.box:active {\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #00d1b2;\n}\n\n.button {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: none;\n  border-radius: 3px;\n  box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.25;\n  padding-bottom: 0.5em;\n  padding-left: 0.625em;\n  padding-right: 0.625em;\n  padding-top: 0.5em;\n  position: relative;\n  vertical-align: top;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  background-color: white;\n  border: 1px solid #dbdbdb;\n  color: #363636;\n  cursor: pointer;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding-left: 0.75em;\n  padding-right: 0.75em;\n  text-align: center;\n  white-space: nowrap;\n}\n\n.button:focus, .button.is-focused, .button:active, .button.is-active {\n  outline: none;\n}\n\n.button[disabled], .button.is-disabled {\n  pointer-events: none;\n}\n\n.button strong {\n  color: inherit;\n}\n\n.button .icon, .button .icon.is-small, .button .icon.is-medium, .button .icon.is-large {\n  height: 1.5em;\n  width: 1.5em;\n}\n\n.button .icon:first-child:not(:last-child) {\n  margin-left: calc(-0.375em - 1px);\n  margin-right: 0.1875em;\n}\n\n.button .icon:last-child:not(:first-child) {\n  margin-left: 0.1875em;\n  margin-right: calc(-0.375em - 1px);\n}\n\n.button .icon:first-child:last-child {\n  margin-left: calc(-0.375em - 1px);\n  margin-right: calc(-0.375em - 1px);\n}\n\n.button:hover, .button.is-hovered {\n  border-color: #b5b5b5;\n  color: #363636;\n}\n\n.button:focus, .button.is-focused {\n  border-color: #00d1b2;\n  box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.25);\n  color: #363636;\n}\n\n.button:active, .button.is-active {\n  border-color: #4a4a4a;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #363636;\n}\n\n.button.is-link {\n  background-color: transparent;\n  border-color: transparent;\n  color: #4a4a4a;\n  text-decoration: underline;\n}\n\n.button.is-link:hover, .button.is-link.is-hovered, .button.is-link:focus, .button.is-link.is-focused, .button.is-link:active, .button.is-link.is-active {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-white {\n  background-color: white;\n  border-color: transparent;\n  color: #0a0a0a;\n}\n\n.button.is-white:hover, .button.is-white.is-hovered {\n  background-color: #f9f9f9;\n  border-color: transparent;\n  color: #0a0a0a;\n}\n\n.button.is-white:focus, .button.is-white.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.25);\n  color: #0a0a0a;\n}\n\n.button.is-white:active, .button.is-white.is-active {\n  background-color: #f2f2f2;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #0a0a0a;\n}\n\n.button.is-white.is-inverted {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.button.is-white.is-inverted:hover {\n  background-color: black;\n}\n\n.button.is-white.is-loading:after {\n  border-color: transparent transparent #0a0a0a #0a0a0a !important;\n}\n\n.button.is-white.is-outlined {\n  background-color: transparent;\n  border-color: white;\n  color: white;\n}\n\n.button.is-white.is-outlined:hover, .button.is-white.is-outlined:focus {\n  background-color: white;\n  border-color: white;\n  color: #0a0a0a;\n}\n\n.button.is-white.is-outlined.is-loading:after {\n  border-color: transparent transparent white white !important;\n}\n\n.button.is-white.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #0a0a0a;\n  color: #0a0a0a;\n}\n\n.button.is-white.is-inverted.is-outlined:hover, .button.is-white.is-inverted.is-outlined:focus {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.button.is-black {\n  background-color: #0a0a0a;\n  border-color: transparent;\n  color: white;\n}\n\n.button.is-black:hover, .button.is-black.is-hovered {\n  background-color: #040404;\n  border-color: transparent;\n  color: white;\n}\n\n.button.is-black:focus, .button.is-black.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(10, 10, 10, 0.25);\n  color: white;\n}\n\n.button.is-black:active, .button.is-black.is-active {\n  background-color: black;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: white;\n}\n\n.button.is-black.is-inverted {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-black.is-loading:after {\n  border-color: transparent transparent white white !important;\n}\n\n.button.is-black.is-outlined {\n  background-color: transparent;\n  border-color: #0a0a0a;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-outlined:hover, .button.is-black.is-outlined:focus {\n  background-color: #0a0a0a;\n  border-color: #0a0a0a;\n  color: white;\n}\n\n.button.is-black.is-outlined.is-loading:after {\n  border-color: transparent transparent #0a0a0a #0a0a0a !important;\n}\n\n.button.is-black.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: white;\n  color: white;\n}\n\n.button.is-black.is-inverted.is-outlined:hover, .button.is-black.is-inverted.is-outlined:focus {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.button.is-light {\n  background-color: whitesmoke;\n  border-color: transparent;\n  color: #363636;\n}\n\n.button.is-light:hover, .button.is-light.is-hovered {\n  background-color: #eeeeee;\n  border-color: transparent;\n  color: #363636;\n}\n\n.button.is-light:focus, .button.is-light.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(245, 245, 245, 0.25);\n  color: #363636;\n}\n\n.button.is-light:active, .button.is-light.is-active {\n  background-color: #e8e8e8;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #363636;\n}\n\n.button.is-light.is-inverted {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.button.is-light.is-inverted:hover {\n  background-color: #292929;\n}\n\n.button.is-light.is-loading:after {\n  border-color: transparent transparent #363636 #363636 !important;\n}\n\n.button.is-light.is-outlined {\n  background-color: transparent;\n  border-color: whitesmoke;\n  color: whitesmoke;\n}\n\n.button.is-light.is-outlined:hover, .button.is-light.is-outlined:focus {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-light.is-outlined.is-loading:after {\n  border-color: transparent transparent whitesmoke whitesmoke !important;\n}\n\n.button.is-light.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #363636;\n  color: #363636;\n}\n\n.button.is-light.is-inverted.is-outlined:hover, .button.is-light.is-inverted.is-outlined:focus {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.button.is-dark {\n  background-color: #363636;\n  border-color: transparent;\n  color: whitesmoke;\n}\n\n.button.is-dark:hover, .button.is-dark.is-hovered {\n  background-color: #2f2f2f;\n  border-color: transparent;\n  color: whitesmoke;\n}\n\n.button.is-dark:focus, .button.is-dark.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(54, 54, 54, 0.25);\n  color: whitesmoke;\n}\n\n.button.is-dark:active, .button.is-dark.is-active {\n  background-color: #292929;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: whitesmoke;\n}\n\n.button.is-dark.is-inverted {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-dark.is-inverted:hover {\n  background-color: #e8e8e8;\n}\n\n.button.is-dark.is-loading:after {\n  border-color: transparent transparent whitesmoke whitesmoke !important;\n}\n\n.button.is-dark.is-outlined {\n  background-color: transparent;\n  border-color: #363636;\n  color: #363636;\n}\n\n.button.is-dark.is-outlined:hover, .button.is-dark.is-outlined:focus {\n  background-color: #363636;\n  border-color: #363636;\n  color: whitesmoke;\n}\n\n.button.is-dark.is-outlined.is-loading:after {\n  border-color: transparent transparent #363636 #363636 !important;\n}\n\n.button.is-dark.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: whitesmoke;\n  color: whitesmoke;\n}\n\n.button.is-dark.is-inverted.is-outlined:hover, .button.is-dark.is-inverted.is-outlined:focus {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-primary {\n  background-color: #00d1b2;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-primary:hover, .button.is-primary.is-hovered {\n  background-color: #00c4a7;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-primary:focus, .button.is-primary.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.25);\n  color: #fff;\n}\n\n.button.is-primary:active, .button.is-primary.is-active {\n  background-color: #00b89c;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-primary.is-inverted {\n  background-color: #fff;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-primary.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-primary.is-outlined {\n  background-color: transparent;\n  border-color: #00d1b2;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {\n  background-color: #00d1b2;\n  border-color: #00d1b2;\n  color: #fff;\n}\n\n.button.is-primary.is-outlined.is-loading:after {\n  border-color: transparent transparent #00d1b2 #00d1b2 !important;\n}\n\n.button.is-primary.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-primary.is-inverted.is-outlined:hover, .button.is-primary.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #00d1b2;\n}\n\n.button.is-info {\n  background-color: #3273dc;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-info:hover, .button.is-info.is-hovered {\n  background-color: #276cda;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-info:focus, .button.is-info.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(50, 115, 220, 0.25);\n  color: #fff;\n}\n\n.button.is-info:active, .button.is-info.is-active {\n  background-color: #2366d1;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-info.is-inverted {\n  background-color: #fff;\n  color: #3273dc;\n}\n\n.button.is-info.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-info.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-info.is-outlined {\n  background-color: transparent;\n  border-color: #3273dc;\n  color: #3273dc;\n}\n\n.button.is-info.is-outlined:hover, .button.is-info.is-outlined:focus {\n  background-color: #3273dc;\n  border-color: #3273dc;\n  color: #fff;\n}\n\n.button.is-info.is-outlined.is-loading:after {\n  border-color: transparent transparent #3273dc #3273dc !important;\n}\n\n.button.is-info.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-info.is-inverted.is-outlined:hover, .button.is-info.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #3273dc;\n}\n\n.button.is-success {\n  background-color: #23d160;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-success:hover, .button.is-success.is-hovered {\n  background-color: #22c65b;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-success:focus, .button.is-success.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(35, 209, 96, 0.25);\n  color: #fff;\n}\n\n.button.is-success:active, .button.is-success.is-active {\n  background-color: #20bc56;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-success.is-inverted {\n  background-color: #fff;\n  color: #23d160;\n}\n\n.button.is-success.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-success.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-success.is-outlined {\n  background-color: transparent;\n  border-color: #23d160;\n  color: #23d160;\n}\n\n.button.is-success.is-outlined:hover, .button.is-success.is-outlined:focus {\n  background-color: #23d160;\n  border-color: #23d160;\n  color: #fff;\n}\n\n.button.is-success.is-outlined.is-loading:after {\n  border-color: transparent transparent #23d160 #23d160 !important;\n}\n\n.button.is-success.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-success.is-inverted.is-outlined:hover, .button.is-success.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #23d160;\n}\n\n.button.is-warning {\n  background-color: #ffdd57;\n  border-color: transparent;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning:hover, .button.is-warning.is-hovered {\n  background-color: #ffdb4a;\n  border-color: transparent;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning:focus, .button.is-warning.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(255, 221, 87, 0.25);\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning:active, .button.is-warning.is-active {\n  background-color: #ffd83d;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-inverted {\n  background-color: rgba(0, 0, 0, 0.7);\n  color: #ffdd57;\n}\n\n.button.is-warning.is-inverted:hover {\n  background-color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-loading:after {\n  border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7) !important;\n}\n\n.button.is-warning.is-outlined {\n  background-color: transparent;\n  border-color: #ffdd57;\n  color: #ffdd57;\n}\n\n.button.is-warning.is-outlined:hover, .button.is-warning.is-outlined:focus {\n  background-color: #ffdd57;\n  border-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-outlined.is-loading:after {\n  border-color: transparent transparent #ffdd57 #ffdd57 !important;\n}\n\n.button.is-warning.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: rgba(0, 0, 0, 0.7);\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-inverted.is-outlined:hover, .button.is-warning.is-inverted.is-outlined:focus {\n  background-color: rgba(0, 0, 0, 0.7);\n  color: #ffdd57;\n}\n\n.button.is-danger {\n  background-color: #ff3860;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-danger:hover, .button.is-danger.is-hovered {\n  background-color: #ff2b56;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-danger:focus, .button.is-danger.is-focused {\n  border-color: transparent;\n  box-shadow: 0 0 0.5em rgba(255, 56, 96, 0.25);\n  color: #fff;\n}\n\n.button.is-danger:active, .button.is-danger.is-active {\n  background-color: #ff1f4b;\n  border-color: transparent;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-danger.is-inverted {\n  background-color: #fff;\n  color: #ff3860;\n}\n\n.button.is-danger.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-danger.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-danger.is-outlined {\n  background-color: transparent;\n  border-color: #ff3860;\n  color: #ff3860;\n}\n\n.button.is-danger.is-outlined:hover, .button.is-danger.is-outlined:focus {\n  background-color: #ff3860;\n  border-color: #ff3860;\n  color: #fff;\n}\n\n.button.is-danger.is-outlined.is-loading:after {\n  border-color: transparent transparent #ff3860 #ff3860 !important;\n}\n\n.button.is-danger.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-danger.is-inverted.is-outlined:hover, .button.is-danger.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #ff3860;\n}\n\n.button.is-small {\n  border-radius: 2px;\n  font-size: 0.75rem;\n}\n\n.button.is-medium {\n  font-size: 1.25rem;\n}\n\n.button.is-large {\n  font-size: 1.5rem;\n}\n\n.button[disabled], .button.is-disabled {\n  opacity: 0.5;\n}\n\n.button.is-fullwidth {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n\n.button.is-loading {\n  color: transparent !important;\n  pointer-events: none;\n}\n\n.button.is-loading:after {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n  left: 50%;\n  margin-left: -0.5em;\n  margin-top: -0.5em;\n  position: absolute;\n  top: 50%;\n  position: absolute !important;\n}\n\nbutton.button,\ninput[type=\"submit\"].button {\n  line-height: 1;\n  padding-bottom: 0.4em;\n  padding-top: 0.35em;\n}\n\n.content {\n  color: #4a4a4a;\n}\n\n.content:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.content li + li {\n  margin-top: 0.25em;\n}\n\n.content p:not(:last-child),\n.content ol:not(:last-child),\n.content ul:not(:last-child),\n.content blockquote:not(:last-child),\n.content table:not(:last-child) {\n  margin-bottom: 1em;\n}\n\n.content h1,\n.content h2,\n.content h3,\n.content h4,\n.content h5,\n.content h6 {\n  color: #363636;\n  font-weight: 400;\n  line-height: 1.125;\n}\n\n.content h1 {\n  font-size: 2em;\n  margin-bottom: 0.5em;\n}\n\n.content h1:not(:first-child) {\n  margin-top: 1em;\n}\n\n.content h2 {\n  font-size: 1.75em;\n  margin-bottom: 0.5714em;\n}\n\n.content h2:not(:first-child) {\n  margin-top: 1.1428em;\n}\n\n.content h3 {\n  font-size: 1.5em;\n  margin-bottom: 0.6666em;\n}\n\n.content h3:not(:first-child) {\n  margin-top: 1.3333em;\n}\n\n.content h4 {\n  font-size: 1.25em;\n  margin-bottom: 0.8em;\n}\n\n.content h5 {\n  font-size: 1.125em;\n  margin-bottom: 0.8888em;\n}\n\n.content h6 {\n  font-size: 1em;\n  margin-bottom: 1em;\n}\n\n.content blockquote {\n  background-color: whitesmoke;\n  border-left: 5px solid #dbdbdb;\n  padding: 1.25em 1.5em;\n}\n\n.content ol {\n  list-style: decimal outside;\n  margin-left: 2em;\n  margin-right: 2em;\n  margin-top: 1em;\n}\n\n.content ul {\n  list-style: disc outside;\n  margin-left: 2em;\n  margin-right: 2em;\n  margin-top: 1em;\n}\n\n.content ul ul {\n  list-style-type: circle;\n  margin-top: 0.5em;\n}\n\n.content ul ul ul {\n  list-style-type: square;\n}\n\n.content table {\n  width: 100%;\n}\n\n.content table td,\n.content table th {\n  border: 1px solid #dbdbdb;\n  border-width: 0 0 1px;\n  padding: 0.5em 0.75em;\n  vertical-align: top;\n}\n\n.content table th {\n  color: #363636;\n  text-align: left;\n}\n\n.content table tr:hover {\n  background-color: whitesmoke;\n}\n\n.content table thead td,\n.content table thead th {\n  border-width: 0 0 2px;\n  color: #363636;\n}\n\n.content table tfoot td,\n.content table tfoot th {\n  border-width: 2px 0 0;\n  color: #363636;\n}\n\n.content table tbody tr:last-child td,\n.content table tbody tr:last-child th {\n  border-bottom-width: 0;\n}\n\n.content.is-small {\n  font-size: 0.75rem;\n}\n\n.content.is-medium {\n  font-size: 1.25rem;\n}\n\n.content.is-large {\n  font-size: 1.5rem;\n}\n\n.input,\n.textarea {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: none;\n  border-radius: 3px;\n  box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.25;\n  padding-bottom: 0.5em;\n  padding-left: 0.625em;\n  padding-right: 0.625em;\n  padding-top: 0.5em;\n  position: relative;\n  vertical-align: top;\n  background-color: white;\n  border: 1px solid #dbdbdb;\n  color: #363636;\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n  max-width: 100%;\n  width: 100%;\n}\n\n.input:focus, .input.is-focused, .input:active, .input.is-active,\n.textarea:focus,\n.textarea.is-focused,\n.textarea:active,\n.textarea.is-active {\n  outline: none;\n}\n\n.input[disabled], .input.is-disabled,\n.textarea[disabled],\n.textarea.is-disabled {\n  pointer-events: none;\n}\n\n.input:hover, .input.is-hovered,\n.textarea:hover,\n.textarea.is-hovered {\n  border-color: #b5b5b5;\n}\n\n.input:focus, .input.is-focused, .input:active, .input.is-active,\n.textarea:focus,\n.textarea.is-focused,\n.textarea:active,\n.textarea.is-active {\n  border-color: #00d1b2;\n}\n\n.input[disabled], .input.is-disabled,\n.textarea[disabled],\n.textarea.is-disabled {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  box-shadow: none;\n  color: #7a7a7a;\n}\n\n.input[disabled]::-moz-placeholder, .input.is-disabled::-moz-placeholder,\n.textarea[disabled]::-moz-placeholder,\n.textarea.is-disabled::-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[disabled]::-webkit-input-placeholder, .input.is-disabled::-webkit-input-placeholder,\n.textarea[disabled]::-webkit-input-placeholder,\n.textarea.is-disabled::-webkit-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[disabled]:-moz-placeholder, .input.is-disabled:-moz-placeholder,\n.textarea[disabled]:-moz-placeholder,\n.textarea.is-disabled:-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[disabled]:-ms-input-placeholder, .input.is-disabled:-ms-input-placeholder,\n.textarea[disabled]:-ms-input-placeholder,\n.textarea.is-disabled:-ms-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[type=\"search\"],\n.textarea[type=\"search\"] {\n  border-radius: 290486px;\n}\n\n.input.is-white,\n.textarea.is-white {\n  border-color: white;\n}\n\n.input.is-black,\n.textarea.is-black {\n  border-color: #0a0a0a;\n}\n\n.input.is-light,\n.textarea.is-light {\n  border-color: whitesmoke;\n}\n\n.input.is-dark,\n.textarea.is-dark {\n  border-color: #363636;\n}\n\n.input.is-primary,\n.textarea.is-primary {\n  border-color: #00d1b2;\n}\n\n.input.is-info,\n.textarea.is-info {\n  border-color: #3273dc;\n}\n\n.input.is-success,\n.textarea.is-success {\n  border-color: #23d160;\n}\n\n.input.is-warning,\n.textarea.is-warning {\n  border-color: #ffdd57;\n}\n\n.input.is-danger,\n.textarea.is-danger {\n  border-color: #ff3860;\n}\n\n.input.is-small,\n.textarea.is-small {\n  border-radius: 2px;\n  font-size: 0.75rem;\n}\n\n.input.is-medium,\n.textarea.is-medium {\n  font-size: 1.25rem;\n}\n\n.input.is-large,\n.textarea.is-large {\n  font-size: 1.5rem;\n}\n\n.input.is-fullwidth,\n.textarea.is-fullwidth {\n  display: block;\n  width: 100%;\n}\n\n.input.is-inline,\n.textarea.is-inline {\n  display: inline;\n  width: auto;\n}\n\n.textarea {\n  display: block;\n  line-height: 1.25;\n  max-height: 600px;\n  max-width: 100%;\n  min-height: 120px;\n  min-width: 100%;\n  padding: 0.625em;\n  resize: vertical;\n}\n\n.checkbox,\n.radio {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  position: relative;\n  vertical-align: top;\n}\n\n.checkbox input,\n.radio input {\n  cursor: pointer;\n  margin-right: 0.5em;\n}\n\n.checkbox:hover,\n.radio:hover {\n  color: #363636;\n}\n\n.checkbox.is-disabled,\n.radio.is-disabled {\n  color: #7a7a7a;\n  pointer-events: none;\n}\n\n.checkbox.is-disabled input,\n.radio.is-disabled input {\n  pointer-events: none;\n}\n\n.radio + .radio {\n  margin-left: 0.5em;\n}\n\n.select {\n  display: inline-block;\n  height: 2.25em;\n  position: relative;\n  vertical-align: top;\n}\n\n.select:after {\n  border: 1px solid #00d1b2;\n  border-right: 0;\n  border-top: 0;\n  content: \" \";\n  display: block;\n  height: 0.5em;\n  pointer-events: none;\n  position: absolute;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n  width: 0.5em;\n  margin-top: -0.375em;\n  right: 1.125em;\n  top: 50%;\n  z-index: 4;\n}\n\n.select select {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: none;\n  border-radius: 3px;\n  box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.25;\n  padding-bottom: 0.5em;\n  padding-left: 0.625em;\n  padding-right: 0.625em;\n  padding-top: 0.5em;\n  position: relative;\n  vertical-align: top;\n  background-color: white;\n  border: 1px solid #dbdbdb;\n  color: #363636;\n  cursor: pointer;\n  display: block;\n  font-size: 1em;\n  outline: none;\n  padding-right: 2.5em;\n}\n\n.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {\n  outline: none;\n}\n\n.select select[disabled], .select select.is-disabled {\n  pointer-events: none;\n}\n\n.select select:hover, .select select.is-hovered {\n  border-color: #b5b5b5;\n}\n\n.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {\n  border-color: #00d1b2;\n}\n\n.select select[disabled], .select select.is-disabled {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  box-shadow: none;\n  color: #7a7a7a;\n}\n\n.select select[disabled]::-moz-placeholder, .select select.is-disabled::-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select[disabled]::-webkit-input-placeholder, .select select.is-disabled::-webkit-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select[disabled]:-moz-placeholder, .select select.is-disabled:-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select[disabled]:-ms-input-placeholder, .select select.is-disabled:-ms-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select:hover {\n  border-color: #b5b5b5;\n}\n\n.select select::ms-expand {\n  display: none;\n}\n\n.select:hover:after {\n  border-color: #363636;\n}\n\n.select.is-small {\n  border-radius: 2px;\n  font-size: 0.75rem;\n}\n\n.select.is-medium {\n  font-size: 1.25rem;\n}\n\n.select.is-large {\n  font-size: 1.5rem;\n}\n\n.select.is-fullwidth {\n  width: 100%;\n}\n\n.select.is-fullwidth select {\n  width: 100%;\n}\n\n.label {\n  color: #363636;\n  display: block;\n  font-size: 1rem;\n  font-weight: 700;\n}\n\n.label:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n\n.help {\n  display: block;\n  font-size: 0.75rem;\n  margin-top: 0.25rem;\n}\n\n.help.is-white {\n  color: white;\n}\n\n.help.is-black {\n  color: #0a0a0a;\n}\n\n.help.is-light {\n  color: whitesmoke;\n}\n\n.help.is-dark {\n  color: #363636;\n}\n\n.help.is-primary {\n  color: #00d1b2;\n}\n\n.help.is-info {\n  color: #3273dc;\n}\n\n.help.is-success {\n  color: #23d160;\n}\n\n.help.is-warning {\n  color: #ffdd57;\n}\n\n.help.is-danger {\n  color: #ff3860;\n}\n\n.select select {\n  line-height: 1;\n}\n\n.field:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.field.has-addons {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.field.has-addons .control {\n  margin-right: -1px;\n}\n\n.field.has-addons .control:first-child .button,\n.field.has-addons .control:first-child .input,\n.field.has-addons .control:first-child .select select {\n  border-bottom-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n\n.field.has-addons .control:last-child .button,\n.field.has-addons .control:last-child .input,\n.field.has-addons .control:last-child .select select {\n  border-bottom-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n\n.field.has-addons .control .button,\n.field.has-addons .control .input,\n.field.has-addons .control .select select {\n  border-radius: 0;\n}\n\n.field.has-addons .control .button:hover,\n.field.has-addons .control .input:hover,\n.field.has-addons .control .select select:hover {\n  z-index: 2;\n}\n\n.field.has-addons .control .button:focus, .field.has-addons .control .button:active,\n.field.has-addons .control .input:focus,\n.field.has-addons .control .input:active,\n.field.has-addons .control .select select:focus,\n.field.has-addons .control .select select:active {\n  z-index: 3;\n}\n\n.field.has-addons .control.is-expanded {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.field.has-addons.has-addons-centered {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.field.has-addons.has-addons-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n.field.has-addons.has-addons-fullwidth .control {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.field.is-grouped {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.field.is-grouped > .control {\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.field.is-grouped > .control:not(:last-child) {\n  margin-bottom: 0;\n  margin-right: 0.75rem;\n}\n\n.field.is-grouped > .control.is-expanded {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.field.is-grouped.is-grouped-centered {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.field.is-grouped.is-grouped-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n@media screen and (min-width: 769px) {\n  .field.is-horizontal {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .field-label {\n    margin-bottom: 0.5rem;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .field-label {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 0;\n        flex-shrink: 0;\n    margin-right: 1.5rem;\n    padding-top: 0.375em;\n    text-align: right;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .field-body {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 5;\n        -ms-flex-positive: 5;\n            flex-grow: 5;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n  .field-body .field {\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n  .field-body .field:not(.is-narrow) {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n  }\n  .field-body .field:not(:last-child) {\n    margin-bottom: 0;\n    margin-right: 0.75rem;\n  }\n}\n\n.control {\n  font-size: 1rem;\n  position: relative;\n  text-align: left;\n}\n\n.control.has-icon .icon {\n  color: #dbdbdb;\n  height: 2.25em;\n  pointer-events: none;\n  position: absolute;\n  top: 0;\n  width: 2.25em;\n  z-index: 4;\n}\n\n.control.has-icon .input:focus + .icon {\n  color: #7a7a7a;\n}\n\n.control.has-icon .input.is-small + .icon {\n  font-size: 0.75rem;\n}\n\n.control.has-icon .input.is-medium + .icon {\n  font-size: 1.25rem;\n}\n\n.control.has-icon .input.is-large + .icon {\n  font-size: 1.5rem;\n}\n\n.control.has-icon:not(.has-icon-right) .icon {\n  left: 0;\n}\n\n.control.has-icon:not(.has-icon-right) .input {\n  padding-left: 2.25em;\n}\n\n.control.has-icon.has-icon-right .icon {\n  right: 0;\n}\n\n.control.has-icon.has-icon-right .input {\n  padding-right: 2.25em;\n}\n\n.control.is-loading:after {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n  position: absolute !important;\n  right: 0.625em;\n  top: 0.625em;\n}\n\n.icon {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 1.5rem;\n  vertical-align: top;\n  width: 1.5rem;\n}\n\n.icon .fa {\n  font-size: 21px;\n}\n\n.icon.is-small {\n  height: 1rem;\n  width: 1rem;\n}\n\n.icon.is-small .fa {\n  font-size: 14px;\n}\n\n.icon.is-medium {\n  height: 2rem;\n  width: 2rem;\n}\n\n.icon.is-medium .fa {\n  font-size: 28px;\n}\n\n.icon.is-large {\n  height: 3rem;\n  width: 3rem;\n}\n\n.icon.is-large .fa {\n  font-size: 42px;\n}\n\n.image {\n  display: block;\n  position: relative;\n}\n\n.image img {\n  display: block;\n  height: auto;\n  width: 100%;\n}\n\n.image.is-square img, .image.is-1by1 img, .image.is-4by3 img, .image.is-3by2 img, .image.is-16by9 img, .image.is-2by1 img {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n}\n\n.image.is-square, .image.is-1by1 {\n  padding-top: 100%;\n}\n\n.image.is-4by3 {\n  padding-top: 75%;\n}\n\n.image.is-3by2 {\n  padding-top: 66.6666%;\n}\n\n.image.is-16by9 {\n  padding-top: 56.25%;\n}\n\n.image.is-2by1 {\n  padding-top: 50%;\n}\n\n.image.is-16x16 {\n  height: 16px;\n  width: 16px;\n}\n\n.image.is-24x24 {\n  height: 24px;\n  width: 24px;\n}\n\n.image.is-32x32 {\n  height: 32px;\n  width: 32px;\n}\n\n.image.is-48x48 {\n  height: 48px;\n  width: 48px;\n}\n\n.image.is-64x64 {\n  height: 64px;\n  width: 64px;\n}\n\n.image.is-96x96 {\n  height: 96px;\n  width: 96px;\n}\n\n.image.is-128x128 {\n  height: 128px;\n  width: 128px;\n}\n\n.notification {\n  background-color: whitesmoke;\n  border-radius: 3px;\n  padding: 1.25rem 2.5rem 1.25rem 1.5rem;\n  position: relative;\n}\n\n.notification:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.notification code,\n.notification pre {\n  background: white;\n}\n\n.notification pre code {\n  background: transparent;\n}\n\n.notification .delete {\n  position: absolute;\n  right: 0.5em;\n  top: 0.5em;\n}\n\n.notification .title,\n.notification .subtitle,\n.notification .content {\n  color: inherit;\n}\n\n.notification.is-white {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.notification.is-black {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.notification.is-light {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.notification.is-dark {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.notification.is-primary {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.notification.is-info {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.notification.is-success {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.notification.is-warning {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.notification.is-danger {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.progress {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  border: none;\n  border-radius: 290486px;\n  display: block;\n  height: 1rem;\n  overflow: hidden;\n  padding: 0;\n  width: 100%;\n}\n\n.progress:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.progress::-webkit-progress-bar {\n  background-color: #dbdbdb;\n}\n\n.progress::-webkit-progress-value {\n  background-color: #4a4a4a;\n}\n\n.progress::-moz-progress-bar {\n  background-color: #4a4a4a;\n}\n\n.progress.is-white::-webkit-progress-value {\n  background-color: white;\n}\n\n.progress.is-white::-moz-progress-bar {\n  background-color: white;\n}\n\n.progress.is-black::-webkit-progress-value {\n  background-color: #0a0a0a;\n}\n\n.progress.is-black::-moz-progress-bar {\n  background-color: #0a0a0a;\n}\n\n.progress.is-light::-webkit-progress-value {\n  background-color: whitesmoke;\n}\n\n.progress.is-light::-moz-progress-bar {\n  background-color: whitesmoke;\n}\n\n.progress.is-dark::-webkit-progress-value {\n  background-color: #363636;\n}\n\n.progress.is-dark::-moz-progress-bar {\n  background-color: #363636;\n}\n\n.progress.is-primary::-webkit-progress-value {\n  background-color: #00d1b2;\n}\n\n.progress.is-primary::-moz-progress-bar {\n  background-color: #00d1b2;\n}\n\n.progress.is-info::-webkit-progress-value {\n  background-color: #3273dc;\n}\n\n.progress.is-info::-moz-progress-bar {\n  background-color: #3273dc;\n}\n\n.progress.is-success::-webkit-progress-value {\n  background-color: #23d160;\n}\n\n.progress.is-success::-moz-progress-bar {\n  background-color: #23d160;\n}\n\n.progress.is-warning::-webkit-progress-value {\n  background-color: #ffdd57;\n}\n\n.progress.is-warning::-moz-progress-bar {\n  background-color: #ffdd57;\n}\n\n.progress.is-danger::-webkit-progress-value {\n  background-color: #ff3860;\n}\n\n.progress.is-danger::-moz-progress-bar {\n  background-color: #ff3860;\n}\n\n.progress.is-small {\n  height: 0.75rem;\n}\n\n.progress.is-medium {\n  height: 1.25rem;\n}\n\n.progress.is-large {\n  height: 1.5rem;\n}\n\n.table {\n  background-color: white;\n  color: #363636;\n  margin-bottom: 1.5rem;\n  width: 100%;\n}\n\n.table td,\n.table th {\n  border: 1px solid #dbdbdb;\n  border-width: 0 0 1px;\n  padding: 0.5em 0.75em;\n  vertical-align: top;\n}\n\n.table td.is-narrow,\n.table th.is-narrow {\n  white-space: nowrap;\n  width: 1%;\n}\n\n.table th {\n  color: #363636;\n  text-align: left;\n}\n\n.table tr:hover {\n  background-color: #fafafa;\n}\n\n.table thead td,\n.table thead th {\n  border-width: 0 0 2px;\n  color: #7a7a7a;\n}\n\n.table tfoot td,\n.table tfoot th {\n  border-width: 2px 0 0;\n  color: #7a7a7a;\n}\n\n.table tbody tr:last-child td,\n.table tbody tr:last-child th {\n  border-bottom-width: 0;\n}\n\n.table.is-bordered td,\n.table.is-bordered th {\n  border-width: 1px;\n}\n\n.table.is-bordered tr:last-child td,\n.table.is-bordered tr:last-child th {\n  border-bottom-width: 1px;\n}\n\n.table.is-narrow td,\n.table.is-narrow th {\n  padding: 0.25em 0.5em;\n}\n\n.table.is-striped tbody tr:nth-child(even) {\n  background-color: #fafafa;\n}\n\n.table.is-striped tbody tr:nth-child(even):hover {\n  background-color: whitesmoke;\n}\n\n.tag {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: whitesmoke;\n  border-radius: 290486px;\n  color: #4a4a4a;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 0.75rem;\n  height: 2em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  line-height: 1.5;\n  padding-left: 0.875em;\n  padding-right: 0.875em;\n  vertical-align: top;\n  white-space: nowrap;\n}\n\n.tag .delete {\n  margin-left: 0.25em;\n  margin-right: -0.375em;\n}\n\n.tag.is-white {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.tag.is-black {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.tag.is-light {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.tag.is-dark {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.tag.is-primary {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.tag.is-info {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.tag.is-success {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.tag.is-warning {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.tag.is-danger {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.tag.is-medium {\n  font-size: 1rem;\n}\n\n.tag.is-large {\n  font-size: 1.25rem;\n}\n\n.title,\n.subtitle {\n  word-break: break-word;\n}\n\n.title:not(:last-child),\n.subtitle:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.title em,\n.title span,\n.subtitle em,\n.subtitle span {\n  font-weight: 300;\n}\n\n.title strong,\n.subtitle strong {\n  font-weight: 500;\n}\n\n.title .tag,\n.subtitle .tag {\n  vertical-align: middle;\n}\n\n.title {\n  color: #363636;\n  font-size: 2rem;\n  font-weight: 300;\n  line-height: 1.125;\n}\n\n.title strong {\n  color: inherit;\n}\n\n.title + .highlight {\n  margin-top: -0.75rem;\n}\n\n.title:not(.is-spaced) + .subtitle {\n  margin-top: -1.5rem;\n}\n\n.title.is-1 {\n  font-size: 3rem;\n}\n\n.title.is-2 {\n  font-size: 2.5rem;\n}\n\n.title.is-3 {\n  font-size: 2rem;\n}\n\n.title.is-4 {\n  font-size: 1.5rem;\n}\n\n.title.is-5 {\n  font-size: 1.25rem;\n}\n\n.title.is-6 {\n  font-size: 1rem;\n}\n\n.subtitle {\n  color: #4a4a4a;\n  font-size: 1.25rem;\n  font-weight: 300;\n  line-height: 1.25;\n}\n\n.subtitle strong {\n  color: #363636;\n}\n\n.subtitle:not(.is-spaced) + .title {\n  margin-top: -1.5rem;\n}\n\n.subtitle.is-1 {\n  font-size: 3rem;\n}\n\n.subtitle.is-2 {\n  font-size: 2.5rem;\n}\n\n.subtitle.is-3 {\n  font-size: 2rem;\n}\n\n.subtitle.is-4 {\n  font-size: 1.5rem;\n}\n\n.subtitle.is-5 {\n  font-size: 1.25rem;\n}\n\n.subtitle.is-6 {\n  font-size: 1rem;\n}\n\n.block:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.container {\n  position: relative;\n}\n\n@media screen and (min-width: 1000px) {\n  .container {\n    margin: 0 auto;\n    width: 960px;\n  }\n  .container.is-fluid {\n    margin: 0 20px;\n    max-width: none;\n    width: auto;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .container {\n    width: 1152px;\n  }\n}\n\n@media screen and (min-width: 1384px) {\n  .container {\n    width: 1344px;\n  }\n}\n\n.delete {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  background-color: rgba(10, 10, 10, 0.2);\n  border: none;\n  border-radius: 290486px;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 1rem;\n  height: 20px;\n  outline: none;\n  position: relative;\n  vertical-align: top;\n  width: 20px;\n}\n\n.delete:before, .delete:after {\n  background-color: white;\n  content: \"\";\n  display: block;\n  left: 50%;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);\n          transform: translateX(-50%) translateY(-50%) rotate(45deg);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.delete:before {\n  height: 2px;\n  width: 50%;\n}\n\n.delete:after {\n  height: 50%;\n  width: 2px;\n}\n\n.delete:hover, .delete:focus {\n  background-color: rgba(10, 10, 10, 0.3);\n}\n\n.delete:active {\n  background-color: rgba(10, 10, 10, 0.4);\n}\n\n.delete.is-small {\n  height: 16px;\n  width: 16px;\n}\n\n.delete.is-medium {\n  height: 24px;\n  width: 24px;\n}\n\n.delete.is-large {\n  height: 32px;\n  width: 32px;\n}\n\n.fa {\n  font-size: 21px;\n  text-align: center;\n  vertical-align: top;\n}\n\n.heading {\n  display: block;\n  font-size: 11px;\n  letter-spacing: 1px;\n  margin-bottom: 5px;\n  text-transform: uppercase;\n}\n\n.highlight {\n  font-weight: 400;\n  max-width: 100%;\n  overflow: hidden;\n  padding: 0;\n}\n\n.highlight:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.highlight pre {\n  overflow: auto;\n  max-width: 100%;\n}\n\n.loader {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n}\n\n.number {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: whitesmoke;\n  border-radius: 290486px;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1.25rem;\n  height: 2em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 1.5rem;\n  min-width: 2.5em;\n  padding: 0.25rem 0.5rem;\n  text-align: center;\n  vertical-align: top;\n}\n\n.card-header {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.card-header-title {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #363636;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  font-weight: 700;\n  padding: 0.75rem;\n}\n\n.card-header-icon {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0.75rem;\n}\n\n.card-image {\n  display: block;\n  position: relative;\n}\n\n.card-content {\n  padding: 1.5rem;\n}\n\n.card-footer {\n  border-top: 1px solid #dbdbdb;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.card-footer-item {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0.75rem;\n}\n\n.card-footer-item:not(:last-child) {\n  border-right: 1px solid #dbdbdb;\n}\n\n.card {\n  background-color: white;\n  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n  color: #4a4a4a;\n  max-width: 100%;\n  position: relative;\n}\n\n.card .media:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.level-item {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.level-item .title,\n.level-item .subtitle {\n  margin-bottom: 0;\n}\n\n@media screen and (max-width: 768px) {\n  .level-item:not(:last-child) {\n    margin-bottom: 0.75rem;\n  }\n}\n\n.level-left,\n.level-right {\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.level-left .level-item:not(:last-child),\n.level-right .level-item:not(:last-child) {\n  margin-right: 0.75rem;\n}\n\n.level-left .level-item.is-flexible,\n.level-right .level-item.is-flexible {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n\n.level-left {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n@media screen and (max-width: 768px) {\n  .level-left + .level-right {\n    margin-top: 1.5rem;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .level-left {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.level-right {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n@media screen and (min-width: 769px) {\n  .level-right {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.level {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.level:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.level code {\n  border-radius: 3px;\n}\n\n.level img {\n  display: inline-block;\n  vertical-align: top;\n}\n\n.level.is-mobile {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.level.is-mobile .level-left,\n.level.is-mobile .level-right {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.level.is-mobile .level-left + .level-right {\n  margin-top: 0;\n}\n\n.level.is-mobile .level-item:not(:last-child) {\n  margin-bottom: 0;\n}\n\n.level.is-mobile .level-item:not(.is-narrow) {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n\n@media screen and (min-width: 769px) {\n  .level {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .level > .level-item:not(.is-narrow) {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n  }\n}\n\n.media-left,\n.media-right {\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.media-left {\n  margin-right: 1rem;\n}\n\n.media-right {\n  margin-left: 1rem;\n}\n\n.media-content {\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  text-align: left;\n}\n\n.media {\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: left;\n}\n\n.media .content:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.media .media {\n  border-top: 1px solid rgba(219, 219, 219, 0.5);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding-top: 0.75rem;\n}\n\n.media .media .content:not(:last-child),\n.media .media .control:not(:last-child) {\n  margin-bottom: 0.5rem;\n}\n\n.media .media .media {\n  padding-top: 0.5rem;\n}\n\n.media .media .media + .media {\n  margin-top: 0.5rem;\n}\n\n.media + .media {\n  border-top: 1px solid rgba(219, 219, 219, 0.5);\n  margin-top: 1rem;\n  padding-top: 1rem;\n}\n\n.media.is-large + .media {\n  margin-top: 1.5rem;\n  padding-top: 1.5rem;\n}\n\n.menu {\n  font-size: 1rem;\n}\n\n.menu-list {\n  line-height: 1.25;\n}\n\n.menu-list a {\n  border-radius: 2px;\n  color: #4a4a4a;\n  display: block;\n  padding: 0.5em 0.75em;\n}\n\n.menu-list a:hover {\n  background-color: whitesmoke;\n  color: #00d1b2;\n}\n\n.menu-list a.is-active {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.menu-list li ul {\n  border-left: 1px solid #dbdbdb;\n  margin: 0.75em;\n  padding-left: 0.75em;\n}\n\n.menu-label {\n  color: #7a7a7a;\n  font-size: 0.8em;\n  letter-spacing: 0.1em;\n  text-transform: uppercase;\n}\n\n.menu-label:not(:first-child) {\n  margin-top: 1em;\n}\n\n.menu-label:not(:last-child) {\n  margin-bottom: 1em;\n}\n\n.message {\n  background-color: whitesmoke;\n  border-radius: 3px;\n  font-size: 1rem;\n}\n\n.message:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.message.is-white {\n  background-color: white;\n}\n\n.message.is-white .message-header {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.message.is-white .message-body {\n  border-color: white;\n  color: #4d4d4d;\n}\n\n.message.is-black {\n  background-color: #fafafa;\n}\n\n.message.is-black .message-header {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.message.is-black .message-body {\n  border-color: #0a0a0a;\n  color: #090909;\n}\n\n.message.is-light {\n  background-color: #fafafa;\n}\n\n.message.is-light .message-header {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.message.is-light .message-body {\n  border-color: whitesmoke;\n  color: #505050;\n}\n\n.message.is-dark {\n  background-color: #fafafa;\n}\n\n.message.is-dark .message-header {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.message.is-dark .message-body {\n  border-color: #363636;\n  color: #2a2a2a;\n}\n\n.message.is-primary {\n  background-color: #f5fffd;\n}\n\n.message.is-primary .message-header {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.message.is-primary .message-body {\n  border-color: #00d1b2;\n  color: #021310;\n}\n\n.message.is-info {\n  background-color: #f6f9fe;\n}\n\n.message.is-info .message-header {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.message.is-info .message-body {\n  border-color: #3273dc;\n  color: #22509a;\n}\n\n.message.is-success {\n  background-color: #f6fef9;\n}\n\n.message.is-success .message-header {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.message.is-success .message-body {\n  border-color: #23d160;\n  color: #0e301a;\n}\n\n.message.is-warning {\n  background-color: #fffdf5;\n}\n\n.message.is-warning .message-header {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.message.is-warning .message-body {\n  border-color: #ffdd57;\n  color: #3b3108;\n}\n\n.message.is-danger {\n  background-color: #fff5f7;\n}\n\n.message.is-danger .message-header {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.message.is-danger .message-body {\n  border-color: #ff3860;\n  color: #cd0930;\n}\n\n.message-header {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: #4a4a4a;\n  border-radius: 3px 3px 0 0;\n  color: #fff;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  line-height: 1.25;\n  padding: 0.5em 0.75em;\n  position: relative;\n}\n\n.message-header a,\n.message-header strong {\n  color: inherit;\n}\n\n.message-header a {\n  text-decoration: underline;\n}\n\n.message-header .delete {\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  margin-left: 0.75em;\n}\n\n.message-header + .message-body {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n  border-top: none;\n}\n\n.message-body {\n  border: 1px solid #dbdbdb;\n  border-radius: 3px;\n  color: #4a4a4a;\n  padding: 1em 1.25em;\n}\n\n.message-body a,\n.message-body strong {\n  color: inherit;\n}\n\n.message-body a {\n  text-decoration: underline;\n}\n\n.message-body code,\n.message-body pre {\n  background: white;\n}\n\n.message-body pre code {\n  background: transparent;\n}\n\n.modal-background {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  background-color: rgba(10, 10, 10, 0.86);\n}\n\n.modal-content,\n.modal-card {\n  margin: 0 20px;\n  max-height: calc(100vh - 160px);\n  overflow: auto;\n  position: relative;\n  width: 100%;\n}\n\n@media screen and (min-width: 769px) {\n  .modal-content,\n  .modal-card {\n    margin: 0 auto;\n    max-height: calc(100vh - 40px);\n    width: 640px;\n  }\n}\n\n.modal-close {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  background-color: rgba(10, 10, 10, 0.2);\n  border: none;\n  border-radius: 290486px;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 1rem;\n  height: 20px;\n  outline: none;\n  position: relative;\n  vertical-align: top;\n  width: 20px;\n  background: none;\n  height: 40px;\n  position: fixed;\n  right: 20px;\n  top: 20px;\n  width: 40px;\n}\n\n.modal-close:before, .modal-close:after {\n  background-color: white;\n  content: \"\";\n  display: block;\n  left: 50%;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);\n          transform: translateX(-50%) translateY(-50%) rotate(45deg);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.modal-close:before {\n  height: 2px;\n  width: 50%;\n}\n\n.modal-close:after {\n  height: 50%;\n  width: 2px;\n}\n\n.modal-close:hover, .modal-close:focus {\n  background-color: rgba(10, 10, 10, 0.3);\n}\n\n.modal-close:active {\n  background-color: rgba(10, 10, 10, 0.4);\n}\n\n.modal-close.is-small {\n  height: 16px;\n  width: 16px;\n}\n\n.modal-close.is-medium {\n  height: 24px;\n  width: 24px;\n}\n\n.modal-close.is-large {\n  height: 32px;\n  width: 32px;\n}\n\n.modal-card {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: calc(100vh - 40px);\n  overflow: hidden;\n}\n\n.modal-card-head,\n.modal-card-foot {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: whitesmoke;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  padding: 20px;\n  position: relative;\n}\n\n.modal-card-head {\n  border-bottom: 1px solid #dbdbdb;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n}\n\n.modal-card-title {\n  color: #363636;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  font-size: 1.5rem;\n  line-height: 1;\n}\n\n.modal-card-foot {\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 5px;\n  border-top: 1px solid #dbdbdb;\n}\n\n.modal-card-foot .button:not(:last-child) {\n  margin-right: 10px;\n}\n\n.modal-card-body {\n  -webkit-overflow-scrolling: touch;\n  background-color: white;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  overflow: auto;\n  padding: 20px;\n}\n\n.modal {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: none;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  overflow: hidden;\n  position: fixed;\n  z-index: 1986;\n}\n\n.modal.is-active {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.nav-toggle {\n  cursor: pointer;\n  display: block;\n  height: 3.25rem;\n  position: relative;\n  width: 3.25rem;\n}\n\n.nav-toggle span {\n  background-color: #4a4a4a;\n  display: block;\n  height: 1px;\n  left: 50%;\n  margin-left: -7px;\n  position: absolute;\n  top: 50%;\n  -webkit-transition: none 86ms ease-out;\n  transition: none 86ms ease-out;\n  -webkit-transition-property: background, left, opacity, -webkit-transform;\n  transition-property: background, left, opacity, -webkit-transform;\n  transition-property: background, left, opacity, transform;\n  transition-property: background, left, opacity, transform, -webkit-transform;\n  width: 15px;\n}\n\n.nav-toggle span:nth-child(1) {\n  margin-top: -6px;\n}\n\n.nav-toggle span:nth-child(2) {\n  margin-top: -1px;\n}\n\n.nav-toggle span:nth-child(3) {\n  margin-top: 4px;\n}\n\n.nav-toggle:hover {\n  background-color: whitesmoke;\n}\n\n.nav-toggle.is-active span {\n  background-color: #00d1b2;\n}\n\n.nav-toggle.is-active span:nth-child(1) {\n  margin-left: -5px;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n\n.nav-toggle.is-active span:nth-child(2) {\n  opacity: 0;\n}\n\n.nav-toggle.is-active span:nth-child(3) {\n  margin-left: -5px;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n  -webkit-transform-origin: left bottom;\n          transform-origin: left bottom;\n}\n\n@media screen and (min-width: 769px) {\n  .nav-toggle {\n    display: none;\n  }\n}\n\n.nav-item {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  font-size: 1rem;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  line-height: 1.5;\n  padding: 0.5rem 0.75rem;\n}\n\n.nav-item a {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.nav-item img {\n  max-height: 1.75rem;\n}\n\n.nav-item .button + .button {\n  margin-left: 0.75rem;\n}\n\n.nav-item .tag:first-child:not(:last-child) {\n  margin-right: 0.5rem;\n}\n\n.nav-item .tag:last-child:not(:first-child) {\n  margin-left: 0.5rem;\n}\n\n@media screen and (max-width: 768px) {\n  .nav-item {\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n  }\n}\n\n.nav-item a,\na.nav-item {\n  color: #7a7a7a;\n}\n\n.nav-item a:hover,\na.nav-item:hover {\n  color: #363636;\n}\n\n.nav-item a.is-active,\na.nav-item.is-active {\n  color: #363636;\n}\n\n.nav-item a.is-tab,\na.nav-item.is-tab {\n  border-bottom: 1px solid transparent;\n  border-top: 1px solid transparent;\n  padding-bottom: calc(0.75rem - 1px);\n  padding-left: 1rem;\n  padding-right: 1rem;\n  padding-top: calc(0.75rem - 1px);\n}\n\n.nav-item a.is-tab:hover,\na.nav-item.is-tab:hover {\n  border-bottom-color: #00d1b2;\n  border-top-color: transparent;\n}\n\n.nav-item a.is-tab.is-active,\na.nav-item.is-tab.is-active {\n  border-bottom: 3px solid #00d1b2;\n  color: #00d1b2;\n  padding-bottom: calc(0.75rem - 3px);\n}\n\n@media screen and (min-width: 1000px) {\n  .nav-item a.is-brand,\n  a.nav-item.is-brand {\n    padding-left: 0;\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .nav-menu {\n    background-color: white;\n    box-shadow: 0 4px 7px rgba(10, 10, 10, 0.1);\n    left: 0;\n    display: none;\n    right: 0;\n    top: 100%;\n    position: absolute;\n  }\n  .nav-menu .nav-item {\n    border-top: 1px solid rgba(219, 219, 219, 0.5);\n    padding: 0.75rem;\n  }\n  .nav-menu.is-active {\n    display: block;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 999px) {\n  .nav-menu {\n    padding-right: 1.5rem;\n  }\n}\n\n.nav-left,\n.nav-right {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.nav-left {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  overflow: hidden;\n  overflow-x: auto;\n  white-space: nowrap;\n}\n\n.nav-center {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.nav-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n@media screen and (min-width: 769px) {\n  .nav-right {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.nav {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 3.25rem;\n  position: relative;\n  text-align: center;\n  z-index: 2;\n}\n\n.nav > .container {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 3.25rem;\n}\n\n.nav.has-shadow {\n  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);\n}\n\n@media screen and (max-width: 768px) {\n  .nav > .container {\n    width: 100%;\n  }\n}\n\n.pagination {\n  font-size: 1rem;\n}\n\n.pagination.is-small {\n  font-size: 0.75rem;\n}\n\n.pagination.is-medium {\n  font-size: 1.25rem;\n}\n\n.pagination.is-large {\n  font-size: 1.5rem;\n}\n\n.pagination,\n.pagination-list {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center;\n}\n\n.pagination-previous,\n.pagination-next,\n.pagination-link,\n.pagination-ellipsis {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: none;\n  border-radius: 3px;\n  box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.25;\n  padding-bottom: 0.5em;\n  padding-left: 0.625em;\n  padding-right: 0.625em;\n  padding-top: 0.5em;\n  position: relative;\n  vertical-align: top;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  font-size: 1em;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center;\n}\n\n.pagination-previous:focus, .pagination-previous.is-focused, .pagination-previous:active, .pagination-previous.is-active,\n.pagination-next:focus,\n.pagination-next.is-focused,\n.pagination-next:active,\n.pagination-next.is-active,\n.pagination-link:focus,\n.pagination-link.is-focused,\n.pagination-link:active,\n.pagination-link.is-active,\n.pagination-ellipsis:focus,\n.pagination-ellipsis.is-focused,\n.pagination-ellipsis:active,\n.pagination-ellipsis.is-active {\n  outline: none;\n}\n\n.pagination-previous[disabled], .pagination-previous.is-disabled,\n.pagination-next[disabled],\n.pagination-next.is-disabled,\n.pagination-link[disabled],\n.pagination-link.is-disabled,\n.pagination-ellipsis[disabled],\n.pagination-ellipsis.is-disabled {\n  pointer-events: none;\n}\n\n.pagination-previous,\n.pagination-next,\n.pagination-link {\n  border: 1px solid #dbdbdb;\n  min-width: 2.25em;\n}\n\n.pagination-previous:hover,\n.pagination-next:hover,\n.pagination-link:hover {\n  border-color: #b5b5b5;\n  color: #363636;\n}\n\n.pagination-previous:focus,\n.pagination-next:focus,\n.pagination-link:focus {\n  border-color: #00d1b2;\n}\n\n.pagination-previous:active,\n.pagination-next:active,\n.pagination-link:active {\n  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n}\n\n.pagination-previous[disabled], .pagination-previous.is-disabled,\n.pagination-next[disabled],\n.pagination-next.is-disabled,\n.pagination-link[disabled],\n.pagination-link.is-disabled {\n  background: #dbdbdb;\n  color: #7a7a7a;\n  opacity: 0.5;\n  pointer-events: none;\n}\n\n.pagination-previous,\n.pagination-next {\n  padding-left: 0.75em;\n  padding-right: 0.75em;\n}\n\n.pagination-link.is-current {\n  background-color: #00d1b2;\n  border-color: #00d1b2;\n  color: #fff;\n}\n\n.pagination-ellipsis {\n  color: #b5b5b5;\n  pointer-events: none;\n}\n\n.pagination-list li:not(:first-child) {\n  margin-left: 0.375rem;\n}\n\n@media screen and (max-width: 768px) {\n  .pagination {\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n  }\n  .pagination-previous,\n  .pagination-next {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n    width: calc(50% - 0.375rem);\n  }\n  .pagination-next {\n    margin-left: 0.75rem;\n  }\n  .pagination-list {\n    margin-top: 0.75rem;\n  }\n  .pagination-list li {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .pagination-list {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .pagination-previous,\n  .pagination-next {\n    margin-left: 0.75rem;\n  }\n  .pagination-previous {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .pagination-next {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .pagination {\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n  }\n  .pagination.is-centered .pagination-previous {\n    margin-left: 0;\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .pagination.is-centered .pagination-list {\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .pagination.is-centered .pagination-next {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .pagination.is-right .pagination-previous {\n    margin-left: 0;\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .pagination.is-right .pagination-next {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n    margin-right: 0.75rem;\n  }\n  .pagination.is-right .pagination-list {\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n}\n\n.panel {\n  font-size: 1rem;\n}\n\n.panel:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.panel-heading,\n.panel-tabs,\n.panel-block {\n  border-bottom: 1px solid #dbdbdb;\n  border-left: 1px solid #dbdbdb;\n  border-right: 1px solid #dbdbdb;\n}\n\n.panel-heading:first-child,\n.panel-tabs:first-child,\n.panel-block:first-child {\n  border-top: 1px solid #dbdbdb;\n}\n\n.panel-heading {\n  background-color: whitesmoke;\n  border-radius: 3px 3px 0 0;\n  color: #363636;\n  font-size: 1.25em;\n  font-weight: 300;\n  line-height: 1.25;\n  padding: 0.5em 0.75em;\n}\n\n.panel-tabs {\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 0.875em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.panel-tabs a {\n  border-bottom: 1px solid #dbdbdb;\n  margin-bottom: -1px;\n  padding: 0.5em;\n}\n\n.panel-tabs a.is-active {\n  border-bottom-color: #4a4a4a;\n  color: #363636;\n}\n\n.panel-list a {\n  color: #4a4a4a;\n}\n\n.panel-list a:hover {\n  color: #00d1b2;\n}\n\n.panel-block {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #363636;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  padding: 0.5em 0.75em;\n}\n\n.panel-block input[type=\"checkbox\"] {\n  margin-right: 0.75em;\n}\n\n.panel-block > .control {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  width: 100%;\n}\n\n.panel-block.is-active {\n  border-left-color: #00d1b2;\n  color: #363636;\n}\n\n.panel-block.is-active .panel-icon {\n  color: #00d1b2;\n}\n\na.panel-block,\nlabel.panel-block {\n  cursor: pointer;\n}\n\na.panel-block:hover,\nlabel.panel-block:hover {\n  background-color: whitesmoke;\n}\n\n.panel-icon {\n  display: inline-block;\n  font-size: 14px;\n  height: 1em;\n  line-height: 1em;\n  text-align: center;\n  vertical-align: top;\n  width: 1em;\n  color: #7a7a7a;\n  margin-right: 0.75em;\n}\n\n.panel-icon .fa {\n  font-size: inherit;\n  line-height: inherit;\n}\n\n.tabs {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 1rem;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  overflow: hidden;\n  overflow-x: auto;\n  white-space: nowrap;\n}\n\n.tabs:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.tabs a {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border-bottom: 1px solid #dbdbdb;\n  color: #4a4a4a;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: -1px;\n  padding: 0.5em 1em;\n  vertical-align: top;\n}\n\n.tabs a:hover {\n  border-bottom-color: #363636;\n  color: #363636;\n}\n\n.tabs li {\n  display: block;\n}\n\n.tabs li.is-active a {\n  border-bottom-color: #00d1b2;\n  color: #00d1b2;\n}\n\n.tabs ul {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border-bottom: 1px solid #dbdbdb;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.tabs ul.is-left {\n  padding-right: 0.75em;\n}\n\n.tabs ul.is-center {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding-left: 0.75em;\n  padding-right: 0.75em;\n}\n\n.tabs ul.is-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  padding-left: 0.75em;\n}\n\n.tabs .icon:first-child {\n  margin-right: 0.5em;\n}\n\n.tabs .icon:last-child {\n  margin-left: 0.5em;\n}\n\n.tabs.is-centered ul {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.tabs.is-right ul {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n.tabs.is-boxed a {\n  border: 1px solid transparent;\n  border-radius: 3px 3px 0 0;\n}\n\n.tabs.is-boxed a:hover {\n  background-color: whitesmoke;\n  border-bottom-color: #dbdbdb;\n}\n\n.tabs.is-boxed li.is-active a {\n  background-color: white;\n  border-color: #dbdbdb;\n  border-bottom-color: transparent !important;\n}\n\n.tabs.is-fullwidth li {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.tabs.is-toggle a {\n  border: 1px solid #dbdbdb;\n  margin-bottom: 0;\n  position: relative;\n}\n\n.tabs.is-toggle a:hover {\n  background-color: whitesmoke;\n  border-color: #b5b5b5;\n  z-index: 2;\n}\n\n.tabs.is-toggle li + li {\n  margin-left: -1px;\n}\n\n.tabs.is-toggle li:first-child a {\n  border-radius: 3px 0 0 3px;\n}\n\n.tabs.is-toggle li:last-child a {\n  border-radius: 0 3px 3px 0;\n}\n\n.tabs.is-toggle li.is-active a {\n  background-color: #00d1b2;\n  border-color: #00d1b2;\n  color: #fff;\n  z-index: 1;\n}\n\n.tabs.is-toggle ul {\n  border-bottom: none;\n}\n\n.tabs.is-small {\n  font-size: 0.75rem;\n}\n\n.tabs.is-medium {\n  font-size: 1.25rem;\n}\n\n.tabs.is-large {\n  font-size: 1.5rem;\n}\n\n.column {\n  display: block;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  padding: 0.75rem;\n}\n\n.columns.is-mobile > .column.is-narrow {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n}\n\n.columns.is-mobile > .column.is-full {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 100%;\n}\n\n.columns.is-mobile > .column.is-three-quarters {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 75%;\n}\n\n.columns.is-mobile > .column.is-two-thirds {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 66.6666%;\n}\n\n.columns.is-mobile > .column.is-half {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 50%;\n}\n\n.columns.is-mobile > .column.is-one-third {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 33.3333%;\n}\n\n.columns.is-mobile > .column.is-one-quarter {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 25%;\n}\n\n.columns.is-mobile > .column.is-offset-three-quarters {\n  margin-left: 75%;\n}\n\n.columns.is-mobile > .column.is-offset-two-thirds {\n  margin-left: 66.6666%;\n}\n\n.columns.is-mobile > .column.is-offset-half {\n  margin-left: 50%;\n}\n\n.columns.is-mobile > .column.is-offset-one-third {\n  margin-left: 33.3333%;\n}\n\n.columns.is-mobile > .column.is-offset-one-quarter {\n  margin-left: 25%;\n}\n\n.columns.is-mobile > .column.is-1 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 8.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-1 {\n  margin-left: 8.33333%;\n}\n\n.columns.is-mobile > .column.is-2 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 16.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-2 {\n  margin-left: 16.66667%;\n}\n\n.columns.is-mobile > .column.is-3 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 25%;\n}\n\n.columns.is-mobile > .column.is-offset-3 {\n  margin-left: 25%;\n}\n\n.columns.is-mobile > .column.is-4 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 33.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-4 {\n  margin-left: 33.33333%;\n}\n\n.columns.is-mobile > .column.is-5 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 41.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-5 {\n  margin-left: 41.66667%;\n}\n\n.columns.is-mobile > .column.is-6 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 50%;\n}\n\n.columns.is-mobile > .column.is-offset-6 {\n  margin-left: 50%;\n}\n\n.columns.is-mobile > .column.is-7 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 58.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-7 {\n  margin-left: 58.33333%;\n}\n\n.columns.is-mobile > .column.is-8 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 66.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-8 {\n  margin-left: 66.66667%;\n}\n\n.columns.is-mobile > .column.is-9 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 75%;\n}\n\n.columns.is-mobile > .column.is-offset-9 {\n  margin-left: 75%;\n}\n\n.columns.is-mobile > .column.is-10 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 83.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-10 {\n  margin-left: 83.33333%;\n}\n\n.columns.is-mobile > .column.is-11 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 91.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-11 {\n  margin-left: 91.66667%;\n}\n\n.columns.is-mobile > .column.is-12 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 100%;\n}\n\n.columns.is-mobile > .column.is-offset-12 {\n  margin-left: 100%;\n}\n\n@media screen and (max-width: 768px) {\n  .column.is-narrow-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-mobile {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-mobile {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-mobile {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-mobile {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-mobile {\n    margin-left: 25%;\n  }\n  .column.is-1-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-mobile {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-mobile {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-mobile {\n    margin-left: 25%;\n  }\n  .column.is-4-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-mobile {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-mobile {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-mobile {\n    margin-left: 50%;\n  }\n  .column.is-7-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-mobile {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-mobile {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-mobile {\n    margin-left: 75%;\n  }\n  .column.is-10-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-mobile {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-mobile {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-mobile {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .column.is-narrow, .column.is-narrow-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full, .column.is-full-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters, .column.is-three-quarters-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds, .column.is-two-thirds-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half, .column.is-half-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third, .column.is-one-third-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter, .column.is-one-quarter-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters, .column.is-offset-three-quarters-tablet {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds, .column.is-offset-two-thirds-tablet {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half, .column.is-offset-half-tablet {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third, .column.is-offset-one-third-tablet {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {\n    margin-left: 25%;\n  }\n  .column.is-1, .column.is-1-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1, .column.is-offset-1-tablet {\n    margin-left: 8.33333%;\n  }\n  .column.is-2, .column.is-2-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2, .column.is-offset-2-tablet {\n    margin-left: 16.66667%;\n  }\n  .column.is-3, .column.is-3-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3, .column.is-offset-3-tablet {\n    margin-left: 25%;\n  }\n  .column.is-4, .column.is-4-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4, .column.is-offset-4-tablet {\n    margin-left: 33.33333%;\n  }\n  .column.is-5, .column.is-5-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5, .column.is-offset-5-tablet {\n    margin-left: 41.66667%;\n  }\n  .column.is-6, .column.is-6-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6, .column.is-offset-6-tablet {\n    margin-left: 50%;\n  }\n  .column.is-7, .column.is-7-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7, .column.is-offset-7-tablet {\n    margin-left: 58.33333%;\n  }\n  .column.is-8, .column.is-8-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8, .column.is-offset-8-tablet {\n    margin-left: 66.66667%;\n  }\n  .column.is-9, .column.is-9-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9, .column.is-offset-9-tablet {\n    margin-left: 75%;\n  }\n  .column.is-10, .column.is-10-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10, .column.is-offset-10-tablet {\n    margin-left: 83.33333%;\n  }\n  .column.is-11, .column.is-11-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11, .column.is-offset-11-tablet {\n    margin-left: 91.66667%;\n  }\n  .column.is-12, .column.is-12-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12, .column.is-offset-12-tablet {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .column.is-narrow-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-desktop {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-desktop {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-desktop {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-desktop {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-desktop {\n    margin-left: 25%;\n  }\n  .column.is-1-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-desktop {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-desktop {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-desktop {\n    margin-left: 25%;\n  }\n  .column.is-4-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-desktop {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-desktop {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-desktop {\n    margin-left: 50%;\n  }\n  .column.is-7-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-desktop {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-desktop {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-desktop {\n    margin-left: 75%;\n  }\n  .column.is-10-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-desktop {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-desktop {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-desktop {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 1192px) {\n  .column.is-narrow-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-widescreen {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-widescreen {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-widescreen {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-widescreen {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-widescreen {\n    margin-left: 25%;\n  }\n  .column.is-1-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-widescreen {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-widescreen {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-widescreen {\n    margin-left: 25%;\n  }\n  .column.is-4-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-widescreen {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-widescreen {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-widescreen {\n    margin-left: 50%;\n  }\n  .column.is-7-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-widescreen {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-widescreen {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-widescreen {\n    margin-left: 75%;\n  }\n  .column.is-10-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-widescreen {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-widescreen {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-widescreen {\n    margin-left: 100%;\n  }\n}\n\n.columns {\n  margin-left: -0.75rem;\n  margin-right: -0.75rem;\n  margin-top: -0.75rem;\n}\n\n.columns:last-child {\n  margin-bottom: -0.75rem;\n}\n\n.columns:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.columns.is-centered {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.columns.is-gapless {\n  margin-left: 0;\n  margin-right: 0;\n  margin-top: 0;\n}\n\n.columns.is-gapless:last-child {\n  margin-bottom: 0;\n}\n\n.columns.is-gapless:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.columns.is-gapless > .column {\n  margin: 0;\n  padding: 0;\n}\n\n@media screen and (min-width: 769px) {\n  .columns.is-grid {\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n  }\n  .columns.is-grid > .column {\n    max-width: 33.3333%;\n    padding: 0.75rem;\n    width: 33.3333%;\n  }\n  .columns.is-grid > .column + .column {\n    margin-left: 0;\n  }\n}\n\n.columns.is-mobile {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.columns.is-multiline {\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.columns.is-vcentered {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n@media screen and (min-width: 769px) {\n  .columns:not(.is-desktop) {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n@media screen and (min-width: 1000px) {\n  .columns.is-desktop {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.tile {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: block;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  min-height: -webkit-min-content;\n  min-height: -moz-min-content;\n  min-height: min-content;\n}\n\n.tile.is-ancestor {\n  margin-left: -0.75rem;\n  margin-right: -0.75rem;\n  margin-top: -0.75rem;\n}\n\n.tile.is-ancestor:last-child {\n  margin-bottom: -0.75rem;\n}\n\n.tile.is-ancestor:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.tile.is-child {\n  margin: 0 !important;\n}\n\n.tile.is-parent {\n  padding: 0.75rem;\n}\n\n.tile.is-vertical {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n\n.tile.is-vertical > .tile.is-child:not(:last-child) {\n  margin-bottom: 1.5rem !important;\n}\n\n@media screen and (min-width: 769px) {\n  .tile:not(.is-child) {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .tile.is-1 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .tile.is-2 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .tile.is-3 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .tile.is-4 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .tile.is-5 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .tile.is-6 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .tile.is-7 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .tile.is-8 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .tile.is-9 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .tile.is-10 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .tile.is-11 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .tile.is-12 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n}\n\n.hero-video {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  overflow: hidden;\n}\n\n.hero-video video {\n  left: 50%;\n  min-height: 100%;\n  min-width: 100%;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translate3d(-50%, -50%, 0);\n          transform: translate3d(-50%, -50%, 0);\n}\n\n.hero-video.is-transparent {\n  opacity: 0.3;\n}\n\n@media screen and (max-width: 768px) {\n  .hero-video {\n    display: none;\n  }\n}\n\n.hero-buttons {\n  margin-top: 1.5rem;\n}\n\n@media screen and (max-width: 768px) {\n  .hero-buttons .button {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .hero-buttons .button:not(:last-child) {\n    margin-bottom: 0.75rem;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .hero-buttons {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n  }\n  .hero-buttons .button:not(:last-child) {\n    margin-right: 1.5rem;\n  }\n}\n\n.hero-head,\n.hero-foot {\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.hero-body {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  padding: 3rem 1.5rem;\n}\n\n@media screen and (min-width: 1192px) {\n  .hero-body {\n    padding-left: 0;\n    padding-right: 0;\n  }\n}\n\n.hero {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.hero .nav {\n  background: none;\n  box-shadow: 0 1px 0 rgba(219, 219, 219, 0.3);\n}\n\n.hero .tabs ul {\n  border-bottom: none;\n}\n\n.hero.is-white {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.hero.is-white a,\n.hero.is-white strong {\n  color: inherit;\n}\n\n.hero.is-white .title {\n  color: #0a0a0a;\n}\n\n.hero.is-white .subtitle {\n  color: rgba(10, 10, 10, 0.9);\n}\n\n.hero.is-white .subtitle a,\n.hero.is-white .subtitle strong {\n  color: #0a0a0a;\n}\n\n.hero.is-white .nav {\n  box-shadow: 0 1px 0 rgba(10, 10, 10, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-white .nav-menu {\n    background-color: white;\n  }\n}\n\n.hero.is-white a.nav-item,\n.hero.is-white .nav-item a:not(.button) {\n  color: rgba(10, 10, 10, 0.7);\n}\n\n.hero.is-white a.nav-item:hover, .hero.is-white a.nav-item.is-active,\n.hero.is-white .nav-item a:not(.button):hover,\n.hero.is-white .nav-item a:not(.button).is-active {\n  color: #0a0a0a;\n}\n\n.hero.is-white .tabs a {\n  color: #0a0a0a;\n  opacity: 0.9;\n}\n\n.hero.is-white .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-white .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-white .tabs.is-boxed a, .hero.is-white .tabs.is-toggle a {\n  color: #0a0a0a;\n}\n\n.hero.is-white .tabs.is-boxed a:hover, .hero.is-white .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-white .tabs.is-boxed li.is-active a, .hero.is-white .tabs.is-boxed li.is-active a:hover, .hero.is-white .tabs.is-toggle li.is-active a, .hero.is-white .tabs.is-toggle li.is-active a:hover {\n  background-color: #0a0a0a;\n  border-color: #0a0a0a;\n  color: white;\n}\n\n.hero.is-white.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #e6e6e6 0%, white 71%, white 100%);\n  background-image: linear-gradient(141deg, #e6e6e6 0%, white 71%, white 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-white .nav-toggle span {\n    background-color: #0a0a0a;\n  }\n  .hero.is-white .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-white .nav-toggle.is-active span {\n    background-color: #0a0a0a;\n  }\n  .hero.is-white .nav-menu .nav-item {\n    border-top-color: rgba(10, 10, 10, 0.2);\n  }\n}\n\n.hero.is-black {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.hero.is-black a,\n.hero.is-black strong {\n  color: inherit;\n}\n\n.hero.is-black .title {\n  color: white;\n}\n\n.hero.is-black .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-black .subtitle a,\n.hero.is-black .subtitle strong {\n  color: white;\n}\n\n.hero.is-black .nav {\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-black .nav-menu {\n    background-color: #0a0a0a;\n  }\n}\n\n.hero.is-black a.nav-item,\n.hero.is-black .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-black a.nav-item:hover, .hero.is-black a.nav-item.is-active,\n.hero.is-black .nav-item a:not(.button):hover,\n.hero.is-black .nav-item a:not(.button).is-active {\n  color: white;\n}\n\n.hero.is-black .tabs a {\n  color: white;\n  opacity: 0.9;\n}\n\n.hero.is-black .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-black .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-black .tabs.is-boxed a, .hero.is-black .tabs.is-toggle a {\n  color: white;\n}\n\n.hero.is-black .tabs.is-boxed a:hover, .hero.is-black .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-black .tabs.is-boxed li.is-active a, .hero.is-black .tabs.is-boxed li.is-active a:hover, .hero.is-black .tabs.is-toggle li.is-active a, .hero.is-black .tabs.is-toggle li.is-active a:hover {\n  background-color: white;\n  border-color: white;\n  color: #0a0a0a;\n}\n\n.hero.is-black.is-bold {\n  background-image: -webkit-linear-gradient(309deg, black 0%, #0a0a0a 71%, #181616 100%);\n  background-image: linear-gradient(141deg, black 0%, #0a0a0a 71%, #181616 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-black .nav-toggle span {\n    background-color: white;\n  }\n  .hero.is-black .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-black .nav-toggle.is-active span {\n    background-color: white;\n  }\n  .hero.is-black .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-light {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.hero.is-light a,\n.hero.is-light strong {\n  color: inherit;\n}\n\n.hero.is-light .title {\n  color: #363636;\n}\n\n.hero.is-light .subtitle {\n  color: rgba(54, 54, 54, 0.9);\n}\n\n.hero.is-light .subtitle a,\n.hero.is-light .subtitle strong {\n  color: #363636;\n}\n\n.hero.is-light .nav {\n  box-shadow: 0 1px 0 rgba(54, 54, 54, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-light .nav-menu {\n    background-color: whitesmoke;\n  }\n}\n\n.hero.is-light a.nav-item,\n.hero.is-light .nav-item a:not(.button) {\n  color: rgba(54, 54, 54, 0.7);\n}\n\n.hero.is-light a.nav-item:hover, .hero.is-light a.nav-item.is-active,\n.hero.is-light .nav-item a:not(.button):hover,\n.hero.is-light .nav-item a:not(.button).is-active {\n  color: #363636;\n}\n\n.hero.is-light .tabs a {\n  color: #363636;\n  opacity: 0.9;\n}\n\n.hero.is-light .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-light .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-light .tabs.is-boxed a, .hero.is-light .tabs.is-toggle a {\n  color: #363636;\n}\n\n.hero.is-light .tabs.is-boxed a:hover, .hero.is-light .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-light .tabs.is-boxed li.is-active a, .hero.is-light .tabs.is-boxed li.is-active a:hover, .hero.is-light .tabs.is-toggle li.is-active a, .hero.is-light .tabs.is-toggle li.is-active a:hover {\n  background-color: #363636;\n  border-color: #363636;\n  color: whitesmoke;\n}\n\n.hero.is-light.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #dfd8d8 0%, whitesmoke 71%, white 100%);\n  background-image: linear-gradient(141deg, #dfd8d8 0%, whitesmoke 71%, white 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-light .nav-toggle span {\n    background-color: #363636;\n  }\n  .hero.is-light .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-light .nav-toggle.is-active span {\n    background-color: #363636;\n  }\n  .hero.is-light .nav-menu .nav-item {\n    border-top-color: rgba(54, 54, 54, 0.2);\n  }\n}\n\n.hero.is-dark {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.hero.is-dark a,\n.hero.is-dark strong {\n  color: inherit;\n}\n\n.hero.is-dark .title {\n  color: whitesmoke;\n}\n\n.hero.is-dark .subtitle {\n  color: rgba(245, 245, 245, 0.9);\n}\n\n.hero.is-dark .subtitle a,\n.hero.is-dark .subtitle strong {\n  color: whitesmoke;\n}\n\n.hero.is-dark .nav {\n  box-shadow: 0 1px 0 rgba(245, 245, 245, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-dark .nav-menu {\n    background-color: #363636;\n  }\n}\n\n.hero.is-dark a.nav-item,\n.hero.is-dark .nav-item a:not(.button) {\n  color: rgba(245, 245, 245, 0.7);\n}\n\n.hero.is-dark a.nav-item:hover, .hero.is-dark a.nav-item.is-active,\n.hero.is-dark .nav-item a:not(.button):hover,\n.hero.is-dark .nav-item a:not(.button).is-active {\n  color: whitesmoke;\n}\n\n.hero.is-dark .tabs a {\n  color: whitesmoke;\n  opacity: 0.9;\n}\n\n.hero.is-dark .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-dark .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-dark .tabs.is-boxed a, .hero.is-dark .tabs.is-toggle a {\n  color: whitesmoke;\n}\n\n.hero.is-dark .tabs.is-boxed a:hover, .hero.is-dark .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-dark .tabs.is-boxed li.is-active a, .hero.is-dark .tabs.is-boxed li.is-active a:hover, .hero.is-dark .tabs.is-toggle li.is-active a, .hero.is-dark .tabs.is-toggle li.is-active a:hover {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  color: #363636;\n}\n\n.hero.is-dark.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #1f1919 0%, #363636 71%, #463f3f 100%);\n  background-image: linear-gradient(141deg, #1f1919 0%, #363636 71%, #463f3f 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-dark .nav-toggle span {\n    background-color: whitesmoke;\n  }\n  .hero.is-dark .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-dark .nav-toggle.is-active span {\n    background-color: whitesmoke;\n  }\n  .hero.is-dark .nav-menu .nav-item {\n    border-top-color: rgba(245, 245, 245, 0.2);\n  }\n}\n\n.hero.is-primary {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.hero.is-primary a,\n.hero.is-primary strong {\n  color: inherit;\n}\n\n.hero.is-primary .title {\n  color: #fff;\n}\n\n.hero.is-primary .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-primary .subtitle a,\n.hero.is-primary .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-primary .nav {\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-primary .nav-menu {\n    background-color: #00d1b2;\n  }\n}\n\n.hero.is-primary a.nav-item,\n.hero.is-primary .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-primary a.nav-item:hover, .hero.is-primary a.nav-item.is-active,\n.hero.is-primary .nav-item a:not(.button):hover,\n.hero.is-primary .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-primary .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-primary .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-primary .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-primary .tabs.is-boxed a, .hero.is-primary .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-primary .tabs.is-boxed a:hover, .hero.is-primary .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-primary .tabs.is-boxed li.is-active a, .hero.is-primary .tabs.is-boxed li.is-active a:hover, .hero.is-primary .tabs.is-toggle li.is-active a, .hero.is-primary .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #00d1b2;\n}\n\n.hero.is-primary.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%);\n  background-image: linear-gradient(141deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-primary .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-primary .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-primary .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-primary .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-info {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.hero.is-info a,\n.hero.is-info strong {\n  color: inherit;\n}\n\n.hero.is-info .title {\n  color: #fff;\n}\n\n.hero.is-info .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-info .subtitle a,\n.hero.is-info .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-info .nav {\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-info .nav-menu {\n    background-color: #3273dc;\n  }\n}\n\n.hero.is-info a.nav-item,\n.hero.is-info .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-info a.nav-item:hover, .hero.is-info a.nav-item.is-active,\n.hero.is-info .nav-item a:not(.button):hover,\n.hero.is-info .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-info .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-info .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-info .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-info .tabs.is-boxed a, .hero.is-info .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-info .tabs.is-boxed a:hover, .hero.is-info .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-info .tabs.is-boxed li.is-active a, .hero.is-info .tabs.is-boxed li.is-active a:hover, .hero.is-info .tabs.is-toggle li.is-active a, .hero.is-info .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #3273dc;\n}\n\n.hero.is-info.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #1577c6 0%, #3273dc 71%, #4366e5 100%);\n  background-image: linear-gradient(141deg, #1577c6 0%, #3273dc 71%, #4366e5 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-info .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-info .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-info .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-info .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-success {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.hero.is-success a,\n.hero.is-success strong {\n  color: inherit;\n}\n\n.hero.is-success .title {\n  color: #fff;\n}\n\n.hero.is-success .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-success .subtitle a,\n.hero.is-success .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-success .nav {\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-success .nav-menu {\n    background-color: #23d160;\n  }\n}\n\n.hero.is-success a.nav-item,\n.hero.is-success .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-success a.nav-item:hover, .hero.is-success a.nav-item.is-active,\n.hero.is-success .nav-item a:not(.button):hover,\n.hero.is-success .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-success .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-success .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-success .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-success .tabs.is-boxed a, .hero.is-success .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-success .tabs.is-boxed a:hover, .hero.is-success .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-success .tabs.is-boxed li.is-active a, .hero.is-success .tabs.is-boxed li.is-active a:hover, .hero.is-success .tabs.is-toggle li.is-active a, .hero.is-success .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #23d160;\n}\n\n.hero.is-success.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);\n  background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-success .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-success .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-success .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-success .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-warning {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning a,\n.hero.is-warning strong {\n  color: inherit;\n}\n\n.hero.is-warning .title {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .subtitle {\n  color: rgba(0, 0, 0, 0.9);\n}\n\n.hero.is-warning .subtitle a,\n.hero.is-warning .subtitle strong {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .nav {\n  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-warning .nav-menu {\n    background-color: #ffdd57;\n  }\n}\n\n.hero.is-warning a.nav-item,\n.hero.is-warning .nav-item a:not(.button) {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning a.nav-item:hover, .hero.is-warning a.nav-item.is-active,\n.hero.is-warning .nav-item a:not(.button):hover,\n.hero.is-warning .nav-item a:not(.button).is-active {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .tabs a {\n  color: rgba(0, 0, 0, 0.7);\n  opacity: 0.9;\n}\n\n.hero.is-warning .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-warning .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-warning .tabs.is-boxed a, .hero.is-warning .tabs.is-toggle a {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .tabs.is-boxed a:hover, .hero.is-warning .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-warning .tabs.is-boxed li.is-active a, .hero.is-warning .tabs.is-boxed li.is-active a:hover, .hero.is-warning .tabs.is-toggle li.is-active a, .hero.is-warning .tabs.is-toggle li.is-active a:hover {\n  background-color: rgba(0, 0, 0, 0.7);\n  border-color: rgba(0, 0, 0, 0.7);\n  color: #ffdd57;\n}\n\n.hero.is-warning.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #ffaf24 0%, #ffdd57 71%, #fffa70 100%);\n  background-image: linear-gradient(141deg, #ffaf24 0%, #ffdd57 71%, #fffa70 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-warning .nav-toggle span {\n    background-color: rgba(0, 0, 0, 0.7);\n  }\n  .hero.is-warning .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-warning .nav-toggle.is-active span {\n    background-color: rgba(0, 0, 0, 0.7);\n  }\n  .hero.is-warning .nav-menu .nav-item {\n    border-top-color: rgba(0, 0, 0, 0.2);\n  }\n}\n\n.hero.is-danger {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.hero.is-danger a,\n.hero.is-danger strong {\n  color: inherit;\n}\n\n.hero.is-danger .title {\n  color: #fff;\n}\n\n.hero.is-danger .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-danger .subtitle a,\n.hero.is-danger .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-danger .nav {\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-danger .nav-menu {\n    background-color: #ff3860;\n  }\n}\n\n.hero.is-danger a.nav-item,\n.hero.is-danger .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-danger a.nav-item:hover, .hero.is-danger a.nav-item.is-active,\n.hero.is-danger .nav-item a:not(.button):hover,\n.hero.is-danger .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-danger .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-danger .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-danger .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-danger .tabs.is-boxed a, .hero.is-danger .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-danger .tabs.is-boxed a:hover, .hero.is-danger .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-danger .tabs.is-boxed li.is-active a, .hero.is-danger .tabs.is-boxed li.is-active a:hover, .hero.is-danger .tabs.is-toggle li.is-active a, .hero.is-danger .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #ff3860;\n}\n\n.hero.is-danger.is-bold {\n  background-image: -webkit-linear-gradient(309deg, #ff0561 0%, #ff3860 71%, #ff5257 100%);\n  background-image: linear-gradient(141deg, #ff0561 0%, #ff3860 71%, #ff5257 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-danger .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-danger .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-danger .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-danger .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .hero.is-medium .hero-body {\n    padding-bottom: 9rem;\n    padding-top: 9rem;\n  }\n}\n\n@media screen and (min-width: 769px) {\n  .hero.is-large .hero-body {\n    padding-bottom: 18rem;\n    padding-top: 18rem;\n  }\n}\n\n.hero.is-fullheight {\n  min-height: 100vh;\n}\n\n.hero.is-fullheight .hero-body {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.hero.is-fullheight .hero-body > .container {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.section {\n  background-color: white;\n  padding: 3rem 1.5rem;\n}\n\n@media screen and (min-width: 1000px) {\n  .section.is-medium {\n    padding: 9rem 1.5rem;\n  }\n  .section.is-large {\n    padding: 18rem 1.5rem;\n  }\n}\n\n.footer {\n  background-color: whitesmoke;\n  padding: 3rem 1.5rem 6rem;\n}\n/*# sourceMappingURL=bulma.css.map */", ""]);
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
 
-// exports
+  exports.default = function (searchInput) {
+    // Keyboard Events
+    if (searchInput && 'object' === (typeof searchInput === 'undefined' ? 'undefined' : _typeof(searchInput))) {
+      var hasKeyCode = searchInput.which || searchInput.keyCode || searchInput.charCode;
+      if (hasKeyCode) {
+        searchInput = hasKeyCode;
+      }
+    }
 
+    // Numbers
+    if ('number' === typeof searchInput) {
+      return names[searchInput];
+    }
+
+    // Everything else (cast to string)
+    var search = String(searchInput);
+
+    // check codes
+    var foundNamedKey = codes[search.toLowerCase()];
+    if (foundNamedKey) {
+      return foundNamedKey;
+    }
+
+    // check aliases
+    var foundNamedKey = aliases[search.toLowerCase()];
+    if (foundNamedKey) {
+      return foundNamedKey;
+    }
+
+    // weird character?
+    if (search.length === 1) {
+      return search.charCodeAt(0);
+    }
+
+    return undefined;
+  };
+
+  /**
+   * Get by name
+   *
+   *   exports.code['enter'] // => 13
+   */
+
+  var codes = exports.codes = {
+    'backspace': 8,
+    'tab': 9,
+    'enter': 13,
+    'shift': 16,
+    'ctrl': 17,
+    'alt': 18,
+    'pause/break': 19,
+    'caps lock': 20,
+    'esc': 27,
+    'space': 32,
+    'page up': 33,
+    'page down': 34,
+    'end': 35,
+    'home': 36,
+    'left': 37,
+    'up': 38,
+    'right': 39,
+    'down': 40,
+    'insert': 45,
+    'delete': 46,
+    'command': 91,
+    'left command': 91,
+    'right command': 93,
+    'numpad *': 106,
+    'numpad +': 107,
+    'numpad -': 109,
+    'numpad .': 110,
+    'numpad /': 111,
+    'num lock': 144,
+    'scroll lock': 145,
+    'my computer': 182,
+    'my calculator': 183,
+    ';': 186,
+    '=': 187,
+    ',': 188,
+    '-': 189,
+    '.': 190,
+    '/': 191,
+    '`': 192,
+    '[': 219,
+    '\\': 220,
+    ']': 221,
+    "'": 222
+
+    // Helper aliases
+
+  };var aliases = exports.aliases = {
+    'windows': 91,
+    '⇧': 16,
+    '⌥': 18,
+    '⌃': 17,
+    '⌘': 91,
+    'ctl': 17,
+    'control': 17,
+    'option': 18,
+    'pause': 19,
+    'break': 19,
+    'caps': 20,
+    'return': 13,
+    'escape': 27,
+    'spc': 32,
+    'pgup': 33,
+    'pgdn': 34,
+    'ins': 45,
+    'del': 46,
+    'cmd': 91
+
+    /*!
+     * Programatically add the following
+     */
+
+    // lower case chars
+  };for (i = 97; i < 123; i++) {
+    codes[String.fromCharCode(i)] = i - 32;
+  }
+
+  // numbers
+  for (var i = 48; i < 58; i++) {
+    codes[i - 48] = i;
+  }
+
+  // function keys
+  for (i = 1; i < 13; i++) {
+    codes['f' + i] = i + 111;
+  }
+
+  // numpad keys
+  for (i = 0; i < 10; i++) {
+    codes['numpad ' + i] = i + 96;
+  }
+});
 
 /***/ }),
 /* 19 */
@@ -10258,7 +11408,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\nhtml,\nbody {\n  margin: 0;\n}\n.hero {\n  background-image: url(" + __webpack_require__(23) + ");\n  background-size: cover;\n  background-attachment: fixed;\n}\n.box {\n  opacity: 0.5;\n}\n.box.active {\n  opacity: 1;\n  background-color: rgba(255,255,255,0.5) !important;\n}\n.slide-enter-active,\n.slide-leave-active {\n  transition: all 0.3s;\n}\n.slide-enter,\n.slide-leave-active {\n  transform: translateX(-50%);\n  opacity: 0;\n}\nkbd {\n  display: inline-block;\n  padding: 3px 5px;\n  font: 11px \"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, Courier, monospace;\n  line-height: 10px;\n  color: #444d56;\n  vertical-align: middle;\n  background-color: #fcfcfc;\n  border: solid 1px #c6cbd1;\n  border-bottom-color: #959da5;\n  border-radius: 3px;\n  box-shadow: inset 0 -1px 0 #959da5;\n}\n.hero-section {\n  margin-top: 1.5rem;\n}\n", ""]);
+exports.push([module.i, "/*! bulma.io v0.4.4 | MIT License | github.com/jgthms/bulma */\n@-webkit-keyframes spinAround {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n            transform: rotate(359deg);\n  }\n}\n@keyframes spinAround {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n            transform: rotate(359deg);\n  }\n}\n\n/*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */\nhtml,\nbody,\np,\nol,\nul,\nli,\ndl,\ndt,\ndd,\nblockquote,\nfigure,\nfieldset,\nlegend,\ntextarea,\npre,\niframe,\nhr,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  padding: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: 100%;\n  font-weight: normal;\n}\n\nul {\n  list-style: none;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  margin: 0;\n}\n\nhtml {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\n* {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n\n*:before, *:after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n\nimg,\nembed,\nobject,\naudio,\nvideo {\n  max-width: 100%;\n}\n\niframe {\n  border: 0;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntd,\nth {\n  padding: 0;\n  text-align: left;\n}\n\nhtml {\n  background-color: #fff;\n  font-size: 16px;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  min-width: 300px;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  text-rendering: optimizeLegibility;\n}\n\narticle,\naside,\nfigure,\nfooter,\nheader,\nhgroup,\nsection {\n  display: block;\n}\n\nbody,\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: BlinkMacSystemFont, -apple-system, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n\ncode,\npre {\n  -moz-osx-font-smoothing: auto;\n  -webkit-font-smoothing: auto;\n  font-family: monospace;\n}\n\nbody {\n  color: #4a4a4a;\n  font-size: 1rem;\n  font-weight: 400;\n  line-height: 1.5;\n}\n\na {\n  color: #00d1b2;\n  cursor: pointer;\n  text-decoration: none;\n  -webkit-transition: none 86ms ease-out;\n  transition: none 86ms ease-out;\n}\n\na:hover {\n  color: #363636;\n}\n\ncode {\n  background-color: whitesmoke;\n  color: #ff3860;\n  font-size: 0.8em;\n  font-weight: normal;\n  padding: 0.25em 0.5em 0.25em;\n}\n\nhr {\n  background-color: #dbdbdb;\n  border: none;\n  display: block;\n  height: 1px;\n  margin: 1.5rem 0;\n}\n\nimg {\n  height: auto;\n  max-width: 100%;\n}\n\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  vertical-align: baseline;\n}\n\nsmall {\n  font-size: 0.875em;\n}\n\nspan {\n  font-style: inherit;\n  font-weight: inherit;\n}\n\nstrong {\n  color: #363636;\n  font-weight: 700;\n}\n\npre {\n  background-color: whitesmoke;\n  color: #4a4a4a;\n  font-size: 0.8em;\n  white-space: pre;\n  word-wrap: normal;\n}\n\npre code {\n  -webkit-overflow-scrolling: touch;\n  background: none;\n  color: inherit;\n  display: block;\n  font-size: 1em;\n  overflow-x: auto;\n  padding: 1.25rem 1.5rem;\n}\n\ntable {\n  width: 100%;\n}\n\ntable td,\ntable th {\n  text-align: left;\n  vertical-align: top;\n}\n\ntable th {\n  color: #363636;\n}\n\n.is-block {\n  display: block;\n}\n\n@media screen and (max-width: 768px) {\n  .is-block-mobile {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-block-tablet {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 1007px) {\n  .is-block-tablet-only {\n    display: block !important;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-block-touch {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-block-desktop {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 1008px) and (max-width: 1199px) {\n  .is-block-desktop-only {\n    display: block !important;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-block-widescreen {\n    display: block !important;\n  }\n}\n\n.is-flex {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n@media screen and (max-width: 768px) {\n  .is-flex-mobile {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-flex-tablet {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 1007px) {\n  .is-flex-tablet-only {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-flex-touch {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-flex-desktop {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 1008px) and (max-width: 1199px) {\n  .is-flex-desktop-only {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-flex-widescreen {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n  }\n}\n\n.is-inline {\n  display: inline;\n}\n\n@media screen and (max-width: 768px) {\n  .is-inline-mobile {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-inline-tablet {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 1007px) {\n  .is-inline-tablet-only {\n    display: inline !important;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-inline-touch {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-inline-desktop {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 1008px) and (max-width: 1199px) {\n  .is-inline-desktop-only {\n    display: inline !important;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-inline-widescreen {\n    display: inline !important;\n  }\n}\n\n.is-inline-block {\n  display: inline-block;\n}\n\n@media screen and (max-width: 768px) {\n  .is-inline-block-mobile {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-inline-block-tablet {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 1007px) {\n  .is-inline-block-tablet-only {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-inline-block-touch {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-inline-block-desktop {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 1008px) and (max-width: 1199px) {\n  .is-inline-block-desktop-only {\n    display: inline-block !important;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-inline-block-widescreen {\n    display: inline-block !important;\n  }\n}\n\n.is-inline-flex {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n}\n\n@media screen and (max-width: 768px) {\n  .is-inline-flex-mobile {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-inline-flex-tablet {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 1007px) {\n  .is-inline-flex-tablet-only {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-inline-flex-touch {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-inline-flex-desktop {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 1008px) and (max-width: 1199px) {\n  .is-inline-flex-desktop-only {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-inline-flex-widescreen {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n  }\n}\n\n.is-clearfix:after {\n  clear: both;\n  content: \" \";\n  display: table;\n}\n\n.is-pulled-left {\n  float: left !important;\n}\n\n.is-pulled-right {\n  float: right !important;\n}\n\n.is-clipped {\n  overflow: hidden !important;\n}\n\n.is-overlay {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.is-size-1 {\n  font-size: 3rem;\n}\n\n@media screen and (max-width: 768px) {\n  .is-size-1-mobile {\n    font-size: 3rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-size-1-tablet {\n    font-size: 3rem;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-size-1-touch {\n    font-size: 3rem;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-size-1-desktop {\n    font-size: 3rem;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-size-1-widescreen {\n    font-size: 3rem;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .is-size-1-fullhd {\n    font-size: 3rem;\n  }\n}\n\n.is-size-2 {\n  font-size: 2.5rem;\n}\n\n@media screen and (max-width: 768px) {\n  .is-size-2-mobile {\n    font-size: 2.5rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-size-2-tablet {\n    font-size: 2.5rem;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-size-2-touch {\n    font-size: 2.5rem;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-size-2-desktop {\n    font-size: 2.5rem;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-size-2-widescreen {\n    font-size: 2.5rem;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .is-size-2-fullhd {\n    font-size: 2.5rem;\n  }\n}\n\n.is-size-3 {\n  font-size: 2rem;\n}\n\n@media screen and (max-width: 768px) {\n  .is-size-3-mobile {\n    font-size: 2rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-size-3-tablet {\n    font-size: 2rem;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-size-3-touch {\n    font-size: 2rem;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-size-3-desktop {\n    font-size: 2rem;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-size-3-widescreen {\n    font-size: 2rem;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .is-size-3-fullhd {\n    font-size: 2rem;\n  }\n}\n\n.is-size-4 {\n  font-size: 1.5rem;\n}\n\n@media screen and (max-width: 768px) {\n  .is-size-4-mobile {\n    font-size: 1.5rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-size-4-tablet {\n    font-size: 1.5rem;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-size-4-touch {\n    font-size: 1.5rem;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-size-4-desktop {\n    font-size: 1.5rem;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-size-4-widescreen {\n    font-size: 1.5rem;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .is-size-4-fullhd {\n    font-size: 1.5rem;\n  }\n}\n\n.is-size-5 {\n  font-size: 1.25rem;\n}\n\n@media screen and (max-width: 768px) {\n  .is-size-5-mobile {\n    font-size: 1.25rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-size-5-tablet {\n    font-size: 1.25rem;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-size-5-touch {\n    font-size: 1.25rem;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-size-5-desktop {\n    font-size: 1.25rem;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-size-5-widescreen {\n    font-size: 1.25rem;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .is-size-5-fullhd {\n    font-size: 1.25rem;\n  }\n}\n\n.is-size-6 {\n  font-size: 1rem;\n}\n\n@media screen and (max-width: 768px) {\n  .is-size-6-mobile {\n    font-size: 1rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-size-6-tablet {\n    font-size: 1rem;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-size-6-touch {\n    font-size: 1rem;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-size-6-desktop {\n    font-size: 1rem;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-size-6-widescreen {\n    font-size: 1rem;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .is-size-6-fullhd {\n    font-size: 1rem;\n  }\n}\n\n.has-text-centered {\n  text-align: center !important;\n}\n\n.has-text-left {\n  text-align: left !important;\n}\n\n.has-text-right {\n  text-align: right !important;\n}\n\n.has-text-white {\n  color: white;\n}\n\na.has-text-white:hover, a.has-text-white:focus {\n  color: #e6e6e6;\n}\n\n.has-text-black {\n  color: #0a0a0a;\n}\n\na.has-text-black:hover, a.has-text-black:focus {\n  color: black;\n}\n\n.has-text-light {\n  color: whitesmoke;\n}\n\na.has-text-light:hover, a.has-text-light:focus {\n  color: #dbdbdb;\n}\n\n.has-text-dark {\n  color: #363636;\n}\n\na.has-text-dark:hover, a.has-text-dark:focus {\n  color: #1c1c1c;\n}\n\n.has-text-primary {\n  color: #00d1b2;\n}\n\na.has-text-primary:hover, a.has-text-primary:focus {\n  color: #009e86;\n}\n\n.has-text-info {\n  color: #3273dc;\n}\n\na.has-text-info:hover, a.has-text-info:focus {\n  color: #205bbc;\n}\n\n.has-text-success {\n  color: #23d160;\n}\n\na.has-text-success:hover, a.has-text-success:focus {\n  color: #1ca64c;\n}\n\n.has-text-warning {\n  color: #ffdd57;\n}\n\na.has-text-warning:hover, a.has-text-warning:focus {\n  color: #ffd324;\n}\n\n.has-text-danger {\n  color: #ff3860;\n}\n\na.has-text-danger:hover, a.has-text-danger:focus {\n  color: #ff0537;\n}\n\n.is-hidden {\n  display: none !important;\n}\n\n@media screen and (max-width: 768px) {\n  .is-hidden-mobile {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .is-hidden-tablet {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 769px) and (max-width: 1007px) {\n  .is-hidden-tablet-only {\n    display: none !important;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .is-hidden-touch {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .is-hidden-desktop {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 1008px) and (max-width: 1199px) {\n  .is-hidden-desktop-only {\n    display: none !important;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .is-hidden-widescreen {\n    display: none !important;\n  }\n}\n\n.is-marginless {\n  margin: 0 !important;\n}\n\n.is-paddingless {\n  padding: 0 !important;\n}\n\n.is-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n\n.box {\n  background-color: white;\n  border-radius: 5px;\n  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n  color: #4a4a4a;\n  display: block;\n  padding: 1.25rem;\n}\n\n.box:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\na.box:hover, a.box:focus {\n  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px #00d1b2;\n          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px #00d1b2;\n}\n\na.box:active {\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #00d1b2;\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #00d1b2;\n}\n\n.button {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: 1px solid transparent;\n  border-radius: 3px;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.5;\n  padding-bottom: calc(0.375em - 1px);\n  padding-left: calc(0.625em - 1px);\n  padding-right: calc(0.625em - 1px);\n  padding-top: calc(0.375em - 1px);\n  position: relative;\n  vertical-align: top;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  background-color: white;\n  border-color: #dbdbdb;\n  color: #363636;\n  cursor: pointer;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding-left: 0.75em;\n  padding-right: 0.75em;\n  text-align: center;\n  white-space: nowrap;\n}\n\n.button:focus, .button.is-focused, .button:active, .button.is-active {\n  outline: none;\n}\n\n.button[disabled] {\n  cursor: not-allowed;\n}\n\n.button strong {\n  color: inherit;\n}\n\n.button .icon, .button .icon.is-small, .button .icon.is-medium, .button .icon.is-large {\n  height: 1.5em;\n  width: 1.5em;\n}\n\n.button .icon:first-child:not(:last-child) {\n  margin-left: calc(-0.375em - 1px);\n  margin-right: 0.1875em;\n}\n\n.button .icon:last-child:not(:first-child) {\n  margin-left: 0.1875em;\n  margin-right: calc(-0.375em - 1px);\n}\n\n.button .icon:first-child:last-child {\n  margin-left: calc(-0.375em - 1px);\n  margin-right: calc(-0.375em - 1px);\n}\n\n.button:hover, .button.is-hovered {\n  border-color: #b5b5b5;\n  color: #363636;\n}\n\n.button:focus, .button.is-focused {\n  border-color: #00d1b2;\n  -webkit-box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.25);\n          box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.25);\n  color: #363636;\n}\n\n.button:active, .button.is-active {\n  border-color: #4a4a4a;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #363636;\n}\n\n.button.is-link {\n  background-color: transparent;\n  border-color: transparent;\n  color: #4a4a4a;\n  text-decoration: underline;\n}\n\n.button.is-link:hover, .button.is-link.is-hovered, .button.is-link:focus, .button.is-link.is-focused, .button.is-link:active, .button.is-link.is-active {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-link[disabled] {\n  background-color: transparent;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-white {\n  background-color: white;\n  border-color: transparent;\n  color: #0a0a0a;\n}\n\n.button.is-white:hover, .button.is-white.is-hovered {\n  background-color: #f9f9f9;\n  border-color: transparent;\n  color: #0a0a0a;\n}\n\n.button.is-white:focus, .button.is-white.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.25);\n          box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.25);\n  color: #0a0a0a;\n}\n\n.button.is-white:active, .button.is-white.is-active {\n  background-color: #f2f2f2;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #0a0a0a;\n}\n\n.button.is-white[disabled] {\n  background-color: white;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-white.is-inverted {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.button.is-white.is-inverted:hover {\n  background-color: black;\n}\n\n.button.is-white.is-inverted[disabled] {\n  background-color: #0a0a0a;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: white;\n}\n\n.button.is-white.is-loading:after {\n  border-color: transparent transparent #0a0a0a #0a0a0a !important;\n}\n\n.button.is-white.is-outlined {\n  background-color: transparent;\n  border-color: white;\n  color: white;\n}\n\n.button.is-white.is-outlined:hover, .button.is-white.is-outlined:focus {\n  background-color: white;\n  border-color: white;\n  color: #0a0a0a;\n}\n\n.button.is-white.is-outlined.is-loading:after {\n  border-color: transparent transparent white white !important;\n}\n\n.button.is-white.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: white;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: white;\n}\n\n.button.is-white.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #0a0a0a;\n  color: #0a0a0a;\n}\n\n.button.is-white.is-inverted.is-outlined:hover, .button.is-white.is-inverted.is-outlined:focus {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.button.is-white.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #0a0a0a;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #0a0a0a;\n}\n\n.button.is-black {\n  background-color: #0a0a0a;\n  border-color: transparent;\n  color: white;\n}\n\n.button.is-black:hover, .button.is-black.is-hovered {\n  background-color: #040404;\n  border-color: transparent;\n  color: white;\n}\n\n.button.is-black:focus, .button.is-black.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(10, 10, 10, 0.25);\n          box-shadow: 0 0 0.5em rgba(10, 10, 10, 0.25);\n  color: white;\n}\n\n.button.is-black:active, .button.is-black.is-active {\n  background-color: black;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: white;\n}\n\n.button.is-black[disabled] {\n  background-color: #0a0a0a;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-black.is-inverted {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-black.is-inverted[disabled] {\n  background-color: white;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-loading:after {\n  border-color: transparent transparent white white !important;\n}\n\n.button.is-black.is-outlined {\n  background-color: transparent;\n  border-color: #0a0a0a;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-outlined:hover, .button.is-black.is-outlined:focus {\n  background-color: #0a0a0a;\n  border-color: #0a0a0a;\n  color: white;\n}\n\n.button.is-black.is-outlined.is-loading:after {\n  border-color: transparent transparent #0a0a0a #0a0a0a !important;\n}\n\n.button.is-black.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #0a0a0a;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: white;\n  color: white;\n}\n\n.button.is-black.is-inverted.is-outlined:hover, .button.is-black.is-inverted.is-outlined:focus {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.button.is-black.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: white;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: white;\n}\n\n.button.is-light {\n  background-color: whitesmoke;\n  border-color: transparent;\n  color: #363636;\n}\n\n.button.is-light:hover, .button.is-light.is-hovered {\n  background-color: #eeeeee;\n  border-color: transparent;\n  color: #363636;\n}\n\n.button.is-light:focus, .button.is-light.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(245, 245, 245, 0.25);\n          box-shadow: 0 0 0.5em rgba(245, 245, 245, 0.25);\n  color: #363636;\n}\n\n.button.is-light:active, .button.is-light.is-active {\n  background-color: #e8e8e8;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #363636;\n}\n\n.button.is-light[disabled] {\n  background-color: whitesmoke;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-light.is-inverted {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.button.is-light.is-inverted:hover {\n  background-color: #292929;\n}\n\n.button.is-light.is-inverted[disabled] {\n  background-color: #363636;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: whitesmoke;\n}\n\n.button.is-light.is-loading:after {\n  border-color: transparent transparent #363636 #363636 !important;\n}\n\n.button.is-light.is-outlined {\n  background-color: transparent;\n  border-color: whitesmoke;\n  color: whitesmoke;\n}\n\n.button.is-light.is-outlined:hover, .button.is-light.is-outlined:focus {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-light.is-outlined.is-loading:after {\n  border-color: transparent transparent whitesmoke whitesmoke !important;\n}\n\n.button.is-light.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: whitesmoke;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: whitesmoke;\n}\n\n.button.is-light.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #363636;\n  color: #363636;\n}\n\n.button.is-light.is-inverted.is-outlined:hover, .button.is-light.is-inverted.is-outlined:focus {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.button.is-light.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #363636;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #363636;\n}\n\n.button.is-dark {\n  background-color: #363636;\n  border-color: transparent;\n  color: whitesmoke;\n}\n\n.button.is-dark:hover, .button.is-dark.is-hovered {\n  background-color: #2f2f2f;\n  border-color: transparent;\n  color: whitesmoke;\n}\n\n.button.is-dark:focus, .button.is-dark.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(54, 54, 54, 0.25);\n          box-shadow: 0 0 0.5em rgba(54, 54, 54, 0.25);\n  color: whitesmoke;\n}\n\n.button.is-dark:active, .button.is-dark.is-active {\n  background-color: #292929;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: whitesmoke;\n}\n\n.button.is-dark[disabled] {\n  background-color: #363636;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-dark.is-inverted {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-dark.is-inverted:hover {\n  background-color: #e8e8e8;\n}\n\n.button.is-dark.is-inverted[disabled] {\n  background-color: whitesmoke;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #363636;\n}\n\n.button.is-dark.is-loading:after {\n  border-color: transparent transparent whitesmoke whitesmoke !important;\n}\n\n.button.is-dark.is-outlined {\n  background-color: transparent;\n  border-color: #363636;\n  color: #363636;\n}\n\n.button.is-dark.is-outlined:hover, .button.is-dark.is-outlined:focus {\n  background-color: #363636;\n  border-color: #363636;\n  color: whitesmoke;\n}\n\n.button.is-dark.is-outlined.is-loading:after {\n  border-color: transparent transparent #363636 #363636 !important;\n}\n\n.button.is-dark.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #363636;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #363636;\n}\n\n.button.is-dark.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: whitesmoke;\n  color: whitesmoke;\n}\n\n.button.is-dark.is-inverted.is-outlined:hover, .button.is-dark.is-inverted.is-outlined:focus {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.button.is-dark.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: whitesmoke;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: whitesmoke;\n}\n\n.button.is-primary {\n  background-color: #00d1b2;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-primary:hover, .button.is-primary.is-hovered {\n  background-color: #00c4a7;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-primary:focus, .button.is-primary.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.25);\n          box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.25);\n  color: #fff;\n}\n\n.button.is-primary:active, .button.is-primary.is-active {\n  background-color: #00b89c;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-primary[disabled] {\n  background-color: #00d1b2;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-primary.is-inverted {\n  background-color: #fff;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-primary.is-inverted[disabled] {\n  background-color: #fff;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-primary.is-outlined {\n  background-color: transparent;\n  border-color: #00d1b2;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {\n  background-color: #00d1b2;\n  border-color: #00d1b2;\n  color: #fff;\n}\n\n.button.is-primary.is-outlined.is-loading:after {\n  border-color: transparent transparent #00d1b2 #00d1b2 !important;\n}\n\n.button.is-primary.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #00d1b2;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-primary.is-inverted.is-outlined:hover, .button.is-primary.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #00d1b2;\n}\n\n.button.is-primary.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #fff;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #fff;\n}\n\n.button.is-info {\n  background-color: #3273dc;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-info:hover, .button.is-info.is-hovered {\n  background-color: #276cda;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-info:focus, .button.is-info.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(50, 115, 220, 0.25);\n          box-shadow: 0 0 0.5em rgba(50, 115, 220, 0.25);\n  color: #fff;\n}\n\n.button.is-info:active, .button.is-info.is-active {\n  background-color: #2366d1;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-info[disabled] {\n  background-color: #3273dc;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-info.is-inverted {\n  background-color: #fff;\n  color: #3273dc;\n}\n\n.button.is-info.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-info.is-inverted[disabled] {\n  background-color: #fff;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #3273dc;\n}\n\n.button.is-info.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-info.is-outlined {\n  background-color: transparent;\n  border-color: #3273dc;\n  color: #3273dc;\n}\n\n.button.is-info.is-outlined:hover, .button.is-info.is-outlined:focus {\n  background-color: #3273dc;\n  border-color: #3273dc;\n  color: #fff;\n}\n\n.button.is-info.is-outlined.is-loading:after {\n  border-color: transparent transparent #3273dc #3273dc !important;\n}\n\n.button.is-info.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #3273dc;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #3273dc;\n}\n\n.button.is-info.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-info.is-inverted.is-outlined:hover, .button.is-info.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #3273dc;\n}\n\n.button.is-info.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #fff;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #fff;\n}\n\n.button.is-success {\n  background-color: #23d160;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-success:hover, .button.is-success.is-hovered {\n  background-color: #22c65b;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-success:focus, .button.is-success.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(35, 209, 96, 0.25);\n          box-shadow: 0 0 0.5em rgba(35, 209, 96, 0.25);\n  color: #fff;\n}\n\n.button.is-success:active, .button.is-success.is-active {\n  background-color: #20bc56;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-success[disabled] {\n  background-color: #23d160;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-success.is-inverted {\n  background-color: #fff;\n  color: #23d160;\n}\n\n.button.is-success.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-success.is-inverted[disabled] {\n  background-color: #fff;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #23d160;\n}\n\n.button.is-success.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-success.is-outlined {\n  background-color: transparent;\n  border-color: #23d160;\n  color: #23d160;\n}\n\n.button.is-success.is-outlined:hover, .button.is-success.is-outlined:focus {\n  background-color: #23d160;\n  border-color: #23d160;\n  color: #fff;\n}\n\n.button.is-success.is-outlined.is-loading:after {\n  border-color: transparent transparent #23d160 #23d160 !important;\n}\n\n.button.is-success.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #23d160;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #23d160;\n}\n\n.button.is-success.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-success.is-inverted.is-outlined:hover, .button.is-success.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #23d160;\n}\n\n.button.is-success.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #fff;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #fff;\n}\n\n.button.is-warning {\n  background-color: #ffdd57;\n  border-color: transparent;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning:hover, .button.is-warning.is-hovered {\n  background-color: #ffdb4a;\n  border-color: transparent;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning:focus, .button.is-warning.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(255, 221, 87, 0.25);\n          box-shadow: 0 0 0.5em rgba(255, 221, 87, 0.25);\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning:active, .button.is-warning.is-active {\n  background-color: #ffd83d;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning[disabled] {\n  background-color: #ffdd57;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-warning.is-inverted {\n  background-color: rgba(0, 0, 0, 0.7);\n  color: #ffdd57;\n}\n\n.button.is-warning.is-inverted:hover {\n  background-color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-inverted[disabled] {\n  background-color: rgba(0, 0, 0, 0.7);\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #ffdd57;\n}\n\n.button.is-warning.is-loading:after {\n  border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7) !important;\n}\n\n.button.is-warning.is-outlined {\n  background-color: transparent;\n  border-color: #ffdd57;\n  color: #ffdd57;\n}\n\n.button.is-warning.is-outlined:hover, .button.is-warning.is-outlined:focus {\n  background-color: #ffdd57;\n  border-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-outlined.is-loading:after {\n  border-color: transparent transparent #ffdd57 #ffdd57 !important;\n}\n\n.button.is-warning.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #ffdd57;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #ffdd57;\n}\n\n.button.is-warning.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: rgba(0, 0, 0, 0.7);\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-warning.is-inverted.is-outlined:hover, .button.is-warning.is-inverted.is-outlined:focus {\n  background-color: rgba(0, 0, 0, 0.7);\n  color: #ffdd57;\n}\n\n.button.is-warning.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: rgba(0, 0, 0, 0.7);\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.button.is-danger {\n  background-color: #ff3860;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-danger:hover, .button.is-danger.is-hovered {\n  background-color: #ff2b56;\n  border-color: transparent;\n  color: #fff;\n}\n\n.button.is-danger:focus, .button.is-danger.is-focused {\n  border-color: transparent;\n  -webkit-box-shadow: 0 0 0.5em rgba(255, 56, 96, 0.25);\n          box-shadow: 0 0 0.5em rgba(255, 56, 96, 0.25);\n  color: #fff;\n}\n\n.button.is-danger:active, .button.is-danger.is-active {\n  background-color: #ff1f4b;\n  border-color: transparent;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n  color: #fff;\n}\n\n.button.is-danger[disabled] {\n  background-color: #ff3860;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.button.is-danger.is-inverted {\n  background-color: #fff;\n  color: #ff3860;\n}\n\n.button.is-danger.is-inverted:hover {\n  background-color: #f2f2f2;\n}\n\n.button.is-danger.is-inverted[disabled] {\n  background-color: #fff;\n  border-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #ff3860;\n}\n\n.button.is-danger.is-loading:after {\n  border-color: transparent transparent #fff #fff !important;\n}\n\n.button.is-danger.is-outlined {\n  background-color: transparent;\n  border-color: #ff3860;\n  color: #ff3860;\n}\n\n.button.is-danger.is-outlined:hover, .button.is-danger.is-outlined:focus {\n  background-color: #ff3860;\n  border-color: #ff3860;\n  color: #fff;\n}\n\n.button.is-danger.is-outlined.is-loading:after {\n  border-color: transparent transparent #ff3860 #ff3860 !important;\n}\n\n.button.is-danger.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #ff3860;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #ff3860;\n}\n\n.button.is-danger.is-inverted.is-outlined {\n  background-color: transparent;\n  border-color: #fff;\n  color: #fff;\n}\n\n.button.is-danger.is-inverted.is-outlined:hover, .button.is-danger.is-inverted.is-outlined:focus {\n  background-color: #fff;\n  color: #ff3860;\n}\n\n.button.is-danger.is-inverted.is-outlined[disabled] {\n  background-color: transparent;\n  border-color: #fff;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #fff;\n}\n\n.button.is-small {\n  border-radius: 2px;\n  font-size: 0.75rem;\n}\n\n.button.is-medium {\n  font-size: 1.25rem;\n}\n\n.button.is-large {\n  font-size: 1.5rem;\n}\n\n.button[disabled] {\n  background-color: white;\n  border-color: #dbdbdb;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  opacity: 0.5;\n}\n\n.button.is-fullwidth {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n\n.button.is-loading {\n  color: transparent !important;\n  pointer-events: none;\n}\n\n.button.is-loading:after {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n  position: absolute;\n  left: calc(50% - (1em / 2));\n  top: calc(50% - (1em / 2));\n  position: absolute !important;\n}\n\n.button.is-static {\n  background-color: whitesmoke;\n  border-color: #dbdbdb;\n  color: #7a7a7a;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  pointer-events: none;\n}\n\nbutton.button,\ninput[type=\"submit\"].button {\n  line-height: 1;\n  padding-bottom: 0.4em;\n  padding-top: 0.35em;\n}\n\n.content:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.content li + li {\n  margin-top: 0.25em;\n}\n\n.content p:not(:last-child),\n.content dl:not(:last-child),\n.content ol:not(:last-child),\n.content ul:not(:last-child),\n.content blockquote:not(:last-child),\n.content pre:not(:last-child),\n.content table:not(:last-child) {\n  margin-bottom: 1em;\n}\n\n.content h1,\n.content h2,\n.content h3,\n.content h4,\n.content h5,\n.content h6 {\n  color: #363636;\n  font-weight: 400;\n  line-height: 1.125;\n}\n\n.content h1 {\n  font-size: 2em;\n  margin-bottom: 0.5em;\n}\n\n.content h1:not(:first-child) {\n  margin-top: 1em;\n}\n\n.content h2 {\n  font-size: 1.75em;\n  margin-bottom: 0.5714em;\n}\n\n.content h2:not(:first-child) {\n  margin-top: 1.1428em;\n}\n\n.content h3 {\n  font-size: 1.5em;\n  margin-bottom: 0.6666em;\n}\n\n.content h3:not(:first-child) {\n  margin-top: 1.3333em;\n}\n\n.content h4 {\n  font-size: 1.25em;\n  margin-bottom: 0.8em;\n}\n\n.content h5 {\n  font-size: 1.125em;\n  margin-bottom: 0.8888em;\n}\n\n.content h6 {\n  font-size: 1em;\n  margin-bottom: 1em;\n}\n\n.content blockquote {\n  background-color: whitesmoke;\n  border-left: 5px solid #dbdbdb;\n  padding: 1.25em 1.5em;\n}\n\n.content ol {\n  list-style: decimal outside;\n  margin-left: 2em;\n  margin-top: 1em;\n}\n\n.content ul {\n  list-style: disc outside;\n  margin-left: 2em;\n  margin-top: 1em;\n}\n\n.content ul ul {\n  list-style-type: circle;\n  margin-top: 0.5em;\n}\n\n.content ul ul ul {\n  list-style-type: square;\n}\n\n.content dd {\n  margin-left: 2em;\n}\n\n.content figure {\n  text-align: center;\n}\n\n.content figure img {\n  display: inline-block;\n}\n\n.content figure figcaption {\n  font-style: italic;\n}\n\n.content pre {\n  -webkit-overflow-scrolling: touch;\n  overflow-x: auto;\n  padding: 1.25em 1.5em;\n  white-space: pre;\n  word-wrap: normal;\n}\n\n.content sup,\n.content sub {\n  font-size: 70%;\n}\n\n.content table {\n  width: 100%;\n}\n\n.content table td,\n.content table th {\n  border: 1px solid #dbdbdb;\n  border-width: 0 0 1px;\n  padding: 0.5em 0.75em;\n  vertical-align: top;\n}\n\n.content table th {\n  color: #363636;\n  text-align: left;\n}\n\n.content table tr:hover {\n  background-color: whitesmoke;\n}\n\n.content table thead td,\n.content table thead th {\n  border-width: 0 0 2px;\n  color: #363636;\n}\n\n.content table tfoot td,\n.content table tfoot th {\n  border-width: 2px 0 0;\n  color: #363636;\n}\n\n.content table tbody tr:last-child td,\n.content table tbody tr:last-child th {\n  border-bottom-width: 0;\n}\n\n.content.is-small {\n  font-size: 0.75rem;\n}\n\n.content.is-medium {\n  font-size: 1.25rem;\n}\n\n.content.is-large {\n  font-size: 1.5rem;\n}\n\n.input,\n.textarea {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: 1px solid transparent;\n  border-radius: 3px;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.5;\n  padding-bottom: calc(0.375em - 1px);\n  padding-left: calc(0.625em - 1px);\n  padding-right: calc(0.625em - 1px);\n  padding-top: calc(0.375em - 1px);\n  position: relative;\n  vertical-align: top;\n  background-color: white;\n  border-color: #dbdbdb;\n  color: #363636;\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n  max-width: 100%;\n  width: 100%;\n}\n\n.input:focus, .input.is-focused, .input:active, .input.is-active,\n.textarea:focus,\n.textarea.is-focused,\n.textarea:active,\n.textarea.is-active {\n  outline: none;\n}\n\n.input[disabled],\n.textarea[disabled] {\n  cursor: not-allowed;\n}\n\n.input:hover, .input.is-hovered,\n.textarea:hover,\n.textarea.is-hovered {\n  border-color: #b5b5b5;\n}\n\n.input:focus, .input.is-focused, .input:active, .input.is-active,\n.textarea:focus,\n.textarea.is-focused,\n.textarea:active,\n.textarea.is-active {\n  border-color: #00d1b2;\n}\n\n.input[disabled],\n.textarea[disabled] {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #7a7a7a;\n}\n\n.input[disabled]::-moz-placeholder,\n.textarea[disabled]::-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[disabled]::-webkit-input-placeholder,\n.textarea[disabled]::-webkit-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[disabled]:-moz-placeholder,\n.textarea[disabled]:-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[disabled]:-ms-input-placeholder,\n.textarea[disabled]:-ms-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.input[type=\"search\"],\n.textarea[type=\"search\"] {\n  border-radius: 290486px;\n}\n\n.input.is-white,\n.textarea.is-white {\n  border-color: white;\n}\n\n.input.is-black,\n.textarea.is-black {\n  border-color: #0a0a0a;\n}\n\n.input.is-light,\n.textarea.is-light {\n  border-color: whitesmoke;\n}\n\n.input.is-dark,\n.textarea.is-dark {\n  border-color: #363636;\n}\n\n.input.is-primary,\n.textarea.is-primary {\n  border-color: #00d1b2;\n}\n\n.input.is-info,\n.textarea.is-info {\n  border-color: #3273dc;\n}\n\n.input.is-success,\n.textarea.is-success {\n  border-color: #23d160;\n}\n\n.input.is-warning,\n.textarea.is-warning {\n  border-color: #ffdd57;\n}\n\n.input.is-danger,\n.textarea.is-danger {\n  border-color: #ff3860;\n}\n\n.input.is-small,\n.textarea.is-small {\n  border-radius: 2px;\n  font-size: 0.75rem;\n}\n\n.input.is-medium,\n.textarea.is-medium {\n  font-size: 1.25rem;\n}\n\n.input.is-large,\n.textarea.is-large {\n  font-size: 1.5rem;\n}\n\n.input.is-fullwidth,\n.textarea.is-fullwidth {\n  display: block;\n  width: 100%;\n}\n\n.input.is-inline,\n.textarea.is-inline {\n  display: inline;\n  width: auto;\n}\n\n.textarea {\n  display: block;\n  max-width: 100%;\n  min-width: 100%;\n  padding: 0.625em;\n  resize: vertical;\n}\n\n.textarea:not([rows]) {\n  max-height: 600px;\n  min-height: 120px;\n}\n\n.textarea[rows] {\n  height: unset;\n}\n\n.checkbox,\n.radio {\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1.25;\n  position: relative;\n}\n\n.checkbox input,\n.radio input {\n  cursor: pointer;\n}\n\n.checkbox:hover,\n.radio:hover {\n  color: #363636;\n}\n\n.checkbox[disabled],\n.radio[disabled] {\n  color: #7a7a7a;\n  cursor: not-allowed;\n}\n\n.radio + .radio {\n  margin-left: 0.5em;\n}\n\n.select {\n  display: inline-block;\n  max-width: 100%;\n  position: relative;\n  vertical-align: top;\n}\n\n.select:not(.is-multiple) {\n  height: 2.25em;\n}\n\n.select:not(.is-multiple)::after {\n  border: 1px solid #00d1b2;\n  border-right: 0;\n  border-top: 0;\n  content: \" \";\n  display: block;\n  height: 0.5em;\n  pointer-events: none;\n  position: absolute;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n  width: 0.5em;\n  margin-top: -0.375em;\n  right: 1.125em;\n  top: 50%;\n  z-index: 4;\n}\n\n.select select {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: 1px solid transparent;\n  border-radius: 3px;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.5;\n  padding-bottom: calc(0.375em - 1px);\n  padding-left: calc(0.625em - 1px);\n  padding-right: calc(0.625em - 1px);\n  padding-top: calc(0.375em - 1px);\n  position: relative;\n  vertical-align: top;\n  background-color: white;\n  border-color: #dbdbdb;\n  color: #363636;\n  cursor: pointer;\n  display: block;\n  font-size: 1em;\n  max-width: 100%;\n  outline: none;\n}\n\n.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {\n  outline: none;\n}\n\n.select select[disabled] {\n  cursor: not-allowed;\n}\n\n.select select:hover, .select select.is-hovered {\n  border-color: #b5b5b5;\n}\n\n.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {\n  border-color: #00d1b2;\n}\n\n.select select[disabled] {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #7a7a7a;\n}\n\n.select select[disabled]::-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select[disabled]::-webkit-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select[disabled]:-moz-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select[disabled]:-ms-input-placeholder {\n  color: rgba(54, 54, 54, 0.3);\n}\n\n.select select:hover {\n  border-color: #b5b5b5;\n}\n\n.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {\n  border-color: #00d1b2;\n}\n\n.select select::-ms-expand {\n  display: none;\n}\n\n.select select[disabled]:hover {\n  border-color: whitesmoke;\n}\n\n.select select:not([multiple]) {\n  padding-right: 2.5em;\n}\n\n.select select[multiple] {\n  height: unset;\n  padding: 0;\n}\n\n.select select[multiple] option {\n  padding: 0.5em 1em;\n}\n\n.select:hover::after {\n  border-color: #363636;\n}\n\n.select.is-white select {\n  border-color: white;\n}\n\n.select.is-black select {\n  border-color: #0a0a0a;\n}\n\n.select.is-light select {\n  border-color: whitesmoke;\n}\n\n.select.is-dark select {\n  border-color: #363636;\n}\n\n.select.is-primary select {\n  border-color: #00d1b2;\n}\n\n.select.is-info select {\n  border-color: #3273dc;\n}\n\n.select.is-success select {\n  border-color: #23d160;\n}\n\n.select.is-warning select {\n  border-color: #ffdd57;\n}\n\n.select.is-danger select {\n  border-color: #ff3860;\n}\n\n.select.is-small {\n  border-radius: 2px;\n  font-size: 0.75rem;\n}\n\n.select.is-medium {\n  font-size: 1.25rem;\n}\n\n.select.is-large {\n  font-size: 1.5rem;\n}\n\n.select.is-disabled::after {\n  border-color: #7a7a7a;\n}\n\n.select.is-fullwidth {\n  width: 100%;\n}\n\n.select.is-fullwidth select {\n  width: 100%;\n}\n\n.select.is-loading::after {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n  margin-top: 0;\n  position: absolute;\n  right: 0.625em;\n  top: 0.625em;\n  -webkit-transform: none;\n          transform: none;\n}\n\n.select.is-loading.is-small:after {\n  font-size: 0.75rem;\n}\n\n.select.is-loading.is-medium:after {\n  font-size: 1.25rem;\n}\n\n.select.is-loading.is-large:after {\n  font-size: 1.5rem;\n}\n\n.label {\n  color: #363636;\n  display: block;\n  font-size: 1rem;\n  font-weight: 700;\n}\n\n.label:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n\n.label.is-small {\n  font-size: 0.75rem;\n}\n\n.label.is-medium {\n  font-size: 1.25rem;\n}\n\n.label.is-large {\n  font-size: 1.5rem;\n}\n\n.help {\n  display: block;\n  font-size: 0.75rem;\n  margin-top: 0.25rem;\n}\n\n.help.is-white {\n  color: white;\n}\n\n.help.is-black {\n  color: #0a0a0a;\n}\n\n.help.is-light {\n  color: whitesmoke;\n}\n\n.help.is-dark {\n  color: #363636;\n}\n\n.help.is-primary {\n  color: #00d1b2;\n}\n\n.help.is-info {\n  color: #3273dc;\n}\n\n.help.is-success {\n  color: #23d160;\n}\n\n.help.is-warning {\n  color: #ffdd57;\n}\n\n.help.is-danger {\n  color: #ff3860;\n}\n\n.field:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.field.has-addons {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.field.has-addons .control:not(:last-child) {\n  margin-right: -1px;\n}\n\n.field.has-addons .control:first-child .button,\n.field.has-addons .control:first-child .input,\n.field.has-addons .control:first-child .select select {\n  border-bottom-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n\n.field.has-addons .control:last-child .button,\n.field.has-addons .control:last-child .input,\n.field.has-addons .control:last-child .select select {\n  border-bottom-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n\n.field.has-addons .control .button,\n.field.has-addons .control .input,\n.field.has-addons .control .select select {\n  border-radius: 0;\n}\n\n.field.has-addons .control .button:hover, .field.has-addons .control .button.is-hovered,\n.field.has-addons .control .input:hover,\n.field.has-addons .control .input.is-hovered,\n.field.has-addons .control .select select:hover,\n.field.has-addons .control .select select.is-hovered {\n  z-index: 2;\n}\n\n.field.has-addons .control .button:focus, .field.has-addons .control .button.is-focused, .field.has-addons .control .button:active, .field.has-addons .control .button.is-active,\n.field.has-addons .control .input:focus,\n.field.has-addons .control .input.is-focused,\n.field.has-addons .control .input:active,\n.field.has-addons .control .input.is-active,\n.field.has-addons .control .select select:focus,\n.field.has-addons .control .select select.is-focused,\n.field.has-addons .control .select select:active,\n.field.has-addons .control .select select.is-active {\n  z-index: 3;\n}\n\n.field.has-addons .control .button:focus:hover, .field.has-addons .control .button.is-focused:hover, .field.has-addons .control .button:active:hover, .field.has-addons .control .button.is-active:hover,\n.field.has-addons .control .input:focus:hover,\n.field.has-addons .control .input.is-focused:hover,\n.field.has-addons .control .input:active:hover,\n.field.has-addons .control .input.is-active:hover,\n.field.has-addons .control .select select:focus:hover,\n.field.has-addons .control .select select.is-focused:hover,\n.field.has-addons .control .select select:active:hover,\n.field.has-addons .control .select select.is-active:hover {\n  z-index: 4;\n}\n\n.field.has-addons .control.is-expanded {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n\n.field.has-addons.has-addons-centered {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.field.has-addons.has-addons-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n.field.has-addons.has-addons-fullwidth .control {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.field.is-grouped {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.field.is-grouped > .control {\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.field.is-grouped > .control:not(:last-child) {\n  margin-bottom: 0;\n  margin-right: 0.75rem;\n}\n\n.field.is-grouped > .control.is-expanded {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.field.is-grouped.is-grouped-centered {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.field.is-grouped.is-grouped-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n@media screen and (min-width: 769px), print {\n  .field.is-horizontal {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.field-label .label {\n  font-size: inherit;\n}\n\n@media screen and (max-width: 768px) {\n  .field-label {\n    margin-bottom: 0.5rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .field-label {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 0;\n        flex-shrink: 0;\n    margin-right: 1.5rem;\n    text-align: right;\n  }\n  .field-label.is-small {\n    font-size: 0.75rem;\n    padding-top: 0.375em;\n  }\n  .field-label.is-normal {\n    padding-top: 0.375em;\n  }\n  .field-label.is-medium {\n    font-size: 1.25rem;\n    padding-top: 0.375em;\n  }\n  .field-label.is-large {\n    font-size: 1.5rem;\n    padding-top: 0.375em;\n  }\n}\n\n.field-body .field .field {\n  margin-bottom: 0;\n}\n\n@media screen and (min-width: 769px), print {\n  .field-body {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 5;\n        -ms-flex-positive: 5;\n            flex-grow: 5;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n  .field-body .field {\n    margin-bottom: 0;\n  }\n  .field-body > .field {\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n  .field-body > .field:not(.is-narrow) {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n  }\n  .field-body > .field:not(:last-child) {\n    margin-right: 0.75rem;\n  }\n}\n\n.control {\n  font-size: 1rem;\n  position: relative;\n  text-align: left;\n}\n\n.control.has-icon .icon {\n  color: #dbdbdb;\n  height: 2.25em;\n  pointer-events: none;\n  position: absolute;\n  top: 0;\n  width: 2.25em;\n  z-index: 4;\n}\n\n.control.has-icon .input:focus + .icon {\n  color: #7a7a7a;\n}\n\n.control.has-icon .input.is-small + .icon {\n  font-size: 0.75rem;\n}\n\n.control.has-icon .input.is-medium + .icon {\n  font-size: 1.25rem;\n}\n\n.control.has-icon .input.is-large + .icon {\n  font-size: 1.5rem;\n}\n\n.control.has-icon:not(.has-icon-right) .icon {\n  left: 0;\n}\n\n.control.has-icon:not(.has-icon-right) .input {\n  padding-left: 2.25em;\n}\n\n.control.has-icon.has-icon-right .icon {\n  right: 0;\n}\n\n.control.has-icon.has-icon-right .input {\n  padding-right: 2.25em;\n}\n\n.control.has-icons-left .input:focus ~ .icon,\n.control.has-icons-left .select:focus ~ .icon, .control.has-icons-right .input:focus ~ .icon,\n.control.has-icons-right .select:focus ~ .icon {\n  color: #7a7a7a;\n}\n\n.control.has-icons-left .input.is-small ~ .icon,\n.control.has-icons-left .select.is-small ~ .icon, .control.has-icons-right .input.is-small ~ .icon,\n.control.has-icons-right .select.is-small ~ .icon {\n  font-size: 0.75rem;\n}\n\n.control.has-icons-left .input.is-medium ~ .icon,\n.control.has-icons-left .select.is-medium ~ .icon, .control.has-icons-right .input.is-medium ~ .icon,\n.control.has-icons-right .select.is-medium ~ .icon {\n  font-size: 1.25rem;\n}\n\n.control.has-icons-left .input.is-large ~ .icon,\n.control.has-icons-left .select.is-large ~ .icon, .control.has-icons-right .input.is-large ~ .icon,\n.control.has-icons-right .select.is-large ~ .icon {\n  font-size: 1.5rem;\n}\n\n.control.has-icons-left .icon, .control.has-icons-right .icon {\n  color: #dbdbdb;\n  height: 2.25em;\n  pointer-events: none;\n  position: absolute;\n  top: 0;\n  width: 2.25em;\n  z-index: 4;\n}\n\n.control.has-icons-left .input,\n.control.has-icons-left .select select {\n  padding-left: 2.25em;\n}\n\n.control.has-icons-left .icon.is-left {\n  left: 0;\n}\n\n.control.has-icons-right .input,\n.control.has-icons-right .select select {\n  padding-right: 2.25em;\n}\n\n.control.has-icons-right .icon.is-right {\n  right: 0;\n}\n\n.control.is-loading::after {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n  position: absolute !important;\n  right: 0.625em;\n  top: 0.625em;\n}\n\n.control.is-loading.is-small:after {\n  font-size: 0.75rem;\n}\n\n.control.is-loading.is-medium:after {\n  font-size: 1.25rem;\n}\n\n.control.is-loading.is-large:after {\n  font-size: 1.5rem;\n}\n\n.icon {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 1.5rem;\n  width: 1.5rem;\n}\n\n.icon .fa {\n  font-size: 21px;\n}\n\n.icon.is-small {\n  height: 1rem;\n  width: 1rem;\n}\n\n.icon.is-small .fa {\n  font-size: 14px;\n}\n\n.icon.is-medium {\n  height: 2rem;\n  width: 2rem;\n}\n\n.icon.is-medium .fa {\n  font-size: 28px;\n}\n\n.icon.is-large {\n  height: 3rem;\n  width: 3rem;\n}\n\n.icon.is-large .fa {\n  font-size: 42px;\n}\n\n.image {\n  display: block;\n  position: relative;\n}\n\n.image img {\n  display: block;\n  height: auto;\n  width: 100%;\n}\n\n.image.is-square img, .image.is-1by1 img, .image.is-4by3 img, .image.is-3by2 img, .image.is-16by9 img, .image.is-2by1 img {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n}\n\n.image.is-square, .image.is-1by1 {\n  padding-top: 100%;\n}\n\n.image.is-4by3 {\n  padding-top: 75%;\n}\n\n.image.is-3by2 {\n  padding-top: 66.6666%;\n}\n\n.image.is-16by9 {\n  padding-top: 56.25%;\n}\n\n.image.is-2by1 {\n  padding-top: 50%;\n}\n\n.image.is-16x16 {\n  height: 16px;\n  width: 16px;\n}\n\n.image.is-24x24 {\n  height: 24px;\n  width: 24px;\n}\n\n.image.is-32x32 {\n  height: 32px;\n  width: 32px;\n}\n\n.image.is-48x48 {\n  height: 48px;\n  width: 48px;\n}\n\n.image.is-64x64 {\n  height: 64px;\n  width: 64px;\n}\n\n.image.is-96x96 {\n  height: 96px;\n  width: 96px;\n}\n\n.image.is-128x128 {\n  height: 128px;\n  width: 128px;\n}\n\n.notification {\n  background-color: whitesmoke;\n  border-radius: 3px;\n  padding: 1.25rem 2.5rem 1.25rem 1.5rem;\n  position: relative;\n}\n\n.notification:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.notification a:not(.button) {\n  color: currentColor;\n  text-decoration: underline;\n}\n\n.notification strong {\n  color: currentColor;\n}\n\n.notification code,\n.notification pre {\n  background: white;\n}\n\n.notification pre code {\n  background: transparent;\n}\n\n.notification > .delete {\n  position: absolute;\n  right: 0.5em;\n  top: 0.5em;\n}\n\n.notification .title,\n.notification .subtitle,\n.notification .content {\n  color: currentColor;\n}\n\n.notification.is-white {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.notification.is-black {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.notification.is-light {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.notification.is-dark {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.notification.is-primary {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.notification.is-info {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.notification.is-success {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.notification.is-warning {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.notification.is-danger {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.progress {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  border: none;\n  border-radius: 290486px;\n  display: block;\n  height: 1rem;\n  overflow: hidden;\n  padding: 0;\n  width: 100%;\n}\n\n.progress:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.progress::-webkit-progress-bar {\n  background-color: #dbdbdb;\n}\n\n.progress::-webkit-progress-value {\n  background-color: #4a4a4a;\n}\n\n.progress::-moz-progress-bar {\n  background-color: #4a4a4a;\n}\n\n.progress.is-white::-webkit-progress-value {\n  background-color: white;\n}\n\n.progress.is-white::-moz-progress-bar {\n  background-color: white;\n}\n\n.progress.is-black::-webkit-progress-value {\n  background-color: #0a0a0a;\n}\n\n.progress.is-black::-moz-progress-bar {\n  background-color: #0a0a0a;\n}\n\n.progress.is-light::-webkit-progress-value {\n  background-color: whitesmoke;\n}\n\n.progress.is-light::-moz-progress-bar {\n  background-color: whitesmoke;\n}\n\n.progress.is-dark::-webkit-progress-value {\n  background-color: #363636;\n}\n\n.progress.is-dark::-moz-progress-bar {\n  background-color: #363636;\n}\n\n.progress.is-primary::-webkit-progress-value {\n  background-color: #00d1b2;\n}\n\n.progress.is-primary::-moz-progress-bar {\n  background-color: #00d1b2;\n}\n\n.progress.is-info::-webkit-progress-value {\n  background-color: #3273dc;\n}\n\n.progress.is-info::-moz-progress-bar {\n  background-color: #3273dc;\n}\n\n.progress.is-success::-webkit-progress-value {\n  background-color: #23d160;\n}\n\n.progress.is-success::-moz-progress-bar {\n  background-color: #23d160;\n}\n\n.progress.is-warning::-webkit-progress-value {\n  background-color: #ffdd57;\n}\n\n.progress.is-warning::-moz-progress-bar {\n  background-color: #ffdd57;\n}\n\n.progress.is-danger::-webkit-progress-value {\n  background-color: #ff3860;\n}\n\n.progress.is-danger::-moz-progress-bar {\n  background-color: #ff3860;\n}\n\n.progress.is-small {\n  height: 0.75rem;\n}\n\n.progress.is-medium {\n  height: 1.25rem;\n}\n\n.progress.is-large {\n  height: 1.5rem;\n}\n\n.table {\n  background-color: white;\n  color: #363636;\n  margin-bottom: 1.5rem;\n  width: 100%;\n}\n\n.table td,\n.table th {\n  border: 1px solid #dbdbdb;\n  border-width: 0 0 1px;\n  padding: 0.5em 0.75em;\n  vertical-align: top;\n}\n\n.table td.is-narrow,\n.table th.is-narrow {\n  white-space: nowrap;\n  width: 1%;\n}\n\n.table th {\n  color: #363636;\n  text-align: left;\n}\n\n.table tr:hover {\n  background-color: #fafafa;\n}\n\n.table tr.is-selected {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.table tr.is-selected a,\n.table tr.is-selected strong {\n  color: currentColor;\n}\n\n.table tr.is-selected td,\n.table tr.is-selected th {\n  border-color: #fff;\n  color: currentColor;\n}\n\n.table thead td,\n.table thead th {\n  border-width: 0 0 2px;\n  color: #7a7a7a;\n}\n\n.table tfoot td,\n.table tfoot th {\n  border-width: 2px 0 0;\n  color: #7a7a7a;\n}\n\n.table tbody tr:last-child td,\n.table tbody tr:last-child th {\n  border-bottom-width: 0;\n}\n\n.table.is-bordered td,\n.table.is-bordered th {\n  border-width: 1px;\n}\n\n.table.is-bordered tr:last-child td,\n.table.is-bordered tr:last-child th {\n  border-bottom-width: 1px;\n}\n\n.table.is-narrow td,\n.table.is-narrow th {\n  padding: 0.25em 0.5em;\n}\n\n.table.is-striped tbody tr:not(.is-selected):nth-child(even) {\n  background-color: #fafafa;\n}\n\n.table.is-striped tbody tr:not(.is-selected):nth-child(even):hover {\n  background-color: whitesmoke;\n}\n\n.tag {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: whitesmoke;\n  border-radius: 290486px;\n  color: #4a4a4a;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 0.75rem;\n  height: 2em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  line-height: 1.5;\n  padding-left: 0.875em;\n  padding-right: 0.875em;\n  white-space: nowrap;\n}\n\n.tag .delete {\n  margin-left: 0.25em;\n  margin-right: -0.375em;\n}\n\n.tag.is-white {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.tag.is-black {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.tag.is-light {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.tag.is-dark {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.tag.is-primary {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.tag.is-info {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.tag.is-success {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.tag.is-warning {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.tag.is-danger {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.tag.is-medium {\n  font-size: 1rem;\n}\n\n.tag.is-large {\n  font-size: 1.25rem;\n}\n\n.title,\n.subtitle {\n  word-break: break-word;\n}\n\n.title:not(:last-child),\n.subtitle:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.title em,\n.title span,\n.subtitle em,\n.subtitle span {\n  font-weight: 300;\n}\n\n.title strong,\n.subtitle strong {\n  font-weight: 500;\n}\n\n.title .tag,\n.subtitle .tag {\n  vertical-align: middle;\n}\n\n.title {\n  color: #363636;\n  font-size: 2rem;\n  font-weight: 300;\n  line-height: 1.125;\n}\n\n.title strong {\n  color: inherit;\n}\n\n.title + .highlight {\n  margin-top: -0.75rem;\n}\n\n.title:not(.is-spaced) + .subtitle {\n  margin-top: -1.5rem;\n}\n\n.title.is-1 {\n  font-size: 3rem;\n}\n\n.title.is-2 {\n  font-size: 2.5rem;\n}\n\n.title.is-3 {\n  font-size: 2rem;\n}\n\n.title.is-4 {\n  font-size: 1.5rem;\n}\n\n.title.is-5 {\n  font-size: 1.25rem;\n}\n\n.title.is-6 {\n  font-size: 1rem;\n}\n\n.subtitle {\n  color: #4a4a4a;\n  font-size: 1.25rem;\n  font-weight: 300;\n  line-height: 1.25;\n}\n\n.subtitle strong {\n  color: #363636;\n}\n\n.subtitle:not(.is-spaced) + .title {\n  margin-top: -1.5rem;\n}\n\n.subtitle.is-1 {\n  font-size: 3rem;\n}\n\n.subtitle.is-2 {\n  font-size: 2.5rem;\n}\n\n.subtitle.is-3 {\n  font-size: 2rem;\n}\n\n.subtitle.is-4 {\n  font-size: 1.5rem;\n}\n\n.subtitle.is-5 {\n  font-size: 1.25rem;\n}\n\n.subtitle.is-6 {\n  font-size: 1rem;\n}\n\n.block:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.container {\n  margin: 0 auto;\n  position: relative;\n}\n\n@media screen and (min-width: 1008px) {\n  .container {\n    max-width: 960px;\n    width: 960px;\n  }\n  .container.is-fluid {\n    margin-left: 24px;\n    margin-right: 24px;\n    max-width: none;\n    width: auto;\n  }\n}\n\n@media screen and (max-width: 1199px) {\n  .container.is-widescreen {\n    max-width: 1152px;\n    width: auto;\n  }\n}\n\n@media screen and (max-width: 1391px) {\n  .container.is-fullhd {\n    max-width: 1344px;\n    width: auto;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .container {\n    max-width: 1152px;\n    width: 1152px;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .container {\n    max-width: 1344px;\n    width: 1344px;\n  }\n}\n\n.delete {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  background-color: rgba(10, 10, 10, 0.2);\n  border: none;\n  border-radius: 290486px;\n  cursor: pointer;\n  display: inline-block;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  font-size: 1rem;\n  height: 20px;\n  max-height: 20px;\n  max-width: 20px;\n  min-height: 20px;\n  min-width: 20px;\n  outline: none;\n  position: relative;\n  vertical-align: top;\n  width: 20px;\n}\n\n.delete:before, .delete:after {\n  background-color: white;\n  content: \"\";\n  display: block;\n  left: 50%;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);\n          transform: translateX(-50%) translateY(-50%) rotate(45deg);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.delete:before {\n  height: 2px;\n  width: 50%;\n}\n\n.delete:after {\n  height: 50%;\n  width: 2px;\n}\n\n.delete:hover, .delete:focus {\n  background-color: rgba(10, 10, 10, 0.3);\n}\n\n.delete:active {\n  background-color: rgba(10, 10, 10, 0.4);\n}\n\n.delete.is-small {\n  height: 16px;\n  max-height: 16px;\n  max-width: 16px;\n  min-height: 16px;\n  min-width: 16px;\n  width: 16px;\n}\n\n.delete.is-medium {\n  height: 24px;\n  max-height: 24px;\n  max-width: 24px;\n  min-height: 24px;\n  min-width: 24px;\n  width: 24px;\n}\n\n.delete.is-large {\n  height: 32px;\n  max-height: 32px;\n  max-width: 32px;\n  min-height: 32px;\n  min-width: 32px;\n  width: 32px;\n}\n\n.fa {\n  font-size: 21px;\n  text-align: center;\n  vertical-align: top;\n}\n\n.heading {\n  display: block;\n  font-size: 11px;\n  letter-spacing: 1px;\n  margin-bottom: 5px;\n  text-transform: uppercase;\n}\n\n.highlight {\n  font-weight: 400;\n  max-width: 100%;\n  overflow: hidden;\n  padding: 0;\n}\n\n.highlight:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.highlight pre {\n  overflow: auto;\n  max-width: 100%;\n}\n\n.loader {\n  -webkit-animation: spinAround 500ms infinite linear;\n          animation: spinAround 500ms infinite linear;\n  border: 2px solid #dbdbdb;\n  border-radius: 290486px;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  content: \"\";\n  display: block;\n  height: 1em;\n  position: relative;\n  width: 1em;\n}\n\n.number {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: whitesmoke;\n  border-radius: 290486px;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1.25rem;\n  height: 2em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 1.5rem;\n  min-width: 2.5em;\n  padding: 0.25rem 0.5rem;\n  text-align: center;\n  vertical-align: top;\n}\n\n.breadcrumb {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 1rem;\n  overflow: hidden;\n  overflow-x: auto;\n  white-space: nowrap;\n}\n\n.breadcrumb:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.breadcrumb a {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #7a7a7a;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0.5em 0.75em;\n}\n\n.breadcrumb a:hover {\n  color: #363636;\n}\n\n.breadcrumb li {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.breadcrumb li.is-active a {\n  color: #363636;\n  cursor: default;\n  pointer-events: none;\n}\n\n.breadcrumb li + li:before {\n  color: #4a4a4a;\n  content: '/';\n}\n\n.breadcrumb ul, .breadcrumb ol {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.breadcrumb .icon:first-child {\n  margin-right: 0.5em;\n}\n\n.breadcrumb .icon:last-child {\n  margin-left: 0.5em;\n}\n\n.breadcrumb.is-centered ol, .breadcrumb.is-centered ul {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.breadcrumb.is-right ol, .breadcrumb.is-right ul {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n.breadcrumb.is-small {\n  font-size: 0.75rem;\n}\n\n.breadcrumb.is-medium {\n  font-size: 1.25rem;\n}\n\n.breadcrumb.is-large {\n  font-size: 1.5rem;\n}\n\n.breadcrumb.has-arrow-separator li + li:before {\n  content: '\\2192';\n}\n\n.breadcrumb.has-bullet-separator li + li:before {\n  content: '\\2022';\n}\n\n.breadcrumb.has-dot-separator li + li:before {\n  content: '\\B7';\n}\n\n.breadcrumb.has-succeeds-separator li + li:before {\n  content: '\\227B';\n}\n\n.card {\n  background-color: white;\n  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n  color: #4a4a4a;\n  max-width: 100%;\n  position: relative;\n}\n\n.card-header {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  -webkit-box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);\n          box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.card-header-title {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #363636;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  font-weight: 700;\n  padding: 0.75rem;\n}\n\n.card-header-icon {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0.75rem;\n}\n\n.card-image {\n  display: block;\n  position: relative;\n}\n\n.card-content {\n  padding: 1.5rem;\n}\n\n.card-footer {\n  border-top: 1px solid #dbdbdb;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.card-footer-item {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0.75rem;\n}\n\n.card-footer-item:not(:last-child) {\n  border-right: 1px solid #dbdbdb;\n}\n\n.card .media:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.dropdown {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  position: relative;\n  vertical-align: top;\n}\n\n.dropdown.is-active .dropdown-menu, .dropdown.is-hoverable:hover .dropdown-menu {\n  display: block;\n}\n\n.dropdown.is-right .dropdown-menu {\n  left: auto;\n  right: 0;\n}\n\n.dropdown-menu {\n  display: none;\n  left: 0;\n  max-width: 20rem;\n  min-width: 12rem;\n  padding-top: 4px;\n  position: absolute;\n  top: 100%;\n  width: 100%;\n  z-index: 20;\n}\n\n.dropdown-content {\n  background-color: white;\n  border-radius: 3px;\n  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n  padding-bottom: 0.5rem;\n  padding-top: 0.5rem;\n}\n\n.dropdown-item {\n  color: #4a4a4a;\n  display: block;\n  font-size: 0.875rem;\n  line-height: 1.5;\n  padding: 0.375rem 1rem;\n  position: relative;\n}\n\na.dropdown-item {\n  padding-right: 3rem;\n  white-space: nowrap;\n}\n\na.dropdown-item:hover {\n  background-color: whitesmoke;\n  color: #0a0a0a;\n}\n\na.dropdown-item.is-active {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.dropdown-divider {\n  background-color: #dbdbdb;\n  border: none;\n  display: block;\n  height: 1px;\n  margin: 0.5rem 0;\n}\n\n.level-item {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.level-item .title,\n.level-item .subtitle {\n  margin-bottom: 0;\n}\n\n@media screen and (max-width: 768px) {\n  .level-item:not(:last-child) {\n    margin-bottom: 0.75rem;\n  }\n}\n\n.level-left,\n.level-right {\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.level-left .level-item:not(:last-child),\n.level-right .level-item:not(:last-child) {\n  margin-right: 0.75rem;\n}\n\n.level-left .level-item.is-flexible,\n.level-right .level-item.is-flexible {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n\n.level-left {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n@media screen and (max-width: 768px) {\n  .level-left + .level-right {\n    margin-top: 1.5rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .level-left {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.level-right {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n@media screen and (min-width: 769px), print {\n  .level-right {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.level {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.level:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.level code {\n  border-radius: 3px;\n}\n\n.level img {\n  display: inline-block;\n  vertical-align: top;\n}\n\n.level.is-mobile {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.level.is-mobile .level-left,\n.level.is-mobile .level-right {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.level.is-mobile .level-left + .level-right {\n  margin-top: 0;\n}\n\n.level.is-mobile .level-item:not(:last-child) {\n  margin-bottom: 0;\n}\n\n.level.is-mobile .level-item:not(.is-narrow) {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n\n@media screen and (min-width: 769px), print {\n  .level {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .level > .level-item:not(.is-narrow) {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n  }\n}\n\n.media-left,\n.media-right {\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.media-left {\n  margin-right: 1rem;\n}\n\n.media-right {\n  margin-left: 1rem;\n}\n\n.media-content {\n  -ms-flex-preferred-size: auto;\n      flex-basis: auto;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  text-align: left;\n}\n\n.media {\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: left;\n}\n\n.media .content:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.media .media {\n  border-top: 1px solid rgba(219, 219, 219, 0.5);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding-top: 0.75rem;\n}\n\n.media .media .content:not(:last-child),\n.media .media .control:not(:last-child) {\n  margin-bottom: 0.5rem;\n}\n\n.media .media .media {\n  padding-top: 0.5rem;\n}\n\n.media .media .media + .media {\n  margin-top: 0.5rem;\n}\n\n.media + .media {\n  border-top: 1px solid rgba(219, 219, 219, 0.5);\n  margin-top: 1rem;\n  padding-top: 1rem;\n}\n\n.media.is-large + .media {\n  margin-top: 1.5rem;\n  padding-top: 1.5rem;\n}\n\n.menu {\n  font-size: 1rem;\n}\n\n.menu-list {\n  line-height: 1.25;\n}\n\n.menu-list a {\n  border-radius: 2px;\n  color: #4a4a4a;\n  display: block;\n  padding: 0.5em 0.75em;\n}\n\n.menu-list a:hover {\n  background-color: whitesmoke;\n  color: #00d1b2;\n}\n\n.menu-list a.is-active {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.menu-list li ul {\n  border-left: 1px solid #dbdbdb;\n  margin: 0.75em;\n  padding-left: 0.75em;\n}\n\n.menu-label {\n  color: #7a7a7a;\n  font-size: 0.8em;\n  letter-spacing: 0.1em;\n  text-transform: uppercase;\n}\n\n.menu-label:not(:first-child) {\n  margin-top: 1em;\n}\n\n.menu-label:not(:last-child) {\n  margin-bottom: 1em;\n}\n\n.message {\n  background-color: whitesmoke;\n  border-radius: 3px;\n  font-size: 1rem;\n}\n\n.message:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.message.is-white {\n  background-color: white;\n}\n\n.message.is-white .message-header {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.message.is-white .message-body {\n  border-color: white;\n  color: #4d4d4d;\n}\n\n.message.is-black {\n  background-color: #fafafa;\n}\n\n.message.is-black .message-header {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.message.is-black .message-body {\n  border-color: #0a0a0a;\n  color: #090909;\n}\n\n.message.is-light {\n  background-color: #fafafa;\n}\n\n.message.is-light .message-header {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.message.is-light .message-body {\n  border-color: whitesmoke;\n  color: #505050;\n}\n\n.message.is-dark {\n  background-color: #fafafa;\n}\n\n.message.is-dark .message-header {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.message.is-dark .message-body {\n  border-color: #363636;\n  color: #2a2a2a;\n}\n\n.message.is-primary {\n  background-color: #f5fffd;\n}\n\n.message.is-primary .message-header {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.message.is-primary .message-body {\n  border-color: #00d1b2;\n  color: #021310;\n}\n\n.message.is-info {\n  background-color: #f6f9fe;\n}\n\n.message.is-info .message-header {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.message.is-info .message-body {\n  border-color: #3273dc;\n  color: #22509a;\n}\n\n.message.is-success {\n  background-color: #f6fef9;\n}\n\n.message.is-success .message-header {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.message.is-success .message-body {\n  border-color: #23d160;\n  color: #0e301a;\n}\n\n.message.is-warning {\n  background-color: #fffdf5;\n}\n\n.message.is-warning .message-header {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.message.is-warning .message-body {\n  border-color: #ffdd57;\n  color: #3b3108;\n}\n\n.message.is-danger {\n  background-color: #fff5f7;\n}\n\n.message.is-danger .message-header {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.message.is-danger .message-body {\n  border-color: #ff3860;\n  color: #cd0930;\n}\n\n.message-header {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: #4a4a4a;\n  border-radius: 3px 3px 0 0;\n  color: #fff;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  line-height: 1.25;\n  padding: 0.5em 0.75em;\n  position: relative;\n}\n\n.message-header a:not(.button),\n.message-header strong {\n  color: currentColor;\n}\n\n.message-header a:not(.button) {\n  text-decoration: underline;\n}\n\n.message-header .delete {\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  margin-left: 0.75em;\n}\n\n.message-header + .message-body {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n  border-top: none;\n}\n\n.message-body {\n  border: 1px solid #dbdbdb;\n  border-radius: 3px;\n  color: #4a4a4a;\n  padding: 1em 1.25em;\n}\n\n.message-body a:not(.button),\n.message-body strong {\n  color: currentColor;\n}\n\n.message-body a:not(.button) {\n  text-decoration: underline;\n}\n\n.message-body code,\n.message-body pre {\n  background: white;\n}\n\n.message-body pre code {\n  background: transparent;\n}\n\n.modal-background {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  background-color: rgba(10, 10, 10, 0.86);\n}\n\n.modal-content,\n.modal-card {\n  margin: 0 20px;\n  max-height: calc(100vh - 160px);\n  overflow: auto;\n  position: relative;\n  width: 100%;\n}\n\n@media screen and (min-width: 769px), print {\n  .modal-content,\n  .modal-card {\n    margin: 0 auto;\n    max-height: calc(100vh - 40px);\n    width: 640px;\n  }\n}\n\n.modal-close {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  background-color: rgba(10, 10, 10, 0.2);\n  border: none;\n  border-radius: 290486px;\n  cursor: pointer;\n  display: inline-block;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  font-size: 1rem;\n  height: 20px;\n  max-height: 20px;\n  max-width: 20px;\n  min-height: 20px;\n  min-width: 20px;\n  outline: none;\n  position: relative;\n  vertical-align: top;\n  width: 20px;\n  background: none;\n  height: 40px;\n  position: fixed;\n  right: 20px;\n  top: 20px;\n  width: 40px;\n}\n\n.modal-close:before, .modal-close:after {\n  background-color: white;\n  content: \"\";\n  display: block;\n  left: 50%;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);\n          transform: translateX(-50%) translateY(-50%) rotate(45deg);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.modal-close:before {\n  height: 2px;\n  width: 50%;\n}\n\n.modal-close:after {\n  height: 50%;\n  width: 2px;\n}\n\n.modal-close:hover, .modal-close:focus {\n  background-color: rgba(10, 10, 10, 0.3);\n}\n\n.modal-close:active {\n  background-color: rgba(10, 10, 10, 0.4);\n}\n\n.modal-close.is-small {\n  height: 16px;\n  max-height: 16px;\n  max-width: 16px;\n  min-height: 16px;\n  min-width: 16px;\n  width: 16px;\n}\n\n.modal-close.is-medium {\n  height: 24px;\n  max-height: 24px;\n  max-width: 24px;\n  min-height: 24px;\n  min-width: 24px;\n  width: 24px;\n}\n\n.modal-close.is-large {\n  height: 32px;\n  max-height: 32px;\n  max-width: 32px;\n  min-height: 32px;\n  min-width: 32px;\n  width: 32px;\n}\n\n.modal-card {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: calc(100vh - 40px);\n  overflow: hidden;\n}\n\n.modal-card-head,\n.modal-card-foot {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: whitesmoke;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  padding: 20px;\n  position: relative;\n}\n\n.modal-card-head {\n  border-bottom: 1px solid #dbdbdb;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n}\n\n.modal-card-title {\n  color: #363636;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  font-size: 1.5rem;\n  line-height: 1;\n}\n\n.modal-card-foot {\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 5px;\n  border-top: 1px solid #dbdbdb;\n}\n\n.modal-card-foot .button:not(:last-child) {\n  margin-right: 10px;\n}\n\n.modal-card-body {\n  -webkit-overflow-scrolling: touch;\n  background-color: white;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  overflow: auto;\n  padding: 20px;\n}\n\n.modal {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: none;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  overflow: hidden;\n  position: fixed;\n  z-index: 20;\n}\n\n.modal.is-active {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.nav-toggle {\n  cursor: pointer;\n  display: block;\n  height: 3.25rem;\n  position: relative;\n  width: 3.25rem;\n}\n\n.nav-toggle span {\n  background-color: #4a4a4a;\n  display: block;\n  height: 1px;\n  left: 50%;\n  margin-left: -7px;\n  position: absolute;\n  top: 50%;\n  -webkit-transition: none 86ms ease-out;\n  transition: none 86ms ease-out;\n  -webkit-transition-property: background, left, opacity, -webkit-transform;\n  transition-property: background, left, opacity, -webkit-transform;\n  transition-property: background, left, opacity, transform;\n  transition-property: background, left, opacity, transform, -webkit-transform;\n  width: 15px;\n}\n\n.nav-toggle span:nth-child(1) {\n  margin-top: -6px;\n}\n\n.nav-toggle span:nth-child(2) {\n  margin-top: -1px;\n}\n\n.nav-toggle span:nth-child(3) {\n  margin-top: 4px;\n}\n\n.nav-toggle:hover {\n  background-color: whitesmoke;\n}\n\n.nav-toggle.is-active span {\n  background-color: #00d1b2;\n}\n\n.nav-toggle.is-active span:nth-child(1) {\n  margin-left: -5px;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n\n.nav-toggle.is-active span:nth-child(2) {\n  opacity: 0;\n}\n\n.nav-toggle.is-active span:nth-child(3) {\n  margin-left: -5px;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n  -webkit-transform-origin: left bottom;\n          transform-origin: left bottom;\n}\n\n@media screen and (min-width: 769px), print {\n  .nav-toggle {\n    display: none;\n  }\n}\n\n.nav-item {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  font-size: 1rem;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  line-height: 1.5;\n  padding: 0.5rem 0.75rem;\n}\n\n.nav-item a {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.nav-item img {\n  max-height: 1.75rem;\n}\n\n.nav-item .tag:first-child:not(:last-child) {\n  margin-right: 0.5rem;\n}\n\n.nav-item .tag:last-child:not(:first-child) {\n  margin-left: 0.5rem;\n}\n\n@media screen and (max-width: 768px) {\n  .nav-item {\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n  }\n}\n\n.nav-item a:not(.button),\na.nav-item:not(.button) {\n  color: #7a7a7a;\n}\n\n.nav-item a:not(.button):hover,\na.nav-item:not(.button):hover {\n  color: #363636;\n}\n\n.nav-item a:not(.button).is-active,\na.nav-item:not(.button).is-active {\n  color: #363636;\n}\n\n.nav-item a:not(.button).is-tab,\na.nav-item:not(.button).is-tab {\n  border-bottom: 1px solid transparent;\n  border-top: 1px solid transparent;\n  padding-bottom: calc(0.75rem - 1px);\n  padding-left: 1rem;\n  padding-right: 1rem;\n  padding-top: calc(0.75rem - 1px);\n}\n\n.nav-item a:not(.button).is-tab:hover,\na.nav-item:not(.button).is-tab:hover {\n  border-bottom-color: #00d1b2;\n  border-top-color: transparent;\n}\n\n.nav-item a:not(.button).is-tab.is-active,\na.nav-item:not(.button).is-tab.is-active {\n  border-bottom: 3px solid #00d1b2;\n  color: #00d1b2;\n  padding-bottom: calc(0.75rem - 3px);\n}\n\n@media screen and (min-width: 1008px) {\n  .nav-item a:not(.button).is-brand,\n  a.nav-item:not(.button).is-brand {\n    padding-left: 0;\n  }\n}\n\n.nav-left,\n.nav-right {\n  -webkit-overflow-scrolling: touch;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  max-width: 100%;\n  overflow: auto;\n}\n\n@media screen and (min-width: 1200px) {\n  .nav-left,\n  .nav-right {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n  }\n}\n\n.nav-left {\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  white-space: nowrap;\n}\n\n.nav-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n.nav-center {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n@media screen and (max-width: 768px) {\n  .nav-menu.nav-right {\n    background-color: white;\n    -webkit-box-shadow: 0 4px 7px rgba(10, 10, 10, 0.1);\n            box-shadow: 0 4px 7px rgba(10, 10, 10, 0.1);\n    left: 0;\n    display: none;\n    right: 0;\n    top: 100%;\n    position: absolute;\n  }\n  .nav-menu.nav-right .nav-item {\n    border-top: 1px solid rgba(219, 219, 219, 0.5);\n    padding: 0.75rem;\n  }\n  .nav-menu.nav-right.is-active {\n    display: block;\n  }\n}\n\n.nav {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 3.25rem;\n  position: relative;\n  text-align: center;\n  z-index: 10;\n}\n\n.nav > .container {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 3.25rem;\n  width: 100%;\n}\n\n.nav.has-shadow {\n  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);\n          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);\n}\n\n.navbar {\n  background-color: white;\n  min-height: 3.25rem;\n  position: relative;\n}\n\n.navbar > .container {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 3.25rem;\n  width: 100%;\n}\n\n.navbar.has-shadow {\n  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);\n          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);\n}\n\n.navbar-brand {\n  -webkit-overflow-scrolling: touch;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 3.25rem;\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n\n.navbar-burger {\n  cursor: pointer;\n  display: block;\n  height: 3.25rem;\n  position: relative;\n  width: 3.25rem;\n  margin-left: auto;\n}\n\n.navbar-burger span {\n  background-color: #4a4a4a;\n  display: block;\n  height: 1px;\n  left: 50%;\n  margin-left: -7px;\n  position: absolute;\n  top: 50%;\n  -webkit-transition: none 86ms ease-out;\n  transition: none 86ms ease-out;\n  -webkit-transition-property: background, left, opacity, -webkit-transform;\n  transition-property: background, left, opacity, -webkit-transform;\n  transition-property: background, left, opacity, transform;\n  transition-property: background, left, opacity, transform, -webkit-transform;\n  width: 15px;\n}\n\n.navbar-burger span:nth-child(1) {\n  margin-top: -6px;\n}\n\n.navbar-burger span:nth-child(2) {\n  margin-top: -1px;\n}\n\n.navbar-burger span:nth-child(3) {\n  margin-top: 4px;\n}\n\n.navbar-burger:hover {\n  background-color: whitesmoke;\n}\n\n.navbar-burger.is-active span {\n  background-color: #00d1b2;\n}\n\n.navbar-burger.is-active span:nth-child(1) {\n  margin-left: -5px;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n\n.navbar-burger.is-active span:nth-child(2) {\n  opacity: 0;\n}\n\n.navbar-burger.is-active span:nth-child(3) {\n  margin-left: -5px;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n  -webkit-transform-origin: left bottom;\n          transform-origin: left bottom;\n}\n\n.navbar-menu {\n  display: none;\n}\n\n.navbar-item,\n.navbar-link {\n  color: #4a4a4a;\n  display: block;\n  line-height: 1.5;\n  padding: 0.5rem 1rem;\n  position: relative;\n}\n\na.navbar-item:hover, a.navbar-item.is-active,\n.navbar-link:hover,\n.navbar-link.is-active {\n  background-color: whitesmoke;\n  color: #0a0a0a;\n}\n\n.navbar-item {\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.navbar-item img {\n  max-height: 1.75rem;\n}\n\n.navbar-item.has-dropdown {\n  padding: 0;\n}\n\n.navbar-item.is-tab {\n  border-bottom: 1px solid transparent;\n  min-height: 3.25rem;\n  padding-bottom: calc(0.5rem - 1px);\n}\n\n.navbar-item.is-tab:hover {\n  background-color: transparent;\n  border-bottom-color: #00d1b2;\n}\n\n.navbar-item.is-tab.is-active {\n  background-color: transparent;\n  border-bottom: 3px solid #00d1b2;\n  color: #00d1b2;\n  padding-bottom: calc(0.5rem - 3px);\n}\n\n.navbar-content {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.navbar-link {\n  padding-right: 2.5em;\n}\n\n.navbar-dropdown {\n  font-size: 0.875rem;\n  padding-bottom: 0.5rem;\n  padding-top: 0.5rem;\n}\n\n.navbar-dropdown .navbar-item {\n  padding-left: 1.5rem;\n  padding-right: 1.5rem;\n}\n\n.navbar-divider {\n  background-color: #dbdbdb;\n  border: none;\n  display: none;\n  height: 1px;\n  margin: 0.5rem 0;\n}\n\n@media screen and (max-width: 1007px) {\n  .navbar-brand .navbar-item {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .navbar-menu {\n    -webkit-box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);\n            box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);\n    padding: 0.5rem 0;\n  }\n  .navbar-menu.is-active {\n    display: block;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .navbar,\n  .navbar-menu,\n  .navbar-start,\n  .navbar-end {\n    -webkit-box-align: stretch;\n        -ms-flex-align: stretch;\n            align-items: stretch;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .navbar {\n    min-height: 3.25rem;\n  }\n  .navbar.is-transparent a.navbar-item:hover, .navbar.is-transparent a.navbar-item.is-active,\n  .navbar.is-transparent .navbar-link:hover,\n  .navbar.is-transparent .navbar-link.is-active {\n    background-color: transparent;\n  }\n  .navbar.is-transparent .navbar-item.has-dropdown.is-active .navbar-link, .navbar.is-transparent .navbar-item.has-dropdown.is-hoverable:hover .navbar-link {\n    background-color: transparent;\n  }\n  .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {\n    background-color: whitesmoke;\n    color: #0a0a0a;\n  }\n  .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {\n    background-color: whitesmoke;\n    color: #00d1b2;\n  }\n  .navbar-burger {\n    display: none;\n  }\n  .navbar-item,\n  .navbar-link {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .navbar-item.has-dropdown {\n    -webkit-box-align: stretch;\n        -ms-flex-align: stretch;\n            align-items: stretch;\n  }\n  .navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {\n    display: block;\n  }\n  .navbar-item.is-active .navbar-dropdown.is-boxed, .navbar-item.is-hoverable:hover .navbar-dropdown.is-boxed {\n    opacity: 1;\n    pointer-events: auto;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n  .navbar-link::after {\n    border: 1px solid #00d1b2;\n    border-right: 0;\n    border-top: 0;\n    content: \" \";\n    display: block;\n    height: 0.5em;\n    pointer-events: none;\n    position: absolute;\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg);\n    width: 0.5em;\n    margin-top: -0.375em;\n    right: 1.125em;\n    top: 50%;\n  }\n  .navbar-menu {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 0;\n        flex-shrink: 0;\n  }\n  .navbar-start {\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    margin-right: auto;\n  }\n  .navbar-end {\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n    margin-left: auto;\n  }\n  .navbar-dropdown {\n    background-color: white;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n    border-top: 1px solid #dbdbdb;\n    -webkit-box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);\n            box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);\n    display: none;\n    font-size: 0.875rem;\n    left: 0;\n    min-width: 100%;\n    position: absolute;\n    top: 100%;\n    z-index: 20;\n  }\n  .navbar-dropdown .navbar-item {\n    padding: 0.375rem 1rem;\n    white-space: nowrap;\n  }\n  .navbar-dropdown a.navbar-item {\n    padding-right: 3rem;\n  }\n  .navbar-dropdown a.navbar-item:hover {\n    background-color: whitesmoke;\n    color: #0a0a0a;\n  }\n  .navbar-dropdown a.navbar-item.is-active {\n    background-color: whitesmoke;\n    color: #00d1b2;\n  }\n  .navbar-dropdown.is-boxed {\n    border-radius: 5px;\n    border-top: none;\n    -webkit-box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n            box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);\n    display: block;\n    opacity: 0;\n    pointer-events: none;\n    top: calc(100% + (-4px));\n    -webkit-transform: translateY(-5px);\n            transform: translateY(-5px);\n    -webkit-transition-duration: 86ms;\n            transition-duration: 86ms;\n    -webkit-transition-property: opacity, -webkit-transform;\n    transition-property: opacity, -webkit-transform;\n    transition-property: opacity, transform;\n    transition-property: opacity, transform, -webkit-transform;\n  }\n  .navbar-divider {\n    display: block;\n  }\n  .container > .navbar {\n    margin-left: -1rem;\n    margin-right: -1rem;\n  }\n  a.navbar-item.is-active,\n  .navbar-link.is-active {\n    color: #0a0a0a;\n  }\n  a.navbar-item.is-active:not(:hover),\n  .navbar-link.is-active:not(:hover) {\n    background-color: transparent;\n  }\n  .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {\n    background-color: whitesmoke;\n  }\n}\n\n.pagination {\n  font-size: 1rem;\n  margin: -0.25rem;\n}\n\n.pagination.is-small {\n  font-size: 0.75rem;\n}\n\n.pagination.is-medium {\n  font-size: 1.25rem;\n}\n\n.pagination.is-large {\n  font-size: 1.5rem;\n}\n\n.pagination,\n.pagination-list {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center;\n}\n\n.pagination-previous,\n.pagination-next,\n.pagination-link,\n.pagination-ellipsis {\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: 1px solid transparent;\n  border-radius: 3px;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  line-height: 1.5;\n  padding-bottom: calc(0.375em - 1px);\n  padding-left: calc(0.625em - 1px);\n  padding-right: calc(0.625em - 1px);\n  padding-top: calc(0.375em - 1px);\n  position: relative;\n  vertical-align: top;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  font-size: 1em;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 0.25rem;\n  text-align: center;\n}\n\n.pagination-previous:focus, .pagination-previous.is-focused, .pagination-previous:active, .pagination-previous.is-active,\n.pagination-next:focus,\n.pagination-next.is-focused,\n.pagination-next:active,\n.pagination-next.is-active,\n.pagination-link:focus,\n.pagination-link.is-focused,\n.pagination-link:active,\n.pagination-link.is-active,\n.pagination-ellipsis:focus,\n.pagination-ellipsis.is-focused,\n.pagination-ellipsis:active,\n.pagination-ellipsis.is-active {\n  outline: none;\n}\n\n.pagination-previous[disabled],\n.pagination-next[disabled],\n.pagination-link[disabled],\n.pagination-ellipsis[disabled] {\n  cursor: not-allowed;\n}\n\n.pagination-previous,\n.pagination-next,\n.pagination-link {\n  border-color: #dbdbdb;\n  min-width: 2.25em;\n}\n\n.pagination-previous:hover,\n.pagination-next:hover,\n.pagination-link:hover {\n  border-color: #b5b5b5;\n  color: #363636;\n}\n\n.pagination-previous:focus,\n.pagination-next:focus,\n.pagination-link:focus {\n  border-color: #00d1b2;\n}\n\n.pagination-previous:active,\n.pagination-next:active,\n.pagination-link:active {\n  -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n          box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);\n}\n\n.pagination-previous[disabled],\n.pagination-next[disabled],\n.pagination-link[disabled] {\n  background-color: #dbdbdb;\n  border-color: #dbdbdb;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  color: #7a7a7a;\n  opacity: 0.5;\n}\n\n.pagination-previous,\n.pagination-next {\n  padding-left: 0.75em;\n  padding-right: 0.75em;\n  white-space: nowrap;\n}\n\n.pagination-link.is-current {\n  background-color: #00d1b2;\n  border-color: #00d1b2;\n  color: #fff;\n}\n\n.pagination-ellipsis {\n  color: #b5b5b5;\n  pointer-events: none;\n}\n\n.pagination-list {\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n@media screen and (max-width: 768px) {\n  .pagination {\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n  }\n  .pagination-previous,\n  .pagination-next {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n  .pagination-list li {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .pagination-list {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    -ms-flex-negative: 1;\n        flex-shrink: 1;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .pagination-previous {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .pagination-next {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .pagination {\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n  }\n  .pagination.is-centered .pagination-previous {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .pagination.is-centered .pagination-list {\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .pagination.is-centered .pagination-next {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .pagination.is-right .pagination-previous {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .pagination.is-right .pagination-next {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .pagination.is-right .pagination-list {\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n}\n\n.panel {\n  font-size: 1rem;\n}\n\n.panel:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.panel-heading,\n.panel-tabs,\n.panel-block {\n  border-bottom: 1px solid #dbdbdb;\n  border-left: 1px solid #dbdbdb;\n  border-right: 1px solid #dbdbdb;\n}\n\n.panel-heading:first-child,\n.panel-tabs:first-child,\n.panel-block:first-child {\n  border-top: 1px solid #dbdbdb;\n}\n\n.panel-heading {\n  background-color: whitesmoke;\n  border-radius: 3px 3px 0 0;\n  color: #363636;\n  font-size: 1.25em;\n  font-weight: 300;\n  line-height: 1.25;\n  padding: 0.5em 0.75em;\n}\n\n.panel-tabs {\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 0.875em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.panel-tabs a {\n  border-bottom: 1px solid #dbdbdb;\n  margin-bottom: -1px;\n  padding: 0.5em;\n}\n\n.panel-tabs a.is-active {\n  border-bottom-color: #4a4a4a;\n  color: #363636;\n}\n\n.panel-list a {\n  color: #4a4a4a;\n}\n\n.panel-list a:hover {\n  color: #00d1b2;\n}\n\n.panel-block {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #363636;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  padding: 0.5em 0.75em;\n}\n\n.panel-block input[type=\"checkbox\"] {\n  margin-right: 0.75em;\n}\n\n.panel-block > .control {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  width: 100%;\n}\n\n.panel-block.is-wrapped {\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.panel-block.is-active {\n  border-left-color: #00d1b2;\n  color: #363636;\n}\n\n.panel-block.is-active .panel-icon {\n  color: #00d1b2;\n}\n\na.panel-block,\nlabel.panel-block {\n  cursor: pointer;\n}\n\na.panel-block:hover,\nlabel.panel-block:hover {\n  background-color: whitesmoke;\n}\n\n.panel-icon {\n  display: inline-block;\n  font-size: 14px;\n  height: 1em;\n  line-height: 1em;\n  text-align: center;\n  vertical-align: top;\n  width: 1em;\n  color: #7a7a7a;\n  margin-right: 0.75em;\n}\n\n.panel-icon .fa {\n  font-size: inherit;\n  line-height: inherit;\n}\n\n.tabs {\n  -webkit-overflow-scrolling: touch;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 1rem;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  overflow: hidden;\n  overflow-x: auto;\n  white-space: nowrap;\n}\n\n.tabs:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.tabs a {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border-bottom: 1px solid #dbdbdb;\n  color: #4a4a4a;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: -1px;\n  padding: 0.5em 1em;\n  vertical-align: top;\n}\n\n.tabs a:hover {\n  border-bottom-color: #363636;\n  color: #363636;\n}\n\n.tabs li {\n  display: block;\n}\n\n.tabs li.is-active a {\n  border-bottom-color: #00d1b2;\n  color: #00d1b2;\n}\n\n.tabs ul {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border-bottom: 1px solid #dbdbdb;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n\n.tabs ul.is-left {\n  padding-right: 0.75em;\n}\n\n.tabs ul.is-center {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding-left: 0.75em;\n  padding-right: 0.75em;\n}\n\n.tabs ul.is-right {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  padding-left: 0.75em;\n}\n\n.tabs .icon:first-child {\n  margin-right: 0.5em;\n}\n\n.tabs .icon:last-child {\n  margin-left: 0.5em;\n}\n\n.tabs.is-centered ul {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.tabs.is-right ul {\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n\n.tabs.is-boxed a {\n  border: 1px solid transparent;\n  border-radius: 3px 3px 0 0;\n}\n\n.tabs.is-boxed a:hover {\n  background-color: whitesmoke;\n  border-bottom-color: #dbdbdb;\n}\n\n.tabs.is-boxed li.is-active a {\n  background-color: white;\n  border-color: #dbdbdb;\n  border-bottom-color: transparent !important;\n}\n\n.tabs.is-fullwidth li {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.tabs.is-toggle a {\n  border: 1px solid #dbdbdb;\n  margin-bottom: 0;\n  position: relative;\n}\n\n.tabs.is-toggle a:hover {\n  background-color: whitesmoke;\n  border-color: #b5b5b5;\n  z-index: 2;\n}\n\n.tabs.is-toggle li + li {\n  margin-left: -1px;\n}\n\n.tabs.is-toggle li:first-child a {\n  border-radius: 3px 0 0 3px;\n}\n\n.tabs.is-toggle li:last-child a {\n  border-radius: 0 3px 3px 0;\n}\n\n.tabs.is-toggle li.is-active a {\n  background-color: #00d1b2;\n  border-color: #00d1b2;\n  color: #fff;\n  z-index: 1;\n}\n\n.tabs.is-toggle ul {\n  border-bottom: none;\n}\n\n.tabs.is-small {\n  font-size: 0.75rem;\n}\n\n.tabs.is-medium {\n  font-size: 1.25rem;\n}\n\n.tabs.is-large {\n  font-size: 1.5rem;\n}\n\n.column {\n  display: block;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  padding: 0.75rem;\n}\n\n.columns.is-mobile > .column.is-narrow {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n}\n\n.columns.is-mobile > .column.is-full {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 100%;\n}\n\n.columns.is-mobile > .column.is-three-quarters {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 75%;\n}\n\n.columns.is-mobile > .column.is-two-thirds {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 66.6666%;\n}\n\n.columns.is-mobile > .column.is-half {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 50%;\n}\n\n.columns.is-mobile > .column.is-one-third {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 33.3333%;\n}\n\n.columns.is-mobile > .column.is-one-quarter {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 25%;\n}\n\n.columns.is-mobile > .column.is-offset-three-quarters {\n  margin-left: 75%;\n}\n\n.columns.is-mobile > .column.is-offset-two-thirds {\n  margin-left: 66.6666%;\n}\n\n.columns.is-mobile > .column.is-offset-half {\n  margin-left: 50%;\n}\n\n.columns.is-mobile > .column.is-offset-one-third {\n  margin-left: 33.3333%;\n}\n\n.columns.is-mobile > .column.is-offset-one-quarter {\n  margin-left: 25%;\n}\n\n.columns.is-mobile > .column.is-1 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 8.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-1 {\n  margin-left: 8.33333%;\n}\n\n.columns.is-mobile > .column.is-2 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 16.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-2 {\n  margin-left: 16.66667%;\n}\n\n.columns.is-mobile > .column.is-3 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 25%;\n}\n\n.columns.is-mobile > .column.is-offset-3 {\n  margin-left: 25%;\n}\n\n.columns.is-mobile > .column.is-4 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 33.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-4 {\n  margin-left: 33.33333%;\n}\n\n.columns.is-mobile > .column.is-5 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 41.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-5 {\n  margin-left: 41.66667%;\n}\n\n.columns.is-mobile > .column.is-6 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 50%;\n}\n\n.columns.is-mobile > .column.is-offset-6 {\n  margin-left: 50%;\n}\n\n.columns.is-mobile > .column.is-7 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 58.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-7 {\n  margin-left: 58.33333%;\n}\n\n.columns.is-mobile > .column.is-8 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 66.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-8 {\n  margin-left: 66.66667%;\n}\n\n.columns.is-mobile > .column.is-9 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 75%;\n}\n\n.columns.is-mobile > .column.is-offset-9 {\n  margin-left: 75%;\n}\n\n.columns.is-mobile > .column.is-10 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 83.33333%;\n}\n\n.columns.is-mobile > .column.is-offset-10 {\n  margin-left: 83.33333%;\n}\n\n.columns.is-mobile > .column.is-11 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 91.66667%;\n}\n\n.columns.is-mobile > .column.is-offset-11 {\n  margin-left: 91.66667%;\n}\n\n.columns.is-mobile > .column.is-12 {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  width: 100%;\n}\n\n.columns.is-mobile > .column.is-offset-12 {\n  margin-left: 100%;\n}\n\n@media screen and (max-width: 768px) {\n  .column.is-narrow-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-mobile {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-mobile {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-mobile {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-mobile {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-mobile {\n    margin-left: 25%;\n  }\n  .column.is-1-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-mobile {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-mobile {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-mobile {\n    margin-left: 25%;\n  }\n  .column.is-4-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-mobile {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-mobile {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-mobile {\n    margin-left: 50%;\n  }\n  .column.is-7-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-mobile {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-mobile {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-mobile {\n    margin-left: 75%;\n  }\n  .column.is-10-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-mobile {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-mobile {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-mobile {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-mobile {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .column.is-narrow, .column.is-narrow-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full, .column.is-full-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters, .column.is-three-quarters-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds, .column.is-two-thirds-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half, .column.is-half-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third, .column.is-one-third-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter, .column.is-one-quarter-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters, .column.is-offset-three-quarters-tablet {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds, .column.is-offset-two-thirds-tablet {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half, .column.is-offset-half-tablet {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third, .column.is-offset-one-third-tablet {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {\n    margin-left: 25%;\n  }\n  .column.is-1, .column.is-1-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1, .column.is-offset-1-tablet {\n    margin-left: 8.33333%;\n  }\n  .column.is-2, .column.is-2-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2, .column.is-offset-2-tablet {\n    margin-left: 16.66667%;\n  }\n  .column.is-3, .column.is-3-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3, .column.is-offset-3-tablet {\n    margin-left: 25%;\n  }\n  .column.is-4, .column.is-4-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4, .column.is-offset-4-tablet {\n    margin-left: 33.33333%;\n  }\n  .column.is-5, .column.is-5-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5, .column.is-offset-5-tablet {\n    margin-left: 41.66667%;\n  }\n  .column.is-6, .column.is-6-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6, .column.is-offset-6-tablet {\n    margin-left: 50%;\n  }\n  .column.is-7, .column.is-7-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7, .column.is-offset-7-tablet {\n    margin-left: 58.33333%;\n  }\n  .column.is-8, .column.is-8-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8, .column.is-offset-8-tablet {\n    margin-left: 66.66667%;\n  }\n  .column.is-9, .column.is-9-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9, .column.is-offset-9-tablet {\n    margin-left: 75%;\n  }\n  .column.is-10, .column.is-10-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10, .column.is-offset-10-tablet {\n    margin-left: 83.33333%;\n  }\n  .column.is-11, .column.is-11-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11, .column.is-offset-11-tablet {\n    margin-left: 91.66667%;\n  }\n  .column.is-12, .column.is-12-tablet {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12, .column.is-offset-12-tablet {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (max-width: 1007px) {\n  .column.is-narrow-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-touch {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-touch {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-touch {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-touch {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-touch {\n    margin-left: 25%;\n  }\n  .column.is-1-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-touch {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-touch {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-touch {\n    margin-left: 25%;\n  }\n  .column.is-4-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-touch {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-touch {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-touch {\n    margin-left: 50%;\n  }\n  .column.is-7-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-touch {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-touch {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-touch {\n    margin-left: 75%;\n  }\n  .column.is-10-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-touch {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-touch {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-touch {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-touch {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .column.is-narrow-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-desktop {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-desktop {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-desktop {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-desktop {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-desktop {\n    margin-left: 25%;\n  }\n  .column.is-1-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-desktop {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-desktop {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-desktop {\n    margin-left: 25%;\n  }\n  .column.is-4-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-desktop {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-desktop {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-desktop {\n    margin-left: 50%;\n  }\n  .column.is-7-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-desktop {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-desktop {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-desktop {\n    margin-left: 75%;\n  }\n  .column.is-10-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-desktop {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-desktop {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-desktop {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-desktop {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 1200px) {\n  .column.is-narrow-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-widescreen {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-widescreen {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-widescreen {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-widescreen {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-widescreen {\n    margin-left: 25%;\n  }\n  .column.is-1-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-widescreen {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-widescreen {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-widescreen {\n    margin-left: 25%;\n  }\n  .column.is-4-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-widescreen {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-widescreen {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-widescreen {\n    margin-left: 50%;\n  }\n  .column.is-7-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-widescreen {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-widescreen {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-widescreen {\n    margin-left: 75%;\n  }\n  .column.is-10-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-widescreen {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-widescreen {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-widescreen {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-widescreen {\n    margin-left: 100%;\n  }\n}\n\n@media screen and (min-width: 1392px) {\n  .column.is-narrow-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n  }\n  .column.is-full-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-three-quarters-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-two-thirds-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.6666%;\n  }\n  .column.is-half-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-one-third-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.3333%;\n  }\n  .column.is-one-quarter-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-three-quarters-fullhd {\n    margin-left: 75%;\n  }\n  .column.is-offset-two-thirds-fullhd {\n    margin-left: 66.6666%;\n  }\n  .column.is-offset-half-fullhd {\n    margin-left: 50%;\n  }\n  .column.is-offset-one-third-fullhd {\n    margin-left: 33.3333%;\n  }\n  .column.is-offset-one-quarter-fullhd {\n    margin-left: 25%;\n  }\n  .column.is-1-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .column.is-offset-1-fullhd {\n    margin-left: 8.33333%;\n  }\n  .column.is-2-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .column.is-offset-2-fullhd {\n    margin-left: 16.66667%;\n  }\n  .column.is-3-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .column.is-offset-3-fullhd {\n    margin-left: 25%;\n  }\n  .column.is-4-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .column.is-offset-4-fullhd {\n    margin-left: 33.33333%;\n  }\n  .column.is-5-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .column.is-offset-5-fullhd {\n    margin-left: 41.66667%;\n  }\n  .column.is-6-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .column.is-offset-6-fullhd {\n    margin-left: 50%;\n  }\n  .column.is-7-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .column.is-offset-7-fullhd {\n    margin-left: 58.33333%;\n  }\n  .column.is-8-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .column.is-offset-8-fullhd {\n    margin-left: 66.66667%;\n  }\n  .column.is-9-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .column.is-offset-9-fullhd {\n    margin-left: 75%;\n  }\n  .column.is-10-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .column.is-offset-10-fullhd {\n    margin-left: 83.33333%;\n  }\n  .column.is-11-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .column.is-offset-11-fullhd {\n    margin-left: 91.66667%;\n  }\n  .column.is-12-fullhd {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n  .column.is-offset-12-fullhd {\n    margin-left: 100%;\n  }\n}\n\n.columns {\n  margin-left: -0.75rem;\n  margin-right: -0.75rem;\n  margin-top: -0.75rem;\n}\n\n.columns:last-child {\n  margin-bottom: -0.75rem;\n}\n\n.columns:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.columns.is-centered {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.columns.is-gapless {\n  margin-left: 0;\n  margin-right: 0;\n  margin-top: 0;\n}\n\n.columns.is-gapless:last-child {\n  margin-bottom: 0;\n}\n\n.columns.is-gapless:not(:last-child) {\n  margin-bottom: 1.5rem;\n}\n\n.columns.is-gapless > .column {\n  margin: 0;\n  padding: 0;\n}\n\n@media screen and (min-width: 769px), print {\n  .columns.is-grid {\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n  }\n  .columns.is-grid > .column {\n    max-width: 33.3333%;\n    padding: 0.75rem;\n    width: 33.3333%;\n  }\n  .columns.is-grid > .column + .column {\n    margin-left: 0;\n  }\n}\n\n.columns.is-mobile {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.columns.is-multiline {\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.columns.is-vcentered {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n@media screen and (min-width: 769px), print {\n  .columns:not(.is-desktop) {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n@media screen and (min-width: 1008px) {\n  .columns.is-desktop {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n\n.tile {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  display: block;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n  min-height: -webkit-min-content;\n  min-height: -moz-min-content;\n  min-height: min-content;\n}\n\n.tile.is-ancestor {\n  margin-left: -0.75rem;\n  margin-right: -0.75rem;\n  margin-top: -0.75rem;\n}\n\n.tile.is-ancestor:last-child {\n  margin-bottom: -0.75rem;\n}\n\n.tile.is-ancestor:not(:last-child) {\n  margin-bottom: 0.75rem;\n}\n\n.tile.is-child {\n  margin: 0 !important;\n}\n\n.tile.is-parent {\n  padding: 0.75rem;\n}\n\n.tile.is-vertical {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n\n.tile.is-vertical > .tile.is-child:not(:last-child) {\n  margin-bottom: 1.5rem !important;\n}\n\n@media screen and (min-width: 769px), print {\n  .tile:not(.is-child) {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .tile.is-1 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 8.33333%;\n  }\n  .tile.is-2 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 16.66667%;\n  }\n  .tile.is-3 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 25%;\n  }\n  .tile.is-4 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 33.33333%;\n  }\n  .tile.is-5 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 41.66667%;\n  }\n  .tile.is-6 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 50%;\n  }\n  .tile.is-7 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 58.33333%;\n  }\n  .tile.is-8 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 66.66667%;\n  }\n  .tile.is-9 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 75%;\n  }\n  .tile.is-10 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 83.33333%;\n  }\n  .tile.is-11 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 91.66667%;\n  }\n  .tile.is-12 {\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none;\n    width: 100%;\n  }\n}\n\n.hero-video {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  overflow: hidden;\n}\n\n.hero-video video {\n  left: 50%;\n  min-height: 100%;\n  min-width: 100%;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translate3d(-50%, -50%, 0);\n          transform: translate3d(-50%, -50%, 0);\n}\n\n.hero-video.is-transparent {\n  opacity: 0.3;\n}\n\n@media screen and (max-width: 768px) {\n  .hero-video {\n    display: none;\n  }\n}\n\n.hero-buttons {\n  margin-top: 1.5rem;\n}\n\n@media screen and (max-width: 768px) {\n  .hero-buttons .button {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n  .hero-buttons .button:not(:last-child) {\n    margin-bottom: 0.75rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .hero-buttons {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n  }\n  .hero-buttons .button:not(:last-child) {\n    margin-right: 1.5rem;\n  }\n}\n\n.hero-head,\n.hero-foot {\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n\n.hero-body {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  padding: 3rem 1.5rem;\n}\n\n.hero {\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.hero .nav {\n  background: none;\n  -webkit-box-shadow: 0 1px 0 rgba(219, 219, 219, 0.3);\n          box-shadow: 0 1px 0 rgba(219, 219, 219, 0.3);\n}\n\n.hero .tabs ul {\n  border-bottom: none;\n}\n\n.hero.is-white {\n  background-color: white;\n  color: #0a0a0a;\n}\n\n.hero.is-white a:not(.button),\n.hero.is-white strong {\n  color: inherit;\n}\n\n.hero.is-white .title {\n  color: #0a0a0a;\n}\n\n.hero.is-white .subtitle {\n  color: rgba(10, 10, 10, 0.9);\n}\n\n.hero.is-white .subtitle a:not(.button),\n.hero.is-white .subtitle strong {\n  color: #0a0a0a;\n}\n\n.hero.is-white .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(10, 10, 10, 0.2);\n          box-shadow: 0 1px 0 rgba(10, 10, 10, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-white .nav-menu {\n    background-color: white;\n  }\n}\n\n.hero.is-white a.nav-item,\n.hero.is-white .nav-item a:not(.button) {\n  color: rgba(10, 10, 10, 0.7);\n}\n\n.hero.is-white a.nav-item:hover, .hero.is-white a.nav-item.is-active,\n.hero.is-white .nav-item a:not(.button):hover,\n.hero.is-white .nav-item a:not(.button).is-active {\n  color: #0a0a0a;\n}\n\n.hero.is-white .tabs a {\n  color: #0a0a0a;\n  opacity: 0.9;\n}\n\n.hero.is-white .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-white .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-white .tabs.is-boxed a, .hero.is-white .tabs.is-toggle a {\n  color: #0a0a0a;\n}\n\n.hero.is-white .tabs.is-boxed a:hover, .hero.is-white .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-white .tabs.is-boxed li.is-active a, .hero.is-white .tabs.is-boxed li.is-active a:hover, .hero.is-white .tabs.is-toggle li.is-active a, .hero.is-white .tabs.is-toggle li.is-active a:hover {\n  background-color: #0a0a0a;\n  border-color: #0a0a0a;\n  color: white;\n}\n\n.hero.is-white.is-bold {\n  background-image: linear-gradient(141deg, #e6e6e6 0%, white 71%, white 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-white.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #e6e6e6 0%, white 71%, white 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-white .nav-toggle span {\n    background-color: #0a0a0a;\n  }\n  .hero.is-white .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-white .nav-toggle.is-active span {\n    background-color: #0a0a0a;\n  }\n  .hero.is-white .nav-menu .nav-item {\n    border-top-color: rgba(10, 10, 10, 0.2);\n  }\n}\n\n.hero.is-black {\n  background-color: #0a0a0a;\n  color: white;\n}\n\n.hero.is-black a:not(.button),\n.hero.is-black strong {\n  color: inherit;\n}\n\n.hero.is-black .title {\n  color: white;\n}\n\n.hero.is-black .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-black .subtitle a:not(.button),\n.hero.is-black .subtitle strong {\n  color: white;\n}\n\n.hero.is-black .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-black .nav-menu {\n    background-color: #0a0a0a;\n  }\n}\n\n.hero.is-black a.nav-item,\n.hero.is-black .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-black a.nav-item:hover, .hero.is-black a.nav-item.is-active,\n.hero.is-black .nav-item a:not(.button):hover,\n.hero.is-black .nav-item a:not(.button).is-active {\n  color: white;\n}\n\n.hero.is-black .tabs a {\n  color: white;\n  opacity: 0.9;\n}\n\n.hero.is-black .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-black .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-black .tabs.is-boxed a, .hero.is-black .tabs.is-toggle a {\n  color: white;\n}\n\n.hero.is-black .tabs.is-boxed a:hover, .hero.is-black .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-black .tabs.is-boxed li.is-active a, .hero.is-black .tabs.is-boxed li.is-active a:hover, .hero.is-black .tabs.is-toggle li.is-active a, .hero.is-black .tabs.is-toggle li.is-active a:hover {\n  background-color: white;\n  border-color: white;\n  color: #0a0a0a;\n}\n\n.hero.is-black.is-bold {\n  background-image: linear-gradient(141deg, black 0%, #0a0a0a 71%, #181616 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-black.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, black 0%, #0a0a0a 71%, #181616 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-black .nav-toggle span {\n    background-color: white;\n  }\n  .hero.is-black .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-black .nav-toggle.is-active span {\n    background-color: white;\n  }\n  .hero.is-black .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-light {\n  background-color: whitesmoke;\n  color: #363636;\n}\n\n.hero.is-light a:not(.button),\n.hero.is-light strong {\n  color: inherit;\n}\n\n.hero.is-light .title {\n  color: #363636;\n}\n\n.hero.is-light .subtitle {\n  color: rgba(54, 54, 54, 0.9);\n}\n\n.hero.is-light .subtitle a:not(.button),\n.hero.is-light .subtitle strong {\n  color: #363636;\n}\n\n.hero.is-light .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(54, 54, 54, 0.2);\n          box-shadow: 0 1px 0 rgba(54, 54, 54, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-light .nav-menu {\n    background-color: whitesmoke;\n  }\n}\n\n.hero.is-light a.nav-item,\n.hero.is-light .nav-item a:not(.button) {\n  color: rgba(54, 54, 54, 0.7);\n}\n\n.hero.is-light a.nav-item:hover, .hero.is-light a.nav-item.is-active,\n.hero.is-light .nav-item a:not(.button):hover,\n.hero.is-light .nav-item a:not(.button).is-active {\n  color: #363636;\n}\n\n.hero.is-light .tabs a {\n  color: #363636;\n  opacity: 0.9;\n}\n\n.hero.is-light .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-light .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-light .tabs.is-boxed a, .hero.is-light .tabs.is-toggle a {\n  color: #363636;\n}\n\n.hero.is-light .tabs.is-boxed a:hover, .hero.is-light .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-light .tabs.is-boxed li.is-active a, .hero.is-light .tabs.is-boxed li.is-active a:hover, .hero.is-light .tabs.is-toggle li.is-active a, .hero.is-light .tabs.is-toggle li.is-active a:hover {\n  background-color: #363636;\n  border-color: #363636;\n  color: whitesmoke;\n}\n\n.hero.is-light.is-bold {\n  background-image: linear-gradient(141deg, #dfd8d9 0%, whitesmoke 71%, white 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-light.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #dfd8d9 0%, whitesmoke 71%, white 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-light .nav-toggle span {\n    background-color: #363636;\n  }\n  .hero.is-light .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-light .nav-toggle.is-active span {\n    background-color: #363636;\n  }\n  .hero.is-light .nav-menu .nav-item {\n    border-top-color: rgba(54, 54, 54, 0.2);\n  }\n}\n\n.hero.is-dark {\n  background-color: #363636;\n  color: whitesmoke;\n}\n\n.hero.is-dark a:not(.button),\n.hero.is-dark strong {\n  color: inherit;\n}\n\n.hero.is-dark .title {\n  color: whitesmoke;\n}\n\n.hero.is-dark .subtitle {\n  color: rgba(245, 245, 245, 0.9);\n}\n\n.hero.is-dark .subtitle a:not(.button),\n.hero.is-dark .subtitle strong {\n  color: whitesmoke;\n}\n\n.hero.is-dark .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(245, 245, 245, 0.2);\n          box-shadow: 0 1px 0 rgba(245, 245, 245, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-dark .nav-menu {\n    background-color: #363636;\n  }\n}\n\n.hero.is-dark a.nav-item,\n.hero.is-dark .nav-item a:not(.button) {\n  color: rgba(245, 245, 245, 0.7);\n}\n\n.hero.is-dark a.nav-item:hover, .hero.is-dark a.nav-item.is-active,\n.hero.is-dark .nav-item a:not(.button):hover,\n.hero.is-dark .nav-item a:not(.button).is-active {\n  color: whitesmoke;\n}\n\n.hero.is-dark .tabs a {\n  color: whitesmoke;\n  opacity: 0.9;\n}\n\n.hero.is-dark .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-dark .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-dark .tabs.is-boxed a, .hero.is-dark .tabs.is-toggle a {\n  color: whitesmoke;\n}\n\n.hero.is-dark .tabs.is-boxed a:hover, .hero.is-dark .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-dark .tabs.is-boxed li.is-active a, .hero.is-dark .tabs.is-boxed li.is-active a:hover, .hero.is-dark .tabs.is-toggle li.is-active a, .hero.is-dark .tabs.is-toggle li.is-active a:hover {\n  background-color: whitesmoke;\n  border-color: whitesmoke;\n  color: #363636;\n}\n\n.hero.is-dark.is-bold {\n  background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-dark.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-dark .nav-toggle span {\n    background-color: whitesmoke;\n  }\n  .hero.is-dark .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-dark .nav-toggle.is-active span {\n    background-color: whitesmoke;\n  }\n  .hero.is-dark .nav-menu .nav-item {\n    border-top-color: rgba(245, 245, 245, 0.2);\n  }\n}\n\n.hero.is-primary {\n  background-color: #00d1b2;\n  color: #fff;\n}\n\n.hero.is-primary a:not(.button),\n.hero.is-primary strong {\n  color: inherit;\n}\n\n.hero.is-primary .title {\n  color: #fff;\n}\n\n.hero.is-primary .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-primary .subtitle a:not(.button),\n.hero.is-primary .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-primary .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-primary .nav-menu {\n    background-color: #00d1b2;\n  }\n}\n\n.hero.is-primary a.nav-item,\n.hero.is-primary .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-primary a.nav-item:hover, .hero.is-primary a.nav-item.is-active,\n.hero.is-primary .nav-item a:not(.button):hover,\n.hero.is-primary .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-primary .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-primary .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-primary .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-primary .tabs.is-boxed a, .hero.is-primary .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-primary .tabs.is-boxed a:hover, .hero.is-primary .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-primary .tabs.is-boxed li.is-active a, .hero.is-primary .tabs.is-boxed li.is-active a:hover, .hero.is-primary .tabs.is-toggle li.is-active a, .hero.is-primary .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #00d1b2;\n}\n\n.hero.is-primary.is-bold {\n  background-image: linear-gradient(141deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-primary.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-primary .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-primary .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-primary .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-primary .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-info {\n  background-color: #3273dc;\n  color: #fff;\n}\n\n.hero.is-info a:not(.button),\n.hero.is-info strong {\n  color: inherit;\n}\n\n.hero.is-info .title {\n  color: #fff;\n}\n\n.hero.is-info .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-info .subtitle a:not(.button),\n.hero.is-info .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-info .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-info .nav-menu {\n    background-color: #3273dc;\n  }\n}\n\n.hero.is-info a.nav-item,\n.hero.is-info .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-info a.nav-item:hover, .hero.is-info a.nav-item.is-active,\n.hero.is-info .nav-item a:not(.button):hover,\n.hero.is-info .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-info .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-info .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-info .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-info .tabs.is-boxed a, .hero.is-info .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-info .tabs.is-boxed a:hover, .hero.is-info .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-info .tabs.is-boxed li.is-active a, .hero.is-info .tabs.is-boxed li.is-active a:hover, .hero.is-info .tabs.is-toggle li.is-active a, .hero.is-info .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #3273dc;\n}\n\n.hero.is-info.is-bold {\n  background-image: linear-gradient(141deg, #1577c6 0%, #3273dc 71%, #4366e5 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-info.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #1577c6 0%, #3273dc 71%, #4366e5 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-info .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-info .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-info .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-info .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-success {\n  background-color: #23d160;\n  color: #fff;\n}\n\n.hero.is-success a:not(.button),\n.hero.is-success strong {\n  color: inherit;\n}\n\n.hero.is-success .title {\n  color: #fff;\n}\n\n.hero.is-success .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-success .subtitle a:not(.button),\n.hero.is-success .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-success .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-success .nav-menu {\n    background-color: #23d160;\n  }\n}\n\n.hero.is-success a.nav-item,\n.hero.is-success .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-success a.nav-item:hover, .hero.is-success a.nav-item.is-active,\n.hero.is-success .nav-item a:not(.button):hover,\n.hero.is-success .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-success .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-success .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-success .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-success .tabs.is-boxed a, .hero.is-success .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-success .tabs.is-boxed a:hover, .hero.is-success .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-success .tabs.is-boxed li.is-active a, .hero.is-success .tabs.is-boxed li.is-active a:hover, .hero.is-success .tabs.is-toggle li.is-active a, .hero.is-success .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #23d160;\n}\n\n.hero.is-success.is-bold {\n  background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-success.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-success .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-success .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-success .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-success .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n.hero.is-warning {\n  background-color: #ffdd57;\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning a:not(.button),\n.hero.is-warning strong {\n  color: inherit;\n}\n\n.hero.is-warning .title {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .subtitle {\n  color: rgba(0, 0, 0, 0.9);\n}\n\n.hero.is-warning .subtitle a:not(.button),\n.hero.is-warning .subtitle strong {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-warning .nav-menu {\n    background-color: #ffdd57;\n  }\n}\n\n.hero.is-warning a.nav-item,\n.hero.is-warning .nav-item a:not(.button) {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning a.nav-item:hover, .hero.is-warning a.nav-item.is-active,\n.hero.is-warning .nav-item a:not(.button):hover,\n.hero.is-warning .nav-item a:not(.button).is-active {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .tabs a {\n  color: rgba(0, 0, 0, 0.7);\n  opacity: 0.9;\n}\n\n.hero.is-warning .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-warning .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-warning .tabs.is-boxed a, .hero.is-warning .tabs.is-toggle a {\n  color: rgba(0, 0, 0, 0.7);\n}\n\n.hero.is-warning .tabs.is-boxed a:hover, .hero.is-warning .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-warning .tabs.is-boxed li.is-active a, .hero.is-warning .tabs.is-boxed li.is-active a:hover, .hero.is-warning .tabs.is-toggle li.is-active a, .hero.is-warning .tabs.is-toggle li.is-active a:hover {\n  background-color: rgba(0, 0, 0, 0.7);\n  border-color: rgba(0, 0, 0, 0.7);\n  color: #ffdd57;\n}\n\n.hero.is-warning.is-bold {\n  background-image: linear-gradient(141deg, #ffaf24 0%, #ffdd57 71%, #fffa70 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-warning.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #ffaf24 0%, #ffdd57 71%, #fffa70 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-warning .nav-toggle span {\n    background-color: rgba(0, 0, 0, 0.7);\n  }\n  .hero.is-warning .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-warning .nav-toggle.is-active span {\n    background-color: rgba(0, 0, 0, 0.7);\n  }\n  .hero.is-warning .nav-menu .nav-item {\n    border-top-color: rgba(0, 0, 0, 0.2);\n  }\n}\n\n.hero.is-danger {\n  background-color: #ff3860;\n  color: #fff;\n}\n\n.hero.is-danger a:not(.button),\n.hero.is-danger strong {\n  color: inherit;\n}\n\n.hero.is-danger .title {\n  color: #fff;\n}\n\n.hero.is-danger .subtitle {\n  color: rgba(255, 255, 255, 0.9);\n}\n\n.hero.is-danger .subtitle a:not(.button),\n.hero.is-danger .subtitle strong {\n  color: #fff;\n}\n\n.hero.is-danger .nav {\n  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-danger .nav-menu {\n    background-color: #ff3860;\n  }\n}\n\n.hero.is-danger a.nav-item,\n.hero.is-danger .nav-item a:not(.button) {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.hero.is-danger a.nav-item:hover, .hero.is-danger a.nav-item.is-active,\n.hero.is-danger .nav-item a:not(.button):hover,\n.hero.is-danger .nav-item a:not(.button).is-active {\n  color: #fff;\n}\n\n.hero.is-danger .tabs a {\n  color: #fff;\n  opacity: 0.9;\n}\n\n.hero.is-danger .tabs a:hover {\n  opacity: 1;\n}\n\n.hero.is-danger .tabs li.is-active a {\n  opacity: 1;\n}\n\n.hero.is-danger .tabs.is-boxed a, .hero.is-danger .tabs.is-toggle a {\n  color: #fff;\n}\n\n.hero.is-danger .tabs.is-boxed a:hover, .hero.is-danger .tabs.is-toggle a:hover {\n  background-color: rgba(10, 10, 10, 0.1);\n}\n\n.hero.is-danger .tabs.is-boxed li.is-active a, .hero.is-danger .tabs.is-boxed li.is-active a:hover, .hero.is-danger .tabs.is-toggle li.is-active a, .hero.is-danger .tabs.is-toggle li.is-active a:hover {\n  background-color: #fff;\n  border-color: #fff;\n  color: #ff3860;\n}\n\n.hero.is-danger.is-bold {\n  background-image: linear-gradient(141deg, #ff0561 0%, #ff3860 71%, #ff5257 100%);\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-danger.is-bold .nav-menu {\n    background-image: linear-gradient(141deg, #ff0561 0%, #ff3860 71%, #ff5257 100%);\n  }\n}\n\n@media screen and (max-width: 768px) {\n  .hero.is-danger .nav-toggle span {\n    background-color: #fff;\n  }\n  .hero.is-danger .nav-toggle:hover {\n    background-color: rgba(10, 10, 10, 0.1);\n  }\n  .hero.is-danger .nav-toggle.is-active span {\n    background-color: #fff;\n  }\n  .hero.is-danger .nav-menu .nav-item {\n    border-top-color: rgba(255, 255, 255, 0.2);\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .hero.is-medium .hero-body {\n    padding-bottom: 9rem;\n    padding-top: 9rem;\n  }\n}\n\n@media screen and (min-width: 769px), print {\n  .hero.is-large .hero-body {\n    padding-bottom: 18rem;\n    padding-top: 18rem;\n  }\n}\n\n.hero.is-halfheight .hero-body, .hero.is-fullheight .hero-body {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.hero.is-halfheight .hero-body > .container, .hero.is-fullheight .hero-body > .container {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.hero.is-halfheight {\n  min-height: 50vh;\n}\n\n.hero.is-fullheight {\n  min-height: 100vh;\n}\n\n.section {\n  background-color: white;\n  padding: 3rem 1.5rem;\n}\n\n@media screen and (min-width: 1008px) {\n  .section.is-medium {\n    padding: 9rem 1.5rem;\n  }\n  .section.is-large {\n    padding: 18rem 1.5rem;\n  }\n}\n\n.footer {\n  background-color: whitesmoke;\n  padding: 3rem 1.5rem 6rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL2J1bG1hLnNhc3MiLCIuLi9zYXNzL3V0aWxpdGllcy9hbmltYXRpb25zLnNhc3MiLCJidWxtYS5jc3MiLCIuLi9zYXNzL2Jhc2UvbWluaXJlc2V0LnNhc3MiLCIuLi9zYXNzL2Jhc2UvZ2VuZXJpYy5zYXNzIiwiLi4vc2Fzcy91dGlsaXRpZXMvaW5pdGlhbC12YXJpYWJsZXMuc2FzcyIsIi4uL3Nhc3MvdXRpbGl0aWVzL21peGlucy5zYXNzIiwiLi4vc2Fzcy9iYXNlL2hlbHBlcnMuc2FzcyIsIi4uL3Nhc3MvZWxlbWVudHMvYm94LnNhc3MiLCIuLi9zYXNzL2VsZW1lbnRzL2J1dHRvbi5zYXNzIiwiLi4vc2Fzcy91dGlsaXRpZXMvY29udHJvbHMuc2FzcyIsIi4uL3Nhc3MvdXRpbGl0aWVzL2Z1bmN0aW9ucy5zYXNzIiwiLi4vc2Fzcy9lbGVtZW50cy9jb250ZW50LnNhc3MiLCIuLi9zYXNzL2VsZW1lbnRzL2Zvcm0uc2FzcyIsIi4uL3Nhc3MvZWxlbWVudHMvaWNvbi5zYXNzIiwiLi4vc2Fzcy9lbGVtZW50cy9pbWFnZS5zYXNzIiwiLi4vc2Fzcy9lbGVtZW50cy9ub3RpZmljYXRpb24uc2FzcyIsIi4uL3Nhc3MvZWxlbWVudHMvcHJvZ3Jlc3Muc2FzcyIsIi4uL3Nhc3MvZWxlbWVudHMvdGFibGUuc2FzcyIsIi4uL3Nhc3MvZWxlbWVudHMvdGFnLnNhc3MiLCIuLi9zYXNzL2VsZW1lbnRzL3RpdGxlLnNhc3MiLCIuLi9zYXNzL2VsZW1lbnRzL290aGVyLnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvYnJlYWRjcnVtYi5zYXNzIiwiLi4vc2Fzcy9jb21wb25lbnRzL2NhcmQuc2FzcyIsIi4uL3Nhc3MvY29tcG9uZW50cy9kcm9wZG93bi5zYXNzIiwiLi4vc2Fzcy9jb21wb25lbnRzL2xldmVsLnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvbWVkaWEuc2FzcyIsIi4uL3Nhc3MvY29tcG9uZW50cy9tZW51LnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvbWVzc2FnZS5zYXNzIiwiLi4vc2Fzcy9jb21wb25lbnRzL21vZGFsLnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvbmF2LnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvbmF2YmFyLnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvcGFnaW5hdGlvbi5zYXNzIiwiLi4vc2Fzcy9jb21wb25lbnRzL3BhbmVsLnNhc3MiLCIuLi9zYXNzL2NvbXBvbmVudHMvdGFicy5zYXNzIiwiLi4vc2Fzcy9ncmlkL2NvbHVtbnMuc2FzcyIsIi4uL3Nhc3MvZ3JpZC90aWxlcy5zYXNzIiwiLi4vc2Fzcy9sYXlvdXQvaGVyby5zYXNzIiwiLi4vc2Fzcy9sYXlvdXQvc2VjdGlvbi5zYXNzIiwiLi4vc2Fzcy9sYXlvdXQvZm9vdGVyLnNhc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsOERBQThEO0FDRDlEO0VBQ0U7SUFDRSxnQ0FBdUI7WUFBdkIsd0JBQXVCO0dDRXhCO0VEREQ7SUFDRSxrQ0FBeUI7WUFBekIsMEJBQXlCO0dDRzFCO0NBQ0Y7QURSRDtFQUNFO0lBQ0UsZ0NBQXVCO1lBQXZCLHdCQUF1QjtHQ0V4QjtFREREO0lBQ0Usa0NBQXlCO1lBQXpCLDBCQUF5QjtHQ0cxQjtDQUNGOztBQ1JELDJFQUEyRTtBQUUzRTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7RUF1QkUsVUFBUztFQUNULFdBQVU7Q0FBSTs7QUFHaEI7Ozs7OztFQU1FLGdCQUFlO0VBQ2Ysb0JBQW1CO0NBQUk7O0FBR3pCO0VBQ0UsaUJBQWdCO0NBQUk7O0FBR3RCOzs7O0VBSUUsVUFBUztDQUFJOztBQUdmO0VBQ0UsK0JBQXNCO1VBQXRCLHVCQUFzQjtDQUFJOztBQUU1QjtFQUNFLDRCQUFtQjtVQUFuQixvQkFBbUI7Q0FHUTs7QUFKN0I7RUFJSSw0QkFBbUI7VUFBbkIsb0JBQW1CO0NBQUk7O0FBRzNCOzs7OztFQUtFLGdCQUFlO0NBQUk7O0FBR3JCO0VBQ0UsVUFBUztDQUFJOztBQUdmO0VBQ0UsMEJBQXlCO0VBQ3pCLGtCQUFpQjtD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NUxFO0lBQ0UsdUNBQStCO0lBQS9CLHVDQUErQjtJQUEvQixnQ0FBK0I7R0FBRztDTGthdkM7O0FJbk9DO0VDN0xFO0lBQ0UsdUNBQStCO0lBQS9CLHVDQUErQjtJQUEvQixnQ0FBK0I7R0FBRztDTHFhdkM7O0FJL2FDO0VBQ0UsWUFBVztFQUNYLGFBQVk7RUFDWixlQUFjO0NBQUk7O0FDY3RCO0VBQ0UsdUJBQXNCO0NBQUk7O0FBRTVCO0VBQ0Usd0JBQXVCO0NBQUk7O0FBSTdCO0VBQ0UsNEJBQTJCO0NBQUk7O0FBSWpDO0VEa0hFLFVBRHVCO0VBRXZCLFFBRnVCO0VBR3ZCLG1CQUFrQjtFQUNsQixTQUp1QjtFQUt2QixPQUx1QjtDQ2hISjs7QUFNbkI7RUFDRSxnQkZ6QlM7Q0V5QlU7O0FEd0lyQjtFQ3RJRTtJQUNFLGdCRjVCTztHRTRCWTtDTDBheEI7O0FJalNDO0VDdklFO0lBQ0UsZ0JGL0JPO0dFK0JZO0NMNmF4Qjs7QUkvUkM7RUM1SUU7SUFDRSxnQkZsQ087R0VrQ1k7Q0xnYnhCOztBSWpTQztFQzdJRTtJQUNFLGdCRnJDTztHRXFDWTtDTG1ieEI7O0FJL1JDO0VDbEpFO0lBQ0UsZ0JGeENPO0dFd0NZO0NMc2J4Qjs7QUk3UkM7RUN2SkU7SUFDRSxnQkYzQ087R0UyQ1k7Q0x5YnhCOztBSzVjQztFQUNFLGtCRnhCVztDRXdCUTs7QUR3SXJCO0VDdElFO0lBQ0Usa0JGM0JTO0dFMkJVO0NMa2R4Qjs7QUl6VUM7RUN2SUU7SUFDRSxrQkY5QlM7R0U4QlU7Q0xxZHhCOztBSXZVQztFQzVJRTtJQUNFLGtCRmpDUztHRWlDVTtDTHdkeEI7O0FJelVDO0VDN0lFO0lBQ0Usa0JGcENTO0dFb0NVO0NMMmR4Qjs7QUl2VUM7RUNsSkU7SUFDRSxrQkZ2Q1M7R0V1Q1U7Q0w4ZHhCOztBSXJVQztFQ3ZKRTtJQUNFLGtCRjFDUztHRTBDVTtDTGlleEI7O0FLcGZDO0VBQ0UsZ0JGdkJTO0NFdUJVOztBRHdJckI7RUN0SUU7SUFDRSxnQkYxQk87R0UwQlk7Q0wwZnhCOztBSWpYQztFQ3ZJRTtJQUNFLGdCRjdCTztHRTZCWTtDTDZmeEI7O0FJL1dDO0VDNUlFO0lBQ0UsZ0JGaENPO0dFZ0NZO0NMZ2dCeEI7O0FJalhDO0VDN0lFO0lBQ0UsZ0JGbkNPO0dFbUNZO0NMbWdCeEI7O0FJL1dDO0VDbEpFO0lBQ0UsZ0JGdENPO0dFc0NZO0NMc2dCeEI7O0FJN1dDO0VDdkpFO0lBQ0UsZ0JGekNPO0dFeUNZO0NMeWdCeEI7O0FLNWhCQztFQUNFLGtCRnRCVztDRXNCUTs7QUR3SXJCO0VDdElFO0lBQ0Usa0JGekJTO0dFeUJVO0NMa2lCeEI7O0FJelpDO0VDdklFO0lBQ0Usa0JGNUJTO0dFNEJVO0NMcWlCeEI7O0FJdlpDO0VDNUlFO0lBQ0Usa0JGL0JTO0dFK0JVO0NMd2lCeEI7O0FJelpDO0VDN0lFO0lBQ0Usa0JGbENTO0dFa0NVO0NMMmlCeEI7O0FJdlpDO0VDbEpFO0lBQ0Usa0JGckNTO0dFcUNVO0NMOGlCeEI7O0FJclpDO0VDdkpFO0lBQ0Usa0JGeENTO0dFd0NVO0NMaWpCeEI7O0FLcGtCQztFQUNFLG1CRnJCWTtDRXFCTzs7QUR3SXJCO0VDdElFO0lBQ0UsbUJGeEJVO0dFd0JTO0NMMGtCeEI7O0FJamNDO0VDdklFO0lBQ0UsbUJGM0JVO0dFMkJTO0NMNmtCeEI7O0FJL2JDO0VDNUlFO0lBQ0UsbUJGOUJVO0dFOEJTO0NMZ2xCeEI7O0FJamNDO0VDN0lFO0lBQ0UsbUJGakNVO0dFaUNTO0NMbWxCeEI7O0FJL2JDO0VDbEpFO0lBQ0UsbUJGcENVO0dFb0NTO0NMc2xCeEI7O0FJN2JDO0VDdkpFO0lBQ0UsbUJGdkNVO0dFdUNTO0NMeWxCeEI7O0FLNW1CQztFQUNFLGdCRnBCUztDRW9CVTs7QUR3SXJCO0VDdElFO0lBQ0UsZ0JGdkJPO0dFdUJZO0NMa25CeEI7O0FJemVDO0VDdklFO0lBQ0UsZ0JGMUJPO0dFMEJZO0NMcW5CeEI7O0FJdmVDO0VDNUlFO0lBQ0UsZ0JGN0JPO0dFNkJZO0NMd25CeEI7O0FJemVDO0VDN0lFO0lBQ0UsZ0JGaENPO0dFZ0NZO0NMMm5CeEI7O0FJdmVDO0VDbEpFO0lBQ0UsZ0JGbkNP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SUE4RWMsMEJoQzNIZTtHZ0MySG1CO0VBOUVoRDtJQWlGWSx3Q2hDOUhpQjtHZ0M4SDRCO0NuQ204TXhEOztBbUNwaE5EO0VBaUJNLDBCaEM5RHVCO0VnQytEdkIsYWhDbkR5QjtDZ0NrSGdDOztBQWpGL0Q7O0VBcUJRLGVBQWM7Q0FBSTs7QUFyQjFCO0VBdUJRLGFoQ3hEdUI7Q2dDd0RBOztBQXZCL0I7RUF5QlEsZ0NoQzFEdUI7Q2dDNkRJOztBQTVCbkM7O0VBNEJVLGFoQzdEcUI7Q2dDNkRFOztBQTVCakM7RUE4QlEscURoQy9EdUI7VWdDK0R2Qiw2Q2hDL0R1QjtDZ0MrRHdCOztBL0JrSHJEO0UrQmhKRjtJQWlDVSwwQmhDOUVtQjtHZ0M4RVU7Q25Db2hOdEM7O0FtQ3JqTkQ7O0VBb0NRLGdDaENyRXVCO0NnQ3dFSTs7QUF2Q25DOzs7RUF1Q1UsYWhDeEVxQjtDZ0N3RUU7O0FBdkNqQztFQTBDVSxhaEMzRXFCO0VnQzRFckIsYUFBWTtDQUVNOztBQTdDNUI7RUE2Q1ksV0FBVTtDQUFJOztBQTdDMUI7RUFnRFksV0FBVTtDQUFJOztBQWhEMUI7RUFvRFksYWhDckZtQjtDZ0N1RnVCOztBQXREdEQ7RUFzRGMsd0NoQ25HZTtDZ0NtR3VCOztBQXREcEQ7RUEwRGMsd0JoQzNGaUI7RWdDNEZqQixvQmhDNUZpQjtFZ0M2RmpCLGVoQ3pHZTtDZ0N5R0M7O0FBNUQ5QjtFQWlFUSwrRUFBeUc7Q0FHVzs7QS9CNEUxSDtFK0JoSkY7SUFvRVksK0VBQXlHO0dBQUc7Q25DaWlOdkg7O0FJcjlNQztFK0JoSkY7SUF5RVksd0JoQzFHbUI7R2dDMEdlO0VBekU5QztJQTJFWSx3Q2hDeEhpQjtHZ0N3SHFCO0VBM0VsRDtJQThFYyx3QmhDL0dpQjtHZ0MrR2lCO0VBOUVoRDtJQWlGWSwyQ2hDbEhtQjtHZ0NrSDBCO0NuQ21pTnhEOztBbUNwbk5EO0VBaUJNLDZCaENwRHdCO0VnQ3FEeEIsZWhDM0R3QjtDZ0MwSGlDOztBQWpGL0Q7O0VBcUJRLGVBQWM7Q0FBSTs7QUFyQjFCO0VBdUJRLGVoQ2hFc0I7Q2dDZ0VDOztBQXZCL0I7RUF5QlEsNkJoQ2xFc0I7Q2dDcUVLOztBQTVCbkM7O0VBNEJVLGVoQ3JFb0I7Q2dDcUVHOztBQTVCakM7RUE4QlEsa0RoQ3ZFc0I7VWdDdUV0QiwwQ2hDdkVzQjtDZ0N1RXlCOztBL0JrSHJEO0UrQmhKRjtJQWlDVSw2QmhDcEVvQjtHZ0NvRVM7Q25Db25OdEM7O0FtQ3JwTkQ7O0VBb0NRLDZCaEM3RXNCO0NnQ2dGSzs7QUF2Q25DOzs7RUF1Q1UsZWhDaEZvQjtDZ0NnRkc7O0FBdkNqQztFQTBDVSxlaENuRm9CO0VnQ29GcEIsYUFBWTtDQUVNOztBQTdDNUI7RUE2Q1ksV0FBVTtDQUFJOztBQTdDMUI7RUFnRFksV0FBVTtDQUFJOztBQWhEMUI7RUFvRFksZWhDN0ZrQjtDZ0MrRndCOztBQXREdEQ7RUFzRGMsd0NoQ25HZTtDZ0NtR3VCOztBQXREcEQ7RUEwRGMsMEJoQ25HZ0I7RWdDb0doQixzQmhDcEdnQjtFZ0NxR2hCLGtCaEMvRmdCO0NnQytGQTs7QUE1RDlCO0VBaUVRLGtGQUF5RztDQUdXOztBL0I0RTFIO0UrQmhKRjtJQW9FWSxrRkFBeUc7R0FBRztDbkNpb052SDs7QUlyak5DO0UrQmhKRjtJQXlFWSwwQmhDbEhrQjtHZ0NrSGdCO0VBekU5QztJQTJFWSx3Q2hDeEhpQjtHZ0N3SHFCO0VBM0VsRDtJQThFYywwQmhDdkhnQjtHZ0N1SGtCO0VBOUVoRDtJQWlGWSx3Q2hDMUhrQjtHZ0MwSDJCO0NuQ21vTnhEOztBbUNwdE5EO0VBaUJNLDBCaEMxRHdCO0VnQzJEeEIsa0JoQ3JEd0I7Q2dDb0hpQzs7QUFqRi9EOztFQXFCUSxlQUFjO0NBQUk7O0FBckIxQjtFQXVCUSxrQmhDMURzQjtDZ0MwREM7O0FBdkIvQjtFQXlCUSxnQ2hDNURzQjtDZ0MrREs7O0FBNUJuQzs7RUE0QlUsa0JoQy9Eb0I7Q2dDK0RHOztBQTVCakM7RUE4QlEscURoQ2pFc0I7VWdDaUV0Qiw2Q2hDakVzQjtDZ0NpRXlCOztBL0JrSHJEO0UrQmhKRjtJQWlDVSwwQmhDMUVvQjtHZ0MwRVM7Q25Db3ROdEM7O0FtQ3J2TkQ7O0VBb0NRLGdDaEN2RXNCO0NnQzBFSzs7QUF2Q25DOzs7RUF1Q1Usa0JoQzFFb0I7Q2dDMEVHOztBQXZDakM7RUEwQ1Usa0JoQzdFb0I7RWdDOEVwQixhQUFZO0NBRU07O0FBN0M1QjtFQTZDWSxXQUFVO0NBQUk7O0FBN0MxQjtFQWdEWSxXQUFVO0NBQUk7O0FBaEQxQjtFQW9EWSxrQmhDdkZrQjtDZ0N5RndCOztBQXREdEQ7RUFzRGMsd0NoQ25HZTtDZ0NtR3VCOztBQXREcEQ7RUEwRGMsNkJoQzdGZ0I7RWdDOEZoQix5QmhDOUZnQjtFZ0MrRmhCLGVoQ3JHZ0I7Q2dDcUdBOztBQTVEOUI7RUFpRVEsaUZBQXlHO0NBR1c7O0EvQjRFMUg7RStCaEpGO0lBb0VZLGlGQUF5RztHQUFHO0NuQ2l1TnZIOztBSXJwTkM7RStCaEpGO0lBeUVZLDZCaEM1R2tCO0dnQzRHZ0I7RUF6RTlDO0lBMkVZLHdDaEN4SGlCO0dnQ3dIcUI7RUEzRWxEO0lBOEVjLDZCaENqSGdCO0dnQ2lIa0I7RUE5RWhEO0lBaUZZLDJDaENwSGtCO0dnQ29IMkI7Q25DbXVOeEQ7O0FtQ3B6TkQ7RUFpQk0sMEJoQzdDNEI7RWdDOEM1QixZMUJ0Q1U7QzBCcUcrQzs7QUFqRi9EOztFQXFCUSxlQUFjO0NBQUk7O0FBckIxQjtFQXVCUSxZMUIzQ1E7QzBCMkNlOztBQXZCL0I7RUF5QlEsZ0MxQjdDUTtDMEJnRG1COztBQTVCbkM7O0VBNEJVLFkxQmhETTtDMEJnRGlCOztBQTVCakM7RUE4QlEscUQxQmxEUTtVMEJrRFIsNkMxQmxEUTtDMEJrRHVDOztBL0JrSHJEO0UrQmhKRjtJQWlDVSwwQmhDN0R3QjtHZ0M2REs7Q25Db3pOdEM7O0FtQ3IxTkQ7O0VBb0NRLGdDMUJ4RFE7QzBCMkRtQjs7QUF2Q25DOzs7RUF1Q1UsWTFCM0RNO0MwQjJEaUI7O0FBdkNqQztFQTBDVSxZMUI5RE07RTBCK0ROLGFBQVk7Q0FFTTs7QUE3QzVCO0VBNkNZLFdBQVU7Q0FBSTs7QUE3QzFCO0VBZ0RZLFdBQVU7Q0FBSTs7QUFoRDFCO0VBb0RZLFkxQnhFSTtDMEIwRXNDOztBQXREdEQ7RUFzRGMsd0NoQ25HZTtDZ0NtR3VCOztBQXREcEQ7RUEwRGMsdUIxQjlFRTtFMEIrRUYsbUIxQi9FRTtFMEJnRkYsZWhDeEZvQjtDZ0N3Rko7O0FBNUQ5QjtFQWlFUSxpRkFBeUc7Q0FHVzs7QS9CNEUxSDtFK0JoSkY7SUFvRVksaUZBQXlHO0dBQUc7Q25DaTBOdkg7O0FJcnZOQztFK0JoSkY7SUF5RVksdUIxQjdGSTtHMEI2RjhCO0VBekU5QztJQTJFWSx3Q2hDeEhpQjtHZ0N3SHFCO0VBM0VsRDtJQThFYyx1QjFCbEdFO0cwQmtHZ0M7RUE5RWhEO0lBaUZZLDJDMUJyR0k7RzBCcUd5QztDbkNtME54RDs7QW1DcDVORDtFQWlCTSwwQmhDNUM0QjtFZ0M2QzVCLFkxQnRDVTtDMEJxRytDOztBQWpGL0Q7O0VBcUJRLGVBQWM7Q0FBSTs7QUFyQjFCO0VBdUJRLFkxQjNDUTtDMEIyQ2U7O0FBdkIvQjtFQXlCUSxnQzFCN0NRO0MwQmdEbUI7O0FBNUJuQzs7RUE0QlUsWTFCaERNO0MwQmdEaUI7O0FBNUJqQztFQThCUSxxRDFCbERRO1UwQmtEUiw2QzFCbERRO0MwQmtEdUM7O0EvQmtIckQ7RStCaEpGO0lBaUNVLDBCaEM1RHdCO0dnQzRESztDbkNvNU50Qzs7QW1DcjdORDs7RUFvQ1EsZ0MxQnhEUTtDMEIyRG1COztBQXZDbkM7OztFQXVDVSxZMUIzRE07QzBCMkRpQjs7QUF2Q2pDO0VBMENVLFkxQjlETTtFMEIrRE4sYUFBWTtDQUVNOztBQTdDNUI7RUE2Q1ksV0FBVTtDQUFJOztBQTdDMUI7RUFnRFksV0FBVTtDQUFJOztBQWhEMUI7RUFvRFksWTFCeEVJO0MwQjBFc0M7O0FBdER0RDtFQXNEYyx3Q2hDbkdlO0NnQ21HdUI7O0FBdERwRDtFQTBEYyx1QjFCOUVFO0UwQitFRixtQjFCL0VFO0UwQmdGRixlaEN2Rm9CO0NnQ3VGSjs7QUE1RDlCO0VBaUVRLGlGQUF5RztDQUdXOztBL0I0RTFIO0UrQmhKRjtJQW9FWSxpRkFBeUc7R0FBRztDbkNpNk52SDs7QUlyMU5DO0UrQmhKRjtJQXlFWSx1QjFCN0ZJO0cwQjZGOEI7RUF6RTlDO0lBMkVZLHdDaEN4SGlCO0dnQ3dIcUI7RUEzRWxEO0lBOEVjLHVCMUJsR0U7RzBCa0dnQztFQTlFaEQ7SUFpRlksMkMxQnJHSTtHMEJxR3lDO0NuQ202TnhEOztBbUNwL05EO0VBaUJNLDBCaEM5QzRCO0VnQytDNUIsWTFCdENVO0MwQnFHK0M7O0FBakYvRDs7RUFxQlEsZUFBYztDQUFJOztBQXJCMUI7RUF1QlEsWTFCM0NRO0MwQjJDZTs7QUF2Qi9CO0VBeUJRLGdDMUI3Q1E7QzBCZ0RtQjs7QUE1Qm5DOztFQTRCVSxZMUJoRE07QzBCZ0RpQjs7QUE1QmpDO0VBOEJRLHFEMUJsRFE7VTBCa0RSLDZDMUJsRFE7QzBCa0R1Qzs7QS9Ca0hyRDtFK0JoSkY7SUFpQ1UsMEJoQzlEd0I7R2dDOERLO0NuQ28vTnRDOztBbUNyaE9EOztFQW9DUSxnQzFCeERRO0MwQjJEbUI7O0FBdkNuQzs7O0VBdUNVLFkxQjNETTtDMEIyRGlCOztBQXZDakM7RUEwQ1UsWTFCOURNO0UwQitETixhQUFZO0NBRU07O0FBN0M1QjtFQTZDWSxXQUFVO0NBQUk7O0FBN0MxQjtFQWdEWSxXQUFVO0NBQUk7O0FBaEQxQjtFQW9EWSxZMUJ4RUk7QzBCMEVzQzs7QUF0RHREO0VBc0RjLHdDaENuR2U7Q2dDbUd1Qjs7QUF0RHBEO0VBMERjLHVCMUI5RUU7RTBCK0VGLG1CMUIvRUU7RTBCZ0ZGLGVoQ3pGb0I7Q2dDeUZKOztBQTVEOUI7RUFpRVEsaUZBQXlHO0NBR1c7O0EvQjRFMUg7RStCaEpGO0lBb0VZLGlGQUF5RztHQUFHO0NuQ2lnT3ZIOztBSXI3TkM7RStCaEpGO0lBeUVZLHVCMUI3Rkk7RzBCNkY4QjtFQXpFOUM7SUEyRVksd0NoQ3hIaUI7R2dDd0hxQjtFQTNFbEQ7SUE4RWMsdUIxQmxHRTtHMEJrR2dDO0VBOUVoRDtJQWlGWSwyQzFCckdJO0cwQnFHeUM7Q25DbWdPeEQ7O0FtQ3BsT0Q7RUFpQk0sMEJoQy9DNEI7RWdDZ0Q1QiwwQjFCeENlO0MwQnVHMEM7O0FBakYvRDs7RUFxQlEsZUFBYztDQUFJOztBQXJCMUI7RUF1QlEsMEIxQjdDYTtDMEI2Q1U7O0FBdkIvQjtFQXlCUSwwQjFCL0NhO0MwQmtEYzs7QUE1Qm5DOztFQTRCVSwwQjFCbERXO0MwQmtEWTs7QUE1QmpDO0VBOEJRLCtDMUJwRGE7VTBCb0RiLHVDMUJwRGE7QzBCb0RrQzs7QS9Ca0hyRDtFK0JoSkY7SUFpQ1UsMEJoQy9Ed0I7R2dDK0RLO0NuQ29sT3RDOztBbUNybk9EOztFQW9DUSwwQjFCMURhO0MwQjZEYzs7QUF2Q25DOzs7RUF1Q1UsMEIxQjdEVztDMEI2RFk7O0FBdkNqQztFQTBDVSwwQjFCaEVXO0UwQmlFWCxhQUFZO0NBRU07O0FBN0M1QjtFQTZDWSxXQUFVO0NBQUk7O0FBN0MxQjtFQWdEWSxXQUFVO0NBQUk7O0FBaEQxQjtFQW9EWSwwQjFCMUVTO0MwQjRFaUM7O0FBdER0RDtFQXNEYyx3Q2hDbkdlO0NnQ21HdUI7O0FBdERwRDtFQTBEYyxxQzFCaEZPO0UwQmlGUCxpQzFCakZPO0UwQmtGUCxlaEMxRm9CO0NnQzBGSjs7QUE1RDlCO0VBaUVRLGlGQUF5RztDQUdXOztBL0I0RTFIO0UrQmhKRjtJQW9FWSxpRkFBeUc7R0FBRztDbkNpbU92SDs7QUlyaE9DO0UrQmhKRjtJQXlFWSxxQzFCL0ZTO0cwQitGeUI7RUF6RTlDO0lBMkVZLHdDaEN4SGlCO0dnQ3dIcUI7RUEzRWxEO0lBOEVjLHFDMUJwR087RzBCb0cyQjtFQTlFaEQ7SUFpRlkscUMxQnZHUztHMEJ1R29DO0NuQ21tT3hEOztBbUNwck9EO0VBaUJNLDBCaEMxQzRCO0VnQzJDNUIsWTFCdENVO0MwQnFHK0M7O0FBakYvRDs7RUFxQlEsZUFBYztDQUFJOztBQXJCMUI7RUF1QlEsWTFCM0NRO0MwQjJDZTs7QUF2Qi9CO0VBeUJRLGdDMUI3Q1E7QzBCZ0RtQjs7QUE1Qm5DOztFQTRCVSxZMUJoRE07QzBCZ0RpQjs7QUE1QmpDO0VBOEJRLHFEMUJsRFE7VTBCa0RSLDZDMUJsRFE7QzBCa0R1Qzs7QS9Ca0hyRDtFK0JoSkY7SUFpQ1UsMEJoQzFEd0I7R2dDMERLO0NuQ29yT3RDOztBbUNydE9EOztFQW9DUSxnQzFCeERRO0MwQjJEbUI7O0FBdkNuQzs7O0VBdUNVLFkxQjNETTtDMEIyRGlCOztBQXZDakM7RUEwQ1UsWTFCOURNO0UwQitETixhQUFZO0NBRU07O0FBN0M1QjtFQTZDWSxXQUFVO0NBQUk7O0FBN0MxQjtFQWdEWSxXQUFVO0NBQUk7O0FBaEQxQjtFQW9EWSxZMUJ4RUk7QzBCMEVzQzs7QUF0RHREO0VBc0RjLHdDaENuR2U7Q2dDbUd1Qjs7QUF0RHBEO0VBMERjLHVCMUI5RUU7RTBCK0VGLG1CMUIvRUU7RTBCZ0ZGLGVoQ3JGb0I7Q2dDcUZKOztBQTVEOUI7RUFpRVEsaUZBQXlHO0NBR1c7O0EvQjRFMUg7RStCaEpGO0lBb0VZLGlGQUF5RztHQUFHO0NuQ2lzT3ZIOztBSXJuT0M7RStCaEpGO0lBeUVZLHVCMUI3Rkk7RzBCNkY4QjtFQXpFOUM7SUEyRVksd0NoQ3hIaUI7R2dDd0hxQjtFQTNFbEQ7SUE4RWMsdUIxQmxHRTtHMEJrR2dDO0VBOUVoRDtJQWlGWSwyQzFCckdJO0cwQnFHeUM7Q25DbXNPeEQ7O0FJaG9PQztFK0JwSkY7SUFzRlEscUJBQW9CO0lBQ3BCLGtCQUFpQjtHQUFJO0NuQ29zTzVCOztBSXZvT0M7RStCcEpGO0lBMkZRLHNCQUFxQjtJQUNyQixtQkFBa0I7R0FBSTtDbkNzc083Qjs7QW1DbHlPRDtFQWdHTSwwQkFBbUI7TUFBbkIsdUJBQW1CO1VBQW5CLG9CQUFtQjtFQUNuQixxQkFBYTtFQUFiLHFCQUFhO0VBQWIsY0FBYTtDQUdTOztBQXBHNUI7RUFtR1Esb0JBQVk7TUFBWixxQkFBWTtVQUFaLGFBQVk7RUFDWixxQkFBYztNQUFkLGVBQWM7Q0FBSTs7QUFwRzFCO0VBc0dJLGlCQUFnQjtDQUFJOztBQXRHeEI7RUF3R0ksa0JBQWlCO0NBQUk7O0FDdkp6QjtFQUNFLHdCakNhNkI7RWlDWjdCLHFCQUFvQjtDQU9hOztBaENzTWpDO0VnQy9NRjtJQU9NLHFCQUFvQjtHQUFJO0VBUDlCO0lBU00sc0JBQXFCO0dBQUk7Q3BDdzJPOUI7O0FxQ2ozT0Q7RUFDRSw2QmxDVzRCO0VrQ1Y1QiwwQkFBeUI7Q0FBSSIsImZpbGUiOiJidWxtYS5jc3MifQ== */", ""]);
 
 // exports
 
@@ -10272,7 +11422,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.next[data-v-6161fe60] {\n  transition: all 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-6161fe60] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.msg[data-v-6161fe60] {\n  display: inline-block;\n  margin: 10px;\n  opacity: 0;\n  transform: scale(0);\n}\n.msg.active[data-v-6161fe60] {\n  animation: active-private 1s;\n}\n.show[data-v-6161fe60] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.component-a[data-v-6161fe60],\n.component-b[data-v-6161fe60] {\n  transition: all 0.3s;\n  height: 180px;\n}\n.component-a *[data-v-6161fe60],\n.component-b *[data-v-6161fe60] {\n  color: #ccc;\n}\n.component-a.active *[data-v-6161fe60],\n.component-b.active *[data-v-6161fe60] {\n  color: #000;\n}\n@-moz-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-webkit-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-o-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n", ""]);
+exports.push([module.i, "\n.next[data-v-53c822a4] {\n  transition: all 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-53c822a4] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.msg[data-v-53c822a4] {\n  display: inline-block;\n  margin: 10px;\n  opacity: 0;\n  transform: scale(0);\n}\n.msg.active[data-v-53c822a4] {\n  animation: active-private 1s;\n}\n.show[data-v-53c822a4] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.component-a[data-v-53c822a4],\n.component-b[data-v-53c822a4] {\n  transition: all 0.3s;\n  height: 180px;\n}\n.component-a *[data-v-53c822a4],\n.component-b *[data-v-53c822a4] {\n  color: #ccc;\n}\n.component-a.active *[data-v-53c822a4],\n.component-b.active *[data-v-53c822a4] {\n  color: #000;\n}\n@-moz-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-webkit-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@-o-keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n@keyframes active-private {\n0% {\n    opacity: 0;\n    transform: scale(0);\n}\n50% {\n    opacity: 1;\n    transform: scale(2);\n}\n100% {\n    opacity: 0;\n    transform: scale(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -10286,7 +11436,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\nb[data-v-617e2d62] {\n  display: inline-block;\n}\n.active[data-v-617e2d62] {\n  animation: active 1s;\n}\n.next[data-v-617e2d62] {\n  transition: all 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-617e2d62] {\n  opacity: 1;\n  transform: translateY(0);\n}\n@-moz-keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n@-webkit-keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n@-o-keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n@keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n", ""]);
+exports.push([module.i, "\nb[data-v-53e451a6] {\n  display: inline-block;\n}\n.active[data-v-53e451a6] {\n  animation: active 1s;\n}\n.next[data-v-53e451a6] {\n  transition: all 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-53e451a6] {\n  opacity: 1;\n  transform: translateY(0);\n}\n@-moz-keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n@-webkit-keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n@-o-keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n@keyframes active {\n0% {\n    transform: translateX(0);\n}\n50% {\n    transform: translateX(15px);\n}\n100% {\n    transform: translateX(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -10300,7 +11450,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.active[data-v-619a5c64] {\n  animation: active-helloworld 1s;\n}\n.next[data-v-619a5c64] {\n  transition: all 1s 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-619a5c64] {\n  opacity: 1;\n  transform: translateY(0);\n}\n@-moz-keyframes active-helloworld {\n0% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n100% {\n    transform: scale(1);\n}\n}\n@-webkit-keyframes active-helloworld {\n0% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n100% {\n    transform: scale(1);\n}\n}\n@-o-keyframes active-helloworld {\n0% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n100% {\n    transform: scale(1);\n}\n}\n@keyframes active-helloworld {\n0% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n100% {\n    transform: scale(1);\n}\n}\n", ""]);
+exports.push([module.i, "\n.title[data-v-540080a8] {\n  transition: all 0.5s;\n}\n.active[data-v-540080a8] {\n  transform: scale(1.5);\n}\n.next[data-v-540080a8] {\n  transition: all 1s 1s;\n  opacity: 0;\n  transform: translateY(100%);\n}\n.show[data-v-540080a8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n", ""]);
 
 // exports
 
@@ -10309,10 +11459,24 @@ exports.push([module.i, "\n.active[data-v-619a5c64] {\n  animation: active-hello
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "42ff3056ad27f0c86701d55f436cee67.jpg";
+exports = module.exports = __webpack_require__(0)();
+// imports
+
+
+// module
+exports.push([module.i, "\nhtml,\nbody {\n  margin: 0;\n}\n.hero {\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  background-attachment: fixed;\n}\n.box {\n  opacity: 0.5;\n}\n.box.active {\n  opacity: 1;\n  background-color: rgba(255,255,255,0.5) !important;\n}\n.slide-enter-active,\n.slide-leave-active {\n  transition: all 0.3s;\n}\n.slide-enter,\n.slide-leave-active {\n  transform: translateX(-50%);\n  opacity: 0;\n}\nkbd {\n  display: inline-block;\n  padding: 3px 5px;\n  font: 11px \"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, Courier, monospace;\n  line-height: 10px;\n  color: #444d56;\n  vertical-align: middle;\n  background-color: #fcfcfc;\n  border: solid 1px #c6cbd1;\n  border-bottom-color: #959da5;\n  border-radius: 3px;\n  box-shadow: inset 0 -1px 0 #959da5;\n}\n.hero-section {\n  margin-top: 1.5rem;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 /* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "42ff3056ad27f0c86701d55f436cee67.jpg";
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports) {
 
 /*
@@ -10564,50 +11728,6 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = {}
-
-/* script */
-__vue_exports__ = __webpack_require__(10)
-
-/* template */
-var __vue_template__ = __webpack_require__(33)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/doc.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-067e53ab", __vue_options__)
-  } else {
-    hotAPI.reload("data-v-067e53ab", __vue_options__)
-  }
-})()}
-if (__vue_options__.functional) {console.error("[vue-loader] doc.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10630,23 +11750,23 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/start.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/doc.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-21a16315", __vue_options__)
+    hotAPI.createRecord("data-v-2b15628d", __vue_options__)
   } else {
-    hotAPI.reload("data-v-21a16315", __vue_options__)
+    hotAPI.reload("data-v-2b15628d", __vue_options__)
   }
 })()}
-if (__vue_options__.functional) {console.error("[vue-loader] start.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+if (__vue_options__.functional) {console.error("[vue-loader] doc.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 
 module.exports = __vue_exports__
 
@@ -10657,6 +11777,9 @@ module.exports = __vue_exports__
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(12)
 
 /* template */
 var __vue_template__ = __webpack_require__(41)
@@ -10671,23 +11794,23 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/step-1.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/start.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-61b68b66", __vue_options__)
+    hotAPI.createRecord("data-v-7cb04177", __vue_options__)
   } else {
-    hotAPI.reload("data-v-61b68b66", __vue_options__)
+    hotAPI.reload("data-v-7cb04177", __vue_options__)
   }
 })()}
-if (__vue_options__.functional) {console.error("[vue-loader] step-1.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+if (__vue_options__.functional) {console.error("[vue-loader] start.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 
 module.exports = __vue_exports__
 
@@ -10698,60 +11821,6 @@ module.exports = __vue_exports__
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
-
-/* styles */
-__webpack_require__(45)
-
-/* script */
-__vue_exports__ = __webpack_require__(12)
-
-/* template */
-var __vue_template__ = __webpack_require__(40)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/step-2.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-619a5c64"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-619a5c64", __vue_options__)
-  } else {
-    hotAPI.reload("data-v-619a5c64", __vue_options__)
-  }
-})()}
-if (__vue_options__.functional) {console.error("[vue-loader] step-2.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = {}
-
-/* styles */
-__webpack_require__(44)
-
-/* script */
-__vue_exports__ = __webpack_require__(13)
 
 /* template */
 var __vue_template__ = __webpack_require__(39)
@@ -10766,40 +11835,39 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/step-3.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/step-1.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-617e2d62"
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-617e2d62", __vue_options__)
+    hotAPI.createRecord("data-v-541cafaa", __vue_options__)
   } else {
-    hotAPI.reload("data-v-617e2d62", __vue_options__)
+    hotAPI.reload("data-v-541cafaa", __vue_options__)
   }
 })()}
-if (__vue_options__.functional) {console.error("[vue-loader] step-3.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+if (__vue_options__.functional) {console.error("[vue-loader] step-1.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 
 module.exports = __vue_exports__
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
 /* styles */
-__webpack_require__(43)
+__webpack_require__(45)
 
 /* script */
-__vue_exports__ = __webpack_require__(14)
+__vue_exports__ = __webpack_require__(13)
 
 /* template */
 var __vue_template__ = __webpack_require__(38)
@@ -10814,37 +11882,40 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/step-4.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/step-2.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-6161fe60"
+__vue_options__._scopeId = "data-v-540080a8"
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6161fe60", __vue_options__)
+    hotAPI.createRecord("data-v-540080a8", __vue_options__)
   } else {
-    hotAPI.reload("data-v-6161fe60", __vue_options__)
+    hotAPI.reload("data-v-540080a8", __vue_options__)
   }
 })()}
-if (__vue_options__.functional) {console.error("[vue-loader] step-4.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+if (__vue_options__.functional) {console.error("[vue-loader] step-2.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 
 module.exports = __vue_exports__
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
+/* styles */
+__webpack_require__(44)
+
 /* script */
-__vue_exports__ = __webpack_require__(15)
+__vue_exports__ = __webpack_require__(14)
 
 /* template */
 var __vue_template__ = __webpack_require__(37)
@@ -10859,23 +11930,72 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/step-5.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/step-3.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-53e451a6"
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6145cf5e", __vue_options__)
+    hotAPI.createRecord("data-v-53e451a6", __vue_options__)
   } else {
-    hotAPI.reload("data-v-6145cf5e", __vue_options__)
+    hotAPI.reload("data-v-53e451a6", __vue_options__)
   }
 })()}
-if (__vue_options__.functional) {console.error("[vue-loader] step-5.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+if (__vue_options__.functional) {console.error("[vue-loader] step-3.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* styles */
+__webpack_require__(43)
+
+/* script */
+__vue_exports__ = __webpack_require__(15)
+
+/* template */
+var __vue_template__ = __webpack_require__(36)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/step-4.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-53c822a4"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-53c822a4", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-53c822a4", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional) {console.error("[vue-loader] step-4.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 
 module.exports = __vue_exports__
 
@@ -10903,20 +12023,64 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/baidu/Documents/Github/v-hotkey/docs/src/pages/step.vue"
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/step-5.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2230122e", __vue_options__)
+    hotAPI.createRecord("data-v-53abf3a2", __vue_options__)
   } else {
-    hotAPI.reload("data-v-2230122e", __vue_options__)
+    hotAPI.reload("data-v-53abf3a2", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional) {console.error("[vue-loader] step-5.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(17)
+
+/* template */
+var __vue_template__ = __webpack_require__(40)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/reinbulaong/stuff/git/v-hotkey/docs/src/pages/step.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5d32c447", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-5d32c447", __vue_options__)
   }
 })()}
 if (__vue_options__.functional) {console.error("[vue-loader] step.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10925,7 +12089,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -10941,100 +12105,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-067e53ab", module.exports)
-  }
-}
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    directives: [{
-      name: "hotkey",
-      rawName: "v-hotkey",
-      value: (_vm.keymap),
-      expression: "keymap"
-    }]
-  }, [_c('h1', {
-    staticClass: "title"
-  }, [_vm._v("V Hotkey")]), _c('h2', {
-    staticClass: "subtitle"
-  }, [_vm._v("Vue 2.x directive for binding hotkeys to components.")]), _c('section', {
-    staticClass: "hero-section"
-  }, [_c('p', [_vm._v("Press "), _c('kbd', [_vm._v("enter")]), _vm._v(" to "), _c('router-link', {
-    attrs: {
-      "to": "/step/1"
-    }
-  }, [_vm._v("get start")]), _vm._v(".")], 1), _c('p', [_vm._v("Press "), _c('kbd', [_vm._v("space")]), _vm._v(" to see the "), _c('a', {
-    ref: "doc",
-    attrs: {
-      "href": "https://github.com/Dafrok/v-hotkey/blob/master/README.md",
-      "target": "_blank"
-    }
-  }, [_vm._v("documentation")]), _vm._v(".    ")])])])
-},staticRenderFns: []}
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-21a16315", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-2b15628d", module.exports)
   }
 }
 
 /***/ }),
 /* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    directives: [{
-      name: "hotkey",
-      rawName: "v-hotkey",
-      value: (_vm.keymap),
-      expression: "keymap"
-    }]
-  }, [_c('transition', {
-    attrs: {
-      "name": "slide",
-      "mode": "out-in"
-    }
-  }, [_c('router-view')], 1)], 1)
-},staticRenderFns: []}
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2230122e", module.exports)
-  }
-}
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    staticClass: "hero is-fullheight"
-  }, [_c('div', {
-    staticClass: "hero-body"
-  }, [_c('div', {
-    staticClass: "container has-text-centered"
-  }, [_c('transition', {
-    attrs: {
-      "name": "slide",
-      "mode": "out-in"
-    }
-  }, [_c('router-view')], 1)], 1)])])
-},staticRenderFns: []}
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-54522082", module.exports)
-  }
-}
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11062,12 +12138,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6145cf5e", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-53abf3a2", module.exports)
   }
 }
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11137,12 +12213,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6161fe60", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-53c822a4", module.exports)
   }
 }
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11172,12 +12248,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-617e2d62", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-53e451a6", module.exports)
   }
 }
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11203,17 +12279,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Press "), _c('kbd', [_vm._v("→")]), _vm._v(" to play next case.")])])], 1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("Press "), _c('kbd', [_vm._v("enter")]), _vm._v(" to say hello.")])
+  return _c('p', [_vm._v("Press and hold "), _c('kbd', [_vm._v("enter")]), _vm._v(" to say hello.")])
 }]}
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-619a5c64", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-540080a8", module.exports)
   }
 }
 
 /***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11228,7 +12304,70 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-61b68b66", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-541cafaa", module.exports)
+  }
+}
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    directives: [{
+      name: "hotkey",
+      rawName: "v-hotkey",
+      value: (_vm.keymap),
+      expression: "keymap"
+    }]
+  }, [_c('transition', {
+    attrs: {
+      "name": "slide",
+      "mode": "out-in"
+    }
+  }, [_c('router-view')], 1)], 1)
+},staticRenderFns: []}
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-5d32c447", module.exports)
+  }
+}
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    directives: [{
+      name: "hotkey",
+      rawName: "v-hotkey",
+      value: (_vm.keymap),
+      expression: "keymap"
+    }]
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("V Hotkey")]), _c('h2', {
+    staticClass: "subtitle"
+  }, [_vm._v("Vue 2.x directive for binding hotkeys to components.")]), _c('section', {
+    staticClass: "hero-section"
+  }, [_c('p', [_vm._v("Press "), _c('kbd', [_vm._v("enter")]), _vm._v(" to "), _c('router-link', {
+    attrs: {
+      "to": "/step/1"
+    }
+  }, [_vm._v("get start")]), _vm._v(".")], 1), _c('p', [_vm._v("Press "), _c('kbd', [_vm._v("space")]), _vm._v(" to see the "), _c('a', {
+    ref: "doc",
+    attrs: {
+      "href": "https://github.com/Dafrok/v-hotkey/blob/master/README.md",
+      "target": "_blank"
+    }
+  }, [_vm._v("documentation")]), _vm._v(".    ")])])])
+},staticRenderFns: []}
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7cb04177", module.exports)
   }
 }
 
@@ -11236,26 +12375,25 @@ if (false) {
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(19);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(1)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-54522082!../../../../../node_modules/stylus-loader/index.js!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-54522082!../../../../../node_modules/stylus-loader/index.js!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    staticClass: "hero is-fullheight"
+  }, [_c('div', {
+    staticClass: "hero-body"
+  }, [_c('div', {
+    staticClass: "container has-text-centered"
+  }, [_c('transition', {
+    attrs: {
+      "name": "slide",
+      "mode": "out-in"
+    }
+  }, [_c('router-view')], 1)], 1)])])
+},staticRenderFns: []}
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7dd95fbe", module.exports)
+  }
 }
 
 /***/ }),
@@ -11274,8 +12412,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-6161fe60&scoped=true!../../../../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-4.vue", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-6161fe60&scoped=true!../../../../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-4.vue");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-53c822a4&scoped=true!../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-4.vue", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-53c822a4&scoped=true!../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-4.vue");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -11300,8 +12438,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-617e2d62&scoped=true!../../../../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-3.vue", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-617e2d62&scoped=true!../../../../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-3.vue");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-53e451a6&scoped=true!../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-3.vue", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-53e451a6&scoped=true!../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-3.vue");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -11326,8 +12464,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-619a5c64&scoped=true!../../../../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-2.vue", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-619a5c64&scoped=true!../../../../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-2.vue");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-540080a8&scoped=true!../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-2.vue", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-540080a8&scoped=true!../../../node_modules/stylus-loader/index.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./step-2.vue");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -11338,6 +12476,32 @@ if(false) {
 
 /***/ }),
 /* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(23);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(1)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-7dd95fbe!../../node_modules/stylus-loader/index.js!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-7dd95fbe!../../node_modules/stylus-loader/index.js!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11362,46 +12526,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-/* 47 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_index_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_router__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bulma_css_bulma_css__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bulma_css_bulma_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_bulma_css_bulma_css__);
-
-
-
-
-
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_1__src_index_js__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]);
-
-const router = new __WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]({ routes: __WEBPACK_IMPORTED_MODULE_4__routes__["a" /* default */] });
-
-const rootNode = document.createElement('div');
-document.body.appendChild(rootNode);
-
-/* eslint-disable no-new */
-new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
-  el: rootNode,
-  router,
-  render(h) {
-    return h(__WEBPACK_IMPORTED_MODULE_3__App_vue___default.a);
-  }
-});
 
 /***/ })
 /******/ ]);
