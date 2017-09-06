@@ -37,6 +37,8 @@
     "markdown-loader": "^2.0.0",
     "pug": "^2.0.0-beta6",
     "style-loader": "^0.13.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "vue": "^2.1.10",
     "vue-loader": "^9.9.5",
     "vue-router": "^2.3.0",
