@@ -1,23 +1,12 @@
 <template lang="pug">
 section(v-hotkey="keymap")
-  h1.title Private Hotkeys of Components
+  h1.title Key Combination
   section.hero-section
-    p Press <kbd>tab</kbd> to switch between two components.
-  section.hero-section
-    .columns
-      .column.is-2
-      .column.is-4
-        .box.content.component-a(:class="{active: flag}")
-          h1 Component A
-          p(v-if="flag", v-hotkey="keymapA") Press <kbd>enter</kbd> to say hello.
-          .msg(ref="hello") HELLO!
-      .column.is-4
-        .box.content.component-b(:class="{active: !flag}")
-          h1 Component B
-          p(v-if="!flag", v-hotkey="keymapB") Press <kbd>enter</kbd> to say bye.
-          .msg(ref="bye") BYE!
-      .column.is-2
-  section.hero-section
+    p Press <kbd>ctrl</kbd> + <kbd>enter</kbd> to say 
+      b(ref="hello") hello.
+    p Press <kbd>alt</kbd> + <kbd>enter</kbd> to say 
+      b(ref="bye") bye.
+    p Press <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>enter</kbd> to leave.
     p(:class="{next: true, show: show}") Press <kbd>→</kbd> to play next case.
 </template>
 
@@ -25,15 +14,7 @@ section(v-hotkey="keymap")
 export default {
   data () {
     return {
-      flag: true,
       show: false
-    }
-  },
-  watch: {
-    flag (val, oldVal) {
-      if (val) {
-        this.show = true
-      }
     }
   },
   methods: {
@@ -45,25 +26,16 @@ export default {
       const $bye = this.$refs.bye
       $bye.classList.add('active')
     },
-    switch (e) {
-      e.preventDefault()
-      this.flag = !this.flag
+    leave () {
+      this.show = true
     }
   },
   computed: {
     keymap () {
       return {
-        'tab': this.switch
-      }
-    },
-    keymapA () {
-      return {
-        'enter': this.hello
-      }
-    },
-    keymapB () {
-      return {
-        'enter': this.bye
+        'ctrl+enter': this.hello,
+        'alt+enter': this.bye,
+        'ctrl+alt+enter': this.leave
       }
     }
   },
@@ -77,6 +49,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+b
+  display inline-block
+.active
+  animation active 1s
+
 .next
   transition all 1s
   opacity 0
@@ -85,35 +62,11 @@ export default {
   opacity 1
   transform translateY(0)
 
-.msg
-  display inline-block
-  margin 10px
-  opacity 0
-  transform scale(0)
-  &.active
-    animation active-private 1s
-
-@keyframes active-private
+@keyframes active
   0%
-    opacity 0
-    transform scale(0)
+    transform translateX(0)
   50%
-    opacity 1
-    transform scale(2)
+    transform translateX(15px)
   100%
-    opacity 0
-    transform scale(0)
-
-.show
-  opacity 1
-  transform translateY(0)
-
-.component-a, .component-b
-  transition all .3s
-  height 180px
-  *
-    color #ccc
-  &.active
-    *
-      color black
+    transform translateX(0)
 </style>
