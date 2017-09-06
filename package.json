@@ -4,7 +4,7 @@
   "description": "Vue 2.x directive - binding hotkeys for components.",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -i src/index.js -o index.js -f umd --name VHotkey",
+    "build": "webpack --config webpack.config.js",
     "build:docs": "webpack --config ./docs/webpack.config.js",
     "dev": "webpack-dev-server --content-base docs --config ./docs/webpack.config.js --hot --inline"
   },
