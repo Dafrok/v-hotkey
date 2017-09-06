@@ -1,6 +1,6 @@
 export default searchInput => {
   // Keyboard Events
-  if (searchInput && 'object' === typeof searchInput) {
+  if (searchInput && typeof searchInput === 'object') {
     var hasKeyCode = searchInput.which || searchInput.keyCode || searchInput.charCode
     if (hasKeyCode) {
       searchInput = hasKeyCode
@@ -8,23 +8,23 @@ export default searchInput => {
   }
 
   // Numbers
-  if ('number' === typeof searchInput) {
-    return names[searchInput]
-  }
+  // if (typeof searchInput === 'number') {
+  //   return names[searchInput]
+  // }
 
   // Everything else (cast to string)
   var search = String(searchInput)
 
   // check codes
-  var foundNamedKey = codes[search.toLowerCase()]
-  if (foundNamedKey) {
-    return foundNamedKey
+  var foundNamedKeyCodes = codes[search.toLowerCase()]
+  if (foundNamedKeyCodes) {
+    return foundNamedKeyCodes
   }
 
   // check aliases
-  var foundNamedKey = aliases[search.toLowerCase()]
-  if (foundNamedKey) {
-    return foundNamedKey
+  var foundNamedKeyAliases = aliases[search.toLowerCase()]
+  if (foundNamedKeyAliases) {
+    return foundNamedKeyAliases
   }
 
   // weird character?
@@ -116,21 +116,21 @@ export const aliases = {
  */
 
 // lower case chars
-for (i = 97; i < 123; i++) {
+for (let i = 97; i < 123; i++) {
   codes[String.fromCharCode(i)] = i - 32
 }
 
 // numbers
-for (var i = 48; i < 58; i++) {
+for (let i = 48; i < 58; i++) {
   codes[i - 48] = i
 }
 
 // function keys
-for (i = 1; i < 13; i++) {
-  codes['f'+i] = i + 111
+for (let i = 1; i < 13; i++) {
+  codes['f' + i] = i + 111
 }
 
 // numpad keys
-for (i = 0; i < 10; i++) {
-  codes['numpad '+i] = i + 96
+for (let i = 0; i < 10; i++) {
+  codes['numpad ' + i] = i + 96
 }

@@ -24,19 +24,19 @@ export default {
       bind (el, binding, vnode, oldVnode) {
         el._keymap = getKeyMap(binding.value)
 
-        el._keymapHasKeyUp = el._keymap.some(hotkey => hotkey.callback.keyup);
+        el._keymapHasKeyUp = el._keymap.some(hotkey => hotkey.callback.keyup)
 
         el._keyHandler = e => {
           for (const hotkey of el._keymap) {
-            const callback = hotkey.keyCode === e.keyCode
-              && !!hotkey.ctrl === e.ctrlKey
-              && !!hotkey.alt === e.altKey
-              && !!hotkey.shift === e.shiftKey
-              && !!hotkey.meta === e.metaKey
-              && ( e.type === "keydown"
-                  ? ( hotkey.callback.keydown || hotkey.callback )
-                  : ( hotkey.callback.keyup )
-                )
+            const callback = hotkey.keyCode === e.keyCode &&
+              !!hotkey.ctrl === e.ctrlKey &&
+              !!hotkey.alt === e.altKey &&
+              !!hotkey.shift === e.shiftKey &&
+              !!hotkey.meta === e.metaKey &&
+              (e.type === 'keydown'
+                ? (hotkey.callback.keydown || hotkey.callback)
+                : (hotkey.callback.keyup)
+              )
             if (callback) {
               callback(e)
             }

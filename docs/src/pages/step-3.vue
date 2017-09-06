@@ -35,10 +35,6 @@ export default {
         }
       }
     }
-  },
-  mounted () {
-    const $hello = this.$refs.hello
-    $hello.addEventListener('animationend', e => {$hello.classList.remove('active')})
   }
 }
 </script>
