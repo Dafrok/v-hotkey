@@ -25,18 +25,26 @@ export default {
         el._keymap = getKeyMap(binding.value)
         el._keyHandler = e => {
           for (const hotkey of el._keymap) {
-            hotkey.keyCode === e.keyCode
+            const callback = hotkey.keyCode === e.keyCode
               && !!hotkey.ctrl === e.ctrlKey
               && !!hotkey.alt === e.altKey
               && !!hotkey.shift === e.shiftKey
               && !!hotkey.meta === e.metaKey
-              && hotkey.callback(e)
+              && ( e.type === "keydown"
+                  ? ( hotkey.callback.keydown || hotkey.callback )
+                  : ( hotkey.callback.keyup )
+                )
+            if (callback) {
+              callback(e)
+            }
           }
         }
         document.addEventListener('keydown', el._keyHandler)
+        document.addEventListener('keyup', el._keyHandler)
       },
       unbind (el, binding, vnode, oldVnode) {
         document.removeEventListener('keydown', el._keyHandler)
+        document.removeEventListener('keyup', el._keyHandler)
       }
     })
   }

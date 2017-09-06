@@ -23,7 +23,7 @@ Vue.use(VueHotkey)
 
 ```vue
 <template>
-<span v-hotkey="keymap" v-show="show"> Press `ctrl + esc` to toggle me! </span>
+  <span v-hotkey="keymap" v-show="show"> Press `ctrl + esc` to toggle me! Hold `enter` to hide me! </span>
 </template>
 
 <script>
@@ -36,13 +36,23 @@ export default {
   methods: {
     toggle () {
       this.show = !this.show
+    },
+    show () {
+      this.show = true
+    },
+    hide () {
+      this.show = false
     }
   },
   computed {
     keymap () {
       return {
         // 'esc+ctrl' is OK.
-        'ctrl+esc': this.toggle
+        'ctrl+esc': this.toggle,
+        'enter': {
+          keydown: this.hide,
+          keyup: this.show
+        }
       }
     }
   }

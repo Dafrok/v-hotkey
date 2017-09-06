@@ -2,7 +2,7 @@
 section(v-hotkey="keymap")
   h1.title(ref="hello") Hello world.
   section.hero-section
-    p Press <kbd>enter</kbd> to say hello.
+    p Press and hold <kbd>enter</kbd> to say hello.
     transition(name="slide")
       p(:class="{next: true, show: show}") Press <kbd>→</kbd> to play next case.
 </template>
@@ -19,25 +19,34 @@ export default {
       const $hello = this.$refs.hello
       $hello.classList.add('active')
       this.show = true
-    }
+    },
+  goodbye () {
+  const $hello = this.$refs.hello
+      $hello.classList.remove('active')
+  }
   },
   computed: {
     keymap () {
       return {
-        enter: this.hello
+        enter: {
+  keydown: this.hello,
+  keyup: this.goodbye
+  }
       }
     }
   },
   mounted () {
     const $hello = this.$refs.hello
-    $hello.addEventListener('animationend', e => {$hello.classList.remove('active')})
+    //$hello.addEventListener('animationend', e => {$hello.classList.remove('active')})
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.title
+  transition all 0.5s
 .active
-  animation active-helloworld 1s
+  transform scale(1.5)
 
 .next
   transition all 1s 1s
@@ -46,12 +55,4 @@ export default {
 .show
   opacity 1
   transform translateY(0)
-
-@keyframes active-helloworld
-  0%
-    transform scale(1)
-  50%
-    transform scale(1.5)
-  100%
-    transform scale(1)
 </style>
