@@ -60,6 +60,11 @@ export default {
 </script>
 ```
 
+## Event Handler
+
+- keydown (as default) 
+- keyup
+
 ## Key Combination
 
 Use one or more of following keys to fire your hotkeys.
