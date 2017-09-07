@@ -18,7 +18,7 @@ export default {
     louder () {
       const $hello = this.$refs.hello
       $hello.classList.add('loud')
-      this.show = true
+      // this.show = true
     },
     softer () {
       const $hello = this.$refs.hello
