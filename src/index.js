@@ -27,8 +27,6 @@ export default {
     Vue.directive('hotkey', {
       bind (el, binding, vnode, oldVnode) {
         el._keymap = getKeyMap(binding.value)
-        // el._keymapHasKeyUp = keymap.some(hotkey => hotkey.callback.keyup)
-
         el._keyHandler = e => {
           for (const hotkey of el._keymap) {
             const callback = hotkey.keyCode === e.keyCode &&
