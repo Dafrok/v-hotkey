@@ -44,7 +44,7 @@ export default {
       this.show = false
     }
   },
-  computed {
+  computed: {
     keymap () {
       return {
         // 'esc+ctrl' is OK.
