@@ -60,6 +60,7 @@ export const codes = {
   'up': 38,
   'right': 39,
   'down': 40,
+  'add': 43,
   'insert': 45,
   'delete': 46,
   'command': 91,
