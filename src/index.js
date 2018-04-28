@@ -3,11 +3,7 @@ import keyCode from './keycode'
 const getKeyMap = keymap => Object.keys(keymap).map(input => {
   const result = {}
   const {keyup, keydown} = keymap[input]
-  input
-    .replace(' ', '')
-    .replace('++', '+add')
-    .replace(/^\+$/, 'add')
-  input.split('+').forEach(keyName => {
+  input.replace('numpad +', 'numpad add').split('+').forEach(keyName => {
     switch (keyName.toLowerCase()) {
       case 'ctrl':
       case 'alt':
