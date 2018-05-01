@@ -67,8 +67,9 @@ export const codes = {
   'left command': 91,
   'right command': 93,
   'numpad *': 106,
-  'numpad +': 107,
-  'numpad add': 107, // as a trick
+  // 'numpad +': 107,
+  'numpad +': 43,
+  'numpad add': 43, // as a trick
   'numpad -': 109,
   'numpad .': 110,
   'numpad /': 111,
