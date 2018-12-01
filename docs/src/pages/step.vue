@@ -4,11 +4,12 @@ section(v-hotkey="keymap")
     router-view
 </template>
 <script>
+const pageCount = 7
 export default {
   methods: {
     nextPage () {
       const currentPage = this.$route.path.split('/')[2] | 0
-      const nextPage = currentPage >= 6 ? 6 : currentPage + 1
+      const nextPage = currentPage >= pageCount ? pageCount : currentPage + 1
       this.$router.push(`/step/${nextPage}`)
     },
     prevPage () {

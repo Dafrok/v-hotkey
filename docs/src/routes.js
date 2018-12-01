@@ -4,6 +4,7 @@ import Step3 from './pages/step-3.vue'
 import Step4 from './pages/step-4.vue'
 import Step5 from './pages/step-5.vue'
 import Step6 from './pages/step-6.vue'
+import Step7 from './pages/step-7.vue'
 import Start from './pages/start.vue'
 import Step from './pages/step.vue'
 
@@ -40,6 +41,10 @@ export default [
       {
         path: '6',
         component: Step6
+      },
+      {
+        path: '7',
+        component: Step7
       }
     ]
   }
