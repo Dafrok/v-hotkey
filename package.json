@@ -1,6 +1,6 @@
 {
   "name": "v-hotkey",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Vue 2.x directive - binding hotkeys for components.",
   "main": "index.js",
   "scripts": {
