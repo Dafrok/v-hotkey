@@ -65,6 +65,8 @@ export default {
 - keydown (as default) 
 - keyup
 
+If you only want one handler you should use `keydown`. 
+
 ## Key Combination
 
 Use one or more of following keys to fire your hotkeys.
