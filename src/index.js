@@ -1,5 +1,7 @@
 import keyCode from './keycode'
 
+const noop = function () {}
+
 const getKeyMap = keymap => Object.keys(keymap).map(input => {
   const result = {}
   const {keyup, keydown} = keymap[input]
@@ -16,8 +18,8 @@ const getKeyMap = keymap => Object.keys(keymap).map(input => {
     }
   })
   result.callback = {
-    keydown: keydown || keymap[input],
-    keyup
+    keydown: keydown || (keyup ? noop : keymap[input]),
+    keyup: keyup || noop
   }
   return result
 })
@@ -32,6 +34,7 @@ function bindEvent (el, binding) {
         !!hotkey.shift === e.shiftKey &&
         !!hotkey.meta === e.metaKey &&
         hotkey.callback[e.type]
+      console.log(hotkey.callback, e.type)
       callback && callback(e)
     }
   }
