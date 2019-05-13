@@ -27,6 +27,9 @@ const getKeyMap = keymap => Object.keys(keymap).map(input => {
 function bindEvent (el, binding) {
   el._keymap = getKeyMap(binding.value)
   el._keyHandler = e => {
+    if (binding.modifiers.prevent) {
+      e.preventDefault()
+    }
     for (const hotkey of el._keymap) {
       const callback = hotkey.keyCode === e.keyCode &&
         !!hotkey.ctrl === e.ctrlKey &&

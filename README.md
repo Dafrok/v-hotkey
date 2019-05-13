@@ -73,3 +73,13 @@ Use one or more of following keys to fire your hotkeys.
 - alt
 - shift
 - meta (windows / command)
+
+## Prevent modifier
+
+Add the prevent modifier to the directive to prevent default browser behavior.
+
+```
+<template>
+  <span v-hotkey.prevent="keymap" v-show="show"> Press `ctrl + esc` to toggle me! Hold `enter` to hide me! </span>
+</template>
+```
