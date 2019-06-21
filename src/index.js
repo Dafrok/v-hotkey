@@ -30,6 +30,19 @@ function bindEvent (el, binding) {
     if (binding.modifiers.prevent) {
       e.preventDefault()
     }
+    if (binding.modifiers.stop) {
+      const {nodeName} = document.activeElement
+      switch (nodeName) {
+        case 'INPUT':
+        case 'TEXTAREA':
+        case 'SELECT':
+          return
+        default:
+          if (document.activeElement.isContentEditable) {
+            return
+          }
+      }
+    }
     for (const hotkey of el._keymap) {
       const callback = hotkey.keyCode === e.keyCode &&
         !!hotkey.ctrl === e.ctrlKey &&
