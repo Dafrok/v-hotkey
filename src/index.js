@@ -2,7 +2,7 @@ import keyCode from './keycode'
 
 const noop = function () {}
 
-const getKeyMap = keymap => Object.keys(keymap).map(input => {
+const getKeyMap = (keymap, alias) => Object.keys(keymap).map(input => {
   const result = {}
   const {keyup, keydown} = keymap[input]
   input.replace('numpad +', 'numpad add').split('+').forEach(keyName => {
@@ -14,7 +14,7 @@ const getKeyMap = keymap => Object.keys(keymap).map(input => {
         result[keyName] = true
         break
       default:
-        result.keyCode = keyCode(keyName)
+        result.keyCode = alias[keyName] || keyCode(keyName)
     }
   })
   result.callback = {
@@ -24,8 +24,8 @@ const getKeyMap = keymap => Object.keys(keymap).map(input => {
   return result
 })
 
-function bindEvent (el, binding) {
-  el._keymap = getKeyMap(binding.value)
+function bindEvent (el, binding, alias) {
+  el._keymap = getKeyMap(binding.value, alias)
   el._keyHandler = e => {
     if (binding.modifiers.prevent) {
       e.preventDefault()
@@ -49,7 +49,6 @@ function bindEvent (el, binding) {
         !!hotkey.shift === e.shiftKey &&
         !!hotkey.meta === e.metaKey &&
         hotkey.callback[e.type]
-      console.log(hotkey.callback, e.type)
       callback && callback(e)
     }
   }
@@ -63,13 +62,15 @@ function unbindEvent (el) {
 }
 
 export default {
-  install (Vue) {
+  install (Vue, alias = {}) {
     Vue.directive('hotkey', {
-      bind: bindEvent,
+      bind: function (el, binding) {
+        bindEvent.call(this, el, binding, alias)
+      },
       componentUpdated (el, binding) {
         if (binding.value !== binding.oldValue) {
-          unbindEvent.apply(this, arguments)
-          bindEvent.apply(this, arguments)
+          unbindEvent.call(this, arguments)
+          bindEvent.apply(this, el, binding, alias)
         }
       },
       unbind: unbindEvent
