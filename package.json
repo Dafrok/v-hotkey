@@ -17,7 +17,10 @@
   "keywords": [
     "vue",
     "hotkey",
-    "directive"
+    "hotkeys",
+    "directive",
+    "shortcut",
+    "shortcuts"
   ],
   "author": "Dafrok <o.o@mug.dog>",
   "license": "MIT",
