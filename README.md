@@ -86,7 +86,7 @@ Add the prevent modifier to the directive to prevent default browser behavior.
 </template>
 ```
 
-## stop
+### stop
 
 Add the stop modifier to the directive to stop event propagation.
 
