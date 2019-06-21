@@ -4,6 +4,7 @@
   "description": "Vue 2.x directive - binding hotkeys for components.",
   "main": "index.js",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "webpack -p --config ./build/webpack.config.prod.js",
     "build:docs": "webpack --config ./build/webpack.config.docs.js -p",
     "lint": "eslint --ext .js, src docs/src build",
