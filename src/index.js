@@ -31,16 +31,15 @@ function bindEvent (el, binding) {
       e.preventDefault()
     }
     if (binding.modifiers.stop) {
-      const {nodeName} = document.activeElement
+      const {nodeName, isContentEditable} = document.activeElement
+      if (isContentEditable) {
+        return
+      }
       switch (nodeName) {
         case 'INPUT':
         case 'TEXTAREA':
         case 'SELECT':
           return
-        default:
-          if (document.activeElement.isContentEditable) {
-            return
-          }
       }
     }
     for (const hotkey of el._keymap) {
