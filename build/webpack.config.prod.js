@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './'),
-    filename: './index.js',
+    filename: '../index.js',
     library: 'VueHotkey',
     libraryTarget: 'umd'
   },
