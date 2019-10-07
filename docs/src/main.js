@@ -10,7 +10,7 @@ import 'bulma/css/bulma.css'
 Vue.use(VueHotkey)
 Vue.use(VueRouter)
 
-const router = new VueRouter({routes})
+const router = new VueRouter({ routes })
 
 const rootNode = document.createElement('div')
 document.body.appendChild(rootNode)

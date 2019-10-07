@@ -7,17 +7,17 @@ section(v-hotkey="keymap")
 </template>
 <script>
 export default {
-  methods: {
-    star () {
-      const $star = this.$refs.star
-      $star.click()
-    }
-  },
   computed: {
     keymap () {
       return {
         enter: this.star
       }
+    }
+  },
+  methods: {
+    star () {
+      const $star = this.$refs.star
+      $star.click()
     }
   }
 }

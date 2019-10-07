@@ -2,9 +2,9 @@
 section(v-hotkey="keymap")
   h1.title Key Combination
   section.hero-section
-    p Press <kbd>ctrl</kbd> + <kbd>enter</kbd> to say 
+    p Press <kbd>ctrl</kbd> + <kbd>enter</kbd> to say
       b(ref="hello") hello.
-    p Press <kbd>alt</kbd> + <kbd>enter</kbd> to say 
+    p Press <kbd>alt</kbd> + <kbd>enter</kbd> to say
       b(ref="bye") bye.
     p Press <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>enter</kbd> to leave.
     p(:class="{next: true, show: show}") Press <kbd>→</kbd> to play next case.
@@ -15,19 +15,6 @@ export default {
   data () {
     return {
       show: false
-    }
-  },
-  methods: {
-    hello () {
-      const $hello = this.$refs.hello
-      $hello.classList.add('active')
-    },
-    bye () {
-      const $bye = this.$refs.bye
-      $bye.classList.add('active')
-    },
-    leave () {
-      this.show = true
     }
   },
   computed: {
@@ -44,6 +31,19 @@ export default {
     const $bye = this.$refs.bye
     $hello.addEventListener('animationend', e => $hello.classList.remove('active'))
     $bye.addEventListener('animationend', e => $bye.classList.remove('active'))
+  },
+  methods: {
+    hello () {
+      const $hello = this.$refs.hello
+      $hello.classList.add('active')
+    },
+    bye () {
+      const $bye = this.$refs.bye
+      $bye.classList.add('active')
+    },
+    leave () {
+      this.show = true
+    }
   }
 }
 </script>

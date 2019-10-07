@@ -4,7 +4,7 @@ const noop = function () {}
 
 const getKeyMap = (keymap, alias) => Object.keys(keymap).map(input => {
   const result = {}
-  const {keyup, keydown} = keymap[input]
+  const { keyup, keydown } = keymap[input]
   input.replace('numpad +', 'numpad add').split('+').forEach(keyName => {
     switch (keyName.toLowerCase()) {
       case 'ctrl':
@@ -31,7 +31,7 @@ function bindEvent (el, binding, alias) {
       e.preventDefault()
     }
     if (binding.modifiers.stop) {
-      const {nodeName, isContentEditable} = document.activeElement
+      const { nodeName, isContentEditable } = document.activeElement
       if (isContentEditable) {
         return
       }
