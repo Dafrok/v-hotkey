@@ -1,25 +1,23 @@
+const isProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
   root: true,
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module'
   },
-  extends: ['standard', 'plugin:vue/recommended' ],
+  extends: ['standard', 'plugin:vue/recommended'],
   plugins: ['vue'],
-  overrides: [
-    {
-      files: [
-        "**/*.spec.js"
-      ],
-      env: {
-        jest: true 
-      },
-      plugins: ["jest"],
+  overrides: [{
+    files: ['**/*.spec.js'],
+    plugins: ['jest'],
+    env: {
+      jest: true
     }
-  ],
+  }],
   rules: {
-    'arrow-parens': 0,
-    'generator-star-spacing': 0,
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'arrow-parens': 'off',
+    'generator-star-spacing': 'off',
+    'no-debugger': isProduction ? 'error' : 'off'
   }
 }
