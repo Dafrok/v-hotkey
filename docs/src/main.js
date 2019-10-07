@@ -12,12 +12,9 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({ routes })
 
-const rootNode = document.createElement('div')
-document.body.appendChild(rootNode)
-
 /* eslint-disable no-new */
 new Vue({
-  el: rootNode,
+  el: '#app',
   router,
   render (h) {
     return h(App)

@@ -1,6 +1,6 @@
 <template lang="pug">
 div(v-hotkey="keymap")
-  h1.title V Hotkey
+  h1.title V-Hotkey
   h2.subtitle Vue 2.x directive for binding hotkeys to components.
   section.hero-section
     p Press <kbd>enter</kbd> to <router-link to="/step/1">get start</router-link>.
