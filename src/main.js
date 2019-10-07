@@ -1,28 +1,4 @@
-import { searchKeyCode } from './keycode'
-
-const noop = () => {}
-
-const getKeyMap = (keymap, alias) => Object.keys(keymap).map(input => {
-  const result = {}
-  const { keyup, keydown } = keymap[input]
-  input.replace('numpad +', 'numpad add').split('+').forEach(keyName => {
-    switch (keyName.toLowerCase()) {
-      case 'ctrl':
-      case 'alt':
-      case 'shift':
-      case 'meta':
-        result[keyName] = true
-        break
-      default:
-        result.keyCode = alias[keyName] || searchKeyCode(keyName)
-    }
-  })
-  result.callback = {
-    keydown: keydown || (keyup ? noop : keymap[input]),
-    keyup: keyup || noop
-  }
-  return result
-})
+import { getKeyMap } from './keycodes'
 
 function bindEvent (el, { value, modifiers }, alias) {
   el._keymap = getKeyMap(value, alias)
