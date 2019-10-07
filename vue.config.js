@@ -8,6 +8,7 @@ module.exports = {
       entry: './docs/src/main',
       title: 'V-Hotkey',
       template: HtmlWebpackTemplate,
+      inject: false,
       appMountId: 'app'
     }
   }
