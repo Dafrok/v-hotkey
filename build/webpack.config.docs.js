@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '../docs/src/main.js'),
@@ -15,9 +16,18 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.md$/,
-        use: ['html-loader', 'markdown-loader'],
-        exclude: /node_modules/
+        test: /\.pug$/,
+        oneOf: [
+          // this applies to `<template lang="pug">` in Vue components
+          {
+            resourceQuery: /^\?vue/,
+            use: ['pug-plain-loader']
+          },
+          // this applies to pug imports inside JavaScript
+          {
+            use: ['raw-loader', 'pug-plain-loader']
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -25,9 +35,22 @@ module.exports = {
         exclude: [/node_modules/, /md/]
       },
       {
+        test: /\.md$/,
+        use: ['html-loader', 'markdown-loader'],
+        exclude: /node_modules/
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         use: ['file-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
       },
       {
         test: /\.css$/,
@@ -38,6 +61,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../docs/src/template.html')
-    })
+    }),
+    new VueLoaderPlugin()
   ]
 }

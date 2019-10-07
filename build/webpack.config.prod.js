@@ -1,5 +1,5 @@
 const path = require('path')
-var webpack = require("webpack");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -9,6 +9,16 @@ module.exports = {
     library: 'VueHotkey',
     libraryTarget: 'umd'
   },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          sourceMap: true,
+          warnings: false
+        }
+      })
+    ]
+  },
   module: {
     rules: [
       {
@@ -17,12 +27,5 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  },
-	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		}),
-	]
+  }
 }
