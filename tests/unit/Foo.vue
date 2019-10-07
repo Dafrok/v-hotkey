@@ -17,11 +17,7 @@
 
 <script>
 export default {
-  data () {
-    return {
-      visible: false
-    }
-  },
+  data: () => ({ visible: false }),
   methods: {
     show () {
       this.visible = true
