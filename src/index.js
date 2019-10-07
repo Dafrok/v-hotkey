@@ -1,4 +1,4 @@
-import { bindEvent, unbindEvent } from './main.js'
+import { bindEvent, unbindEvent } from './main'
 
 export default {
   install (Vue, alias = {}) {
