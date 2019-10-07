@@ -39,7 +39,9 @@
     "prepublishOnly": "npm run build",
     "test": "vue-cli-service test:unit"
   },
-  "main": "dist/v-hotkey.umd.min.js",
+  "main": "dist/v-hotkey.common.js",
+  "unpkg": "dist/v-hotkey.umd.js",
+  "jsdelivr": "dist/v-hotkey.umd.js",
   "peerDependencies": {
     "vue": "^2.x"
   },
@@ -70,6 +72,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/demo.html"
   ]
 }
