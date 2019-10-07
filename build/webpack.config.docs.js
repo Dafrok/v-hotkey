@@ -22,10 +22,6 @@ module.exports = {
           {
             resourceQuery: /^\?vue/,
             use: ['pug-plain-loader']
-          },
-          // this applies to pug imports inside JavaScript
-          {
-            use: ['raw-loader', 'pug-plain-loader']
           }
         ]
       },
@@ -60,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../docs/src/template.html')
+      title: 'v-hotkey'
     }),
     new VueLoaderPlugin()
   ]
