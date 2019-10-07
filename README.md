@@ -93,7 +93,7 @@ Add the stop modifier to the directive to stop event propagation.
 ```vue
 <template>
   <div v-hotkey.stop="keymap">
-    <span>Enter characters in editable areas doesn't trigger any hotkeys.</span>
+    <span> Enter characters in editable areas doesn't trigger any hotkeys. </span>
     <input>
   </div>
 </template>
@@ -102,7 +102,7 @@ Add the stop modifier to the directive to stop event propagation.
 ## Key Code Alias
 
 The default key code map is based on US standard keyboard.
-This ability to provide their own key code alias for developers who using keyboards with different layouts. The alias name must be a **SINGLE CHARACTOR**.
+This ability to provide their own key code alias for developers who using keyboards with different layouts. The alias name must be a **single character**.
 
 ### Definition
 
@@ -111,7 +111,7 @@ import Vue from 'vue'
 import VueHotkey from 'v-hotkey'
 
 Vue.use(VueHotkey, {
-  '①': 49 // the key code of charactor '1'
+  '①': 49 // the key code of character '1'
 })
 ```
 
@@ -122,7 +122,7 @@ Vue.use(VueHotkey, {
 <script>
 export default {
   foo () {
-    console.log('Hoory!')
+    console.log('Hooray!')
   },
   computed: {
     keymap () {
