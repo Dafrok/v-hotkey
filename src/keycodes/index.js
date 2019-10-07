@@ -43,6 +43,5 @@ const hasKeyCode = key => !isPlainObject(key)
 export {
   aliases,
   codes,
-  getKeyMap,
-  searchKeyCode
+  getKeyMap
 }
