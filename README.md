@@ -1,5 +1,10 @@
 # v-hotkey
 
+[![bundlephobia minified size](https://badgen.net/bundlephobia/min/v-hotkey)](https://bundlephobia.com/result?p=v-hotkey)
+[![npm package version](https://badgen.net/npm/v/v-hotkey)](https://npm.im/v-hotkey)
+[![github license](https://badgen.net/github/license/dafrok/v-hotkey)](https://github.com/dafrok/v-hotkey/blob/master/LICENSE)
+[![js standard style](https://badgen.net/badge/code%20style/standard/pink)](https://standardjs.com)
+
 Vue 2.x directive for binding hotkeys to components.
 
 ## Play with me
