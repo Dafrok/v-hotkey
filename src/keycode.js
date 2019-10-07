@@ -1,47 +1,23 @@
-export default searchInput => {
+export const searchKeyCode = key => {
+  if (!key) return
   // Keyboard Events
-  if (searchInput && typeof searchInput === 'object') {
-    var hasKeyCode = searchInput.which || searchInput.keyCode || searchInput.charCode
-    if (hasKeyCode) {
-      searchInput = hasKeyCode
-    }
-  }
+  key = hasKeyCode(key) || String(key)
+  return codes[key.toLowerCase()] ||
+    aliases[key.toLowerCase()] ||
+    returnCharCode(key)
+}
 
-  // Numbers
-  // if (typeof searchInput === 'number') {
-  //   return names[searchInput]
-  // }
-
-  // Everything else (cast to string)
-  var search = String(searchInput)
-
-  // check codes
-  var foundNamedKeyCodes = codes[search.toLowerCase()]
-  if (foundNamedKeyCodes) {
-    return foundNamedKeyCodes
-  }
-
-  // check aliases
-  var foundNamedKeyAliases = aliases[search.toLowerCase()]
-  if (foundNamedKeyAliases) {
-    return foundNamedKeyAliases
-  }
-
-  // weird character?
-  if (search.length === 1) {
-    return search.charCodeAt(0)
-  }
-
-  return undefined
+const returnCharCode = key => key.length === 1 ? key.charCodeAt(0) : undefined
+const isPlainObject = obj => Object.prototype.toString.call(obj) === '[object Object]'
+const hasKeyCode = key => {
+  if (!isPlainObject(key)) return key
+  return key.which || key.keyCode || key.charCode || false
 }
 
 /**
  * Get by name
- *
- *   exports.code['enter'] // => 13
  */
-
-export const codes = {
+const codes = {
   backspace: 8,
   tab: 9,
   enter: 13,
@@ -92,7 +68,7 @@ export const codes = {
 
 // Helper aliases
 
-export const aliases = {
+const aliases = {
   windows: 91,
   '⇧': 16,
   '⌥': 18,
@@ -114,8 +90,8 @@ export const aliases = {
   cmd: 91
 }
 
-/*!
- * Programatically add the following
+/*
+ * Programmatically add the following
  */
 
 // lower case chars
