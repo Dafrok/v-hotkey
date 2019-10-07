@@ -3,11 +3,21 @@ section(v-hotkey="keymap")
   transition(name="slide", mode="out-in")
     router-view
 </template>
+
 <script>
-const pageCount = 7
 export default {
+  computed: {
+    keymap () {
+      return {
+        left: this.prevPage,
+        right: this.nextPage,
+        esc: this.backHome
+      }
+    }
+  },
   methods: {
     nextPage () {
+      const pageCount = 7
       const currentPage = this.$route.path.split('/')[2] | 0
       const nextPage = currentPage >= pageCount ? pageCount : currentPage + 1
       this.$router.push(`/step/${nextPage}`)
@@ -18,16 +28,7 @@ export default {
       this.$router.push(`/step/${prevPage}`)
     },
     backHome () {
-      this.$router.push(`/`)
-    }
-  },
-  computed: {
-    keymap () {
-      return {
-        left: this.prevPage,
-        right: this.nextPage,
-        esc: this.backHome
-      }
+      this.$router.push('/')
     }
   }
 }

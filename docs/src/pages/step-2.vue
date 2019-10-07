@@ -14,13 +14,6 @@ export default {
       show: false
     }
   },
-  methods: {
-    hello () {
-      const $hello = this.$refs.hello
-      $hello.classList.add('active')
-      this.show = true
-    }
-  },
   computed: {
     keymap () {
       return {
@@ -31,6 +24,13 @@ export default {
   mounted () {
     const $hello = this.$refs.hello
     $hello.addEventListener('animationend', e => $hello.classList.remove('active'))
+  },
+  methods: {
+    hello () {
+      const $hello = this.$refs.hello
+      $hello.classList.add('active')
+      this.show = true
+    }
   }
 }
 </script>

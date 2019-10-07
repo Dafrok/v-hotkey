@@ -4,11 +4,11 @@ section(v-hotkey="keymap")
   section.hero-section
     p Press <kbd>tab</kbd> to switch keymap.
   section.hero-section(v-show="keymapType === 'keymap1'")
-    p Press <kbd>ctrl</kbd> + <kbd>enter</kbd> to say 
+    p Press <kbd>ctrl</kbd> + <kbd>enter</kbd> to say
       b(ref="hello") hello.
     p You can't say bye now.
   section.hero-section(v-show="keymapType === 'keymap2'")
-    p Press <kbd>alt</kbd> + <kbd>enter</kbd> to say 
+    p Press <kbd>alt</kbd> + <kbd>enter</kbd> to say
       b(ref="bye") bye.
     p You can't say hello now.
   section.hero-section
@@ -20,28 +20,6 @@ export default {
     return {
       keymapType: 'keymap1',
       show: false
-    }
-  },
-  methods: {
-    switchKeyMap (e) {
-      e.preventDefault()
-      this.keymapType = this.keymapType === 'keymap1' ? 'keymap2' : 'keymap1'
-      const $hello = this.$refs.hello
-      const $bye = this.$refs.bye
-      $hello.classList.remove('active')
-      $bye.classList.remove('active')
-    },
-    hello () {
-      console.log('hello')
-      const $hello = this.$refs.hello
-      console.log($hello)
-      $hello.classList.add('active')
-    },
-    bye () {
-      console.log('bye')
-      const $bye = this.$refs.bye
-      $bye.classList.add('active')
-      this.show = true
     }
   },
   computed: {
@@ -65,6 +43,28 @@ export default {
     console.log(this.$refs)
     $hello.addEventListener('animationend', e => $hello.classList.remove('active'))
     $bye.addEventListener('animationend', e => $bye.classList.remove('active'))
+  },
+  methods: {
+    switchKeyMap (e) {
+      e.preventDefault()
+      this.keymapType = this.keymapType === 'keymap1' ? 'keymap2' : 'keymap1'
+      const $hello = this.$refs.hello
+      const $bye = this.$refs.bye
+      $hello.classList.remove('active')
+      $bye.classList.remove('active')
+    },
+    hello () {
+      console.log('hello')
+      const $hello = this.$refs.hello
+      console.log($hello)
+      $hello.classList.add('active')
+    },
+    bye () {
+      console.log('bye')
+      const $bye = this.$refs.bye
+      $bye.classList.add('active')
+      this.show = true
+    }
   }
 }
 </script>

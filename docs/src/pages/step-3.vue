@@ -14,6 +14,16 @@ export default {
       show: false
     }
   },
+  computed: {
+    keymap () {
+      return {
+        enter: {
+          keydown: this.louder,
+          keyup: this.softer
+        }
+      }
+    }
+  },
   methods: {
     louder () {
       const $hello = this.$refs.hello
@@ -24,16 +34,6 @@ export default {
       const $hello = this.$refs.hello
       $hello.classList.remove('loud')
       this.show = true
-    }
-  },
-  computed: {
-    keymap () {
-      return {
-        enter: {
-          keydown: this.louder,
-          keyup: this.softer
-        }
-      }
     }
   }
 }
@@ -51,6 +51,7 @@ export default {
   transition all 1s 1s
   opacity 0
   transform translateY(100%)
+
 .show
   opacity 1
   transform translateY(0)

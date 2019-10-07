@@ -29,12 +29,35 @@ export default {
       show: false
     }
   },
+  computed: {
+    keymap () {
+      return {
+        tab: this.switch
+      }
+    },
+    keymapA () {
+      return {
+        enter: this.hello
+      }
+    },
+    keymapB () {
+      return {
+        enter: this.bye
+      }
+    }
+  },
   watch: {
     flag (val, oldVal) {
       if (val) {
         this.show = true
       }
     }
+  },
+  mounted () {
+    const $hello = this.$refs.hello
+    const $bye = this.$refs.bye
+    $hello.addEventListener('animationend', e => $hello.classList.remove('active'))
+    $bye.addEventListener('animationend', e => $bye.classList.remove('active'))
   },
   methods: {
     hello () {
@@ -49,29 +72,6 @@ export default {
       e.preventDefault()
       this.flag = !this.flag
     }
-  },
-  computed: {
-    keymap () {
-      return {
-        'tab': this.switch
-      }
-    },
-    keymapA () {
-      return {
-        'enter': this.hello
-      }
-    },
-    keymapB () {
-      return {
-        'enter': this.bye
-      }
-    }
-  },
-  mounted () {
-    const $hello = this.$refs.hello
-    const $bye = this.$refs.bye
-    $hello.addEventListener('animationend', e => $hello.classList.remove('active'))
-    $bye.addEventListener('animationend', e => $bye.classList.remove('active'))
   }
 }
 </script>

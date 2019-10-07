@@ -5,11 +5,6 @@ article(v-hotkey="keymap")
 
 <script>
 export default {
-  methods: {
-    backHome () {
-      this.$router.push(`/`)
-    }
-  },
   computed: {
     keymap () {
       return {
@@ -17,6 +12,11 @@ export default {
         right: this.nextPage,
         esc: this.backHome
       }
+    }
+  },
+  methods: {
+    backHome () {
+      this.$router.push('/')
     }
   }
 }
