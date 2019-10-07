@@ -1,8 +1,10 @@
-
 const HtmlWebpackTemplate = require('html-webpack-template')
 
+const isProduction = process.env.NODE_ENV === 'production'
+
+/** @type {import('@vue/cli-service').ProjectOptions} */
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/v-hotkey/' : '',
+  publicPath: isProduction ? '/v-hotkey/' : '',
   pages: {
     index: {
       entry: './docs/src/main',
