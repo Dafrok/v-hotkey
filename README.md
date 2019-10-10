@@ -14,7 +14,9 @@ Vue 2.x directive for binding hotkeys to components.
 ## Install
 
 ```bash
-$ npm i --save v-hotkey
+$ npm i v-hotkey
+# or
+$ yard add v-hoteky
 ```
 
 ## Usage
@@ -77,19 +79,10 @@ Use one or more of following keys to fire your hotkeys.
 - ctrl
 - alt
 - shift
-- meta (windows / command)
+- command (MacOS)
+- windows (Windows)
 
 ## Modifiers
-
-### prevent
-
-Add the prevent modifier to the directive to prevent default browser behavior.
-
-```vue
-<template>
-  <span v-hotkey.prevent="keymap" v-show="show"> Press `ctrl + esc` to toggle me! Hold `enter` to hide me! </span>
-</template>
-```
 
 ### stop
 
