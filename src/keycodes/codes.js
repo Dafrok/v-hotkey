@@ -1,6 +1,7 @@
+import aliases from './aliases'
 import functionKeys from './functionkeys'
-import numpad from './numpad'
 import lowercase from './lowercase'
+import numpad from './numpad'
 
 export default {
   backspace: 8,
@@ -21,7 +22,6 @@ export default {
   up: 38,
   right: 39,
   down: 40,
-  // 'add': 43,
   insert: 45,
   delete: 46,
   command: 91,
@@ -55,5 +55,6 @@ export default {
   '"': 222,
   ...lowercase,
   ...numpad,
-  ...functionKeys
+  ...functionKeys,
+  ...aliases
 }
