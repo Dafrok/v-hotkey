@@ -18,6 +18,7 @@ module.exports = {
   rules: {
     'arrow-parens': 'off',
     'generator-star-spacing': 'off',
-    'no-debugger': isProduction ? 'error' : 'off'
+    'no-debugger': isProduction ? 'error' : 'off',
+    'no-prototype-builtins': 'off'
   }
 }
