@@ -1,35 +1,24 @@
 import { getKeyMap } from './keycodes'
+import { assignKeyHandler } from './helpers'
 
+/**
+ *
+ * @param {Object} el
+ * @param {Object} bindings
+ * @param {Object} alias
+ */
 function bindEvent (el, { value, modifiers }, alias) {
-  el._keymap = getKeyMap(value, alias)
-  el._keyHandler = e => {
-    if (modifiers.prevent) e.preventDefault()
-    if (modifiers.stop) {
-      const { nodeName, isContentEditable } = document.activeElement
-      if (isContentEditable) return
+  el._keyMap = getKeyMap(value, alias)
+  el._keyHandler = e => assignKeyHandler(e, el._keyMap, modifiers)
 
-      switch (nodeName) {
-        case 'INPUT':
-        case 'TEXTAREA':
-        case 'SELECT':
-          return
-      }
-    }
-
-    for (const hotkey of el._keymap) {
-      const callback = hotkey.keyCode === e.keyCode &&
-        !!hotkey.ctrl === e.ctrlKey &&
-        !!hotkey.alt === e.altKey &&
-        !!hotkey.shift === e.shiftKey &&
-        !!hotkey.meta === e.metaKey &&
-        hotkey.callback[e.type]
-      callback && callback(e)
-    }
-  }
   document.addEventListener('keydown', el._keyHandler)
   document.addEventListener('keyup', el._keyHandler)
 }
 
+/**
+ *
+ * @param {Object} el
+ */
 function unbindEvent (el) {
   document.removeEventListener('keydown', el._keyHandler)
   document.removeEventListener('keyup', el._keyHandler)
