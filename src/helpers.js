@@ -57,17 +57,16 @@ export const assignKeyHandler = (e, keyMap, modifiers) => {
   const { keyCode, ctrlKey, altKey, shiftKey, metaKey } = e
   const eventKeyModifiers = { ctrlKey, altKey, shiftKey, metaKey }
 
-  if (modifiers.prevent || modifiers.stop) {
-    return e
+  if (modifiers.stop) {
+    e.stopPropagation()
   }
 
   const { nodeName, isContentEditable } = document.activeElement
   if (isContentEditable) return
   if (FORBIDDEN_NODES.includes(nodeName)) return
 
-  e.preventDefault()
-
   const callback = getHotkeyCallback(keyMap, keyCode, eventKeyModifiers)
-  if (!callback) return
+  if (!callback) return e
+  e.preventDefault()
   callback[e.type](e)
 }
