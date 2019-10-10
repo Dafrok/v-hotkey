@@ -1,4 +1,3 @@
-import aliases from './aliases'
 import codes from './codes'
 import { splitCombination, returnCharCode } from '../helpers'
 
@@ -26,7 +25,7 @@ const alternativeKeyNames = {
  * @param {Object} alias
  * @returns {Object}
  */
-const getKeyMap = (combinations, alias) => {
+export const getKeyMap = (combinations, alias) => {
   const result = []
 
   Object.keys(combinations).forEach(combination => {
@@ -79,18 +78,9 @@ const resolveCodesAndModifiers = (keys, alias) => {
     code
   }
 }
+
 /**
  *
  * @param {String} key
  */
-const searchKeyCode = key => {
-  return codes[key.toLowerCase()] ||
-    aliases[key.toLowerCase()] ||
-    returnCharCode(key)
-}
-
-export {
-  aliases,
-  codes,
-  getKeyMap
-}
+const searchKeyCode = key => codes[key.toLowerCase()] || returnCharCode(key)
