@@ -16,7 +16,7 @@ Vue 2.x directive for binding hotkeys to components.
 ```bash
 $ npm i v-hotkey
 # or
-$ yard add v-hoteky
+$ yarn add v-hotkey
 ```
 
 ## Usage
