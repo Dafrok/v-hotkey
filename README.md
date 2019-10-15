@@ -30,7 +30,9 @@ Vue.use(VueHotkey)
 
 ```vue
 <template>
-  <span v-hotkey="keymap" v-show="show"> Press `ctrl + esc` to toggle me! Hold `enter` to hide me! </span>
+  <span v-hotkey="keymap" v-show="show"> 
+    Press `ctrl + esc` to toggle me! Hold `enter` to hide me!
+  </span>
 </template>
 
 <script>
