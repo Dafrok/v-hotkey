@@ -148,7 +148,13 @@ describe('helper functions', () => {
       metaKey: false,
       preventDefault: mockFn
     }
-    const node = document.createElement('input')
+
+    document.body.innerHTML = `
+      <div>
+          <input class="input"> </input>
+      </div>
+    `
+    const node = document.querySelector('.input')
     node.focus()
     document.activeElement.isContentEditable = false
 
