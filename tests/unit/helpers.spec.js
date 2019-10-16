@@ -86,7 +86,8 @@ describe('helper functions', () => {
     expect(mockFn).not.toHaveBeenCalled()
   })
 
-  it('should return event if prevent modifier is present', () => {
+  it('should call preventDefault if prevent modifier is present', () => {
+    const mockFn = jest.fn()
     const e = {
       type: 'keydown',
       keyCode: 65,
@@ -94,12 +95,12 @@ describe('helper functions', () => {
       altKey: false,
       shiftKey: false,
       metaKey: false,
-      preventDefault: () => {}
+      preventDefault: mockFn
     }
 
-    const preventedEvent = assignKeyHandler(e, [], { prevent: true })
+    assignKeyHandler(e, [], { prevent: true })
 
-    expect(preventedEvent).toEqual(e)
+    expect(mockFn).toHaveBeenCalled()
   })
 
   it('should call stopPropagation if stop modifier is present', () => {

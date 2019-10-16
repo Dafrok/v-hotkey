@@ -86,6 +86,18 @@ Use one or more of following keys to fire your hotkeys.
 
 ## Modifiers
 
+### prevent
+
+Add the prevent modifier to the directive to prevent default browser behavior.
+
+```vue
+<template>
+  <span v-hotkey.prevent="keymap" v-show="show">
+    Press `ctrl + esc` to toggle me! Hold `enter` to hide me!
+  </span>
+</template>
+```
+
 ### stop
 
 Add the stop modifier to the directive to stop event propagation.
