@@ -57,6 +57,10 @@ export const assignKeyHandler = (e, keyMap, modifiers) => {
   const { keyCode, ctrlKey, altKey, shiftKey, metaKey } = e
   const eventKeyModifiers = { ctrlKey, altKey, shiftKey, metaKey }
 
+  if (modifiers.prevent) {
+    e.preventDefault()
+  }
+
   if (modifiers.stop) {
     e.stopPropagation()
   }
