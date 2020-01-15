@@ -10,7 +10,7 @@
   "scripts": {
     "build": "vue-cli-service build --target lib --name v-hotkey ./src/index.js",
     "lint": "eslint --ext .js,.vue .",
-    "build:docs": "vue-cli-service build ./docs/src/main.js --dest docs/dist",
+    "build:docs": "vue-cli-service build ./src/docs/main.js --dest docs",
     "build:docs:dev": "npm run build:docs -- --mode development",
     "dev": "vue-cli-service serve",
     "prepublishOnly": "npm run build",

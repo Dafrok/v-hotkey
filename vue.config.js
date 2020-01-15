@@ -7,7 +7,7 @@ module.exports = {
   publicPath: isProduction ? '/v-hotkey/' : '',
   pages: {
     index: {
-      entry: './docs/src/main',
+      entry: './src/docs/main',
       title: 'V-Hotkey',
       template: HtmlWebpackTemplate,
       inject: false,
