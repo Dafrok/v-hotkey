@@ -40,7 +40,6 @@ export default {
   mounted () {
     const $hello = this.$refs.hello
     const $bye = this.$refs.bye
-    console.log(this.$refs)
     $hello.addEventListener('animationend', e => $hello.classList.remove('active'))
     $bye.addEventListener('animationend', e => $bye.classList.remove('active'))
   },
@@ -54,13 +53,10 @@ export default {
       $bye.classList.remove('active')
     },
     hello () {
-      console.log('hello')
       const $hello = this.$refs.hello
-      console.log($hello)
       $hello.classList.add('active')
     },
     bye () {
-      console.log('bye')
       const $bye = this.$refs.bye
       $bye.classList.add('active')
       this.show = true
