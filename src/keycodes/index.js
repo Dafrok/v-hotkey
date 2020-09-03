@@ -31,7 +31,7 @@ export const getKeyMap = (combinations, alias) => {
   Object.keys(combinations).forEach(combination => {
     const { keyup, keydown } = combinations[combination]
     const callback = {
-      keydown: keydown || keyup ? noop : combinations[combination],
+      keydown: keydown || (keyup ? noop : combinations[combination]),
       keyup: keyup || noop
     }
     const keys = splitCombination(combination)
