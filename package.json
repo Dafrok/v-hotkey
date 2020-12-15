@@ -13,7 +13,7 @@
     "build:docs": "vue-cli-service build ./src/docs/main.js --dest docs",
     "build:docs:dev": "npm run build:docs -- --mode development",
     "dev": "vue-cli-service serve",
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
     "test": "vue-cli-service test:unit"
   },
   "main": "dist/v-hotkey.common.js",
