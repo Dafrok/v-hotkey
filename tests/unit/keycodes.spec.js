@@ -38,4 +38,20 @@ describe('keycodes functions', () => {
     expect(result[0].modifiers.shiftKey).toEqual(true)
     expect(result[0].modifiers.metaKey).toEqual(true)
   })
+
+  it('should create a keymap with multiple hotkey bindings', () => {
+    const combinations = {
+      'a b c': () => {},
+      'ctrl+1 ctrl+2': () => {}
+    }
+    const result = getKeyMap(combinations, {})
+    expect(result.length).toEqual(5)
+    expect(result[0].code).toEqual(65)
+    expect(result[1].code).toEqual(66)
+    expect(result[2].code).toEqual(67)
+    expect(result[3].code).toEqual(49)
+    expect(result[3].modifiers.ctrlKey).toEqual(true)
+    expect(result[4].code).toEqual(50)
+    expect(result[4].modifiers.ctrlKey).toEqual(true)
+  })
 })

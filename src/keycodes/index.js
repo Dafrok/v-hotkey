@@ -29,16 +29,16 @@ export const getKeyMap = (indices, alias) => {
   const result = []
 
   Object.keys(indices).forEach(index => {
-    const {keyup, keydown} = indices[index]
+    const { keyup, keydown } = indices[index]
     const callback = {
       keydown: keydown || (keyup ? noop : indices[index]),
       keyup: keyup || noop
     }
 
-    const combinations = index.split(' ');
+    const combinations = index.split(' ')
     combinations.forEach(combination => {
       const keys = splitCombination(combination)
-      const {code, modifiers} = resolveCodesAndModifiers(keys, alias)
+      const { code, modifiers } = resolveCodesAndModifiers(keys, alias)
 
       result.push({
         code,
