@@ -21,26 +21,30 @@ const alternativeKeyNames = {
 
 /**
  *
- * @param {Object} combinations
+ * @param {Object} indices
  * @param {Object} alias
  * @returns {Object}
  */
-export const getKeyMap = (combinations, alias) => {
+export const getKeyMap = (indices, alias) => {
   const result = []
 
-  Object.keys(combinations).forEach(combination => {
-    const { keyup, keydown } = combinations[combination]
+  Object.keys(indices).forEach(index => {
+    const {keyup, keydown} = indices[index]
     const callback = {
-      keydown: keydown || (keyup ? noop : combinations[combination]),
+      keydown: keydown || (keyup ? noop : indices[index]),
       keyup: keyup || noop
     }
-    const keys = splitCombination(combination)
-    const { code, modifiers } = resolveCodesAndModifiers(keys, alias)
 
-    result.push({
-      code,
-      modifiers,
-      callback
+    const combinations = index.split(' ');
+    combinations.forEach(combination => {
+      const keys = splitCombination(combination)
+      const {code, modifiers} = resolveCodesAndModifiers(keys, alias)
+
+      result.push({
+        code,
+        modifiers,
+        callback
+      })
     })
   })
 
