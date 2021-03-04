@@ -18,8 +18,9 @@ const buildDirective = function (alias = {}, forbiddenNodes = DEFAULT_FORBIDDEN_
 }
 
 const plugin = {
-  install (Vue, alias = {}, forbidden_nodes = DEFAULT_FORBIDDEN_NODES) {
-    Vue.directive('hotkey', buildDirective(alias, forbidden_nodes))
+  install (Vue, options = {}) {
+    const { alias = {}, forbiddenNodes = DEFAULT_FORBIDDEN_NODES } = options;
+    Vue.directive('hotkey', buildDirective(alias, forbiddenNodes))
   },
 
   directive: buildDirective()
