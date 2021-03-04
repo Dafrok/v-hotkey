@@ -1,8 +1,7 @@
+import { DEFAULT_FORBIDDEN_NODES } from './helpers'
 import { bindEvent, unbindEvent } from './main'
 
-const DEFAULT_FORBIDDEN_NODES = ['INPUT', 'TEXTAREA', 'SELECT']
-
-const buildDirective = function (alias = {}, forbiddenNodes = DEFAULT_FORBIDDEN_NODES) {
+const buildDirective = function (alias, forbiddenNodes) {
   return {
     bind (el, binding) {
       bindEvent(el, binding, alias, forbiddenNodes)

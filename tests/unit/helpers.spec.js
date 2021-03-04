@@ -51,7 +51,7 @@ describe('helper functions', () => {
       }
     }]
 
-    assignKeyHandler(e, keyMap, {}, [])
+    assignKeyHandler(e, keyMap, {})
 
     expect(mockFn).toHaveBeenCalled()
   })
@@ -81,7 +81,7 @@ describe('helper functions', () => {
       }
     }]
 
-    assignKeyHandler(e, keyMap, {}, [])
+    assignKeyHandler(e, keyMap, {})
 
     expect(mockFn).not.toHaveBeenCalled()
   })
@@ -98,7 +98,7 @@ describe('helper functions', () => {
       preventDefault: mockFn
     }
 
-    assignKeyHandler(e, [], { prevent: true }, [])
+    assignKeyHandler(e, [], { prevent: true })
 
     expect(mockFn).toHaveBeenCalled()
   })
@@ -115,7 +115,7 @@ describe('helper functions', () => {
       stopPropagation: mockFn
     }
 
-    assignKeyHandler(e, [], { stop: true }, [])
+    assignKeyHandler(e, [], { stop: true })
     expect(mockFn).toHaveBeenCalled()
   })
 
@@ -133,7 +133,7 @@ describe('helper functions', () => {
 
     document.activeElement.isContentEditable = true
 
-    assignKeyHandler(e, [], {}, [])
+    assignKeyHandler(e, [], {})
 
     expect(mockFn).not.toHaveBeenCalled()
   })
@@ -159,7 +159,7 @@ describe('helper functions', () => {
     node.focus()
     document.activeElement.isContentEditable = false
 
-    assignKeyHandler(e, [], {}, ['INPUT'])
+    assignKeyHandler(e, [], {})
 
     expect(mockFn).not.toHaveBeenCalled()
   })
