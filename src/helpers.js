@@ -66,11 +66,11 @@ export const assignKeyHandler = (e, keyMap, modifiers) => {
   }
 
   const { nodeName, isContentEditable } = document.activeElement
-  const callback = getHotkeyCallback(keyMap, keyCode, eventKeyModifiers);
+  const callback = getHotkeyCallback(keyMap, keyCode, eventKeyModifiers)
 
-  if (!callback) return e;
-  if (isContentEditable) return;
-  if (FORBIDDEN_NODES.includes(nodeName) && !callback.executeInForbiddenNode) return;
+  if (!callback) return e
+  if (isContentEditable) return
+  if (FORBIDDEN_NODES.includes(nodeName) && !callback.executeInForbiddenNode) return
 
   e.preventDefault()
   callback[e.type](e)
