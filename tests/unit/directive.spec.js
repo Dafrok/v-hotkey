@@ -33,7 +33,7 @@ describe('Hotkey works', () => {
     expect(div.exists()).toBe(false)
   })
 
-  it('toggle input on tab keydown', async () => {
+  it('toggle input on enter keydown', async () => {
     const wrapper = mount(Bar, {
       localVue,
       attachToDocument: true
