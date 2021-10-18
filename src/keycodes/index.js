@@ -10,13 +10,17 @@ const defaultModifiers = {
   metaKey: false
 }
 
+function isApplePlatform() {
+  return typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+}
+
 const alternativeKeyNames = {
   option: 'alt',
   command: 'meta',
   return: 'enter',
   escape: 'esc',
   plus: '+',
-  mod: /Mac|iPod|iPhone|iPad/.test(navigator.platform) ? 'meta' : 'ctrl'
+  mod: isApplePlatform() ? 'meta' : 'ctrl'
 }
 
 /**
