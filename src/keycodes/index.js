@@ -33,10 +33,11 @@ export const getKeyMap = (combinations, alias) => {
   const result = []
 
   Object.keys(combinations).forEach(combination => {
-    const { keyup, keydown } = combinations[combination]
+    const { keyup, keydown, executeInForbiddenNode } = combinations[combination]
     const callback = {
       keydown: keydown || (keyup ? noop : combinations[combination]),
-      keyup: keyup || noop
+      keyup: keyup || noop,
+      executeInForbiddenNode: executeInForbiddenNode||false
     }
     const keys = splitCombination(combination)
     const { code, modifiers } = resolveCodesAndModifiers(keys, alias)
