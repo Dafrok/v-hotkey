@@ -61,7 +61,10 @@ export default {
         'enter': {
           keydown: this.hide,
           keyup: this.show
-        }
+        },
+        // bind one method to multiple hotkeys or combinations
+        'h ctrl+h': this.hide,
+        's ctrl+s': this.show
       }
     }
   }
