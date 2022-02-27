@@ -8,8 +8,8 @@ import { assignKeyHandler } from './helpers'
  * @param {Object} alias
  */
 function bindEvent (el, { value, modifiers }, alias) {
-  el._keyMap = getKeyMap(value, alias)
-  el._keyHandler = e => assignKeyHandler(e, el._keyMap, modifiers)
+  const keyMap = getKeyMap(value, alias)
+  el._keyHandler = e => assignKeyHandler(e, keyMap, modifiers)
 
   document.addEventListener('keydown', el._keyHandler)
   document.addEventListener('keyup', el._keyHandler)

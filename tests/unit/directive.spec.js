@@ -1,19 +1,18 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import hotkeyDirective from '../../src/index'
-import Foo from './Foo.vue'
-
-const localVue = createLocalVue()
-localVue.use(hotkeyDirective)
+import Foo from './FooComponent.vue'
 
 describe('Hotkey works', () => {
   it('shows div on enter down', async () => {
     const wrapper = mount(Foo, {
-      localVue,
-      attachToDocument: true
+      global: {
+        plugins: [hotkeyDirective]
+      },
+      attachTo: document.body
     })
     let div = wrapper.find('.visible')
     expect(div.exists()).toBe(false)
-    wrapper.trigger('keydown.enter')
+    await wrapper.trigger('keydown.enter')
     div = wrapper.find('.visible')
     expect(div.exists()).toBe(true)
     expect(div.text()).toBe('Hello hotkey')
@@ -21,13 +20,15 @@ describe('Hotkey works', () => {
 
   it('hiddes div on esc down', async () => {
     const wrapper = mount(Foo, {
-      localVue,
-      attachToDocument: true
+      global: {
+        plugins: [hotkeyDirective]
+      },
+      attachTo: document.body
     })
-    wrapper.trigger('keydown.enter')
+    await wrapper.trigger('keydown.enter')
     let div = wrapper.find('.visible')
     expect(div.exists()).toBe(true)
-    wrapper.trigger('keydown.esc')
+    await wrapper.trigger('keydown.esc')
     div = wrapper.find('.visible')
     expect(div.exists()).toBe(false)
   })

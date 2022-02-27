@@ -1,7 +1,8 @@
 <template lang="pug">
 section(v-hotkey="keymap")
-  transition(name="slide", mode="out-in")
-    router-view
+  router-view(v-slot="{ Component }")
+    transition(name="slide", mode="out-in")
+      component(:is="Component")
 </template>
 
 <script>

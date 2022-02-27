@@ -10,8 +10,10 @@ const defaultModifiers = {
   metaKey: false
 }
 
-function isApplePlatform() {
-  return typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+function isApplePlatform () {
+  return typeof navigator !== 'undefined' &&
+    typeof navigator.userAgentData !== 'undefined' &&
+    /Mac|iPod|iPhone|iPad/.test(navigator.userAgentData.platform)
 }
 
 const alternativeKeyNames = {
@@ -62,7 +64,7 @@ const resolveCodesAndModifiers = (keys, alias) => {
   if (keys.length > 1) {
     return keys.reduce((acc, key) => {
       key = alternativeKeyNames[key] || key
-      if (defaultModifiers.hasOwnProperty(`${key}Key`)) {
+      if (`${key}Key` in defaultModifiers) {
         acc.modifiers = { ...acc.modifiers, [`${key}Key`]: true }
       } else {
         acc.code = alias[key] || searchKeyCode(key)
@@ -72,7 +74,7 @@ const resolveCodesAndModifiers = (keys, alias) => {
   }
 
   const key = alternativeKeyNames[keys[0]] || keys[0]
-  if (defaultModifiers.hasOwnProperty(`${key}Key`)) {
+  if (`${key}Key` in defaultModifiers) {
     modifiers = { ...modifiers, [`${key}Key`]: true }
   }
   const code = alias[key] || searchKeyCode(key)

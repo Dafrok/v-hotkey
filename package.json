@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "vue-cli-service build --target lib --name v-hotkey ./src/index.js",
-    "lint": "eslint --ext .js,.vue .",
+    "lint": "vue-cli-service lint",
     "build:docs": "vue-cli-service build ./src/docs/main.js --dest docs",
     "build:docs:dev": "npm run build:docs -- --mode development",
     "dev": "vue-cli-service serve",
@@ -23,37 +23,37 @@
     "!dist/demo.html"
   ],
   "dependencies": {
-    "core-js": "^2.6.5"
+    "core-js": "^3.8.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@vue/cli-plugin-babel": "^4.0.0-rc.8",
-    "@vue/cli-plugin-unit-jest": "^4.0.0-rc.8",
-    "@vue/cli-service": "^4.0.0-rc.8",
-    "@vue/test-utils": "1.0.0-beta.29",
-    "babel-eslint": "^10.0.3",
-    "bulma": "^0.7.5",
-    "eslint": "^6.5.1",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-loader": "^3.0.2",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.19.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^5.2.3",
-    "html-webpack-template": "^6.2.0",
-    "pug": "^2.0.4",
-    "pug-plain-loader": "^1.0.0",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "vue": "^2.6.10",
-    "vue-router": "^3.1.3",
-    "vue-template-compiler": "^2.6.10"
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-unit-jest": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-standard": "^6.1.0",
+    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "babel-jest": "^27.0.6",
+    "bulma": "^0.9.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "jest": "^27.0.5",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "stylus": "^0.55.0",
+    "stylus-loader": "^6.1.0",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.3"
   },
   "peerDependencies": {
-    "vue": "^2.x"
+    "vue": "^3.x"
   },
   "bugs": {
     "url": "https://github.com/Dafrok/v-hotkey/issues"

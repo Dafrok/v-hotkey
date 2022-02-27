@@ -5,7 +5,7 @@
 [![github license](https://badgen.net/github/license/dafrok/v-hotkey)](https://github.com/dafrok/v-hotkey/blob/master/LICENSE)
 [![js standard style](https://badgen.net/badge/code%20style/standard/pink)](https://standardjs.com)
 
-Vue 2.x directive for binding hotkeys to components.
+Vue 3.x directive for binding hotkeys to components.
 
 ## Play with me
 
@@ -22,10 +22,14 @@ $ yarn add v-hotkey
 ## Usage
 
 ```javascript
-import Vue from 'vue'
+import { createApp } from 'vue'
 import VueHotkey from 'v-hotkey'
 
-Vue.use(VueHotkey)
+const app = createApp({
+  /* ... */
+})
+app.use(VueHotkey)
+
 ```
 
 ```vue
@@ -119,10 +123,13 @@ This ability to provide their own key code alias for developers who using keyboa
 ### Definition
 
 ```javascript
-import Vue from 'vue'
+import { createApp } from 'vue'
 import VueHotkey from 'v-hotkey'
 
-Vue.use(VueHotkey, {
+const app = createApp({
+  /* ... */
+})
+app.use(VueHotkey, {
   '①': 49 // the key code of character '1'
 })
 ```
@@ -133,13 +140,15 @@ Vue.use(VueHotkey, {
 <span v-hotkey="keymap"></span>
 <script>
 export default {
-  foo () {
-    console.log('Hooray!')
+  methods: {
+    foo () {
+      console.log('Hooray!')
+    },
   },
   computed: {
     keymap () {
       return {
-        '①': foo
+        '①': this.foo
       }
     }
   }
