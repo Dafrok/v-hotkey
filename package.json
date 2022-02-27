@@ -16,7 +16,7 @@
     "prepare": "npm run build",
     "test": "vue-cli-service test:unit"
   },
-  "main": "dist/v-hotkey.common.js",
+  "main": "src/index.js",
   "unpkg": "dist/v-hotkey.umd.js",
   "files": [
     "dist",
