@@ -2,7 +2,7 @@ import { bindEvent, unbindEvent } from './main'
 
 const buildDirective = function (alias = {}) {
   return {
-    beforeMount (el, binding) {
+    mounted (el, binding) {
       bindEvent(el, binding, alias)
     },
     updated (el, binding) {
@@ -11,7 +11,7 @@ const buildDirective = function (alias = {}) {
         bindEvent(el, binding, alias)
       }
     },
-    unmounted: unbindEvent
+    beforeUnmount: unbindEvent
   }
 }
 

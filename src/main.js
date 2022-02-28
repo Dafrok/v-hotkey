@@ -11,8 +11,8 @@ function bindEvent (el, { value, modifiers }, alias) {
   const keyMap = getKeyMap(value, alias)
   el._keyHandler = e => assignKeyHandler(e, keyMap, modifiers)
 
-  document.addEventListener('keydown', el._keyHandler)
-  document.addEventListener('keyup', el._keyHandler)
+  el.ownerDocument.addEventListener('keydown', el._keyHandler)
+  el.ownerDocument.addEventListener('keyup', el._keyHandler)
 }
 
 /**
@@ -20,8 +20,8 @@ function bindEvent (el, { value, modifiers }, alias) {
  * @param {Object} el
  */
 function unbindEvent (el) {
-  document.removeEventListener('keydown', el._keyHandler)
-  document.removeEventListener('keyup', el._keyHandler)
+  el.ownerDocument.removeEventListener('keydown', el._keyHandler)
+  el.ownerDocument.removeEventListener('keyup', el._keyHandler)
 }
 
 export {
