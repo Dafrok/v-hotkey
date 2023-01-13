@@ -11,9 +11,7 @@ const defaultModifiers = {
 }
 
 function isApplePlatform () {
-  return typeof navigator !== 'undefined' &&
-    typeof navigator.userAgentData !== 'undefined' &&
-    /Mac|iPod|iPhone|iPad/.test(navigator.userAgentData.platform)
+  return typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
 }
 
 const alternativeKeyNames = {
