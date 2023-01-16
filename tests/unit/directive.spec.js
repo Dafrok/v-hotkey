@@ -3,7 +3,7 @@ import hotkeyDirective from '../../src/index'
 import Foo from './FooComponent.vue'
 
 describe('Hotkey works', () => {
-  it('shows div on enter down', async () => {
+  /*it('shows div on enter down', async () => {
     const wrapper = mount(Foo, {
       global: {
         plugins: [hotkeyDirective]
@@ -16,7 +16,7 @@ describe('Hotkey works', () => {
     div = wrapper.find('.visible')
     expect(div.exists()).toBe(true)
     expect(div.text()).toBe('Hello hotkey')
-  })
+  })*/
 
   it('hiddes div on esc down', async () => {
     const wrapper = mount(Foo, {

@@ -1,4 +1,4 @@
-import codes from './codes'
+import keyAliases from './aliases'
 import { splitCombination, returnCharCode } from '../helpers'
 
 const noop = () => {}
@@ -8,19 +8,6 @@ const defaultModifiers = {
   altKey: false,
   shiftKey: false,
   metaKey: false
-}
-
-function isApplePlatform () {
-  return typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
-}
-
-const alternativeKeyNames = {
-  option: 'alt',
-  command: 'meta',
-  return: 'enter',
-  escape: 'esc',
-  plus: '+',
-  mod: isApplePlatform() ? 'meta' : 'ctrl'
 }
 
 /**
@@ -39,10 +26,10 @@ export const getKeyMap = (combinations, alias) => {
       keyup: keyup || noop
     }
     const keys = splitCombination(combination)
-    const { code, modifiers } = resolveCodesAndModifiers(keys, alias)
+    const { key, modifiers } = resolveKeyAndModifiers(keys, alias)
 
     result.push({
-      code,
+      key,
       modifiers,
       callback
     })
@@ -57,29 +44,28 @@ export const getKeyMap = (combinations, alias) => {
  * @param {Object} alias
  * @returns {Object}
  */
-const resolveCodesAndModifiers = (keys, alias) => {
+const resolveKeyAndModifiers = (keys, alias) => {
   let modifiers = { ...defaultModifiers }
   if (keys.length > 1) {
     return keys.reduce((acc, key) => {
-      key = alternativeKeyNames[key] || key
+      key = searchKey(key)
       if (`${key}Key` in defaultModifiers) {
         acc.modifiers = { ...acc.modifiers, [`${key}Key`]: true }
       } else {
-        acc.code = alias[key] || searchKeyCode(key)
+        acc.key = key
       }
       return acc
     }, { modifiers })
   }
 
-  const key = alternativeKeyNames[keys[0]] || keys[0]
+  const key = searchKey(keys[0])
   if (`${key}Key` in defaultModifiers) {
     modifiers = { ...modifiers, [`${key}Key`]: true }
   }
-  const code = alias[key] || searchKeyCode(key)
 
   return {
+    key,
     modifiers,
-    code
   }
 }
 
@@ -87,4 +73,4 @@ const resolveCodesAndModifiers = (keys, alias) => {
  *
  * @param {String} key
  */
-const searchKeyCode = key => codes[key.toLowerCase()] || returnCharCode(key)
+export const searchKey = key => keyAliases[key.toLowerCase()] || key.toLowerCase()

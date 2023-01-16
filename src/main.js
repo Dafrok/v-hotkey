@@ -1,4 +1,4 @@
-import { getKeyMap } from './keycodes'
+import { getKeyMap } from './keys'
 import { assignKeyHandler } from './helpers'
 
 /**
