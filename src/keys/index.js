@@ -1,5 +1,5 @@
 import keyAliases from './aliases'
-import { splitCombination, returnCharCode } from '../helpers'
+import { splitCombination } from '../helpers'
 
 const noop = () => {}
 
