@@ -7,7 +7,7 @@ const buildDirective = function (alias = {}) {
     },
     updated (el, binding) {
       if (binding.value !== binding.oldValue) {
-        unbindEvent(el)
+        unbindEvent(el, binding)
         bindEvent(el, binding, alias)
       }
     },
