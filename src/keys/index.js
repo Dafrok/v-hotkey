@@ -59,9 +59,6 @@ const resolveKeyAndModifiers = (keys, alias) => {
   }
 
   const key = searchKey(keys[0])
-  if (`${key}Key` in defaultModifiers) {
-    modifiers = { ...modifiers, [`${key}Key`]: true }
-  }
 
   return {
     key,
