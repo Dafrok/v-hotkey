@@ -2,22 +2,22 @@ import { bindEvent, unbindEvent } from './main'
 
 const buildDirective = function (alias = {}) {
   return {
-    bind (el, binding) {
+    mounted (el, binding) {
       bindEvent(el, binding, alias)
     },
-    componentUpdated (el, binding) {
+    updated (el, binding) {
       if (binding.value !== binding.oldValue) {
-        unbindEvent(el)
+        unbindEvent(el, binding)
         bindEvent(el, binding, alias)
       }
     },
-    unbind: unbindEvent
+    beforeUnmount: unbindEvent
   }
 }
 
 const plugin = {
-  install (Vue, alias = {}) {
-    Vue.directive('hotkey', buildDirective(alias))
+  install (app, alias = {}) {
+    app.directive('hotkey', buildDirective(alias))
   },
 
   directive: buildDirective()

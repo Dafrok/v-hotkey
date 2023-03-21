@@ -1,4 +1,4 @@
-import { splitCombination, returnCharCode, assignKeyHandler } from '../../src/helpers'
+import { splitCombination, assignKeyHandler } from '../../src/helpers'
 
 describe('helper functions', () => {
   it('should split combination', () => {
@@ -16,21 +16,11 @@ describe('helper functions', () => {
     expect(keys).toEqual(['numpadadd', '2'])
   })
 
-  it('sholud return charCode', () => {
-    const charCode = returnCharCode('a')
-    expect(charCode).toEqual(97)
-  })
-
-  it('sholud return undefined instead of charCode', () => {
-    const charCode = returnCharCode('')
-    expect(charCode).toEqual(undefined)
-  })
-
   it('should assign handler to element and trigger callback', () => {
     const mockFn = jest.fn()
     const e = {
       type: 'keydown',
-      keyCode: 65,
+      key: 'a',
       ctrlKey: false,
       altKey: false,
       shiftKey: false,
@@ -39,7 +29,7 @@ describe('helper functions', () => {
     }
 
     const keyMap = [{
-      code: 65,
+      key: 'a',
       modifiers: {
         ctrlKey: false,
         altKey: false,

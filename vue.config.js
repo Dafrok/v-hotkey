@@ -1,17 +1,15 @@
-const HtmlWebpackTemplate = require('html-webpack-template')
+const { defineConfig } = require('@vue/cli-service')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-/** @type {import('@vue/cli-service').ProjectOptions} */
-module.exports = {
+module.exports = defineConfig({
+  transpileDependencies: true,
   publicPath: isProduction ? '/v-hotkey/' : '',
   pages: {
     index: {
       entry: './src/docs/main',
       title: 'V-Hotkey',
-      template: HtmlWebpackTemplate,
-      inject: false,
       appMountId: 'app'
     }
   }
-}
+})

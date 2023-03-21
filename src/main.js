@@ -1,4 +1,4 @@
-import { getKeyMap } from './keycodes'
+import { getKeyMap } from './keys'
 import { assignKeyHandler } from './helpers'
 
 /**
@@ -8,20 +8,30 @@ import { assignKeyHandler } from './helpers'
  * @param {Object} alias
  */
 function bindEvent (el, { value, modifiers }, alias) {
-  el._keyMap = getKeyMap(value, alias)
-  el._keyHandler = e => assignKeyHandler(e, el._keyMap, modifiers)
+  const keyMap = getKeyMap(value, alias)
+  el._keyHandler = e => assignKeyHandler(e, keyMap, modifiers)
 
-  document.addEventListener('keydown', el._keyHandler)
-  document.addEventListener('keyup', el._keyHandler)
+  if (modifiers.local) {
+    el.addEventListener('keydown', el._keyHandler)
+    el.addEventListener('keyup', el._keyHandler)
+  } else {
+    el.ownerDocument.addEventListener('keydown', el._keyHandler)
+    el.ownerDocument.addEventListener('keyup', el._keyHandler)
+  }
 }
 
 /**
  *
  * @param {Object} el
  */
-function unbindEvent (el) {
-  document.removeEventListener('keydown', el._keyHandler)
-  document.removeEventListener('keyup', el._keyHandler)
+function unbindEvent (el, { value, modifiers }) {
+  if (modifiers.local) {
+    el.removeEventListener('keydown', el._keyHandler)
+    el.removeEventListener('keyup', el._keyHandler)
+  } else {
+    el.ownerDocument.removeEventListener('keydown', el._keyHandler)
+    el.ownerDocument.removeEventListener('keyup', el._keyHandler)
+  }
 }
 
 export {

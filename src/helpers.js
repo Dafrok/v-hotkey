@@ -1,3 +1,4 @@
+import { searchKey } from './keys'
 
 const FORBIDDEN_NODES = ['INPUT', 'TEXTAREA', 'SELECT']
 
@@ -27,24 +28,17 @@ export const splitCombination = combination => {
 
 /**
  *
- * @param {String} key
- * @returns {String|undefined}
- */
-export const returnCharCode = key => key.length === 1 ? key.charCodeAt(0) : undefined
-
-/**
- *
  * @param {Array} keyMap
- * @param {Number} keyCode
+ * @param {String} key
  * @param {Object} eventKeyModifiers
  * @returns {Function|Boolean}
  */
-const getHotkeyCallback = (keyMap, keyCode, eventKeyModifiers) => {
-  const key = keyMap.find(({ code, modifiers }) =>
-    code === keyCode && areObjectsEqual(eventKeyModifiers, modifiers)
+const getHotkeyCallback = (keyMap, eventKey, eventModifiers) => {
+  const match = keyMap.find(({ key, modifiers }) =>
+    eventKey && searchKey(eventKey) === key && areObjectsEqual(eventModifiers, modifiers)
   )
-  if (!key) return false
-  return key.callback
+  if (!match) return false
+  return match.callback
 }
 
 /**
@@ -54,23 +48,23 @@ const getHotkeyCallback = (keyMap, keyCode, eventKeyModifiers) => {
  * @param {Object} modifiers Vue event modifiers
  */
 export const assignKeyHandler = (e, keyMap, modifiers) => {
-  const { keyCode, ctrlKey, altKey, shiftKey, metaKey } = e
-  const eventKeyModifiers = { ctrlKey, altKey, shiftKey, metaKey }
-
-  if (modifiers.prevent) {
-    e.preventDefault()
-  }
-
-  if (modifiers.stop) {
-    e.stopPropagation()
-  }
+  const { key: eventKey, ctrlKey, altKey, shiftKey, metaKey } = e
+  const eventModifiers = { ctrlKey, altKey, shiftKey, metaKey }
 
   const { nodeName, isContentEditable } = document.activeElement
   if (isContentEditable) return
   if (FORBIDDEN_NODES.includes(nodeName)) return
 
-  const callback = getHotkeyCallback(keyMap, keyCode, eventKeyModifiers)
+  const callback = getHotkeyCallback(keyMap, eventKey, eventModifiers)
   if (!callback) return e
-  e.preventDefault()
+
+  if (modifiers.stop) {
+    e.stopPropagation()
+  }
+
+  if (modifiers.prevent) {
+    e.preventDefault()
+  }
+
   callback[e.type](e)
 }
